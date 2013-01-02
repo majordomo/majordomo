@@ -245,7 +245,7 @@
   <element xmi:type="ecore:EPackage" href="majordomo.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="__gz8cFT5EeKHaeILgo_Ljw" type="3002" source="_mrbXQFT5EeKHaeILgo_Ljw" target="_7yLukFT5EeKHaeILgo_Ljw">
     <children xmi:type="notation:Node" xmi:id="__g1KkFT5EeKHaeILgo_Ljw" type="4011">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="__g1KkVT5EeKHaeILgo_Ljw" x="-82" y="-22"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="__g1KkVT5EeKHaeILgo_Ljw" x="-33" y="28"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="__g1KklT5EeKHaeILgo_Ljw" type="4012">
       <layoutConstraint xmi:type="notation:Location" xmi:id="__g1Kk1T5EeKHaeILgo_Ljw" x="-5" y="16"/>
