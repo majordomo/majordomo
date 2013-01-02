@@ -2,75 +2,62 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="majordomo" nsURI="http://mdsd.altimos.de/majordomo/1.0" nsPrefix="majordomo">
   <eClassifiers xsi:type="ecore:EClass" name="Majordomo">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="house" lowerBound="1" eType="#//House"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="house" eType="#//House"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//Rule" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="House">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
-        eType="#//Sensor" containment="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="House" eSuperTypes="#//Extendable">
     <eStructuralFeatures xsi:type="ecore:EReference" name="rooms" upperBound="-1"
         eType="#//Room" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mountable" eType="#//MountPoint"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SensorType"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Room">
+  <eClassifiers xsi:type="ecore:EClass" name="Extendable" abstract="true" interface="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
-        eType="#//Sensor" containment="true"/>
+        eType="#//Sensor" containment="true" eOpposite="#//Sensor/context"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
-        eType="#//Actor" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        eType="#//Actor" containment="true" eOpposite="#//Actor/context"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActorType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Room" eSuperTypes="#//Extendable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" interface="true"
+      eSuperTypes="#//Extension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Extendable" eOpposite="#//Extendable/sensors"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="MountPoint">
-    <eLiterals name="HOUSE"/>
-    <eLiterals name="ROOM" value="1"/>
-    <eLiterals name="BOTH" value="2"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true" interface="true"
+      eSuperTypes="#//Extension">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="context" lowerBound="1"
+        eType="#//Extendable" eOpposite="#//Extendable/actors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule">
     <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
         eType="#//Condition" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
-        eType="#//Sensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Extension" abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LightSensor" eSuperTypes="#//Sensor #//HouseExtension #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TemperatureSensor" eSuperTypes="#//Sensor #//HouseExtension #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RainSensor" eSuperTypes="#//Sensor #//HouseExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchSensor" eSuperTypes="#//Sensor #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberSensor" eSuperTypes="#//Sensor #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClockSensor" eSuperTypes="#//Sensor #//HouseExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LampActor" eSuperTypes="#//Actor #//HouseExtension #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RollerActor" eSuperTypes="#//Actor #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RoofWindowActor" eSuperTypes="#//Actor #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BoilerAction" eSuperTypes="#//Actor #//HouseExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RadiatorActor" eSuperTypes="#//Actor #//RoomExtension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RoomExtension" abstract="true" interface="true"
+      eSuperTypes="#//Extension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HouseExtension" abstract="true" interface="true"
+      eSuperTypes="#//Extension"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//Sensor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comperator" eType="#//CompareOperator"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="CompareOperator">
-    <eLiterals name="LESS"/>
-    <eLiterals name="GREATER" value="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//Actor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="ActorType">
-    <eLiterals name="LAMP"/>
-    <eLiterals name="BOILER" value="1"/>
-    <eLiterals name="RADIATOR" value="2"/>
-    <eLiterals name="ROOF_WINDOW" value="3"/>
-    <eLiterals name="ROLLER" value="4"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="SensorType">
-    <eLiterals name="SWITCH"/>
-    <eLiterals name="TEMPERATURE" value="1"/>
-    <eLiterals name="NUMBER" value="2"/>
-    <eLiterals name="CLOCK" value="3"/>
-    <eLiterals name="TWILIGHT" value="4"/>
-    <eLiterals name="RAIN" value="5"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RoomActor" eSuperTypes="#//Actor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HouseActor" eSuperTypes="#//Actor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LesserCondition" eSuperTypes="#//Condition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterCondition" eSuperTypes="#//Condition"/>
 </ecore:EPackage>
