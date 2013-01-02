@@ -29,6 +29,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Actor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mountable" eType="#//MountPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ActorType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="MountPoint">
     <eLiterals name="HOUSE"/>
@@ -54,5 +55,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//Actor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActorType">
+    <eLiterals name="LAMP"/>
+    <eLiterals name="BOILER" value="1"/>
+    <eLiterals name="RADIATOR" value="2"/>
+    <eLiterals name="ROOF_WINDOW" value="3"/>
+    <eLiterals name="ROLLER" value="4"/>
   </eClassifiers>
 </ecore:EPackage>
