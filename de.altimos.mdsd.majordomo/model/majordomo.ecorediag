@@ -392,7 +392,7 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_cE4npVT_EeKHaeILgo_Ljw" x="-81" y="10"/>
     </children>
     <children xmi:type="notation:Node" xmi:id="_cE4nplT_EeKHaeILgo_Ljw" type="4012">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_cE4np1T_EeKHaeILgo_Ljw" x="-10" y="10"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_cE4np1T_EeKHaeILgo_Ljw" x="-23" y="10"/>
     </children>
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_cE4noVT_EeKHaeILgo_Ljw" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_cE4nolT_EeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10"/>
