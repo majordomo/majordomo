@@ -3,3 +3,11 @@ import majordomo;
 context Majordomo ERROR
 	"Majordomo must have a house to dominate.":
 	this.house != null;
+
+context Room ERROR
+	"Room cannot contain non-roo actors.":
+	this.actors.forAll(e|e.metaType.isInstance(RoomActor));
+	
+context Actor ERROR
+	"Cannot use abstract actor.":
+	this.metaType == Actor;

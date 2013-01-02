@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.altimos.mdsd.majordomo.presentation.MajordomoModelWizardID"
+            name="%_UI_MajordomoModelWizard_label"
+            class="de.altimos.mdsd.majordomo.presentation.MajordomoModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/MajordomoModelFile.gif">
+         <description>%_UI_MajordomoModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.altimos.mdsd.majordomo.presentation.MajordomoEditorID"
+            name="%_UI_MajordomoEditor_label"
+            icon="icons/full/obj16/MajordomoModelFile.gif"
+            extensions="majordomo"
+            class="de.altimos.mdsd.majordomo.presentation.MajordomoEditor"
+            contributorClass="de.altimos.mdsd.majordomo.presentation.MajordomoActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.altimos.mdsd.majordomo/src" modelPluginID="de.altimos.mdsd.majordomo"
+    modelName="Majordomo" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>majordomo.ecore</foreignModel>
+  <genPackages prefix="Majordomo" basePackage="de.altimos.mdsd" disposableProviderFactory="true"
+      ecorePackage="majordomo.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="majordomo.ecore#//MountPoint">
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//MountPoint/HOUSE"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//MountPoint/ROOM"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//MountPoint/BOTH"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="majordomo.ecore#//CompareOperator">
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//CompareOperator/LESS"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//CompareOperator/GREATER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="majordomo.ecore#//ActorType">
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//ActorType/LAMP"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//ActorType/BOILER"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//ActorType/RADIATOR"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//ActorType/ROOF_WINDOW"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//ActorType/ROLLER"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="majordomo.ecore#//SensorType">
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/SWITCH"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/TEMPERATURE"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/NUMBER"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/CLOCK"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/TWILIGHT"/>
+      <genEnumLiterals ecoreEnumLiteral="majordomo.ecore#//SensorType/RAIN"/>
+    </genEnums>
+    <genClasses ecoreClass="majordomo.ecore#//Majordomo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Majordomo/house"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Majordomo/rules"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//House">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//House/sensors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//House/rooms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//House/actors"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Sensor/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Sensor/mountable"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Sensor/type"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Room">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Room/sensors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Room/actors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Room/label"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Actor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Actor/label"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Actor/type"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Rule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Rule/conditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference majordomo.ecore#//Rule/actions"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Condition">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference majordomo.ecore#//Condition/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Condition/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Condition/comperator"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//Action">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference majordomo.ecore#//Action/actor"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute majordomo.ecore#//Action/value"/>
+    </genClasses>
+    <genClasses ecoreClass="majordomo.ecore#//RoomActor"/>
+    <genClasses ecoreClass="majordomo.ecore#//HouseActor"/>
+  </genPackages>
+</genmodel:GenModel>
