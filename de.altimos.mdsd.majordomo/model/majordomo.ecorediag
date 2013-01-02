@@ -65,6 +65,14 @@
   <children xmi:type="notation:Node" xmi:id="_UuRjQFT7EeKHaeILgo_Ljw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_UuRjQ1T7EeKHaeILgo_Ljw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_UuRjRFT7EeKHaeILgo_Ljw" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_ZQTSEFT9EeKi7PcPFdoNBw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Room/id"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ZQTSEVT9EeKi7PcPFdoNBw"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_dAowIFT9EeKi7PcPFdoNBw" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Room/label"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_dAowIVT9EeKi7PcPFdoNBw"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_UuRjRVT7EeKHaeILgo_Ljw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_UuSKUFT7EeKHaeILgo_Ljw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_UuSKUVT7EeKHaeILgo_Ljw"/>
