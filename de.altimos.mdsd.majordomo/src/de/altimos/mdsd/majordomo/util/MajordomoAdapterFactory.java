@@ -76,12 +76,16 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createHouseAdapter();
 			}
 			@Override
-			public Adapter caseSensor(Sensor object) {
-				return createSensorAdapter();
+			public Adapter caseExtendable(Extendable object) {
+				return createExtendableAdapter();
 			}
 			@Override
 			public Adapter caseRoom(Room object) {
 				return createRoomAdapter();
+			}
+			@Override
+			public Adapter caseSensor(Sensor object) {
+				return createSensorAdapter();
 			}
 			@Override
 			public Adapter caseActor(Actor object) {
@@ -92,6 +96,62 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createRuleAdapter();
 			}
 			@Override
+			public Adapter caseExtension(Extension object) {
+				return createExtensionAdapter();
+			}
+			@Override
+			public Adapter caseLightSensor(LightSensor object) {
+				return createLightSensorAdapter();
+			}
+			@Override
+			public Adapter caseTemperatureSensor(TemperatureSensor object) {
+				return createTemperatureSensorAdapter();
+			}
+			@Override
+			public Adapter caseRainSensor(RainSensor object) {
+				return createRainSensorAdapter();
+			}
+			@Override
+			public Adapter caseSwitchSensor(SwitchSensor object) {
+				return createSwitchSensorAdapter();
+			}
+			@Override
+			public Adapter caseNumberSensor(NumberSensor object) {
+				return createNumberSensorAdapter();
+			}
+			@Override
+			public Adapter caseClockSensor(ClockSensor object) {
+				return createClockSensorAdapter();
+			}
+			@Override
+			public Adapter caseLampActor(LampActor object) {
+				return createLampActorAdapter();
+			}
+			@Override
+			public Adapter caseRollerActor(RollerActor object) {
+				return createRollerActorAdapter();
+			}
+			@Override
+			public Adapter caseRoofWindowActor(RoofWindowActor object) {
+				return createRoofWindowActorAdapter();
+			}
+			@Override
+			public Adapter caseBoilerAction(BoilerAction object) {
+				return createBoilerActionAdapter();
+			}
+			@Override
+			public Adapter caseRadiatorActor(RadiatorActor object) {
+				return createRadiatorActorAdapter();
+			}
+			@Override
+			public Adapter caseRoomExtension(RoomExtension object) {
+				return createRoomExtensionAdapter();
+			}
+			@Override
+			public Adapter caseHouseExtension(HouseExtension object) {
+				return createHouseExtensionAdapter();
+			}
+			@Override
 			public Adapter caseCondition(Condition object) {
 				return createConditionAdapter();
 			}
@@ -100,12 +160,12 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter caseRoomActor(RoomActor object) {
-				return createRoomActorAdapter();
+			public Adapter caseLesserCondition(LesserCondition object) {
+				return createLesserConditionAdapter();
 			}
 			@Override
-			public Adapter caseHouseActor(HouseActor object) {
-				return createHouseActorAdapter();
+			public Adapter caseGreaterCondition(GreaterCondition object) {
+				return createGreaterConditionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -156,16 +216,16 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.Sensor <em>Sensor</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.Extendable <em>Extendable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.Sensor
+	 * @see de.altimos.mdsd.majordomo.Extendable
 	 * @generated
 	 */
-	public Adapter createSensorAdapter() {
+	public Adapter createExtendableAdapter() {
 		return null;
 	}
 
@@ -180,6 +240,20 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createRoomAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.Sensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.Sensor
+	 * @generated
+	 */
+	public Adapter createSensorAdapter() {
 		return null;
 	}
 
@@ -212,6 +286,202 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.Extension <em>Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.Extension
+	 * @generated
+	 */
+	public Adapter createExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.LightSensor <em>Light Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.LightSensor
+	 * @generated
+	 */
+	public Adapter createLightSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.TemperatureSensor <em>Temperature Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.TemperatureSensor
+	 * @generated
+	 */
+	public Adapter createTemperatureSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RainSensor <em>Rain Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.RainSensor
+	 * @generated
+	 */
+	public Adapter createRainSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.SwitchSensor <em>Switch Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.SwitchSensor
+	 * @generated
+	 */
+	public Adapter createSwitchSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.NumberSensor <em>Number Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.NumberSensor
+	 * @generated
+	 */
+	public Adapter createNumberSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.ClockSensor <em>Clock Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.ClockSensor
+	 * @generated
+	 */
+	public Adapter createClockSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.LampActor <em>Lamp Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.LampActor
+	 * @generated
+	 */
+	public Adapter createLampActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RollerActor <em>Roller Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.RollerActor
+	 * @generated
+	 */
+	public Adapter createRollerActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RoofWindowActor <em>Roof Window Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.RoofWindowActor
+	 * @generated
+	 */
+	public Adapter createRoofWindowActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BoilerAction <em>Boiler Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.BoilerAction
+	 * @generated
+	 */
+	public Adapter createBoilerActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RadiatorActor <em>Radiator Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.RadiatorActor
+	 * @generated
+	 */
+	public Adapter createRadiatorActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RoomExtension <em>Room Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.RoomExtension
+	 * @generated
+	 */
+	public Adapter createRoomExtensionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.HouseExtension <em>House Extension</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.HouseExtension
+	 * @generated
+	 */
+	public Adapter createHouseExtensionAdapter() {
+		return null;
+	}
+
+	/**
 	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.Condition <em>Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -240,30 +510,30 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RoomActor <em>Room Actor</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.LesserCondition <em>Lesser Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.RoomActor
+	 * @see de.altimos.mdsd.majordomo.LesserCondition
 	 * @generated
 	 */
-	public Adapter createRoomActorAdapter() {
+	public Adapter createLesserConditionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.HouseActor <em>House Actor</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.GreaterCondition <em>Greater Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.HouseActor
+	 * @see de.altimos.mdsd.majordomo.GreaterCondition
 	 * @generated
 	 */
-	public Adapter createHouseActorAdapter() {
+	public Adapter createGreaterConditionAdapter() {
 		return null;
 	}
 

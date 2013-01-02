@@ -9,7 +9,6 @@ import de.altimos.mdsd.majordomo.Sensor;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -17,10 +16,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -32,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getSensors <em>Sensors</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getActors <em>Actors</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getLabel <em>Label</em>}</li>
  * </ul>
  * </p>
  *
@@ -60,26 +57,6 @@ public class RoomImpl extends EObjectImpl implements Room {
 	protected EList<Actor> actors;
 
 	/**
-	 * The default value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String LABEL_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getLabel() <em>Label</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLabel()
-	 * @generated
-	 * @ordered
-	 */
-	protected String label = LABEL_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -105,7 +82,7 @@ public class RoomImpl extends EObjectImpl implements Room {
 	 */
 	public EList<Sensor> getSensors() {
 		if (sensors == null) {
-			sensors = new EObjectContainmentEList<Sensor>(Sensor.class, this, MajordomoPackage.ROOM__SENSORS);
+			sensors = new EObjectContainmentWithInverseEList<Sensor>(Sensor.class, this, MajordomoPackage.ROOM__SENSORS, MajordomoPackage.SENSOR__CTX);
 		}
 		return sensors;
 	}
@@ -117,7 +94,7 @@ public class RoomImpl extends EObjectImpl implements Room {
 	 */
 	public EList<Actor> getActors() {
 		if (actors == null) {
-			actors = new EObjectContainmentEList<Actor>(Actor.class, this, MajordomoPackage.ROOM__ACTORS);
+			actors = new EObjectContainmentWithInverseEList<Actor>(Actor.class, this, MajordomoPackage.ROOM__ACTORS, MajordomoPackage.ACTOR__CTX);
 		}
 		return actors;
 	}
@@ -127,20 +104,16 @@ public class RoomImpl extends EObjectImpl implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLabel() {
-		return label;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setLabel(String newLabel) {
-		String oldLabel = label;
-		label = newLabel;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ROOM__LABEL, oldLabel, label));
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MajordomoPackage.ROOM__SENSORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSensors()).basicAdd(otherEnd, msgs);
+			case MajordomoPackage.ROOM__ACTORS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getActors()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -171,8 +144,6 @@ public class RoomImpl extends EObjectImpl implements Room {
 				return getSensors();
 			case MajordomoPackage.ROOM__ACTORS:
 				return getActors();
-			case MajordomoPackage.ROOM__LABEL:
-				return getLabel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,9 +165,6 @@ public class RoomImpl extends EObjectImpl implements Room {
 				getActors().clear();
 				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
-			case MajordomoPackage.ROOM__LABEL:
-				setLabel((String)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -215,9 +183,6 @@ public class RoomImpl extends EObjectImpl implements Room {
 			case MajordomoPackage.ROOM__ACTORS:
 				getActors().clear();
 				return;
-			case MajordomoPackage.ROOM__LABEL:
-				setLabel(LABEL_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -234,26 +199,8 @@ public class RoomImpl extends EObjectImpl implements Room {
 				return sensors != null && !sensors.isEmpty();
 			case MajordomoPackage.ROOM__ACTORS:
 				return actors != null && !actors.isEmpty();
-			case MajordomoPackage.ROOM__LABEL:
-				return LABEL_EDEFAULT == null ? label != null : !LABEL_EDEFAULT.equals(label);
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (label: ");
-		result.append(label);
-		result.append(')');
-		return result.toString();
 	}
 
 } //RoomImpl

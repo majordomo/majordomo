@@ -2,7 +2,6 @@
  */
 package de.altimos.mdsd.majordomo;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,99 +11,41 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.Sensor#getLabel <em>Label</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.Sensor#getMountable <em>Mountable</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.Sensor#getType <em>Type</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.Sensor#getCtx <em>Ctx</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.altimos.mdsd.majordomo.MajordomoPackage#getSensor()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface Sensor extends EObject {
+public interface Sensor extends Extension {
 	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ctx</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.altimos.mdsd.majordomo.Extendable#getSensors <em>Sensors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ctx</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getSensor_Label()
-	 * @model
+	 * @return the value of the '<em>Ctx</em>' container reference.
+	 * @see #setCtx(Extendable)
+	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getSensor_Ctx()
+	 * @see de.altimos.mdsd.majordomo.Extendable#getSensors
+	 * @model opposite="sensors" required="true" transient="false"
 	 * @generated
 	 */
-	String getLabel();
+	Extendable getCtx();
 
 	/**
-	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Sensor#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Sensor#getCtx <em>Ctx</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
+	 * @param value the new value of the '<em>Ctx</em>' container reference.
+	 * @see #getCtx()
 	 * @generated
 	 */
-	void setLabel(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Mountable</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.altimos.mdsd.majordomo.MountPoint}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Mountable</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Mountable</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.MountPoint
-	 * @see #setMountable(MountPoint)
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getSensor_Mountable()
-	 * @model
-	 * @generated
-	 */
-	MountPoint getMountable();
-
-	/**
-	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Sensor#getMountable <em>Mountable</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Mountable</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.MountPoint
-	 * @see #getMountable()
-	 * @generated
-	 */
-	void setMountable(MountPoint value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.altimos.mdsd.majordomo.SensorType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.SensorType
-	 * @see #setType(SensorType)
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getSensor_Type()
-	 * @model
-	 * @generated
-	 */
-	SensorType getType();
-
-	/**
-	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Sensor#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.SensorType
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(SensorType value);
+	void setCtx(Extendable value);
 
 } // Sensor

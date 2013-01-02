@@ -3,11 +3,8 @@
 package de.altimos.mdsd.majordomo.tests;
 
 import de.altimos.mdsd.majordomo.Condition;
-import de.altimos.mdsd.majordomo.MajordomoFactory;
 
 import junit.framework.TestCase;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,7 +12,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class ConditionTest extends TestCase {
+public abstract class ConditionTest extends TestCase {
 
 	/**
 	 * The fixture for this Condition test case.
@@ -24,15 +21,6 @@ public class ConditionTest extends TestCase {
 	 * @generated
 	 */
 	protected Condition fixture = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(ConditionTest.class);
-	}
 
 	/**
 	 * Constructs a new Condition test case with the given name.
@@ -62,28 +50,6 @@ public class ConditionTest extends TestCase {
 	 */
 	protected Condition getFixture() {
 		return fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(MajordomoFactory.eINSTANCE.createCondition());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //ConditionTest

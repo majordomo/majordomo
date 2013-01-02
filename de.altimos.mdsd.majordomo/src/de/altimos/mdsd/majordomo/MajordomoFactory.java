@@ -40,15 +40,6 @@ public interface MajordomoFactory extends EFactory {
 	House createHouse();
 
 	/**
-	 * Returns a new object of class '<em>Sensor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor</em>'.
-	 * @generated
-	 */
-	Sensor createSensor();
-
-	/**
 	 * Returns a new object of class '<em>Room</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -56,15 +47,6 @@ public interface MajordomoFactory extends EFactory {
 	 * @generated
 	 */
 	Room createRoom();
-
-	/**
-	 * Returns a new object of class '<em>Actor</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Actor</em>'.
-	 * @generated
-	 */
-	Actor createActor();
 
 	/**
 	 * Returns a new object of class '<em>Rule</em>'.
@@ -76,13 +58,103 @@ public interface MajordomoFactory extends EFactory {
 	Rule createRule();
 
 	/**
-	 * Returns a new object of class '<em>Condition</em>'.
+	 * Returns a new object of class '<em>Light Sensor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Condition</em>'.
+	 * @return a new object of class '<em>Light Sensor</em>'.
 	 * @generated
 	 */
-	Condition createCondition();
+	LightSensor createLightSensor();
+
+	/**
+	 * Returns a new object of class '<em>Temperature Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Temperature Sensor</em>'.
+	 * @generated
+	 */
+	TemperatureSensor createTemperatureSensor();
+
+	/**
+	 * Returns a new object of class '<em>Rain Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rain Sensor</em>'.
+	 * @generated
+	 */
+	RainSensor createRainSensor();
+
+	/**
+	 * Returns a new object of class '<em>Switch Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Switch Sensor</em>'.
+	 * @generated
+	 */
+	SwitchSensor createSwitchSensor();
+
+	/**
+	 * Returns a new object of class '<em>Number Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Sensor</em>'.
+	 * @generated
+	 */
+	NumberSensor createNumberSensor();
+
+	/**
+	 * Returns a new object of class '<em>Clock Sensor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Clock Sensor</em>'.
+	 * @generated
+	 */
+	ClockSensor createClockSensor();
+
+	/**
+	 * Returns a new object of class '<em>Lamp Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Lamp Actor</em>'.
+	 * @generated
+	 */
+	LampActor createLampActor();
+
+	/**
+	 * Returns a new object of class '<em>Roller Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Roller Actor</em>'.
+	 * @generated
+	 */
+	RollerActor createRollerActor();
+
+	/**
+	 * Returns a new object of class '<em>Roof Window Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Roof Window Actor</em>'.
+	 * @generated
+	 */
+	RoofWindowActor createRoofWindowActor();
+
+	/**
+	 * Returns a new object of class '<em>Boiler Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boiler Action</em>'.
+	 * @generated
+	 */
+	BoilerAction createBoilerAction();
+
+	/**
+	 * Returns a new object of class '<em>Radiator Actor</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Radiator Actor</em>'.
+	 * @generated
+	 */
+	RadiatorActor createRadiatorActor();
 
 	/**
 	 * Returns a new object of class '<em>Action</em>'.
@@ -94,22 +166,22 @@ public interface MajordomoFactory extends EFactory {
 	Action createAction();
 
 	/**
-	 * Returns a new object of class '<em>Room Actor</em>'.
+	 * Returns a new object of class '<em>Lesser Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Room Actor</em>'.
+	 * @return a new object of class '<em>Lesser Condition</em>'.
 	 * @generated
 	 */
-	RoomActor createRoomActor();
+	LesserCondition createLesserCondition();
 
 	/**
-	 * Returns a new object of class '<em>House Actor</em>'.
+	 * Returns a new object of class '<em>Greater Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>House Actor</em>'.
+	 * @return a new object of class '<em>Greater Condition</em>'.
 	 * @generated
 	 */
-	HouseActor createHouseActor();
+	GreaterCondition createGreaterCondition();
 
 	/**
 	 * Returns the package supported by this factory.

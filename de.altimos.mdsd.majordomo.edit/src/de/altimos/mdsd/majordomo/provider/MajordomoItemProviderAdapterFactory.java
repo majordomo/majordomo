@@ -118,29 +118,6 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.Sensor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected SensorItemProvider sensorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.Sensor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createSensorAdapter() {
-		if (sensorItemProvider == null) {
-			sensorItemProvider = new SensorItemProvider(this);
-		}
-
-		return sensorItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.Room} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,29 +138,6 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 		}
 
 		return roomItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.Actor} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ActorItemProvider actorItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.Actor}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createActorAdapter() {
-		if (actorItemProvider == null) {
-			actorItemProvider = new ActorItemProvider(this);
-		}
-
-		return actorItemProvider;
 	}
 
 	/**
@@ -210,26 +164,256 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.Condition} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.LightSensor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ConditionItemProvider conditionItemProvider;
+	protected LightSensorItemProvider lightSensorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.Condition}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.LightSensor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createConditionAdapter() {
-		if (conditionItemProvider == null) {
-			conditionItemProvider = new ConditionItemProvider(this);
+	public Adapter createLightSensorAdapter() {
+		if (lightSensorItemProvider == null) {
+			lightSensorItemProvider = new LightSensorItemProvider(this);
 		}
 
-		return conditionItemProvider;
+		return lightSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.TemperatureSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TemperatureSensorItemProvider temperatureSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.TemperatureSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTemperatureSensorAdapter() {
+		if (temperatureSensorItemProvider == null) {
+			temperatureSensorItemProvider = new TemperatureSensorItemProvider(this);
+		}
+
+		return temperatureSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.RainSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RainSensorItemProvider rainSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.RainSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRainSensorAdapter() {
+		if (rainSensorItemProvider == null) {
+			rainSensorItemProvider = new RainSensorItemProvider(this);
+		}
+
+		return rainSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.SwitchSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SwitchSensorItemProvider switchSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.SwitchSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createSwitchSensorAdapter() {
+		if (switchSensorItemProvider == null) {
+			switchSensorItemProvider = new SwitchSensorItemProvider(this);
+		}
+
+		return switchSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.NumberSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberSensorItemProvider numberSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.NumberSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberSensorAdapter() {
+		if (numberSensorItemProvider == null) {
+			numberSensorItemProvider = new NumberSensorItemProvider(this);
+		}
+
+		return numberSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.ClockSensor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ClockSensorItemProvider clockSensorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.ClockSensor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createClockSensorAdapter() {
+		if (clockSensorItemProvider == null) {
+			clockSensorItemProvider = new ClockSensorItemProvider(this);
+		}
+
+		return clockSensorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.LampActor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected LampActorItemProvider lampActorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.LampActor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createLampActorAdapter() {
+		if (lampActorItemProvider == null) {
+			lampActorItemProvider = new LampActorItemProvider(this);
+		}
+
+		return lampActorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.RollerActor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RollerActorItemProvider rollerActorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.RollerActor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRollerActorAdapter() {
+		if (rollerActorItemProvider == null) {
+			rollerActorItemProvider = new RollerActorItemProvider(this);
+		}
+
+		return rollerActorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.RoofWindowActor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RoofWindowActorItemProvider roofWindowActorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.RoofWindowActor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRoofWindowActorAdapter() {
+		if (roofWindowActorItemProvider == null) {
+			roofWindowActorItemProvider = new RoofWindowActorItemProvider(this);
+		}
+
+		return roofWindowActorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.BoilerAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoilerActionItemProvider boilerActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.BoilerAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoilerActionAdapter() {
+		if (boilerActionItemProvider == null) {
+			boilerActionItemProvider = new BoilerActionItemProvider(this);
+		}
+
+		return boilerActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.RadiatorActor} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected RadiatorActorItemProvider radiatorActorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.RadiatorActor}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createRadiatorActorAdapter() {
+		if (radiatorActorItemProvider == null) {
+			radiatorActorItemProvider = new RadiatorActorItemProvider(this);
+		}
+
+		return radiatorActorItemProvider;
 	}
 
 	/**
@@ -256,49 +440,49 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.RoomActor} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.LesserCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RoomActorItemProvider roomActorItemProvider;
+	protected LesserConditionItemProvider lesserConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.RoomActor}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.LesserCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRoomActorAdapter() {
-		if (roomActorItemProvider == null) {
-			roomActorItemProvider = new RoomActorItemProvider(this);
+	public Adapter createLesserConditionAdapter() {
+		if (lesserConditionItemProvider == null) {
+			lesserConditionItemProvider = new LesserConditionItemProvider(this);
 		}
 
-		return roomActorItemProvider;
+		return lesserConditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.HouseActor} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.GreaterCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected HouseActorItemProvider houseActorItemProvider;
+	protected GreaterConditionItemProvider greaterConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.HouseActor}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.GreaterCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createHouseActorAdapter() {
-		if (houseActorItemProvider == null) {
-			houseActorItemProvider = new HouseActorItemProvider(this);
+	public Adapter createGreaterConditionAdapter() {
+		if (greaterConditionItemProvider == null) {
+			greaterConditionItemProvider = new GreaterConditionItemProvider(this);
 		}
 
-		return houseActorItemProvider;
+		return greaterConditionItemProvider;
 	}
 
 	/**
@@ -402,14 +586,22 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	public void dispose() {
 		if (majordomoItemProvider != null) majordomoItemProvider.dispose();
 		if (houseItemProvider != null) houseItemProvider.dispose();
-		if (sensorItemProvider != null) sensorItemProvider.dispose();
 		if (roomItemProvider != null) roomItemProvider.dispose();
-		if (actorItemProvider != null) actorItemProvider.dispose();
 		if (ruleItemProvider != null) ruleItemProvider.dispose();
-		if (conditionItemProvider != null) conditionItemProvider.dispose();
+		if (lightSensorItemProvider != null) lightSensorItemProvider.dispose();
+		if (temperatureSensorItemProvider != null) temperatureSensorItemProvider.dispose();
+		if (rainSensorItemProvider != null) rainSensorItemProvider.dispose();
+		if (switchSensorItemProvider != null) switchSensorItemProvider.dispose();
+		if (numberSensorItemProvider != null) numberSensorItemProvider.dispose();
+		if (clockSensorItemProvider != null) clockSensorItemProvider.dispose();
+		if (lampActorItemProvider != null) lampActorItemProvider.dispose();
+		if (rollerActorItemProvider != null) rollerActorItemProvider.dispose();
+		if (roofWindowActorItemProvider != null) roofWindowActorItemProvider.dispose();
+		if (boilerActionItemProvider != null) boilerActionItemProvider.dispose();
+		if (radiatorActorItemProvider != null) radiatorActorItemProvider.dispose();
 		if (actionItemProvider != null) actionItemProvider.dispose();
-		if (roomActorItemProvider != null) roomActorItemProvider.dispose();
-		if (houseActorItemProvider != null) houseActorItemProvider.dispose();
+		if (lesserConditionItemProvider != null) lesserConditionItemProvider.dispose();
+		if (greaterConditionItemProvider != null) greaterConditionItemProvider.dispose();
 	}
 
 }

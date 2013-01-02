@@ -35,7 +35,7 @@ public interface Majordomo extends EObject {
 	 * @return the value of the '<em>House</em>' containment reference.
 	 * @see #setHouse(House)
 	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getMajordomo_House()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	House getHouse();

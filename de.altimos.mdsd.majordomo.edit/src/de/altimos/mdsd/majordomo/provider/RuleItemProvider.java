@@ -78,7 +78,7 @@ public class RuleItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MajordomoPackage.Literals.RULE__CONDITIONS);
-			childrenFeatures.add(MajordomoPackage.Literals.RULE__ACTIONS);
+			childrenFeatures.add(MajordomoPackage.Literals.RULE__ACTION);
 		}
 		return childrenFeatures;
 	}
@@ -131,7 +131,7 @@ public class RuleItemProvider
 
 		switch (notification.getFeatureID(Rule.class)) {
 			case MajordomoPackage.RULE__CONDITIONS:
-			case MajordomoPackage.RULE__ACTIONS:
+			case MajordomoPackage.RULE__ACTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,11 +152,16 @@ public class RuleItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.RULE__CONDITIONS,
-				 MajordomoFactory.eINSTANCE.createCondition()));
+				 MajordomoFactory.eINSTANCE.createLesserCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MajordomoPackage.Literals.RULE__ACTIONS,
+				(MajordomoPackage.Literals.RULE__CONDITIONS,
+				 MajordomoFactory.eINSTANCE.createGreaterCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.RULE__ACTION,
 				 MajordomoFactory.eINSTANCE.createAction()));
 	}
 

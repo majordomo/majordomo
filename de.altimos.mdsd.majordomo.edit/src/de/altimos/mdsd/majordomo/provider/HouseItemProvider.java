@@ -77,9 +77,9 @@ public class HouseItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(MajordomoPackage.Literals.HOUSE__SENSORS);
+			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__SENSORS);
+			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__ACTORS);
 			childrenFeatures.add(MajordomoPackage.Literals.HOUSE__ROOMS);
-			childrenFeatures.add(MajordomoPackage.Literals.HOUSE__ACTORS);
 		}
 		return childrenFeatures;
 	}
@@ -132,8 +132,8 @@ public class HouseItemProvider
 
 		switch (notification.getFeatureID(House.class)) {
 			case MajordomoPackage.HOUSE__SENSORS:
-			case MajordomoPackage.HOUSE__ROOMS:
 			case MajordomoPackage.HOUSE__ACTORS:
+			case MajordomoPackage.HOUSE__ROOMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -153,28 +153,63 @@ public class HouseItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MajordomoPackage.Literals.HOUSE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createSensor()));
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createLightSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createTemperatureSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createRainSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createSwitchSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createNumberSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
+				 MajordomoFactory.eINSTANCE.createClockSensor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createLampActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createRollerActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createRoofWindowActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createBoilerAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createRadiatorActor()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.HOUSE__ROOMS,
 				 MajordomoFactory.eINSTANCE.createRoom()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.HOUSE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.HOUSE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createRoomActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.HOUSE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createHouseActor()));
 	}
 
 	/**

@@ -2,7 +2,6 @@
  */
 package de.altimos.mdsd.majordomo;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,69 +11,41 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.Actor#getLabel <em>Label</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.Actor#getType <em>Type</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.Actor#getCtx <em>Ctx</em>}</li>
  * </ul>
  * </p>
  *
  * @see de.altimos.mdsd.majordomo.MajordomoPackage#getActor()
- * @model
+ * @model interface="true" abstract="true"
  * @generated
  */
-public interface Actor extends EObject {
+public interface Actor extends Extension {
 	/**
-	 * Returns the value of the '<em><b>Label</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ctx</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.altimos.mdsd.majordomo.Extendable#getActors <em>Actors</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Label</em>' attribute isn't clear,
+	 * If the meaning of the '<em>Ctx</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Label</em>' attribute.
-	 * @see #setLabel(String)
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getActor_Label()
-	 * @model
+	 * @return the value of the '<em>Ctx</em>' container reference.
+	 * @see #setCtx(Extendable)
+	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getActor_Ctx()
+	 * @see de.altimos.mdsd.majordomo.Extendable#getActors
+	 * @model opposite="actors" required="true" transient="false"
 	 * @generated
 	 */
-	String getLabel();
+	Extendable getCtx();
 
 	/**
-	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Actor#getLabel <em>Label</em>}' attribute.
+	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Actor#getCtx <em>Ctx</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Label</em>' attribute.
-	 * @see #getLabel()
+	 * @param value the new value of the '<em>Ctx</em>' container reference.
+	 * @see #getCtx()
 	 * @generated
 	 */
-	void setLabel(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Type</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.altimos.mdsd.majordomo.ActorType}.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Type</em>' attribute isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Type</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.ActorType
-	 * @see #setType(ActorType)
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getActor_Type()
-	 * @model
-	 * @generated
-	 */
-	ActorType getType();
-
-	/**
-	 * Sets the value of the '{@link de.altimos.mdsd.majordomo.Actor#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see de.altimos.mdsd.majordomo.ActorType
-	 * @see #getType()
-	 * @generated
-	 */
-	void setType(ActorType value);
+	void setCtx(Extendable value);
 
 } // Actor

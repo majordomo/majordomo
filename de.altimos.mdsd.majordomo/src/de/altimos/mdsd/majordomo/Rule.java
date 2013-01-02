@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.Rule#getConditions <em>Conditions</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.Rule#getActions <em>Actions</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.Rule#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,19 +41,19 @@ public interface Rule extends EObject {
 	EList<Condition> getConditions();
 
 	/**
-	 * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Action</b></em>' containment reference list.
 	 * The list contents are of type {@link de.altimos.mdsd.majordomo.Action}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Action</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions</em>' containment reference list.
-	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getRule_Actions()
+	 * @return the value of the '<em>Action</em>' containment reference list.
+	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getRule_Action()
 	 * @model containment="true"
 	 * @generated
 	 */
-	EList<Action> getActions();
+	EList<Action> getAction();
 
 } // Rule

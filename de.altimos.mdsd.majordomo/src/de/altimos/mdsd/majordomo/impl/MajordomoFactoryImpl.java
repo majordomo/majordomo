@@ -5,7 +5,6 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.*;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -59,58 +58,24 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 		switch (eClass.getClassifierID()) {
 			case MajordomoPackage.MAJORDOMO: return createMajordomo();
 			case MajordomoPackage.HOUSE: return createHouse();
-			case MajordomoPackage.SENSOR: return createSensor();
 			case MajordomoPackage.ROOM: return createRoom();
-			case MajordomoPackage.ACTOR: return createActor();
 			case MajordomoPackage.RULE: return createRule();
-			case MajordomoPackage.CONDITION: return createCondition();
+			case MajordomoPackage.LIGHT_SENSOR: return createLightSensor();
+			case MajordomoPackage.TEMPERATURE_SENSOR: return createTemperatureSensor();
+			case MajordomoPackage.RAIN_SENSOR: return createRainSensor();
+			case MajordomoPackage.SWITCH_SENSOR: return createSwitchSensor();
+			case MajordomoPackage.NUMBER_SENSOR: return createNumberSensor();
+			case MajordomoPackage.CLOCK_SENSOR: return createClockSensor();
+			case MajordomoPackage.LAMP_ACTOR: return createLampActor();
+			case MajordomoPackage.ROLLER_ACTOR: return createRollerActor();
+			case MajordomoPackage.ROOF_WINDOW_ACTOR: return createRoofWindowActor();
+			case MajordomoPackage.BOILER_ACTION: return createBoilerAction();
+			case MajordomoPackage.RADIATOR_ACTOR: return createRadiatorActor();
 			case MajordomoPackage.ACTION: return createAction();
-			case MajordomoPackage.ROOM_ACTOR: return createRoomActor();
-			case MajordomoPackage.HOUSE_ACTOR: return createHouseActor();
+			case MajordomoPackage.LESSER_CONDITION: return createLesserCondition();
+			case MajordomoPackage.GREATER_CONDITION: return createGreaterCondition();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case MajordomoPackage.MOUNT_POINT:
-				return createMountPointFromString(eDataType, initialValue);
-			case MajordomoPackage.COMPARE_OPERATOR:
-				return createCompareOperatorFromString(eDataType, initialValue);
-			case MajordomoPackage.ACTOR_TYPE:
-				return createActorTypeFromString(eDataType, initialValue);
-			case MajordomoPackage.SENSOR_TYPE:
-				return createSensorTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case MajordomoPackage.MOUNT_POINT:
-				return convertMountPointToString(eDataType, instanceValue);
-			case MajordomoPackage.COMPARE_OPERATOR:
-				return convertCompareOperatorToString(eDataType, instanceValue);
-			case MajordomoPackage.ACTOR_TYPE:
-				return convertActorTypeToString(eDataType, instanceValue);
-			case MajordomoPackage.SENSOR_TYPE:
-				return convertSensorTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -139,29 +104,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor createSensor() {
-		SensorImpl sensor = new SensorImpl();
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Room createRoom() {
 		RoomImpl room = new RoomImpl();
 		return room;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Actor createActor() {
-		ActorImpl actor = new ActorImpl();
-		return actor;
 	}
 
 	/**
@@ -179,9 +124,109 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Condition createCondition() {
-		ConditionImpl condition = new ConditionImpl();
-		return condition;
+	public LightSensor createLightSensor() {
+		LightSensorImpl lightSensor = new LightSensorImpl();
+		return lightSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public TemperatureSensor createTemperatureSensor() {
+		TemperatureSensorImpl temperatureSensor = new TemperatureSensorImpl();
+		return temperatureSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RainSensor createRainSensor() {
+		RainSensorImpl rainSensor = new RainSensorImpl();
+		return rainSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SwitchSensor createSwitchSensor() {
+		SwitchSensorImpl switchSensor = new SwitchSensorImpl();
+		return switchSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NumberSensor createNumberSensor() {
+		NumberSensorImpl numberSensor = new NumberSensorImpl();
+		return numberSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ClockSensor createClockSensor() {
+		ClockSensorImpl clockSensor = new ClockSensorImpl();
+		return clockSensor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public LampActor createLampActor() {
+		LampActorImpl lampActor = new LampActorImpl();
+		return lampActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RollerActor createRollerActor() {
+		RollerActorImpl rollerActor = new RollerActorImpl();
+		return rollerActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RoofWindowActor createRoofWindowActor() {
+		RoofWindowActorImpl roofWindowActor = new RoofWindowActorImpl();
+		return roofWindowActor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BoilerAction createBoilerAction() {
+		BoilerActionImpl boilerAction = new BoilerActionImpl();
+		return boilerAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public RadiatorActor createRadiatorActor() {
+		RadiatorActorImpl radiatorActor = new RadiatorActorImpl();
+		return radiatorActor;
 	}
 
 	/**
@@ -199,9 +244,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RoomActor createRoomActor() {
-		RoomActorImpl roomActor = new RoomActorImpl();
-		return roomActor;
+	public LesserCondition createLesserCondition() {
+		LesserConditionImpl lesserCondition = new LesserConditionImpl();
+		return lesserCondition;
 	}
 
 	/**
@@ -209,89 +254,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public HouseActor createHouseActor() {
-		HouseActorImpl houseActor = new HouseActorImpl();
-		return houseActor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public MountPoint createMountPointFromString(EDataType eDataType, String initialValue) {
-		MountPoint result = MountPoint.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertMountPointToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public CompareOperator createCompareOperatorFromString(EDataType eDataType, String initialValue) {
-		CompareOperator result = CompareOperator.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertCompareOperatorToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public ActorType createActorTypeFromString(EDataType eDataType, String initialValue) {
-		ActorType result = ActorType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertActorTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SensorType createSensorTypeFromString(EDataType eDataType, String initialValue) {
-		SensorType result = SensorType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public String convertSensorTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
+	public GreaterCondition createGreaterCondition() {
+		GreaterConditionImpl greaterCondition = new GreaterConditionImpl();
+		return greaterCondition;
 	}
 
 	/**

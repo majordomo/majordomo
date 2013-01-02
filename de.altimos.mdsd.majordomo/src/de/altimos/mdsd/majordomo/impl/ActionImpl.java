@@ -21,24 +21,14 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.ActionImpl#getActor <em>Actor</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.ActionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.ActionImpl#getActor <em>Actor</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
 public class ActionImpl extends EObjectImpl implements Action {
-	/**
-	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getActor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Actor actor;
-
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -60,6 +50,16 @@ public class ActionImpl extends EObjectImpl implements Action {
 	protected Object value = VALUE_EDEFAULT;
 
 	/**
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActor()
+	 * @generated
+	 * @ordered
+	 */
+	protected Actor actor;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -76,6 +76,27 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	protected EClass eStaticClass() {
 		return MajordomoPackage.Literals.ACTION;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Object getValue() {
+		return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(Object newValue) {
+		Object oldValue = value;
+		value = newValue;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ACTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -121,35 +142,14 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getValue() {
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
-		value = newValue;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ACTION__VALUE, oldValue, value));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MajordomoPackage.ACTION__VALUE:
+				return getValue();
 			case MajordomoPackage.ACTION__ACTOR:
 				if (resolve) return getActor();
 				return basicGetActor();
-			case MajordomoPackage.ACTION__VALUE:
-				return getValue();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +162,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__ACTOR:
-				setActor((Actor)newValue);
-				return;
 			case MajordomoPackage.ACTION__VALUE:
 				setValue(newValue);
+				return;
+			case MajordomoPackage.ACTION__ACTOR:
+				setActor((Actor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +180,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__ACTOR:
-				setActor((Actor)null);
-				return;
 			case MajordomoPackage.ACTION__VALUE:
 				setValue(VALUE_EDEFAULT);
+				return;
+			case MajordomoPackage.ACTION__ACTOR:
+				setActor((Actor)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,10 +198,10 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__ACTOR:
-				return actor != null;
 			case MajordomoPackage.ACTION__VALUE:
 				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MajordomoPackage.ACTION__ACTOR:
+				return actor != null;
 		}
 		return super.eIsSet(featureID);
 	}
