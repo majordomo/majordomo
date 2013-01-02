@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.xtend.typesystem.emf.checks">
+      <metaModel
+            nsURI="http://mdsd.altimos.de/majordomo/1.0">
+         <checkFile
+               path="model/majordomo.chk">
+         </checkFile>
+      </metaModel>
+   </extension>
+
+</plugin>
