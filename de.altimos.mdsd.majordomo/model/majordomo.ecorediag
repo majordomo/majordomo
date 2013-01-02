@@ -360,7 +360,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_EoEZEVUZEeKB5sXfe_f7rQ" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="majordomo.ecore#//Condition"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EoEZElUZEeKB5sXfe_f7rQ" x="799" y="345" width="144"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_EoEZElUZEeKB5sXfe_f7rQ" x="799" y="345" width="154"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_XeUGUFUZEeKB5sXfe_f7rQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_XeUGU1UZEeKB5sXfe_f7rQ" type="4001"/>
