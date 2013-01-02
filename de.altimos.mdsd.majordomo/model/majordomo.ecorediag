@@ -131,7 +131,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_wI-k4FT7EeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="majordomo.ecore#//MountPoint"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wI-k4VT7EeKHaeILgo_Ljw" x="24" y="96" width="171"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_wI-k4VT7EeKHaeILgo_Ljw" x="25" y="82" width="171"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_26jfAFT-EeKHaeILgo_Ljw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_26ktIFT-EeKHaeILgo_Ljw" type="4001"/>
@@ -190,7 +190,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Z-POwVUAEeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="majordomo.ecore#//CompareOperator"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z-POwlUAEeKHaeILgo_Ljw" x="216" y="96" width="147"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z-POwlUAEeKHaeILgo_Ljw" x="217" y="82" width="147"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_-XrF8FUAEeKHaeILgo_Ljw" type="1001">
     <children xmi:type="notation:Node" xmi:id="_-XuJQFUAEeKHaeILgo_Ljw" type="4001"/>
@@ -243,7 +243,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_2J8koVUCEeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="majordomo.ecore#//ActorType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2J8kolUCEeKHaeILgo_Ljw" x="24" y="192" width="171"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2J8kolUCEeKHaeILgo_Ljw" x="25" y="178" width="171"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_ON5QYFUEEeKfw8RO-6v4cA" type="1005">
     <children xmi:type="notation:Node" xmi:id="_ON7FkFUEEeKfw8RO-6v4cA" type="4010"/>
@@ -278,7 +278,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ON5QYVUEEeKfw8RO-6v4cA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EEnum" href="majordomo.ecore#//SensorType"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ON5QYlUEEeKfw8RO-6v4cA" x="215" y="170"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ON5QYlUEEeKfw8RO-6v4cA" x="216" y="156" width="148"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ldmSMVT5EeKHaeILgo_Ljw"/>
   <element xmi:type="ecore:EPackage" href="majordomo.ecore#/"/>
