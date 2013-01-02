@@ -45,6 +45,10 @@
         <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Sensor/mountable"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_EIm8EVT8EeKHaeILgo_Ljw"/>
       </children>
+      <children xmi:type="notation:Node" xmi:id="_XDq-QFUEEeKfw8RO-6v4cA" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Sensor/type"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_XDq-QVUEEeKfw8RO-6v4cA"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_-Q9BoVT6EeKHaeILgo_Ljw"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_-Q9BolT6EeKHaeILgo_Ljw"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_-Q9Bo1T6EeKHaeILgo_Ljw"/>
@@ -241,6 +245,41 @@
     <element xmi:type="ecore:EEnum" href="majordomo.ecore#//ActorType"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_2J8kolUCEeKHaeILgo_Ljw" x="24" y="192" width="171"/>
   </children>
+  <children xmi:type="notation:Node" xmi:id="_ON5QYFUEEeKfw8RO-6v4cA" type="1005">
+    <children xmi:type="notation:Node" xmi:id="_ON7FkFUEEeKfw8RO-6v4cA" type="4010"/>
+    <children xmi:type="notation:Node" xmi:id="_ON7soFUEEeKfw8RO-6v4cA" type="5008">
+      <children xmi:type="notation:Node" xmi:id="_PUxY4FUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/SWITCH"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_PUxY4VUEEeKfw8RO-6v4cA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_RfT90FUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/TEMPERATURE"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_RfT90VUEEeKfw8RO-6v4cA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_SkutwFUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/NUMBER"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_SkutwVUEEeKfw8RO-6v4cA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_TUIxcFUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/CLOCK"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_TUIxcVUEEeKfw8RO-6v4cA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_T21O0FUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/TWILIGHT"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_T21O0VUEEeKfw8RO-6v4cA"/>
+      </children>
+      <children xmi:type="notation:Node" xmi:id="_UmETYFUEEeKfw8RO-6v4cA" type="2006">
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//SensorType/RAIN"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_UmETYVUEEeKfw8RO-6v4cA"/>
+      </children>
+      <styles xmi:type="notation:DrawerStyle" xmi:id="_ON7soVUEEeKfw8RO-6v4cA"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_ON7solUEEeKfw8RO-6v4cA"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_ON7so1UEEeKfw8RO-6v4cA"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_ON5QYVUEEeKfw8RO-6v4cA" fontColor="4210752" fontName="Segoe UI" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
+    <element xmi:type="ecore:EEnum" href="majordomo.ecore#//SensorType"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ON5QYlUEEeKfw8RO-6v4cA" x="215" y="170"/>
+  </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ldmSMVT5EeKHaeILgo_Ljw"/>
   <element xmi:type="ecore:EPackage" href="majordomo.ecore#/"/>
   <edges xmi:type="notation:Edge" xmi:id="__gz8cFT5EeKHaeILgo_Ljw" type="3002" source="_mrbXQFT5EeKHaeILgo_Ljw" target="_7yLukFT5EeKHaeILgo_Ljw">
@@ -358,7 +397,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_cE4noVT_EeKHaeILgo_Ljw" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_cE4nolT_EeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10"/>
     <element xmi:type="ecore:EReference" href="majordomo.ecore#//Condition/source"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cE4no1T_EeKHaeILgo_Ljw" points="[9, 51, 144, 33]$[9, 72, 144, 54]$[-135, 72, 0, 54]$[-135, 51, 0, 33]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_cE4no1T_EeKHaeILgo_Ljw" points="[6, 51, 142, 25]$[6, 77, 142, 51]$[-135, 77, 1, 51]$[-135, 67, 1, 41]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cE6c0FT_EeKHaeILgo_Ljw" id="(0.45098039215686275,0.19047619047619047)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_cE6c0VT_EeKHaeILgo_Ljw" id="(0.8439306358381503,0.48148148148148145)"/>
   </edges>

@@ -18,6 +18,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Sensor">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="mountable" eType="#//MountPoint"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//SensorType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Room">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
@@ -62,5 +63,13 @@
     <eLiterals name="RADIATOR" value="2"/>
     <eLiterals name="ROOF_WINDOW" value="3"/>
     <eLiterals name="ROLLER" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SensorType">
+    <eLiterals name="SWITCH"/>
+    <eLiterals name="TEMPERATURE" value="1"/>
+    <eLiterals name="NUMBER" value="2"/>
+    <eLiterals name="CLOCK" value="3"/>
+    <eLiterals name="TWILIGHT" value="4"/>
+    <eLiterals name="RAIN" value="5"/>
   </eClassifiers>
 </ecore:EPackage>
