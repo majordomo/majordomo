@@ -1,0 +1,5 @@
+import majordomo;
+
+context Majordomo ERROR
+	"Majordomo must have a house to dominate.":
+	this.house != null;
