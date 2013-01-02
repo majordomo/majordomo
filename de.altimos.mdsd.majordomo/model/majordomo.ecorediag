@@ -169,11 +169,11 @@
     <children xmi:type="notation:Node" xmi:id="_Z-Qc4FUAEeKHaeILgo_Ljw" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_Z-Qc4VUAEeKHaeILgo_Ljw" type="5008">
       <children xmi:type="notation:Node" xmi:id="_byjFAFUAEeKHaeILgo_Ljw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//CompareOperators/LESS"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//CompareOperator/LESS"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_byjFAVUAEeKHaeILgo_Ljw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_c2cyAFUAEeKHaeILgo_Ljw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//CompareOperators/GREATER"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//CompareOperator/GREATER"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_c2cyAVUAEeKHaeILgo_Ljw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Z-Qc4lUAEeKHaeILgo_Ljw"/>
@@ -181,7 +181,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Z-Qc5FUAEeKHaeILgo_Ljw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_Z-POwVUAEeKHaeILgo_Ljw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="majordomo.ecore#//CompareOperators"/>
+    <element xmi:type="ecore:EEnum" href="majordomo.ecore#//CompareOperator"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Z-POwlUAEeKHaeILgo_Ljw" x="216" y="120" width="147"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_-XrF8FUAEeKHaeILgo_Ljw" type="1001">
