@@ -51,6 +51,10 @@
   <children xmi:type="notation:Node" xmi:id="_Bffl8FUWEeKB5sXfe_f7rQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_Bfg0EFUWEeKB5sXfe_f7rQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_Bfg0EVUWEeKB5sXfe_f7rQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_bqC5gGTIEeKLI-78vo_GtQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Room/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_bqDgkGTIEeKLI-78vo_GtQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_Bfg0ElUWEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_Bfg0E1UWEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_Bfg0FFUWEeKB5sXfe_f7rQ"/>
@@ -195,6 +199,10 @@
   <children xmi:type="notation:Node" xmi:id="_XpXxsFUXEeKB5sXfe_f7rQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_XpcqMFUXEeKB5sXfe_f7rQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_XpcqMVUXEeKB5sXfe_f7rQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_ju9yMGTIEeKLI-78vo_GtQ" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Extension/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_ju9yMWTIEeKLI-78vo_GtQ"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_XpcqMlUXEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_XpcqM1UXEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_XpdRQFUXEeKB5sXfe_f7rQ"/>
