@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.RoofWindowActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RoofWindowActorImpl#getCtx <em>Ctx</em>}</li>
  * </ul>
  * </p>
@@ -31,6 +32,25 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * @generated
  */
 public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor {
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
+
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -48,6 +68,27 @@ public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor 
 	@Override
 	protected EClass eStaticClass() {
 		return MajordomoPackage.Literals.ROOF_WINDOW_ACTOR;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ROOF_WINDOW_ACTOR__NAME, oldName, name));
 	}
 
 	/**
@@ -143,6 +184,8 @@ public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case MajordomoPackage.ROOF_WINDOW_ACTOR__NAME:
+				return getName();
 			case MajordomoPackage.ROOF_WINDOW_ACTOR__CTX:
 				return getCtx();
 		}
@@ -157,6 +200,9 @@ public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case MajordomoPackage.ROOF_WINDOW_ACTOR__NAME:
+				setName((String)newValue);
+				return;
 			case MajordomoPackage.ROOF_WINDOW_ACTOR__CTX:
 				setCtx((Extendable)newValue);
 				return;
@@ -172,6 +218,9 @@ public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case MajordomoPackage.ROOF_WINDOW_ACTOR__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 			case MajordomoPackage.ROOF_WINDOW_ACTOR__CTX:
 				setCtx((Extendable)null);
 				return;
@@ -187,10 +236,28 @@ public class RoofWindowActorImpl extends EObjectImpl implements RoofWindowActor 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case MajordomoPackage.ROOF_WINDOW_ACTOR__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MajordomoPackage.ROOF_WINDOW_ACTOR__CTX:
 				return getCtx() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RoofWindowActorImpl

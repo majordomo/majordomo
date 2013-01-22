@@ -204,13 +204,22 @@ public interface MajordomoPackage extends EPackage {
 	int ROOM__ACTORS = EXTENDABLE__ACTORS;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM__NAME = EXTENDABLE_FEATURE_COUNT + 0;
+
+	/**
 	 * The number of structural features of the '<em>Room</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOM_FEATURE_COUNT = EXTENDABLE_FEATURE_COUNT + 0;
+	int ROOM_FEATURE_COUNT = EXTENDABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Extension <em>Extension</em>}' class.
@@ -223,13 +232,22 @@ public interface MajordomoPackage extends EPackage {
 	int EXTENSION = 7;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EXTENSION__NAME = 0;
+
+	/**
 	 * The number of structural features of the '<em>Extension</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EXTENSION_FEATURE_COUNT = 0;
+	int EXTENSION_FEATURE_COUNT = 1;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Sensor <em>Sensor</em>}' class.
@@ -240,6 +258,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int SENSOR = 4;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SENSOR__NAME = EXTENSION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -268,6 +295,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int ACTOR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ACTOR__NAME = EXTENSION__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -335,6 +371,15 @@ public interface MajordomoPackage extends EPackage {
 	int LIGHT_SENSOR = 8;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT_SENSOR__NAME = SENSOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -361,6 +406,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int TEMPERATURE_SENSOR = 9;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TEMPERATURE_SENSOR__NAME = SENSOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -391,6 +445,15 @@ public interface MajordomoPackage extends EPackage {
 	int RAIN_SENSOR = 10;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RAIN_SENSOR__NAME = SENSOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,6 +480,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int SWITCH_SENSOR = 11;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SWITCH_SENSOR__NAME = SENSOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -447,6 +519,15 @@ public interface MajordomoPackage extends EPackage {
 	int NUMBER_SENSOR = 12;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_SENSOR__NAME = SENSOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -473,6 +554,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int CLOCK_SENSOR = 13;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLOCK_SENSOR__NAME = SENSOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -503,6 +593,15 @@ public interface MajordomoPackage extends EPackage {
 	int LAMP_ACTOR = 14;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LAMP_ACTOR__NAME = ACTOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -529,6 +628,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int ROLLER_ACTOR = 15;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLLER_ACTOR__NAME = ACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -559,6 +667,15 @@ public interface MajordomoPackage extends EPackage {
 	int ROOF_WINDOW_ACTOR = 16;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOF_WINDOW_ACTOR__NAME = ACTOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -585,6 +702,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int BOILER_ACTION = 17;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOILER_ACTION__NAME = ACTOR__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -615,6 +741,15 @@ public interface MajordomoPackage extends EPackage {
 	int RADIATOR_ACTOR = 18;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIATOR_ACTOR__NAME = ACTOR__NAME;
+
+	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,6 +778,15 @@ public interface MajordomoPackage extends EPackage {
 	int ROOM_EXTENSION = 19;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_EXTENSION__NAME = EXTENSION__NAME;
+
+	/**
 	 * The number of structural features of the '<em>Room Extension</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,6 +804,15 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	int HOUSE_EXTENSION = 20;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOUSE_EXTENSION__NAME = EXTENSION__NAME;
 
 	/**
 	 * The number of structural features of the '<em>House Extension</em>' class.
@@ -915,6 +1068,17 @@ public interface MajordomoPackage extends EPackage {
 	EClass getRoom();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.Room#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.altimos.mdsd.majordomo.Room#getName()
+	 * @see #getRoom()
+	 * @generated
+	 */
+	EAttribute getRoom_Name();
+
+	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.Sensor <em>Sensor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -997,6 +1161,17 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getExtension();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.Extension#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see de.altimos.mdsd.majordomo.Extension#getName()
+	 * @see #getExtension()
+	 * @generated
+	 */
+	EAttribute getExtension_Name();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.LightSensor <em>Light Sensor</em>}'.
@@ -1315,6 +1490,14 @@ public interface MajordomoPackage extends EPackage {
 		EClass ROOM = eINSTANCE.getRoom();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOM__NAME = eINSTANCE.getRoom_Name();
+
+		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Sensor <em>Sensor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1385,6 +1568,14 @@ public interface MajordomoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass EXTENSION = eINSTANCE.getExtension();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EXTENSION__NAME = eINSTANCE.getExtension_Name();
 
 		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.LightSensorImpl <em>Light Sensor</em>}' class.

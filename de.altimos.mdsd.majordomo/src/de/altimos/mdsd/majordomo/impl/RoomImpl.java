@@ -9,6 +9,7 @@ import de.altimos.mdsd.majordomo.Sensor;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getSensors <em>Sensors</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getActors <em>Actors</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.RoomImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -55,6 +58,26 @@ public class RoomImpl extends EObjectImpl implements Room {
 	 * @ordered
 	 */
 	protected EList<Actor> actors;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -104,6 +127,27 @@ public class RoomImpl extends EObjectImpl implements Room {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ROOM__NAME, oldName, name));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -144,6 +188,8 @@ public class RoomImpl extends EObjectImpl implements Room {
 				return getSensors();
 			case MajordomoPackage.ROOM__ACTORS:
 				return getActors();
+			case MajordomoPackage.ROOM__NAME:
+				return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -165,6 +211,9 @@ public class RoomImpl extends EObjectImpl implements Room {
 				getActors().clear();
 				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
+			case MajordomoPackage.ROOM__NAME:
+				setName((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -183,6 +232,9 @@ public class RoomImpl extends EObjectImpl implements Room {
 			case MajordomoPackage.ROOM__ACTORS:
 				getActors().clear();
 				return;
+			case MajordomoPackage.ROOM__NAME:
+				setName(NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -199,8 +251,26 @@ public class RoomImpl extends EObjectImpl implements Room {
 				return sensors != null && !sensors.isEmpty();
 			case MajordomoPackage.ROOM__ACTORS:
 				return actors != null && !actors.isEmpty();
+			case MajordomoPackage.ROOM__NAME:
+				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RoomImpl

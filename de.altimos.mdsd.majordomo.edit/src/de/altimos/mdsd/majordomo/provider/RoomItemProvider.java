@@ -17,12 +17,14 @@ import org.eclipse.emf.common.util.ResourceLocator;
 
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
@@ -61,8 +63,31 @@ public class RoomItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Room_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Room_name_feature", "_UI_Room_type"),
+				 MajordomoPackage.Literals.ROOM__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
 	}
 
 	/**
@@ -115,7 +140,10 @@ public class RoomItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Room_type");
+		String label = ((Room)object).getName();
+		return label == null || label.length() == 0 ?
+			getString("_UI_Room_type") :
+			getString("_UI_Room_type") + " " + label;
 	}
 
 	/**
@@ -130,6 +158,9 @@ public class RoomItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Room.class)) {
+			case MajordomoPackage.ROOM__NAME:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case MajordomoPackage.ROOM__SENSORS:
 			case MajordomoPackage.ROOM__ACTORS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
