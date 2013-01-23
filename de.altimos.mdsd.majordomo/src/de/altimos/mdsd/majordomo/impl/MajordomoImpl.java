@@ -5,6 +5,7 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.House;
 import de.altimos.mdsd.majordomo.Majordomo;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
+import de.altimos.mdsd.majordomo.Room;
 import de.altimos.mdsd.majordomo.Rule;
 
 import java.util.Collection;
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.MajordomoImpl#getHouse <em>House</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.MajordomoImpl#getRules <em>Rules</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.MajordomoImpl#getRooms <em>Rooms</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +59,16 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 	 * @ordered
 	 */
 	protected EList<Rule> rules;
+
+	/**
+	 * The cached value of the '{@link #getRooms() <em>Rooms</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRooms()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Room> rooms;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +149,18 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<Room> getRooms() {
+		if (rooms == null) {
+			rooms = new EObjectContainmentEList<Room>(Room.class, this, MajordomoPackage.MAJORDOMO__ROOMS);
+		}
+		return rooms;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -144,6 +168,8 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 				return basicSetHouse(null, msgs);
 			case MajordomoPackage.MAJORDOMO__RULES:
 				return ((InternalEList<?>)getRules()).basicRemove(otherEnd, msgs);
+			case MajordomoPackage.MAJORDOMO__ROOMS:
+				return ((InternalEList<?>)getRooms()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -160,6 +186,8 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 				return getHouse();
 			case MajordomoPackage.MAJORDOMO__RULES:
 				return getRules();
+			case MajordomoPackage.MAJORDOMO__ROOMS:
+				return getRooms();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +208,10 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 				getRules().clear();
 				getRules().addAll((Collection<? extends Rule>)newValue);
 				return;
+			case MajordomoPackage.MAJORDOMO__ROOMS:
+				getRooms().clear();
+				getRooms().addAll((Collection<? extends Room>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -198,6 +230,9 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 			case MajordomoPackage.MAJORDOMO__RULES:
 				getRules().clear();
 				return;
+			case MajordomoPackage.MAJORDOMO__ROOMS:
+				getRooms().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -214,6 +249,8 @@ public class MajordomoImpl extends EObjectImpl implements Majordomo {
 				return house != null;
 			case MajordomoPackage.MAJORDOMO__RULES:
 				return rules != null && !rules.isEmpty();
+			case MajordomoPackage.MAJORDOMO__ROOMS:
+				return rooms != null && !rooms.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

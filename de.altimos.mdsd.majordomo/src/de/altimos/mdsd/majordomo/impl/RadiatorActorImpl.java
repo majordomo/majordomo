@@ -2,7 +2,10 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
+import de.altimos.mdsd.majordomo.Actor;
+import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.Extendable;
+import de.altimos.mdsd.majordomo.Extension;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
 import de.altimos.mdsd.majordomo.RadiatorActor;
 
@@ -26,6 +29,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl#getName <em>Name</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl#getCtx <em>Ctx</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl#getEReference0 <em>EReference0</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,6 +45,7 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -50,6 +55,16 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getEReference0() <em>EReference0</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getEReference0()
+	 * @generated
+	 * @ordered
+	 */
+	protected Actor eReference0;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -137,6 +152,55 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public Actor getEReference0() {
+		if (eReference0 != null && eReference0.eIsProxy()) {
+			InternalEObject oldEReference0 = (InternalEObject)eReference0;
+			eReference0 = (Actor)eResolveProxy(oldEReference0);
+			if (eReference0 != oldEReference0) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0, oldEReference0, eReference0));
+			}
+		}
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Actor basicGetEReference0() {
+		return eReference0;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setEReference0(Actor newEReference0) {
+		Actor oldEReference0 = eReference0;
+		eReference0 = newEReference0;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0, oldEReference0, eReference0));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(boolean value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -188,6 +252,9 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 				return getName();
 			case MajordomoPackage.RADIATOR_ACTOR__CTX:
 				return getCtx();
+			case MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0:
+				if (resolve) return getEReference0();
+				return basicGetEReference0();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,6 +272,9 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 				return;
 			case MajordomoPackage.RADIATOR_ACTOR__CTX:
 				setCtx((Extendable)newValue);
+				return;
+			case MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0:
+				setEReference0((Actor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -224,6 +294,9 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 			case MajordomoPackage.RADIATOR_ACTOR__CTX:
 				setCtx((Extendable)null);
 				return;
+			case MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0:
+				setEReference0((Actor)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -240,8 +313,66 @@ public class RadiatorActorImpl extends EObjectImpl implements RadiatorActor {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case MajordomoPackage.RADIATOR_ACTOR__CTX:
 				return getCtx() != null;
+			case MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0:
+				return eReference0 != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Extension.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.RADIATOR_ACTOR__NAME: return MajordomoPackage.EXTENSION__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Actor.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.RADIATOR_ACTOR__CTX: return MajordomoPackage.ACTOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanActor.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0: return MajordomoPackage.BOOLEAN_ACTOR__EREFERENCE0;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Extension.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.EXTENSION__NAME: return MajordomoPackage.RADIATOR_ACTOR__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Actor.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.ACTOR__CTX: return MajordomoPackage.RADIATOR_ACTOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanActor.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.BOOLEAN_ACTOR__EREFERENCE0: return MajordomoPackage.RADIATOR_ACTOR__EREFERENCE0;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

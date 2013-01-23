@@ -2,8 +2,8 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
-import de.altimos.mdsd.majordomo.Action;
-import de.altimos.mdsd.majordomo.Actor;
+import de.altimos.mdsd.majordomo.IntegerAction;
+import de.altimos.mdsd.majordomo.IntegerActor;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -16,19 +16,19 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Action</b></em>'.
+ * An implementation of the model object '<em><b>Integer Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.ActionImpl#getValue <em>Value</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.ActionImpl#getActor <em>Actor</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.IntegerActionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.IntegerActionImpl#getActor <em>Actor</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ActionImpl extends EObjectImpl implements Action {
+public class IntegerActionImpl extends EObjectImpl implements IntegerAction {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
+	protected static final int VALUE_EDEFAULT = 0;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -47,7 +47,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value = VALUE_EDEFAULT;
+	protected int value = VALUE_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
@@ -57,14 +57,14 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * @generated
 	 * @ordered
 	 */
-	protected Actor actor;
+	protected IntegerActor actor;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionImpl() {
+	protected IntegerActionImpl() {
 		super();
 	}
 
@@ -75,7 +75,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MajordomoPackage.Literals.ACTION;
+		return MajordomoPackage.Literals.INTEGER_ACTION;
 	}
 
 	/**
@@ -83,7 +83,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Object getValue() {
+	public int getValue() {
 		return value;
 	}
 
@@ -92,11 +92,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
+	public void setValue(int newValue) {
+		int oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ACTION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.INTEGER_ACTION__VALUE, oldValue, value));
 	}
 
 	/**
@@ -104,13 +104,13 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor getActor() {
+	public IntegerActor getActor() {
 		if (actor != null && actor.eIsProxy()) {
 			InternalEObject oldActor = (InternalEObject)actor;
-			actor = (Actor)eResolveProxy(oldActor);
+			actor = (IntegerActor)eResolveProxy(oldActor);
 			if (actor != oldActor) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.ACTION__ACTOR, oldActor, actor));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.INTEGER_ACTION__ACTOR, oldActor, actor));
 			}
 		}
 		return actor;
@@ -121,7 +121,7 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Actor basicGetActor() {
+	public IntegerActor basicGetActor() {
 		return actor;
 	}
 
@@ -130,11 +130,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActor(Actor newActor) {
-		Actor oldActor = actor;
+	public void setActor(IntegerActor newActor) {
+		IntegerActor oldActor = actor;
 		actor = newActor;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.ACTION__ACTOR, oldActor, actor));
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.INTEGER_ACTION__ACTOR, oldActor, actor));
 	}
 
 	/**
@@ -145,9 +145,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__VALUE:
+			case MajordomoPackage.INTEGER_ACTION__VALUE:
 				return getValue();
-			case MajordomoPackage.ACTION__ACTOR:
+			case MajordomoPackage.INTEGER_ACTION__ACTOR:
 				if (resolve) return getActor();
 				return basicGetActor();
 		}
@@ -162,11 +162,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__VALUE:
-				setValue(newValue);
+			case MajordomoPackage.INTEGER_ACTION__VALUE:
+				setValue((Integer)newValue);
 				return;
-			case MajordomoPackage.ACTION__ACTOR:
-				setActor((Actor)newValue);
+			case MajordomoPackage.INTEGER_ACTION__ACTOR:
+				setActor((IntegerActor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +180,11 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__VALUE:
+			case MajordomoPackage.INTEGER_ACTION__VALUE:
 				setValue(VALUE_EDEFAULT);
 				return;
-			case MajordomoPackage.ACTION__ACTOR:
-				setActor((Actor)null);
+			case MajordomoPackage.INTEGER_ACTION__ACTOR:
+				setActor((IntegerActor)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,9 +198,9 @@ public class ActionImpl extends EObjectImpl implements Action {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.ACTION__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
-			case MajordomoPackage.ACTION__ACTOR:
+			case MajordomoPackage.INTEGER_ACTION__VALUE:
+				return value != VALUE_EDEFAULT;
+			case MajordomoPackage.INTEGER_ACTION__ACTOR:
 				return actor != null;
 		}
 		return super.eIsSet(featureID);
@@ -222,4 +222,4 @@ public class ActionImpl extends EObjectImpl implements Action {
 		return result.toString();
 	}
 
-} //ActionImpl
+} //IntegerActionImpl

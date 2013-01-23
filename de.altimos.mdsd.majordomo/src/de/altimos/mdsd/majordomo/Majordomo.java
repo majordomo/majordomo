@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.Majordomo#getHouse <em>House</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.Majordomo#getRules <em>Rules</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.Majordomo#getRooms <em>Rooms</em>}</li>
  * </ul>
  * </p>
  *
@@ -65,5 +66,21 @@ public interface Majordomo extends EObject {
 	 * @generated
 	 */
 	EList<Rule> getRules();
+
+	/**
+	 * Returns the value of the '<em><b>Rooms</b></em>' containment reference list.
+	 * The list contents are of type {@link de.altimos.mdsd.majordomo.Room}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Rooms</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Rooms</em>' containment reference list.
+	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#getMajordomo_Rooms()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Room> getRooms();
 
 } // Majordomo

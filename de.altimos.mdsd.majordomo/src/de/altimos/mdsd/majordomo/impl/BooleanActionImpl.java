@@ -2,9 +2,9 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
-import de.altimos.mdsd.majordomo.GreaterCondition;
+import de.altimos.mdsd.majordomo.BooleanAction;
+import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
-import de.altimos.mdsd.majordomo.Sensor;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,55 +16,55 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Greater Condition</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.GreaterConditionImpl#getSensor <em>Sensor</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.GreaterConditionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.BooleanActionImpl#isValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.BooleanActionImpl#getActor <em>Actor</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class GreaterConditionImpl extends EObjectImpl implements GreaterCondition {
+public class BooleanActionImpl extends EObjectImpl implements BooleanAction {
 	/**
-	 * The cached value of the '{@link #getSensor() <em>Sensor</em>}' reference.
+	 * The default value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSensor()
+	 * @see #isValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected Sensor sensor;
+	protected static final boolean VALUE_EDEFAULT = false;
 
 	/**
-	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #isValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #isValue()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
+	protected boolean value = VALUE_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getValue()
+	 * @see #getActor()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value = VALUE_EDEFAULT;
+	protected BooleanActor actor;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GreaterConditionImpl() {
+	protected BooleanActionImpl() {
 		super();
 	}
 
@@ -75,7 +75,7 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MajordomoPackage.Literals.GREATER_CONDITION;
+		return MajordomoPackage.Literals.BOOLEAN_ACTION;
 	}
 
 	/**
@@ -83,45 +83,7 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor getSensor() {
-		if (sensor != null && sensor.eIsProxy()) {
-			InternalEObject oldSensor = (InternalEObject)sensor;
-			sensor = (Sensor)eResolveProxy(oldSensor);
-			if (sensor != oldSensor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.GREATER_CONDITION__SENSOR, oldSensor, sensor));
-			}
-		}
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor basicGetSensor() {
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSensor(Sensor newSensor) {
-		Sensor oldSensor = sensor;
-		sensor = newSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.GREATER_CONDITION__SENSOR, oldSensor, sensor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Object getValue() {
+	public boolean isValue() {
 		return value;
 	}
 
@@ -130,11 +92,49 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
+	public void setValue(boolean newValue) {
+		boolean oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.GREATER_CONDITION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.BOOLEAN_ACTION__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanActor getActor() {
+		if (actor != null && actor.eIsProxy()) {
+			InternalEObject oldActor = (InternalEObject)actor;
+			actor = (BooleanActor)eResolveProxy(oldActor);
+			if (actor != oldActor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.BOOLEAN_ACTION__ACTOR, oldActor, actor));
+			}
+		}
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanActor basicGetActor() {
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActor(BooleanActor newActor) {
+		BooleanActor oldActor = actor;
+		actor = newActor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.BOOLEAN_ACTION__ACTOR, oldActor, actor));
 	}
 
 	/**
@@ -145,11 +145,11 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MajordomoPackage.GREATER_CONDITION__SENSOR:
-				if (resolve) return getSensor();
-				return basicGetSensor();
-			case MajordomoPackage.GREATER_CONDITION__VALUE:
-				return getValue();
+			case MajordomoPackage.BOOLEAN_ACTION__VALUE:
+				return isValue();
+			case MajordomoPackage.BOOLEAN_ACTION__ACTOR:
+				if (resolve) return getActor();
+				return basicGetActor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +162,11 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MajordomoPackage.GREATER_CONDITION__SENSOR:
-				setSensor((Sensor)newValue);
+			case MajordomoPackage.BOOLEAN_ACTION__VALUE:
+				setValue((Boolean)newValue);
 				return;
-			case MajordomoPackage.GREATER_CONDITION__VALUE:
-				setValue(newValue);
+			case MajordomoPackage.BOOLEAN_ACTION__ACTOR:
+				setActor((BooleanActor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +180,11 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.GREATER_CONDITION__SENSOR:
-				setSensor((Sensor)null);
-				return;
-			case MajordomoPackage.GREATER_CONDITION__VALUE:
+			case MajordomoPackage.BOOLEAN_ACTION__VALUE:
 				setValue(VALUE_EDEFAULT);
+				return;
+			case MajordomoPackage.BOOLEAN_ACTION__ACTOR:
+				setActor((BooleanActor)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,10 +198,10 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.GREATER_CONDITION__SENSOR:
-				return sensor != null;
-			case MajordomoPackage.GREATER_CONDITION__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MajordomoPackage.BOOLEAN_ACTION__VALUE:
+				return value != VALUE_EDEFAULT;
+			case MajordomoPackage.BOOLEAN_ACTION__ACTOR:
+				return actor != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,4 +222,4 @@ public class GreaterConditionImpl extends EObjectImpl implements GreaterConditio
 		return result.toString();
 	}
 
-} //GreaterConditionImpl
+} //BooleanActionImpl

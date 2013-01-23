@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface RollerActor extends Actor, RoomExtension {
+public interface RollerActor extends RoomMountable, BooleanActor {
 } // RollerActor

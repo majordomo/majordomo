@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface LightSensor extends Sensor, HouseExtension, RoomExtension {
+public interface LightSensor extends HouseMountable, RoomMountable, FloatSensor {
 } // LightSensor

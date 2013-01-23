@@ -417,72 +417,141 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.Action} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.IntegerCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ActionItemProvider actionItemProvider;
+	protected IntegerConditionItemProvider integerConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.Action}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.IntegerCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createActionAdapter() {
-		if (actionItemProvider == null) {
-			actionItemProvider = new ActionItemProvider(this);
+	public Adapter createIntegerConditionAdapter() {
+		if (integerConditionItemProvider == null) {
+			integerConditionItemProvider = new IntegerConditionItemProvider(this);
 		}
 
-		return actionItemProvider;
+		return integerConditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.LesserCondition} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.FloatCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LesserConditionItemProvider lesserConditionItemProvider;
+	protected FloatConditionItemProvider floatConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.LesserCondition}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.FloatCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createLesserConditionAdapter() {
-		if (lesserConditionItemProvider == null) {
-			lesserConditionItemProvider = new LesserConditionItemProvider(this);
+	public Adapter createFloatConditionAdapter() {
+		if (floatConditionItemProvider == null) {
+			floatConditionItemProvider = new FloatConditionItemProvider(this);
 		}
 
-		return lesserConditionItemProvider;
+		return floatConditionItemProvider;
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.GreaterCondition} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.BooleanCondition} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GreaterConditionItemProvider greaterConditionItemProvider;
+	protected BooleanConditionItemProvider booleanConditionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.GreaterCondition}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.BooleanCondition}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createGreaterConditionAdapter() {
-		if (greaterConditionItemProvider == null) {
-			greaterConditionItemProvider = new GreaterConditionItemProvider(this);
+	public Adapter createBooleanConditionAdapter() {
+		if (booleanConditionItemProvider == null) {
+			booleanConditionItemProvider = new BooleanConditionItemProvider(this);
 		}
 
-		return greaterConditionItemProvider;
+		return booleanConditionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.IntegerAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected IntegerActionItemProvider integerActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.IntegerAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createIntegerActionAdapter() {
+		if (integerActionItemProvider == null) {
+			integerActionItemProvider = new IntegerActionItemProvider(this);
+		}
+
+		return integerActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.FloatAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected FloatActionItemProvider floatActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.FloatAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createFloatActionAdapter() {
+		if (floatActionItemProvider == null) {
+			floatActionItemProvider = new FloatActionItemProvider(this);
+		}
+
+		return floatActionItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.BooleanAction} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BooleanActionItemProvider booleanActionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.BooleanAction}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBooleanActionAdapter() {
+		if (booleanActionItemProvider == null) {
+			booleanActionItemProvider = new BooleanActionItemProvider(this);
+		}
+
+		return booleanActionItemProvider;
 	}
 
 	/**
@@ -599,9 +668,12 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 		if (roofWindowActorItemProvider != null) roofWindowActorItemProvider.dispose();
 		if (boilerActionItemProvider != null) boilerActionItemProvider.dispose();
 		if (radiatorActorItemProvider != null) radiatorActorItemProvider.dispose();
-		if (actionItemProvider != null) actionItemProvider.dispose();
-		if (lesserConditionItemProvider != null) lesserConditionItemProvider.dispose();
-		if (greaterConditionItemProvider != null) greaterConditionItemProvider.dispose();
+		if (integerConditionItemProvider != null) integerConditionItemProvider.dispose();
+		if (floatConditionItemProvider != null) floatConditionItemProvider.dispose();
+		if (booleanConditionItemProvider != null) booleanConditionItemProvider.dispose();
+		if (integerActionItemProvider != null) integerActionItemProvider.dispose();
+		if (floatActionItemProvider != null) floatActionItemProvider.dispose();
+		if (booleanActionItemProvider != null) booleanActionItemProvider.dispose();
 	}
 
 }

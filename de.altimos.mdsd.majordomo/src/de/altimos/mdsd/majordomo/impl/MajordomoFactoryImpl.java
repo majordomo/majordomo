@@ -5,6 +5,7 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -71,11 +72,44 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 			case MajordomoPackage.ROOF_WINDOW_ACTOR: return createRoofWindowActor();
 			case MajordomoPackage.BOILER_ACTION: return createBoilerAction();
 			case MajordomoPackage.RADIATOR_ACTOR: return createRadiatorActor();
-			case MajordomoPackage.ACTION: return createAction();
-			case MajordomoPackage.LESSER_CONDITION: return createLesserCondition();
-			case MajordomoPackage.GREATER_CONDITION: return createGreaterCondition();
+			case MajordomoPackage.INTEGER_CONDITION: return createIntegerCondition();
+			case MajordomoPackage.FLOAT_CONDITION: return createFloatCondition();
+			case MajordomoPackage.BOOLEAN_CONDITION: return createBooleanCondition();
+			case MajordomoPackage.INTEGER_ACTION: return createIntegerAction();
+			case MajordomoPackage.FLOAT_ACTION: return createFloatAction();
+			case MajordomoPackage.BOOLEAN_ACTION: return createBooleanAction();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Object createFromString(EDataType eDataType, String initialValue) {
+		switch (eDataType.getClassifierID()) {
+			case MajordomoPackage.COMPERATOR:
+				return createComperatorFromString(eDataType, initialValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+		}
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String convertToString(EDataType eDataType, Object instanceValue) {
+		switch (eDataType.getClassifierID()) {
+			case MajordomoPackage.COMPERATOR:
+				return convertComperatorToString(eDataType, instanceValue);
+			default:
+				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -234,9 +268,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Action createAction() {
-		ActionImpl action = new ActionImpl();
-		return action;
+	public IntegerCondition createIntegerCondition() {
+		IntegerConditionImpl integerCondition = new IntegerConditionImpl();
+		return integerCondition;
 	}
 
 	/**
@@ -244,9 +278,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public LesserCondition createLesserCondition() {
-		LesserConditionImpl lesserCondition = new LesserConditionImpl();
-		return lesserCondition;
+	public FloatCondition createFloatCondition() {
+		FloatConditionImpl floatCondition = new FloatConditionImpl();
+		return floatCondition;
 	}
 
 	/**
@@ -254,9 +288,59 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public GreaterCondition createGreaterCondition() {
-		GreaterConditionImpl greaterCondition = new GreaterConditionImpl();
-		return greaterCondition;
+	public BooleanCondition createBooleanCondition() {
+		BooleanConditionImpl booleanCondition = new BooleanConditionImpl();
+		return booleanCondition;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public IntegerAction createIntegerAction() {
+		IntegerActionImpl integerAction = new IntegerActionImpl();
+		return integerAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FloatAction createFloatAction() {
+		FloatActionImpl floatAction = new FloatActionImpl();
+		return floatAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public BooleanAction createBooleanAction() {
+		BooleanActionImpl booleanAction = new BooleanActionImpl();
+		return booleanAction;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Comperator createComperatorFromString(EDataType eDataType, String initialValue) {
+		Comperator result = Comperator.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertComperatorToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
 	}
 
 	/**

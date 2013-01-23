@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface BoilerAction extends Actor, HouseExtension {
+public interface BoilerAction extends HouseMountable {
 } // BoilerAction

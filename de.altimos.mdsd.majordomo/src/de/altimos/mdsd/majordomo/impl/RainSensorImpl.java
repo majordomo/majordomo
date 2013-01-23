@@ -2,9 +2,12 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
+import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.Extendable;
+import de.altimos.mdsd.majordomo.Extension;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
 import de.altimos.mdsd.majordomo.RainSensor;
+import de.altimos.mdsd.majordomo.Sensor;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,6 +44,7 @@ public class RainSensorImpl extends EObjectImpl implements RainSensor {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -130,6 +134,17 @@ public class RainSensorImpl extends EObjectImpl implements RainSensor {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.RAIN_SENSOR__CTX, newCtx, newCtx));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean getValue() {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -242,6 +257,60 @@ public class RainSensorImpl extends EObjectImpl implements RainSensor {
 				return getCtx() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == Extension.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.RAIN_SENSOR__NAME: return MajordomoPackage.EXTENSION__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Sensor.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.RAIN_SENSOR__CTX: return MajordomoPackage.SENSOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanSensor.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == Extension.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.EXTENSION__NAME: return MajordomoPackage.RAIN_SENSOR__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Sensor.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.SENSOR__CTX: return MajordomoPackage.RAIN_SENSOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == BooleanSensor.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface RoofWindowActor extends Actor, RoomExtension {
+public interface RoofWindowActor extends RoomMountable, BooleanActor {
 } // RoofWindowActor

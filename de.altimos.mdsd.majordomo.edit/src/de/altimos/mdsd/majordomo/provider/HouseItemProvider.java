@@ -79,7 +79,6 @@ public class HouseItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__SENSORS);
 			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__ACTORS);
-			childrenFeatures.add(MajordomoPackage.Literals.HOUSE__ROOMS);
 		}
 		return childrenFeatures;
 	}
@@ -133,7 +132,6 @@ public class HouseItemProvider
 		switch (notification.getFeatureID(House.class)) {
 			case MajordomoPackage.HOUSE__SENSORS:
 			case MajordomoPackage.HOUSE__ACTORS:
-			case MajordomoPackage.HOUSE__ROOMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -199,17 +197,7 @@ public class HouseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createBoilerAction()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
 				 MajordomoFactory.eINSTANCE.createRadiatorActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.HOUSE__ROOMS,
-				 MajordomoFactory.eINSTANCE.createRoom()));
 	}
 
 	/**

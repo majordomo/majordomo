@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface SwitchSensor extends Sensor, RoomExtension {
+public interface SwitchSensor extends RoomMountable, BooleanSensor {
 } // SwitchSensor

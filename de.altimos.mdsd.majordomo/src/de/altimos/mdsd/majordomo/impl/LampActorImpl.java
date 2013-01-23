@@ -2,9 +2,13 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
+import de.altimos.mdsd.majordomo.Actor;
 import de.altimos.mdsd.majordomo.Extendable;
+import de.altimos.mdsd.majordomo.Extension;
+import de.altimos.mdsd.majordomo.FloatActor;
 import de.altimos.mdsd.majordomo.LampActor;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
+import de.altimos.mdsd.majordomo.RoomMountable;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -41,6 +45,7 @@ public class LampActorImpl extends EObjectImpl implements LampActor {
 	 * @ordered
 	 */
 	protected static final String NAME_EDEFAULT = null;
+
 	/**
 	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -130,6 +135,17 @@ public class LampActorImpl extends EObjectImpl implements LampActor {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.LAMP_ACTOR__CTX, newCtx, newCtx));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setValue(float value) {
+		// TODO: implement this method
+		// Ensure that you remove @generated or mark it @generated NOT
+		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -242,6 +258,70 @@ public class LampActorImpl extends EObjectImpl implements LampActor {
 				return getCtx() != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == RoomMountable.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Extension.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.LAMP_ACTOR__NAME: return MajordomoPackage.EXTENSION__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Actor.class) {
+			switch (derivedFeatureID) {
+				case MajordomoPackage.LAMP_ACTOR__CTX: return MajordomoPackage.ACTOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == FloatActor.class) {
+			switch (derivedFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == RoomMountable.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		if (baseClass == Extension.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.EXTENSION__NAME: return MajordomoPackage.LAMP_ACTOR__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == Actor.class) {
+			switch (baseFeatureID) {
+				case MajordomoPackage.ACTOR__CTX: return MajordomoPackage.LAMP_ACTOR__CTX;
+				default: return -1;
+			}
+		}
+		if (baseClass == FloatActor.class) {
+			switch (baseFeatureID) {
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
 	}
 
 	/**

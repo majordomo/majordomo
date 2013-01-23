@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Roof Window Actor</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link de.altimos.mdsd.majordomo.BooleanActor#setValue(boolean) <em>Set Value</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class RoofWindowActorTest extends TestCase {
@@ -84,6 +90,19 @@ public class RoofWindowActorTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link de.altimos.mdsd.majordomo.BooleanActor#setValue(boolean) <em>Set Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.BooleanActor#setValue(boolean)
+	 * @generated
+	 */
+	public void testSetValue__boolean() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //RoofWindowActorTest
