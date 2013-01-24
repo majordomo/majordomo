@@ -41,3 +41,11 @@ context Rule ERROR
 	
 context Rule ERROR
 	"Must have at least one action.": this.actions.size > 0;
+	
+context Sensor ERROR
+	"Must have a unique name.": this.ctx.sensors.exists(e|e.name == name);
+	
+context Actor ERROR
+	"Must have a unique name.": this.ctx.sensors.exists(e|e.name == name);
+
+	
