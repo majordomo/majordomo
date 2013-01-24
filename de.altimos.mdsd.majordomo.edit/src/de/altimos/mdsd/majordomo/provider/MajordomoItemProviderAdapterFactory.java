@@ -371,26 +371,26 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.BoilerAction} instances.
+	 * This keeps track of the one adapter used for all {@link de.altimos.mdsd.majordomo.BoilerActor} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoilerActionItemProvider boilerActionItemProvider;
+	protected BoilerActorItemProvider boilerActorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.BoilerAction}.
+	 * This creates an adapter for a {@link de.altimos.mdsd.majordomo.BoilerActor}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBoilerActionAdapter() {
-		if (boilerActionItemProvider == null) {
-			boilerActionItemProvider = new BoilerActionItemProvider(this);
+	public Adapter createBoilerActorAdapter() {
+		if (boilerActorItemProvider == null) {
+			boilerActorItemProvider = new BoilerActorItemProvider(this);
 		}
 
-		return boilerActionItemProvider;
+		return boilerActorItemProvider;
 	}
 
 	/**
@@ -666,7 +666,7 @@ public class MajordomoItemProviderAdapterFactory extends MajordomoAdapterFactory
 		if (lampActorItemProvider != null) lampActorItemProvider.dispose();
 		if (rollerActorItemProvider != null) rollerActorItemProvider.dispose();
 		if (roofWindowActorItemProvider != null) roofWindowActorItemProvider.dispose();
-		if (boilerActionItemProvider != null) boilerActionItemProvider.dispose();
+		if (boilerActorItemProvider != null) boilerActorItemProvider.dispose();
 		if (radiatorActorItemProvider != null) radiatorActorItemProvider.dispose();
 		if (integerConditionItemProvider != null) integerConditionItemProvider.dispose();
 		if (floatConditionItemProvider != null) floatConditionItemProvider.dispose();

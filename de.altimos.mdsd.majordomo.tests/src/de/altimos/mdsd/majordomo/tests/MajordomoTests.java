@@ -40,6 +40,7 @@ public class MajordomoTests extends TestSuite {
 		suite.addTestSuite(LampActorTest.class);
 		suite.addTestSuite(RollerActorTest.class);
 		suite.addTestSuite(RoofWindowActorTest.class);
+		suite.addTestSuite(BoilerActorTest.class);
 		suite.addTestSuite(RadiatorActorTest.class);
 		return suite;
 	}

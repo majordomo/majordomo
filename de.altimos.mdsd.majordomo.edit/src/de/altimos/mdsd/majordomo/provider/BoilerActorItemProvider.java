@@ -3,9 +3,8 @@
 package de.altimos.mdsd.majordomo.provider;
 
 
-import de.altimos.mdsd.majordomo.MajordomoFactory;
+import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
-import de.altimos.mdsd.majordomo.Room;
 
 import java.util.Collection;
 import java.util.List;
@@ -14,8 +13,6 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
@@ -29,12 +26,12 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.altimos.mdsd.majordomo.Room} object.
+ * This is the item provider adapter for a {@link de.altimos.mdsd.majordomo.BoilerActor} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class RoomItemProvider
+public class BoilerActorItemProvider
 	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
@@ -48,7 +45,7 @@ public class RoomItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RoomItemProvider(AdapterFactory adapterFactory) {
+	public BoilerActorItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -64,6 +61,7 @@ public class RoomItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addEReference0PropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -79,9 +77,9 @@ public class RoomItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Room_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Room_name_feature", "_UI_Room_type"),
-				 MajordomoPackage.Literals.ROOM__NAME,
+				 getString("_UI_Extension_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Extension_name_feature", "_UI_Extension_type"),
+				 MajordomoPackage.Literals.EXTENSION__NAME,
 				 true,
 				 false,
 				 false,
@@ -91,45 +89,36 @@ public class RoomItemProvider
 	}
 
 	/**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * This adds a property descriptor for the EReference0 feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__SENSORS);
-			childrenFeatures.add(MajordomoPackage.Literals.EXTENDABLE__ACTORS);
-		}
-		return childrenFeatures;
+	protected void addEReference0PropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BooleanActor_EReference0_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanActor_EReference0_feature", "_UI_BooleanActor_type"),
+				 MajordomoPackage.Literals.BOOLEAN_ACTOR__EREFERENCE0,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This returns Room.gif.
+	 * This returns BoilerActor.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/Room"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BoilerActor"));
 	}
 
 	/**
@@ -140,10 +129,10 @@ public class RoomItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((Room)object).getName();
+		String label = ((BoilerActor)object).getName();
 		return label == null || label.length() == 0 ?
-			getString("_UI_Room_type") :
-			getString("_UI_Room_type") + " " + label;
+			getString("_UI_BoilerActor_type") :
+			getString("_UI_BoilerActor_type") + " " + label;
 	}
 
 	/**
@@ -157,13 +146,9 @@ public class RoomItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(Room.class)) {
-			case MajordomoPackage.ROOM__NAME:
+		switch (notification.getFeatureID(BoilerActor.class)) {
+			case MajordomoPackage.BOILER_ACTOR__NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
-				return;
-			case MajordomoPackage.ROOM__SENSORS:
-			case MajordomoPackage.ROOM__ACTORS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
 		super.notifyChanged(notification);
@@ -179,61 +164,6 @@ public class RoomItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createLightSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createTemperatureSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createRainSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createSwitchSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createNumberSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__SENSORS,
-				 MajordomoFactory.eINSTANCE.createClockSensor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createLampActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createRollerActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createRoofWindowActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createBoilerActor()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
-				 MajordomoFactory.eINSTANCE.createRadiatorActor()));
 	}
 
 	/**
