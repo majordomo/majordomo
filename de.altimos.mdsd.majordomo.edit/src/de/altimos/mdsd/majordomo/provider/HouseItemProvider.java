@@ -197,6 +197,11 @@ public class HouseItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
+				 MajordomoFactory.eINSTANCE.createBoilerActor()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.EXTENDABLE__ACTORS,
 				 MajordomoFactory.eINSTANCE.createRadiatorActor()));
 	}
 
