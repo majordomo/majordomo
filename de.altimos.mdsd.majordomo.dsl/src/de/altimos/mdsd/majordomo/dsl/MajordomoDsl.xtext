@@ -49,11 +49,11 @@ Rule returns Rule:
 ;
 
 Condition returns Condition:
-	BooleanCondition | FloatCondition | IntegerCondition
+	BooleanCondition | FloatCondition
 ;
 
 Action returns Action:
-	BooleanAction | FloatAction | IntegerAction
+	BooleanAction | FloatAction
 ;
 
 BooleanCondition returns BooleanCondition:
@@ -64,11 +64,6 @@ BooleanCondition returns BooleanCondition:
 FloatCondition returns FloatCondition:
 	{FloatCondition}
 	value=EFloat
-;
-
-IntegerCondition returns IntegerCondition:
-	{IntegerCondition}
-	value=EInt
 ;
 
 BooleanAction returns BooleanAction:
@@ -83,13 +78,6 @@ FloatAction returns FloatAction:
 	actor=[FloatActor|EString]
 	':'
 	value=EFloat
-;
-
-IntegerAction returns IntegerAction:
-	{IntegerAction}
-	actor=[IntegerActor|EString]
-	':'
-	value=EInt
 ;
 
 LightSensor returns LightSensor:
