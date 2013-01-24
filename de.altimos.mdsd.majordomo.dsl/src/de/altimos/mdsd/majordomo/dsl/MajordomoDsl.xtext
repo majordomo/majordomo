@@ -49,15 +49,47 @@ Rule returns Rule:
 ;
 
 Condition returns Condition:
+	BooleanCondition | FloatCondition | IntegerCondition
+;
+
+Action returns Action:
+	BooleanAction | FloatAction | IntegerAction
+;
+
+BooleanCondition returns BooleanCondition:
+	{BooleanCondition}
+	value=EBoolean
+;
+
+FloatCondition returns FloatCondition:
+	{FloatCondition}
+	value=EFloat
+;
+
+IntegerCondition returns IntegerCondition:
 	{IntegerCondition}
 	value=EInt
 ;
 
-Action returns Action:
+BooleanAction returns BooleanAction:
 	{BooleanAction}
 	actor=[BooleanActor|EString]
 	':'
 	value=EBoolean
+;
+
+FloatAction returns FloatAction:
+	{FloatAction}
+	actor=[FloatActor|EString]
+	':'
+	value=EFloat
+;
+
+IntegerAction returns IntegerAction:
+	{IntegerAction}
+	actor=[IntegerActor|EString]
+	':'
+	value=EInt
 ;
 
 LightSensor returns LightSensor:
