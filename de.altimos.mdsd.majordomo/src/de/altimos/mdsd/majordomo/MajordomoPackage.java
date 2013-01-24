@@ -4,6 +4,7 @@ package de.altimos.mdsd.majordomo;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -84,13 +85,22 @@ public interface MajordomoPackage extends EPackage {
 	int MAJORDOMO__RULES = 1;
 
 	/**
+	 * The feature id for the '<em><b>Rooms</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MAJORDOMO__ROOMS = 2;
+
+	/**
 	 * The number of structural features of the '<em>Majordomo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MAJORDOMO_FEATURE_COUNT = 2;
+	int MAJORDOMO_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Extendable <em>Extendable</em>}' class.
@@ -158,22 +168,13 @@ public interface MajordomoPackage extends EPackage {
 	int HOUSE__ACTORS = EXTENDABLE__ACTORS;
 
 	/**
-	 * The feature id for the '<em><b>Rooms</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int HOUSE__ROOMS = EXTENDABLE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>House</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOUSE_FEATURE_COUNT = EXTENDABLE_FEATURE_COUNT + 1;
+	int HOUSE_FEATURE_COUNT = EXTENDABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RoomImpl <em>Room</em>}' class.
@@ -343,13 +344,13 @@ public interface MajordomoPackage extends EPackage {
 	int RULE__CONDITIONS = 0;
 
 	/**
-	 * The feature id for the '<em><b>Action</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Actions</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RULE__ACTION = 1;
+	int RULE__ACTIONS = 1;
 
 	/**
 	 * The number of structural features of the '<em>Rule</em>' class.
@@ -359,6 +360,25 @@ public interface MajordomoPackage extends EPackage {
 	 * @ordered
 	 */
 	int RULE_FEATURE_COUNT = 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.HouseMountable <em>House Mountable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.HouseMountable
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getHouseMountable()
+	 * @generated
+	 */
+	int HOUSE_MOUNTABLE = 20;
+
+	/**
+	 * The number of structural features of the '<em>House Mountable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int HOUSE_MOUNTABLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.LightSensorImpl <em>Light Sensor</em>}' class.
@@ -377,7 +397,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_SENSOR__NAME = SENSOR__NAME;
+	int LIGHT_SENSOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -386,7 +406,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_SENSOR__CTX = SENSOR__CTX;
+	int LIGHT_SENSOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Light Sensor</em>' class.
@@ -395,7 +415,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int LIGHT_SENSOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.TemperatureSensorImpl <em>Temperature Sensor</em>}' class.
@@ -414,7 +434,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPERATURE_SENSOR__NAME = SENSOR__NAME;
+	int TEMPERATURE_SENSOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -423,7 +443,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPERATURE_SENSOR__CTX = SENSOR__CTX;
+	int TEMPERATURE_SENSOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Temperature Sensor</em>' class.
@@ -432,7 +452,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEMPERATURE_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int TEMPERATURE_SENSOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RainSensorImpl <em>Rain Sensor</em>}' class.
@@ -451,7 +471,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RAIN_SENSOR__NAME = SENSOR__NAME;
+	int RAIN_SENSOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -460,7 +480,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RAIN_SENSOR__CTX = SENSOR__CTX;
+	int RAIN_SENSOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Rain Sensor</em>' class.
@@ -469,7 +489,26 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RAIN_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int RAIN_SENSOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.RoomMountable <em>Room Mountable</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.RoomMountable
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getRoomMountable()
+	 * @generated
+	 */
+	int ROOM_MOUNTABLE = 19;
+
+	/**
+	 * The number of structural features of the '<em>Room Mountable</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOM_MOUNTABLE_FEATURE_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.SwitchSensorImpl <em>Switch Sensor</em>}' class.
@@ -488,7 +527,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWITCH_SENSOR__NAME = SENSOR__NAME;
+	int SWITCH_SENSOR__NAME = ROOM_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -497,7 +536,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWITCH_SENSOR__CTX = SENSOR__CTX;
+	int SWITCH_SENSOR__CTX = ROOM_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Switch Sensor</em>' class.
@@ -506,7 +545,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SWITCH_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int SWITCH_SENSOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.NumberSensorImpl <em>Number Sensor</em>}' class.
@@ -525,7 +564,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_SENSOR__NAME = SENSOR__NAME;
+	int NUMBER_SENSOR__NAME = ROOM_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -534,7 +573,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_SENSOR__CTX = SENSOR__CTX;
+	int NUMBER_SENSOR__CTX = ROOM_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Number Sensor</em>' class.
@@ -543,7 +582,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int NUMBER_SENSOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.ClockSensorImpl <em>Clock Sensor</em>}' class.
@@ -562,7 +601,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLOCK_SENSOR__NAME = SENSOR__NAME;
+	int CLOCK_SENSOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -571,7 +610,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLOCK_SENSOR__CTX = SENSOR__CTX;
+	int CLOCK_SENSOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Clock Sensor</em>' class.
@@ -580,7 +619,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLOCK_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+	int CLOCK_SENSOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.LampActorImpl <em>Lamp Actor</em>}' class.
@@ -599,7 +638,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAMP_ACTOR__NAME = ACTOR__NAME;
+	int LAMP_ACTOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -608,7 +647,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAMP_ACTOR__CTX = ACTOR__CTX;
+	int LAMP_ACTOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Lamp Actor</em>' class.
@@ -617,7 +656,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LAMP_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int LAMP_ACTOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RollerActorImpl <em>Roller Actor</em>}' class.
@@ -636,7 +675,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLLER_ACTOR__NAME = ACTOR__NAME;
+	int ROLLER_ACTOR__NAME = ROOM_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -645,7 +684,16 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLLER_ACTOR__CTX = ACTOR__CTX;
+	int ROLLER_ACTOR__CTX = ROOM_MOUNTABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROLLER_ACTOR__EREFERENCE0 = ROOM_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Roller Actor</em>' class.
@@ -654,7 +702,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROLLER_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int ROLLER_ACTOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RoofWindowActorImpl <em>Roof Window Actor</em>}' class.
@@ -673,7 +721,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOF_WINDOW_ACTOR__NAME = ACTOR__NAME;
+	int ROOF_WINDOW_ACTOR__NAME = ROOM_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -682,7 +730,16 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOF_WINDOW_ACTOR__CTX = ACTOR__CTX;
+	int ROOF_WINDOW_ACTOR__CTX = ROOM_MOUNTABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOF_WINDOW_ACTOR__EREFERENCE0 = ROOM_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Roof Window Actor</em>' class.
@@ -691,7 +748,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ROOF_WINDOW_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int ROOF_WINDOW_ACTOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.BoilerActionImpl <em>Boiler Action</em>}' class.
@@ -704,31 +761,13 @@ public interface MajordomoPackage extends EPackage {
 	int BOILER_ACTION = 17;
 
 	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOILER_ACTION__NAME = ACTOR__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int BOILER_ACTION__CTX = ACTOR__CTX;
-
-	/**
 	 * The number of structural features of the '<em>Boiler Action</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOILER_ACTION_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int BOILER_ACTION_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl <em>Radiator Actor</em>}' class.
@@ -747,7 +786,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIATOR_ACTOR__NAME = ACTOR__NAME;
+	int RADIATOR_ACTOR__NAME = ROOM_MOUNTABLE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
@@ -756,7 +795,16 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIATOR_ACTOR__CTX = ACTOR__CTX;
+	int RADIATOR_ACTOR__CTX = ROOM_MOUNTABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RADIATOR_ACTOR__EREFERENCE0 = ROOM_MOUNTABLE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Radiator Actor</em>' class.
@@ -765,45 +813,17 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RADIATOR_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+	int RADIATOR_ACTOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.RoomExtension <em>Room Extension</em>}' class.
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.BooleanSensor <em>Boolean Sensor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.RoomExtension
-	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getRoomExtension()
+	 * @see de.altimos.mdsd.majordomo.BooleanSensor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanSensor()
 	 * @generated
 	 */
-	int ROOM_EXTENSION = 19;
-
-	/**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_EXTENSION__NAME = EXTENSION__NAME;
-
-	/**
-	 * The number of structural features of the '<em>Room Extension</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ROOM_EXTENSION_FEATURE_COUNT = EXTENSION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.HouseExtension <em>House Extension</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.HouseExtension
-	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getHouseExtension()
-	 * @generated
-	 */
-	int HOUSE_EXTENSION = 20;
+	int BOOLEAN_SENSOR = 21;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -812,16 +832,219 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int HOUSE_EXTENSION__NAME = EXTENSION__NAME;
+	int BOOLEAN_SENSOR__NAME = SENSOR__NAME;
 
 	/**
-	 * The number of structural features of the '<em>House Extension</em>' class.
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int HOUSE_EXTENSION_FEATURE_COUNT = EXTENSION_FEATURE_COUNT + 0;
+	int BOOLEAN_SENSOR__CTX = SENSOR__CTX;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.IntegerSensor <em>Integer Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.IntegerSensor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerSensor()
+	 * @generated
+	 */
+	int INTEGER_SENSOR = 22;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_SENSOR__CTX = SENSOR__CTX;
+
+	/**
+	 * The number of structural features of the '<em>Integer Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.FloatSensor <em>Float Sensor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.FloatSensor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatSensor()
+	 * @generated
+	 */
+	int FLOAT_SENSOR = 23;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_SENSOR__NAME = SENSOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_SENSOR__CTX = SENSOR__CTX;
+
+	/**
+	 * The number of structural features of the '<em>Float Sensor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_SENSOR_FEATURE_COUNT = SENSOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.BooleanActor <em>Boolean Actor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.BooleanActor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanActor()
+	 * @generated
+	 */
+	int BOOLEAN_ACTOR = 24;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTOR__NAME = ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTOR__CTX = ACTOR__CTX;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTOR__EREFERENCE0 = ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.IntegerActor <em>Integer Actor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.IntegerActor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerActor()
+	 * @generated
+	 */
+	int INTEGER_ACTOR = 25;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTOR__NAME = ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTOR__CTX = ACTOR__CTX;
+
+	/**
+	 * The number of structural features of the '<em>Integer Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.FloatActor <em>Float Actor</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.FloatActor
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatActor()
+	 * @generated
+	 */
+	int FLOAT_ACTOR = 26;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTOR__NAME = ACTOR__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTOR__CTX = ACTOR__CTX;
+
+	/**
+	 * The number of structural features of the '<em>Float Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTOR_FEATURE_COUNT = ACTOR_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Condition <em>Condition</em>}' class.
@@ -831,25 +1054,16 @@ public interface MajordomoPackage extends EPackage {
 	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getCondition()
 	 * @generated
 	 */
-	int CONDITION = 21;
+	int CONDITION = 27;
 
 	/**
-	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * The feature id for the '<em><b>Comperator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION__SENSOR = 0;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONDITION__VALUE = 1;
+	int CONDITION__COMPERATOR = 0;
 
 	/**
 	 * The number of structural features of the '<em>Condition</em>' class.
@@ -858,35 +1072,17 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONDITION_FEATURE_COUNT = 2;
+	int CONDITION_FEATURE_COUNT = 1;
 
 	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.ActionImpl <em>Action</em>}' class.
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Action <em>Action</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.impl.ActionImpl
+	 * @see de.altimos.mdsd.majordomo.Action
 	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getAction()
 	 * @generated
 	 */
-	int ACTION = 22;
-
-	/**
-	 * The feature id for the '<em><b>Value</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__VALUE = 0;
-
-	/**
-	 * The feature id for the '<em><b>Actor</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ACTION__ACTOR = 1;
+	int ACTION = 28;
 
 	/**
 	 * The number of structural features of the '<em>Action</em>' class.
@@ -895,26 +1091,26 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ACTION_FEATURE_COUNT = 2;
+	int ACTION_FEATURE_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.LesserConditionImpl <em>Lesser Condition</em>}' class.
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.IntegerConditionImpl <em>Integer Condition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.impl.LesserConditionImpl
-	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getLesserCondition()
+	 * @see de.altimos.mdsd.majordomo.impl.IntegerConditionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerCondition()
 	 * @generated
 	 */
-	int LESSER_CONDITION = 23;
+	int INTEGER_CONDITION = 29;
 
 	/**
-	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * The feature id for the '<em><b>Comperator</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LESSER_CONDITION__SENSOR = CONDITION__SENSOR;
+	int INTEGER_CONDITION__COMPERATOR = CONDITION__COMPERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -923,26 +1119,7 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LESSER_CONDITION__VALUE = CONDITION__VALUE;
-
-	/**
-	 * The number of structural features of the '<em>Lesser Condition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LESSER_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.GreaterConditionImpl <em>Greater Condition</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.impl.GreaterConditionImpl
-	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getGreaterCondition()
-	 * @generated
-	 */
-	int GREATER_CONDITION = 24;
+	int INTEGER_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sensor</b></em>' reference.
@@ -951,7 +1128,35 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GREATER_CONDITION__SENSOR = CONDITION__SENSOR;
+	int INTEGER_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Integer Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.FloatConditionImpl <em>Float Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.impl.FloatConditionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatCondition()
+	 * @generated
+	 */
+	int FLOAT_CONDITION = 30;
+
+	/**
+	 * The feature id for the '<em><b>Comperator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_CONDITION__COMPERATOR = CONDITION__COMPERATOR;
 
 	/**
 	 * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -960,16 +1165,192 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int GREATER_CONDITION__VALUE = CONDITION__VALUE;
+	int FLOAT_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Greater Condition</em>' class.
+	 * The feature id for the '<em><b>Sensor</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GREATER_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 0;
+	int FLOAT_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Float Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.BooleanConditionImpl <em>Boolean Condition</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.impl.BooleanConditionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanCondition()
+	 * @generated
+	 */
+	int BOOLEAN_CONDITION = 31;
+
+	/**
+	 * The feature id for the '<em><b>Comperator</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION__COMPERATOR = CONDITION__COMPERATOR;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION__VALUE = CONDITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Sensor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION__SENSOR = CONDITION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Condition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_CONDITION_FEATURE_COUNT = CONDITION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.IntegerActionImpl <em>Integer Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.impl.IntegerActionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerAction()
+	 * @generated
+	 */
+	int INTEGER_ACTION = 32;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTION__VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTION__ACTOR = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Integer Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INTEGER_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.FloatActionImpl <em>Float Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.impl.FloatActionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatAction()
+	 * @generated
+	 */
+	int FLOAT_ACTION = 33;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTION__VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTION__ACTOR = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Float Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FLOAT_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.BooleanActionImpl <em>Boolean Action</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.impl.BooleanActionImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanAction()
+	 * @generated
+	 */
+	int BOOLEAN_ACTION = 34;
+
+	/**
+	 * The feature id for the '<em><b>Value</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTION__VALUE = ACTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Actor</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTION__ACTOR = ACTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Boolean Action</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOLEAN_ACTION_FEATURE_COUNT = ACTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.Comperator <em>Comperator</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.Comperator
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getComperator()
+	 * @generated
+	 */
+	int COMPERATOR = 35;
 
 
 	/**
@@ -1005,6 +1386,17 @@ public interface MajordomoPackage extends EPackage {
 	EReference getMajordomo_Rules();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link de.altimos.mdsd.majordomo.Majordomo#getRooms <em>Rooms</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Rooms</em>'.
+	 * @see de.altimos.mdsd.majordomo.Majordomo#getRooms()
+	 * @see #getMajordomo()
+	 * @generated
+	 */
+	EReference getMajordomo_Rooms();
+
+	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.House <em>House</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1013,17 +1405,6 @@ public interface MajordomoPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getHouse();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link de.altimos.mdsd.majordomo.House#getRooms <em>Rooms</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Rooms</em>'.
-	 * @see de.altimos.mdsd.majordomo.House#getRooms()
-	 * @see #getHouse()
-	 * @generated
-	 */
-	EReference getHouse_Rooms();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.Extendable <em>Extendable</em>}'.
@@ -1142,15 +1523,15 @@ public interface MajordomoPackage extends EPackage {
 	EReference getRule_Conditions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.altimos.mdsd.majordomo.Rule#getAction <em>Action</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.altimos.mdsd.majordomo.Rule#getActions <em>Actions</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Action</em>'.
-	 * @see de.altimos.mdsd.majordomo.Rule#getAction()
+	 * @return the meta object for the containment reference list '<em>Actions</em>'.
+	 * @see de.altimos.mdsd.majordomo.Rule#getActions()
 	 * @see #getRule()
 	 * @generated
 	 */
-	EReference getRule_Action();
+	EReference getRule_Actions();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.Extension <em>Extension</em>}'.
@@ -1284,24 +1665,95 @@ public interface MajordomoPackage extends EPackage {
 	EClass getRadiatorActor();
 
 	/**
-	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.RoomExtension <em>Room Extension</em>}'.
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.RoomMountable <em>Room Mountable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Room Extension</em>'.
-	 * @see de.altimos.mdsd.majordomo.RoomExtension
+	 * @return the meta object for class '<em>Room Mountable</em>'.
+	 * @see de.altimos.mdsd.majordomo.RoomMountable
 	 * @generated
 	 */
-	EClass getRoomExtension();
+	EClass getRoomMountable();
 
 	/**
-	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.HouseExtension <em>House Extension</em>}'.
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.HouseMountable <em>House Mountable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>House Extension</em>'.
-	 * @see de.altimos.mdsd.majordomo.HouseExtension
+	 * @return the meta object for class '<em>House Mountable</em>'.
+	 * @see de.altimos.mdsd.majordomo.HouseMountable
 	 * @generated
 	 */
-	EClass getHouseExtension();
+	EClass getHouseMountable();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BooleanSensor <em>Boolean Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanSensor
+	 * @generated
+	 */
+	EClass getBooleanSensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.IntegerSensor <em>Integer Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerSensor
+	 * @generated
+	 */
+	EClass getIntegerSensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.FloatSensor <em>Float Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Float Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatSensor
+	 * @generated
+	 */
+	EClass getFloatSensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BooleanActor <em>Boolean Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanActor
+	 * @generated
+	 */
+	EClass getBooleanActor();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.BooleanActor#getEReference0 <em>EReference0</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>EReference0</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanActor#getEReference0()
+	 * @see #getBooleanActor()
+	 * @generated
+	 */
+	EReference getBooleanActor_EReference0();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.IntegerActor <em>Integer Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerActor
+	 * @generated
+	 */
+	EClass getIntegerActor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.FloatActor <em>Float Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Float Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatActor
+	 * @generated
+	 */
+	EClass getFloatActor();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.Condition <em>Condition</em>}'.
@@ -1314,26 +1766,15 @@ public interface MajordomoPackage extends EPackage {
 	EClass getCondition();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.Condition#getSensor <em>Sensor</em>}'.
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.Condition#getComperator <em>Comperator</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sensor</em>'.
-	 * @see de.altimos.mdsd.majordomo.Condition#getSensor()
+	 * @return the meta object for the attribute '<em>Comperator</em>'.
+	 * @see de.altimos.mdsd.majordomo.Condition#getComperator()
 	 * @see #getCondition()
 	 * @generated
 	 */
-	EReference getCondition_Sensor();
-
-	/**
-	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.Condition#getValue <em>Value</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.altimos.mdsd.majordomo.Condition#getValue()
-	 * @see #getCondition()
-	 * @generated
-	 */
-	EAttribute getCondition_Value();
+	EAttribute getCondition_Comperator();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.Action <em>Action</em>}'.
@@ -1346,46 +1787,206 @@ public interface MajordomoPackage extends EPackage {
 	EClass getAction();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.Action#getValue <em>Value</em>}'.
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.IntegerCondition <em>Integer Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Condition</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerCondition
+	 * @generated
+	 */
+	EClass getIntegerCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.IntegerCondition#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Value</em>'.
-	 * @see de.altimos.mdsd.majordomo.Action#getValue()
-	 * @see #getAction()
+	 * @see de.altimos.mdsd.majordomo.IntegerCondition#getValue()
+	 * @see #getIntegerCondition()
 	 * @generated
 	 */
-	EAttribute getAction_Value();
+	EAttribute getIntegerCondition_Value();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.Action#getActor <em>Actor</em>}'.
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.IntegerCondition#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerCondition#getSensor()
+	 * @see #getIntegerCondition()
+	 * @generated
+	 */
+	EReference getIntegerCondition_Sensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.FloatCondition <em>Float Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Float Condition</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatCondition
+	 * @generated
+	 */
+	EClass getFloatCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.FloatCondition#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatCondition#getValue()
+	 * @see #getFloatCondition()
+	 * @generated
+	 */
+	EAttribute getFloatCondition_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.FloatCondition#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatCondition#getSensor()
+	 * @see #getFloatCondition()
+	 * @generated
+	 */
+	EReference getFloatCondition_Sensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BooleanCondition <em>Boolean Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Condition</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanCondition
+	 * @generated
+	 */
+	EClass getBooleanCondition();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.BooleanCondition#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanCondition#isValue()
+	 * @see #getBooleanCondition()
+	 * @generated
+	 */
+	EAttribute getBooleanCondition_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.BooleanCondition#getSensor <em>Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Sensor</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanCondition#getSensor()
+	 * @see #getBooleanCondition()
+	 * @generated
+	 */
+	EReference getBooleanCondition_Sensor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.IntegerAction <em>Integer Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Integer Action</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerAction
+	 * @generated
+	 */
+	EClass getIntegerAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.IntegerAction#getValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.altimos.mdsd.majordomo.IntegerAction#getValue()
+	 * @see #getIntegerAction()
+	 * @generated
+	 */
+	EAttribute getIntegerAction_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.IntegerAction#getActor <em>Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Actor</em>'.
-	 * @see de.altimos.mdsd.majordomo.Action#getActor()
-	 * @see #getAction()
+	 * @see de.altimos.mdsd.majordomo.IntegerAction#getActor()
+	 * @see #getIntegerAction()
 	 * @generated
 	 */
-	EReference getAction_Actor();
+	EReference getIntegerAction_Actor();
 
 	/**
-	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.LesserCondition <em>Lesser Condition</em>}'.
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.FloatAction <em>Float Action</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Lesser Condition</em>'.
-	 * @see de.altimos.mdsd.majordomo.LesserCondition
+	 * @return the meta object for class '<em>Float Action</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatAction
 	 * @generated
 	 */
-	EClass getLesserCondition();
+	EClass getFloatAction();
 
 	/**
-	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.GreaterCondition <em>Greater Condition</em>}'.
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.FloatAction#getValue <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Greater Condition</em>'.
-	 * @see de.altimos.mdsd.majordomo.GreaterCondition
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatAction#getValue()
+	 * @see #getFloatAction()
 	 * @generated
 	 */
-	EClass getGreaterCondition();
+	EAttribute getFloatAction_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.FloatAction#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.FloatAction#getActor()
+	 * @see #getFloatAction()
+	 * @generated
+	 */
+	EReference getFloatAction_Actor();
+
+	/**
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BooleanAction <em>Boolean Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Action</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanAction
+	 * @generated
+	 */
+	EClass getBooleanAction();
+
+	/**
+	 * Returns the meta object for the attribute '{@link de.altimos.mdsd.majordomo.BooleanAction#isValue <em>Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Value</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanAction#isValue()
+	 * @see #getBooleanAction()
+	 * @generated
+	 */
+	EAttribute getBooleanAction_Value();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.altimos.mdsd.majordomo.BooleanAction#getActor <em>Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.BooleanAction#getActor()
+	 * @see #getBooleanAction()
+	 * @generated
+	 */
+	EReference getBooleanAction_Actor();
+
+	/**
+	 * Returns the meta object for enum '{@link de.altimos.mdsd.majordomo.Comperator <em>Comperator</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Comperator</em>'.
+	 * @see de.altimos.mdsd.majordomo.Comperator
+	 * @generated
+	 */
+	EEnum getComperator();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -1436,6 +2037,14 @@ public interface MajordomoPackage extends EPackage {
 		EReference MAJORDOMO__RULES = eINSTANCE.getMajordomo_Rules();
 
 		/**
+		 * The meta object literal for the '<em><b>Rooms</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MAJORDOMO__ROOMS = eINSTANCE.getMajordomo_Rooms();
+
+		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.HouseImpl <em>House</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1444,14 +2053,6 @@ public interface MajordomoPackage extends EPackage {
 		 * @generated
 		 */
 		EClass HOUSE = eINSTANCE.getHouse();
-
-		/**
-		 * The meta object literal for the '<em><b>Rooms</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference HOUSE__ROOMS = eINSTANCE.getHouse_Rooms();
 
 		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Extendable <em>Extendable</em>}' class.
@@ -1552,12 +2153,12 @@ public interface MajordomoPackage extends EPackage {
 		EReference RULE__CONDITIONS = eINSTANCE.getRule_Conditions();
 
 		/**
-		 * The meta object literal for the '<em><b>Action</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference RULE__ACTION = eINSTANCE.getRule_Action();
+		EReference RULE__ACTIONS = eINSTANCE.getRule_Actions();
 
 		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Extension <em>Extension</em>}' class.
@@ -1688,24 +2289,92 @@ public interface MajordomoPackage extends EPackage {
 		EClass RADIATOR_ACTOR = eINSTANCE.getRadiatorActor();
 
 		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.RoomExtension <em>Room Extension</em>}' class.
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.RoomMountable <em>Room Mountable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.RoomExtension
-		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getRoomExtension()
+		 * @see de.altimos.mdsd.majordomo.RoomMountable
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getRoomMountable()
 		 * @generated
 		 */
-		EClass ROOM_EXTENSION = eINSTANCE.getRoomExtension();
+		EClass ROOM_MOUNTABLE = eINSTANCE.getRoomMountable();
 
 		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.HouseExtension <em>House Extension</em>}' class.
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.HouseMountable <em>House Mountable</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.HouseExtension
-		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getHouseExtension()
+		 * @see de.altimos.mdsd.majordomo.HouseMountable
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getHouseMountable()
 		 * @generated
 		 */
-		EClass HOUSE_EXTENSION = eINSTANCE.getHouseExtension();
+		EClass HOUSE_MOUNTABLE = eINSTANCE.getHouseMountable();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.BooleanSensor <em>Boolean Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.BooleanSensor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanSensor()
+		 * @generated
+		 */
+		EClass BOOLEAN_SENSOR = eINSTANCE.getBooleanSensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.IntegerSensor <em>Integer Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.IntegerSensor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerSensor()
+		 * @generated
+		 */
+		EClass INTEGER_SENSOR = eINSTANCE.getIntegerSensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.FloatSensor <em>Float Sensor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.FloatSensor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatSensor()
+		 * @generated
+		 */
+		EClass FLOAT_SENSOR = eINSTANCE.getFloatSensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.BooleanActor <em>Boolean Actor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.BooleanActor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanActor()
+		 * @generated
+		 */
+		EClass BOOLEAN_ACTOR = eINSTANCE.getBooleanActor();
+
+		/**
+		 * The meta object literal for the '<em><b>EReference0</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_ACTOR__EREFERENCE0 = eINSTANCE.getBooleanActor_EReference0();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.IntegerActor <em>Integer Actor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.IntegerActor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerActor()
+		 * @generated
+		 */
+		EClass INTEGER_ACTOR = eINSTANCE.getIntegerActor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.FloatActor <em>Float Actor</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.FloatActor
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatActor()
+		 * @generated
+		 */
+		EClass FLOAT_ACTOR = eINSTANCE.getFloatActor();
 
 		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Condition <em>Condition</em>}' class.
@@ -1718,38 +2387,118 @@ public interface MajordomoPackage extends EPackage {
 		EClass CONDITION = eINSTANCE.getCondition();
 
 		/**
-		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Comperator</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CONDITION__SENSOR = eINSTANCE.getCondition_Sensor();
+		EAttribute CONDITION__COMPERATOR = eINSTANCE.getCondition_Comperator();
 
 		/**
-		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Action <em>Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CONDITION__VALUE = eINSTANCE.getCondition_Value();
-
-		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.ActionImpl <em>Action</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.impl.ActionImpl
+		 * @see de.altimos.mdsd.majordomo.Action
 		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getAction()
 		 * @generated
 		 */
 		EClass ACTION = eINSTANCE.getAction();
 
 		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.IntegerConditionImpl <em>Integer Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.impl.IntegerConditionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerCondition()
+		 * @generated
+		 */
+		EClass INTEGER_CONDITION = eINSTANCE.getIntegerCondition();
+
+		/**
 		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ACTION__VALUE = eINSTANCE.getAction_Value();
+		EAttribute INTEGER_CONDITION__VALUE = eINSTANCE.getIntegerCondition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INTEGER_CONDITION__SENSOR = eINSTANCE.getIntegerCondition_Sensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.FloatConditionImpl <em>Float Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.impl.FloatConditionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatCondition()
+		 * @generated
+		 */
+		EClass FLOAT_CONDITION = eINSTANCE.getFloatCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute FLOAT_CONDITION__VALUE = eINSTANCE.getFloatCondition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOAT_CONDITION__SENSOR = eINSTANCE.getFloatCondition_Sensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.BooleanConditionImpl <em>Boolean Condition</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.impl.BooleanConditionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanCondition()
+		 * @generated
+		 */
+		EClass BOOLEAN_CONDITION = eINSTANCE.getBooleanCondition();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_CONDITION__VALUE = eINSTANCE.getBooleanCondition_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Sensor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_CONDITION__SENSOR = eINSTANCE.getBooleanCondition_Sensor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.IntegerActionImpl <em>Integer Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.impl.IntegerActionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getIntegerAction()
+		 * @generated
+		 */
+		EClass INTEGER_ACTION = eINSTANCE.getIntegerAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INTEGER_ACTION__VALUE = eINSTANCE.getIntegerAction_Value();
 
 		/**
 		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
@@ -1757,27 +2506,69 @@ public interface MajordomoPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ACTION__ACTOR = eINSTANCE.getAction_Actor();
+		EReference INTEGER_ACTION__ACTOR = eINSTANCE.getIntegerAction_Actor();
 
 		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.LesserConditionImpl <em>Lesser Condition</em>}' class.
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.FloatActionImpl <em>Float Action</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.impl.LesserConditionImpl
-		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getLesserCondition()
+		 * @see de.altimos.mdsd.majordomo.impl.FloatActionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getFloatAction()
 		 * @generated
 		 */
-		EClass LESSER_CONDITION = eINSTANCE.getLesserCondition();
+		EClass FLOAT_ACTION = eINSTANCE.getFloatAction();
 
 		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.GreaterConditionImpl <em>Greater Condition</em>}' class.
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.impl.GreaterConditionImpl
-		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getGreaterCondition()
 		 * @generated
 		 */
-		EClass GREATER_CONDITION = eINSTANCE.getGreaterCondition();
+		EAttribute FLOAT_ACTION__VALUE = eINSTANCE.getFloatAction_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FLOAT_ACTION__ACTOR = eINSTANCE.getFloatAction_Actor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.BooleanActionImpl <em>Boolean Action</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.impl.BooleanActionImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBooleanAction()
+		 * @generated
+		 */
+		EClass BOOLEAN_ACTION = eINSTANCE.getBooleanAction();
+
+		/**
+		 * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_ACTION__VALUE = eINSTANCE.getBooleanAction_Value();
+
+		/**
+		 * The meta object literal for the '<em><b>Actor</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BOOLEAN_ACTION__ACTOR = eINSTANCE.getBooleanAction_Actor();
+
+		/**
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.Comperator <em>Comperator</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.altimos.mdsd.majordomo.Comperator
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getComperator()
+		 * @generated
+		 */
+		EEnum COMPERATOR = eINSTANCE.getComperator();
 
 	}
 

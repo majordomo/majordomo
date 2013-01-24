@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface LampActor extends Actor, HouseExtension, RoomExtension {
+public interface LampActor extends HouseMountable, RoomMountable, FloatActor {
 } // LampActor

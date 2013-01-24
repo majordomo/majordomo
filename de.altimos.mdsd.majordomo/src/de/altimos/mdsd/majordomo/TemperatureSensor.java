@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface TemperatureSensor extends Sensor, HouseExtension, RoomExtension {
+public interface TemperatureSensor extends HouseMountable, RoomMountable, FloatSensor {
 } // TemperatureSensor

@@ -31,6 +31,7 @@ public class MajordomoAllTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new MajordomoAllTests("Majordomo Tests");
+		suite.addTest(MajordomoTests.suite());
 		return suite;
 	}
 

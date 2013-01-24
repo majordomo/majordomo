@@ -2,9 +2,9 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
-import de.altimos.mdsd.majordomo.LesserCondition;
+import de.altimos.mdsd.majordomo.FloatAction;
+import de.altimos.mdsd.majordomo.FloatActor;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
-import de.altimos.mdsd.majordomo.Sensor;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -16,29 +16,19 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Lesser Condition</b></em>'.
+ * An implementation of the model object '<em><b>Float Action</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.LesserConditionImpl#getSensor <em>Sensor</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.LesserConditionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.FloatActionImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.FloatActionImpl#getActor <em>Actor</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LesserConditionImpl extends EObjectImpl implements LesserCondition {
-	/**
-	 * The cached value of the '{@link #getSensor() <em>Sensor</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSensor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Sensor sensor;
-
+public class FloatActionImpl extends EObjectImpl implements FloatAction {
 	/**
 	 * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,7 +37,7 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VALUE_EDEFAULT = null;
+	protected static final float VALUE_EDEFAULT = 0.0F;
 
 	/**
 	 * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -57,14 +47,24 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	 * @generated
 	 * @ordered
 	 */
-	protected Object value = VALUE_EDEFAULT;
+	protected float value = VALUE_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getActor() <em>Actor</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getActor()
+	 * @generated
+	 * @ordered
+	 */
+	protected FloatActor actor;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LesserConditionImpl() {
+	protected FloatActionImpl() {
 		super();
 	}
 
@@ -75,7 +75,7 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return MajordomoPackage.Literals.LESSER_CONDITION;
+		return MajordomoPackage.Literals.FLOAT_ACTION;
 	}
 
 	/**
@@ -83,45 +83,7 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Sensor getSensor() {
-		if (sensor != null && sensor.eIsProxy()) {
-			InternalEObject oldSensor = (InternalEObject)sensor;
-			sensor = (Sensor)eResolveProxy(oldSensor);
-			if (sensor != oldSensor) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.LESSER_CONDITION__SENSOR, oldSensor, sensor));
-			}
-		}
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Sensor basicGetSensor() {
-		return sensor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setSensor(Sensor newSensor) {
-		Sensor oldSensor = sensor;
-		sensor = newSensor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.LESSER_CONDITION__SENSOR, oldSensor, sensor));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Object getValue() {
+	public float getValue() {
 		return value;
 	}
 
@@ -130,11 +92,49 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValue(Object newValue) {
-		Object oldValue = value;
+	public void setValue(float newValue) {
+		float oldValue = value;
 		value = newValue;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.LESSER_CONDITION__VALUE, oldValue, value));
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.FLOAT_ACTION__VALUE, oldValue, value));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FloatActor getActor() {
+		if (actor != null && actor.eIsProxy()) {
+			InternalEObject oldActor = (InternalEObject)actor;
+			actor = (FloatActor)eResolveProxy(oldActor);
+			if (actor != oldActor) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, MajordomoPackage.FLOAT_ACTION__ACTOR, oldActor, actor));
+			}
+		}
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public FloatActor basicGetActor() {
+		return actor;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setActor(FloatActor newActor) {
+		FloatActor oldActor = actor;
+		actor = newActor;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MajordomoPackage.FLOAT_ACTION__ACTOR, oldActor, actor));
 	}
 
 	/**
@@ -145,11 +145,11 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case MajordomoPackage.LESSER_CONDITION__SENSOR:
-				if (resolve) return getSensor();
-				return basicGetSensor();
-			case MajordomoPackage.LESSER_CONDITION__VALUE:
+			case MajordomoPackage.FLOAT_ACTION__VALUE:
 				return getValue();
+			case MajordomoPackage.FLOAT_ACTION__ACTOR:
+				if (resolve) return getActor();
+				return basicGetActor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -162,11 +162,11 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case MajordomoPackage.LESSER_CONDITION__SENSOR:
-				setSensor((Sensor)newValue);
+			case MajordomoPackage.FLOAT_ACTION__VALUE:
+				setValue((Float)newValue);
 				return;
-			case MajordomoPackage.LESSER_CONDITION__VALUE:
-				setValue(newValue);
+			case MajordomoPackage.FLOAT_ACTION__ACTOR:
+				setActor((FloatActor)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,11 +180,11 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.LESSER_CONDITION__SENSOR:
-				setSensor((Sensor)null);
-				return;
-			case MajordomoPackage.LESSER_CONDITION__VALUE:
+			case MajordomoPackage.FLOAT_ACTION__VALUE:
 				setValue(VALUE_EDEFAULT);
+				return;
+			case MajordomoPackage.FLOAT_ACTION__ACTOR:
+				setActor((FloatActor)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -198,10 +198,10 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case MajordomoPackage.LESSER_CONDITION__SENSOR:
-				return sensor != null;
-			case MajordomoPackage.LESSER_CONDITION__VALUE:
-				return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
+			case MajordomoPackage.FLOAT_ACTION__VALUE:
+				return value != VALUE_EDEFAULT;
+			case MajordomoPackage.FLOAT_ACTION__ACTOR:
+				return actor != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -222,4 +222,4 @@ public class LesserConditionImpl extends EObjectImpl implements LesserCondition 
 		return result.toString();
 	}
 
-} //LesserConditionImpl
+} //FloatActionImpl

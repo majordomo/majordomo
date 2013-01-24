@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface RadiatorActor extends Actor, RoomExtension {
+public interface RadiatorActor extends RoomMountable, BooleanActor {
 } // RadiatorActor

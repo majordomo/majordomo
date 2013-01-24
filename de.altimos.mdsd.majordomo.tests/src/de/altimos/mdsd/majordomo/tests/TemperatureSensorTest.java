@@ -13,6 +13,12 @@ import junit.textui.TestRunner;
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Temperature Sensor</b></em>'.
  * <!-- end-user-doc -->
+ * <p>
+ * The following operations are tested:
+ * <ul>
+ *   <li>{@link de.altimos.mdsd.majordomo.FloatSensor#getValue() <em>Get Value</em>}</li>
+ * </ul>
+ * </p>
  * @generated
  */
 public class TemperatureSensorTest extends TestCase {
@@ -84,6 +90,19 @@ public class TemperatureSensorTest extends TestCase {
 	@Override
 	protected void tearDown() throws Exception {
 		setFixture(null);
+	}
+
+	/**
+	 * Tests the '{@link de.altimos.mdsd.majordomo.FloatSensor#getValue() <em>Get Value</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.altimos.mdsd.majordomo.FloatSensor#getValue()
+	 * @generated
+	 */
+	public void testGetValue() {
+		// TODO: implement this operation test method
+		// Ensure that you remove @generated or mark it @generated NOT
+		fail();
 	}
 
 } //TemperatureSensorTest

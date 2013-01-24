@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface NumberSensor extends Sensor, RoomExtension {
+public interface NumberSensor extends RoomMountable, IntegerSensor {
 } // NumberSensor

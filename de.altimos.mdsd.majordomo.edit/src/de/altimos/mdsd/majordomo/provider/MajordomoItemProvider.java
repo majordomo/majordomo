@@ -79,6 +79,7 @@ public class MajordomoItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MajordomoPackage.Literals.MAJORDOMO__HOUSE);
 			childrenFeatures.add(MajordomoPackage.Literals.MAJORDOMO__RULES);
+			childrenFeatures.add(MajordomoPackage.Literals.MAJORDOMO__ROOMS);
 		}
 		return childrenFeatures;
 	}
@@ -132,6 +133,7 @@ public class MajordomoItemProvider
 		switch (notification.getFeatureID(Majordomo.class)) {
 			case MajordomoPackage.MAJORDOMO__HOUSE:
 			case MajordomoPackage.MAJORDOMO__RULES:
+			case MajordomoPackage.MAJORDOMO__ROOMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -158,6 +160,11 @@ public class MajordomoItemProvider
 			(createChildParameter
 				(MajordomoPackage.Literals.MAJORDOMO__RULES,
 				 MajordomoFactory.eINSTANCE.createRule()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.MAJORDOMO__ROOMS,
+				 MajordomoFactory.eINSTANCE.createRoom()));
 	}
 
 	/**

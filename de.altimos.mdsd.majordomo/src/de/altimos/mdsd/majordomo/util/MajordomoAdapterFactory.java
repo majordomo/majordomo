@@ -144,12 +144,36 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createRadiatorActorAdapter();
 			}
 			@Override
-			public Adapter caseRoomExtension(RoomExtension object) {
-				return createRoomExtensionAdapter();
+			public Adapter caseRoomMountable(RoomMountable object) {
+				return createRoomMountableAdapter();
 			}
 			@Override
-			public Adapter caseHouseExtension(HouseExtension object) {
-				return createHouseExtensionAdapter();
+			public Adapter caseHouseMountable(HouseMountable object) {
+				return createHouseMountableAdapter();
+			}
+			@Override
+			public Adapter caseBooleanSensor(BooleanSensor object) {
+				return createBooleanSensorAdapter();
+			}
+			@Override
+			public Adapter caseIntegerSensor(IntegerSensor object) {
+				return createIntegerSensorAdapter();
+			}
+			@Override
+			public Adapter caseFloatSensor(FloatSensor object) {
+				return createFloatSensorAdapter();
+			}
+			@Override
+			public Adapter caseBooleanActor(BooleanActor object) {
+				return createBooleanActorAdapter();
+			}
+			@Override
+			public Adapter caseIntegerActor(IntegerActor object) {
+				return createIntegerActorAdapter();
+			}
+			@Override
+			public Adapter caseFloatActor(FloatActor object) {
+				return createFloatActorAdapter();
 			}
 			@Override
 			public Adapter caseCondition(Condition object) {
@@ -160,12 +184,28 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createActionAdapter();
 			}
 			@Override
-			public Adapter caseLesserCondition(LesserCondition object) {
-				return createLesserConditionAdapter();
+			public Adapter caseIntegerCondition(IntegerCondition object) {
+				return createIntegerConditionAdapter();
 			}
 			@Override
-			public Adapter caseGreaterCondition(GreaterCondition object) {
-				return createGreaterConditionAdapter();
+			public Adapter caseFloatCondition(FloatCondition object) {
+				return createFloatConditionAdapter();
+			}
+			@Override
+			public Adapter caseBooleanCondition(BooleanCondition object) {
+				return createBooleanConditionAdapter();
+			}
+			@Override
+			public Adapter caseIntegerAction(IntegerAction object) {
+				return createIntegerActionAdapter();
+			}
+			@Override
+			public Adapter caseFloatAction(FloatAction object) {
+				return createFloatActionAdapter();
+			}
+			@Override
+			public Adapter caseBooleanAction(BooleanAction object) {
+				return createBooleanActionAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -454,30 +494,114 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RoomExtension <em>Room Extension</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.RoomMountable <em>Room Mountable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.RoomExtension
+	 * @see de.altimos.mdsd.majordomo.RoomMountable
 	 * @generated
 	 */
-	public Adapter createRoomExtensionAdapter() {
+	public Adapter createRoomMountableAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.HouseExtension <em>House Extension</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.HouseMountable <em>House Mountable</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.HouseExtension
+	 * @see de.altimos.mdsd.majordomo.HouseMountable
 	 * @generated
 	 */
-	public Adapter createHouseExtensionAdapter() {
+	public Adapter createHouseMountableAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BooleanSensor <em>Boolean Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.BooleanSensor
+	 * @generated
+	 */
+	public Adapter createBooleanSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.IntegerSensor <em>Integer Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.IntegerSensor
+	 * @generated
+	 */
+	public Adapter createIntegerSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.FloatSensor <em>Float Sensor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.FloatSensor
+	 * @generated
+	 */
+	public Adapter createFloatSensorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BooleanActor <em>Boolean Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.BooleanActor
+	 * @generated
+	 */
+	public Adapter createBooleanActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.IntegerActor <em>Integer Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.IntegerActor
+	 * @generated
+	 */
+	public Adapter createIntegerActorAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.FloatActor <em>Float Actor</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.FloatActor
+	 * @generated
+	 */
+	public Adapter createFloatActorAdapter() {
 		return null;
 	}
 
@@ -510,30 +634,86 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.LesserCondition <em>Lesser Condition</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.IntegerCondition <em>Integer Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.LesserCondition
+	 * @see de.altimos.mdsd.majordomo.IntegerCondition
 	 * @generated
 	 */
-	public Adapter createLesserConditionAdapter() {
+	public Adapter createIntegerConditionAdapter() {
 		return null;
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.GreaterCondition <em>Greater Condition</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.FloatCondition <em>Float Condition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.GreaterCondition
+	 * @see de.altimos.mdsd.majordomo.FloatCondition
 	 * @generated
 	 */
-	public Adapter createGreaterConditionAdapter() {
+	public Adapter createFloatConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BooleanCondition <em>Boolean Condition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.BooleanCondition
+	 * @generated
+	 */
+	public Adapter createBooleanConditionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.IntegerAction <em>Integer Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.IntegerAction
+	 * @generated
+	 */
+	public Adapter createIntegerActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.FloatAction <em>Float Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.FloatAction
+	 * @generated
+	 */
+	public Adapter createFloatActionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BooleanAction <em>Boolean Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.altimos.mdsd.majordomo.BooleanAction
+	 * @generated
+	 */
+	public Adapter createBooleanActionAdapter() {
 		return null;
 	}
 

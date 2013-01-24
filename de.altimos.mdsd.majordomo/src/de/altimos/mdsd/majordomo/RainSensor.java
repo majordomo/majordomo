@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface RainSensor extends Sensor, HouseExtension {
+public interface RainSensor extends HouseMountable, BooleanSensor {
 } // RainSensor

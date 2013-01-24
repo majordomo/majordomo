@@ -5,7 +5,6 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.Actor;
 import de.altimos.mdsd.majordomo.House;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
-import de.altimos.mdsd.majordomo.Room;
 import de.altimos.mdsd.majordomo.Sensor;
 
 import java.util.Collection;
@@ -19,7 +18,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,7 +30,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.HouseImpl#getSensors <em>Sensors</em>}</li>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.HouseImpl#getActors <em>Actors</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.HouseImpl#getRooms <em>Rooms</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,16 +55,6 @@ public class HouseImpl extends EObjectImpl implements House {
 	 * @ordered
 	 */
 	protected EList<Actor> actors;
-
-	/**
-	 * The cached value of the '{@link #getRooms() <em>Rooms</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRooms()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Room> rooms;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -117,18 +104,6 @@ public class HouseImpl extends EObjectImpl implements House {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Room> getRooms() {
-		if (rooms == null) {
-			rooms = new EObjectContainmentEList<Room>(Room.class, this, MajordomoPackage.HOUSE__ROOMS);
-		}
-		return rooms;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -153,8 +128,6 @@ public class HouseImpl extends EObjectImpl implements House {
 				return ((InternalEList<?>)getSensors()).basicRemove(otherEnd, msgs);
 			case MajordomoPackage.HOUSE__ACTORS:
 				return ((InternalEList<?>)getActors()).basicRemove(otherEnd, msgs);
-			case MajordomoPackage.HOUSE__ROOMS:
-				return ((InternalEList<?>)getRooms()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -171,8 +144,6 @@ public class HouseImpl extends EObjectImpl implements House {
 				return getSensors();
 			case MajordomoPackage.HOUSE__ACTORS:
 				return getActors();
-			case MajordomoPackage.HOUSE__ROOMS:
-				return getRooms();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -194,10 +165,6 @@ public class HouseImpl extends EObjectImpl implements House {
 				getActors().clear();
 				getActors().addAll((Collection<? extends Actor>)newValue);
 				return;
-			case MajordomoPackage.HOUSE__ROOMS:
-				getRooms().clear();
-				getRooms().addAll((Collection<? extends Room>)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -216,9 +183,6 @@ public class HouseImpl extends EObjectImpl implements House {
 			case MajordomoPackage.HOUSE__ACTORS:
 				getActors().clear();
 				return;
-			case MajordomoPackage.HOUSE__ROOMS:
-				getRooms().clear();
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -235,8 +199,6 @@ public class HouseImpl extends EObjectImpl implements House {
 				return sensors != null && !sensors.isEmpty();
 			case MajordomoPackage.HOUSE__ACTORS:
 				return actors != null && !actors.isEmpty();
-			case MajordomoPackage.HOUSE__ROOMS:
-				return rooms != null && !rooms.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

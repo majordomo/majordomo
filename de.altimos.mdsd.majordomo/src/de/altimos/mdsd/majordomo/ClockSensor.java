@@ -13,5 +13,5 @@ package de.altimos.mdsd.majordomo;
  * @model
  * @generated
  */
-public interface ClockSensor extends Sensor, HouseExtension {
+public interface ClockSensor extends HouseMountable, IntegerSensor {
 } // ClockSensor

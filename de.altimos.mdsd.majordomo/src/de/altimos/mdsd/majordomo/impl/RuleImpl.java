@@ -29,7 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.altimos.mdsd.majordomo.impl.RuleImpl#getConditions <em>Conditions</em>}</li>
- *   <li>{@link de.altimos.mdsd.majordomo.impl.RuleImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link de.altimos.mdsd.majordomo.impl.RuleImpl#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,14 +47,14 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	protected EList<Condition> conditions;
 
 	/**
-	 * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference list.
+	 * The cached value of the '{@link #getActions() <em>Actions</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAction()
+	 * @see #getActions()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Action> action;
+	protected EList<Action> actions;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -92,11 +92,11 @@ public class RuleImpl extends EObjectImpl implements Rule {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<Action> getAction() {
-		if (action == null) {
-			action = new EObjectContainmentEList<Action>(Action.class, this, MajordomoPackage.RULE__ACTION);
+	public EList<Action> getActions() {
+		if (actions == null) {
+			actions = new EObjectContainmentEList<Action>(Action.class, this, MajordomoPackage.RULE__ACTIONS);
 		}
-		return action;
+		return actions;
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		switch (featureID) {
 			case MajordomoPackage.RULE__CONDITIONS:
 				return ((InternalEList<?>)getConditions()).basicRemove(otherEnd, msgs);
-			case MajordomoPackage.RULE__ACTION:
-				return ((InternalEList<?>)getAction()).basicRemove(otherEnd, msgs);
+			case MajordomoPackage.RULE__ACTIONS:
+				return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -125,8 +125,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		switch (featureID) {
 			case MajordomoPackage.RULE__CONDITIONS:
 				return getConditions();
-			case MajordomoPackage.RULE__ACTION:
-				return getAction();
+			case MajordomoPackage.RULE__ACTIONS:
+				return getActions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -144,9 +144,9 @@ public class RuleImpl extends EObjectImpl implements Rule {
 				getConditions().clear();
 				getConditions().addAll((Collection<? extends Condition>)newValue);
 				return;
-			case MajordomoPackage.RULE__ACTION:
-				getAction().clear();
-				getAction().addAll((Collection<? extends Action>)newValue);
+			case MajordomoPackage.RULE__ACTIONS:
+				getActions().clear();
+				getActions().addAll((Collection<? extends Action>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -163,8 +163,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 			case MajordomoPackage.RULE__CONDITIONS:
 				getConditions().clear();
 				return;
-			case MajordomoPackage.RULE__ACTION:
-				getAction().clear();
+			case MajordomoPackage.RULE__ACTIONS:
+				getActions().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -180,8 +180,8 @@ public class RuleImpl extends EObjectImpl implements Rule {
 		switch (featureID) {
 			case MajordomoPackage.RULE__CONDITIONS:
 				return conditions != null && !conditions.isEmpty();
-			case MajordomoPackage.RULE__ACTION:
-				return action != null && !action.isEmpty();
+			case MajordomoPackage.RULE__ACTIONS:
+				return actions != null && !actions.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

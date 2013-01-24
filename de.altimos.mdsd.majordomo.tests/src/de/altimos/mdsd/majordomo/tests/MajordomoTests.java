@@ -31,6 +31,16 @@ public class MajordomoTests extends TestSuite {
 	 */
 	public static Test suite() {
 		TestSuite suite = new MajordomoTests("majordomo Tests");
+		suite.addTestSuite(LightSensorTest.class);
+		suite.addTestSuite(TemperatureSensorTest.class);
+		suite.addTestSuite(RainSensorTest.class);
+		suite.addTestSuite(SwitchSensorTest.class);
+		suite.addTestSuite(NumberSensorTest.class);
+		suite.addTestSuite(ClockSensorTest.class);
+		suite.addTestSuite(LampActorTest.class);
+		suite.addTestSuite(RollerActorTest.class);
+		suite.addTestSuite(RoofWindowActorTest.class);
+		suite.addTestSuite(RadiatorActorTest.class);
 		return suite;
 	}
 

@@ -78,7 +78,7 @@ public class RuleItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(MajordomoPackage.Literals.RULE__CONDITIONS);
-			childrenFeatures.add(MajordomoPackage.Literals.RULE__ACTION);
+			childrenFeatures.add(MajordomoPackage.Literals.RULE__ACTIONS);
 		}
 		return childrenFeatures;
 	}
@@ -131,7 +131,7 @@ public class RuleItemProvider
 
 		switch (notification.getFeatureID(Rule.class)) {
 			case MajordomoPackage.RULE__CONDITIONS:
-			case MajordomoPackage.RULE__ACTION:
+			case MajordomoPackage.RULE__ACTIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -152,17 +152,32 @@ public class RuleItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.RULE__CONDITIONS,
-				 MajordomoFactory.eINSTANCE.createLesserCondition()));
+				 MajordomoFactory.eINSTANCE.createIntegerCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(MajordomoPackage.Literals.RULE__CONDITIONS,
-				 MajordomoFactory.eINSTANCE.createGreaterCondition()));
+				 MajordomoFactory.eINSTANCE.createFloatCondition()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(MajordomoPackage.Literals.RULE__ACTION,
-				 MajordomoFactory.eINSTANCE.createAction()));
+				(MajordomoPackage.Literals.RULE__CONDITIONS,
+				 MajordomoFactory.eINSTANCE.createBooleanCondition()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.RULE__ACTIONS,
+				 MajordomoFactory.eINSTANCE.createIntegerAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.RULE__ACTIONS,
+				 MajordomoFactory.eINSTANCE.createFloatAction()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(MajordomoPackage.Literals.RULE__ACTIONS,
+				 MajordomoFactory.eINSTANCE.createBooleanAction()));
 	}
 
 	/**

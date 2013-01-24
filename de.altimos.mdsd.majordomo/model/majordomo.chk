@@ -1,19 +1,43 @@
 import majordomo;
 
-context Majordomo ERROR
-	"Majordomo must have a house to dominate.":
+context Majordomo WARNING
+	"Majordomo wants a house to dominate.":
 	this.house != null;
 	
-context House WARNING
-	"Your house does not contain any rooms. It may be hard to store any furniture.":
+context Majordomo WARNING
+	"Majordomo knows no rooms. He's really sad.":
 	!this.rooms.isEmpty;
 
 context Actor ERROR
-	"Cannot attach "+this.metaType.name+" to "+this.ctx.metaType.name+": Illegal extention type.":
-	(this.ctx.metaType.isInstance(RoomExtension) && this.ctx.metaType.isInstance(Room)) ||
-	(this.ctx.metaType.isInstance(HouseExtension) && this.ctx.metaType.isInstance(House));
+	"Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
+	(this.ctx.metaType.isInstance(RoomMountable) && this.ctx.metaType.isInstance(Room)) ||
+	(this.ctx.metaType.isInstance(HouseMountable) && this.ctx.metaType.isInstance(House));
 	
 context Sensor ERROR
-	"Cannot attach "+this.metaType.name+" to "+this.ctx.metaType.name+": Illegal extention type.":
-	(this.ctx.metaType.isInstance(RoomExtension) && this.ctx.metaType.isInstance(Room)) ||
-	(this.ctx.metaType.isInstance(HouseExtension) && this.ctx.metaType.isInstance(House));
+	"Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
+	(this.ctx.metaType.isInstance(RoomMountable) && this.ctx.metaType.isInstance(Room)) ||
+	(this.ctx.metaType.isInstance(HouseMountable) && this.ctx.metaType.isInstance(House));
+
+context IntegerCondition ERROR
+	"Must have a sensor.": this.sensor != null;
+	
+context FloatCondition ERROR
+	"Must have a sensor.": this.sensor != null;
+	
+context BooleanCondition ERROR
+	"Must have a sensor.": this.sensor != null;
+	
+context IntegerAction ERROR
+	"Must have an actor.": this.actor != null;
+	
+context FloatAction ERROR
+	"Must have an actor.": this.actor != null;
+	
+context BooleanAction ERROR
+	"Must have an actor.": this.actor != null;
+	
+context Rule ERROR
+	"Must have at least on condition.": this.conditions.size > 0;
+	
+context Rule ERROR
+	"Must have at least on action.": this.actions.size > 0;

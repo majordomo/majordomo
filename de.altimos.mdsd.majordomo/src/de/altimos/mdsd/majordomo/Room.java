@@ -20,7 +20,6 @@ package de.altimos.mdsd.majordomo;
  * @generated
  */
 public interface Room extends Extendable {
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -46,4 +45,5 @@ public interface Room extends Extendable {
 	 * @generated
 	 */
 	void setName(String value);
+
 } // Room

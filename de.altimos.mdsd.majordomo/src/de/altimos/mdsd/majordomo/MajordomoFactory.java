@@ -157,31 +157,58 @@ public interface MajordomoFactory extends EFactory {
 	RadiatorActor createRadiatorActor();
 
 	/**
-	 * Returns a new object of class '<em>Action</em>'.
+	 * Returns a new object of class '<em>Integer Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Action</em>'.
+	 * @return a new object of class '<em>Integer Condition</em>'.
 	 * @generated
 	 */
-	Action createAction();
+	IntegerCondition createIntegerCondition();
 
 	/**
-	 * Returns a new object of class '<em>Lesser Condition</em>'.
+	 * Returns a new object of class '<em>Float Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Lesser Condition</em>'.
+	 * @return a new object of class '<em>Float Condition</em>'.
 	 * @generated
 	 */
-	LesserCondition createLesserCondition();
+	FloatCondition createFloatCondition();
 
 	/**
-	 * Returns a new object of class '<em>Greater Condition</em>'.
+	 * Returns a new object of class '<em>Boolean Condition</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Greater Condition</em>'.
+	 * @return a new object of class '<em>Boolean Condition</em>'.
 	 * @generated
 	 */
-	GreaterCondition createGreaterCondition();
+	BooleanCondition createBooleanCondition();
+
+	/**
+	 * Returns a new object of class '<em>Integer Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Integer Action</em>'.
+	 * @generated
+	 */
+	IntegerAction createIntegerAction();
+
+	/**
+	 * Returns a new object of class '<em>Float Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Float Action</em>'.
+	 * @generated
+	 */
+	FloatAction createFloatAction();
+
+	/**
+	 * Returns a new object of class '<em>Boolean Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Boolean Action</em>'.
+	 * @generated
+	 */
+	BooleanAction createBooleanAction();
 
 	/**
 	 * Returns the package supported by this factory.

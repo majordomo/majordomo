@@ -21,7 +21,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Extension extends EObject {
-
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -47,4 +46,5 @@ public interface Extension extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
+
 } // Extension
