@@ -6,132 +6,132 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Majordomo returns Majordomo:
 	{Majordomo}
-	'Majordomo'
+	(house=House)?
+	(rooms+=Room)*
+	'rules'
 	'{'
-		('house' house=House)?
-		('rules' '{' rules+=Rule ( "," rules+=Rule)* '}' )?
-	'}';
-
-
-
-Sensor returns Sensor:
-	LightSensor | TemperatureSensor | RainSensor | SwitchSensor | NumberSensor | ClockSensor;
-
-Actor returns Actor:
-	LampActor | RollerActor | RoofWindowActor | BoilerAction | RadiatorActor;
-
-
-Condition returns Condition:
-	LesserCondition | GreaterCondition;
-
+		(rules+=Rule (',' rules+=Rule)*)?
+	'}'
+;
 
 House returns House:
 	{House}
-	'House'
+	'house'
 	'{'
-		('sensors' '{' sensors+=Sensor ( "," sensors+=Sensor)* '}' )?
-		('actors' '{' actors+=Actor ( "," actors+=Actor)* '}' )?
-		('rooms' '{' rooms+=Room ( "," rooms+=Room)* '}' )?
-	'}';
-
-Rule returns Rule:
-	{Rule}
-	'Rule'
-	'{'
-		('conditions' '{' conditions+=Condition ( "," conditions+=Condition)* '}' )?
-		('action' '{' action+=Action ( "," action+=Action)* '}' )?
-	'}';
+		(sensors+=Sensor)*
+		(actors+=Actor)*
+	'}'
+;
 
 Room returns Room:
 	{Room}
-	'Room'
+	'room'
 	name=EString
 	'{'
-		('sensors' '{' sensors+=Sensor ( "," sensors+=Sensor)* '}' )?
-		('actors' '{' actors+=Actor ( "," actors+=Actor)* '}' )?
-	'}';
+		(sensors+=Sensor)*
+		(actors+=Actor)*
+	'}'
+;
 
-EString returns ecore::EString:
-	STRING | ID;
+Sensor returns Sensor:
+	LightSensor | TemperatureSensor | RainSensor | SwitchSensor | NumberSensor | ClockSensor
+;
+
+Actor returns Actor:
+	LampActor | RollerActor | RoofWindowActor | RadiatorActor
+;
+
+Rule returns Rule:
+	{Rule}
+	(conditions+=Condition)*
+	'->'
+	(actions+=Action)*
+;
+
+Condition returns Condition:
+	{IntegerCondition}
+	value=EInt
+;
+
+Action returns Action:
+	{BooleanAction}
+	actor=[BooleanActor|EString]
+	':'
+	value=EBoolean
+;
 
 LightSensor returns LightSensor:
 	{LightSensor}
-	'LightSensor'
-	name=EString;
+	'light'
+	name=EString
+;
 
 TemperatureSensor returns TemperatureSensor:
 	{TemperatureSensor}
-	'TemperatureSensor'
-	name=EString;
+	'temp'
+	name=EString
+;
 
 RainSensor returns RainSensor:
 	{RainSensor}
-	'RainSensor'
-	name=EString;
+	'rain'
+	name=EString
+;
 
 SwitchSensor returns SwitchSensor:
 	{SwitchSensor}
-	'SwitchSensor'
-	name=EString;
+	'switch'
+	name=EString
+;
 
 NumberSensor returns NumberSensor:
 	{NumberSensor}
-	'NumberSensor'
-	name=EString;
+	'number'
+	name=EString
+;
 
 ClockSensor returns ClockSensor:
 	{ClockSensor}
-	'ClockSensor'
-	name=EString;
+	'clock'
+	name=EString
+;
 
 LampActor returns LampActor:
 	{LampActor}
-	'LampActor'
-	name=EString;
+	'lamp'
+	name=EString
+;
 
 RollerActor returns RollerActor:
 	{RollerActor}
-	'RollerActor'
-	name=EString;
+	'roller'
+	name=EString
+;
 
 RoofWindowActor returns RoofWindowActor:
 	{RoofWindowActor}
-	'RoofWindowActor'
-	name=EString;
-
-BoilerAction returns BoilerAction:
-	{BoilerAction}
-	'BoilerAction'
-	name=EString;
+	'roof'
+	name=EString
+;
 
 RadiatorActor returns RadiatorActor:
 	{RadiatorActor}
-	'RadiatorActor'
-	name=EString;
+	'radiator'
+	name=EString
+;
 
-Action returns Action:
-	{Action}
-	'Action'
-	'{'
-		('value' value=EJavaObject)?
-		('actor' actor=[Actor|EString])?
-	'}';
+EString returns ecore::EString:
+	STRING | ID
+;
 
-EJavaObject returns ecore::EJavaObject:
-	'EJavaObject' /* TODO: implement this rule and an appropriate IValueConverter */;
+EInt returns ecore::EInt:
+	'-'? INT
+;
 
-LesserCondition returns LesserCondition:
-	{LesserCondition}
-	'LesserCondition'
-	'{'
-		('value' value=EJavaObject)?
-		('sensor' sensor=[Sensor|EString])?
-	'}';
+EFloat returns ecore::EFloat:
+	'-'? INT? '.' INT (('E'|'e') '-'? INT)?
+;
 
-GreaterCondition returns GreaterCondition:
-	{GreaterCondition}
-	'GreaterCondition'
-	'{'
-		('value' value=EJavaObject)?
-		('sensor' sensor=[Sensor|EString])?
-	'}';
+EBoolean returns ecore::EBoolean:
+	'true' | 'false'
+;
