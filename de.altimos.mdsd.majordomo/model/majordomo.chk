@@ -24,10 +24,8 @@ context Sensor ERROR
 context Rule ERROR "Must have at least one condition.": this.conditions.size > 0;
 context Rule ERROR "Must have at least one action.": this.actions.size > 0;
 
-context IntegerCondition ERROR "Must have a sensor.": this.sensor != null;
 context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
 context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
-context IntegerAction ERROR "Must have an actor.": this.actor != null;
 context FloatAction ERROR "Must have an actor.": this.actor != null;
 context BooleanAction ERROR "Must have an actor.": this.actor != null;
 	
