@@ -70,7 +70,7 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 			case MajordomoPackage.LAMP_ACTOR: return createLampActor();
 			case MajordomoPackage.ROLLER_ACTOR: return createRollerActor();
 			case MajordomoPackage.ROOF_WINDOW_ACTOR: return createRoofWindowActor();
-			case MajordomoPackage.BOILER_ACTION: return createBoilerAction();
+			case MajordomoPackage.BOILER_ACTOR: return createBoilerActor();
 			case MajordomoPackage.RADIATOR_ACTOR: return createRadiatorActor();
 			case MajordomoPackage.INTEGER_CONDITION: return createIntegerCondition();
 			case MajordomoPackage.FLOAT_CONDITION: return createFloatCondition();
@@ -248,9 +248,9 @@ public class MajordomoFactoryImpl extends EFactoryImpl implements MajordomoFacto
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoilerAction createBoilerAction() {
-		BoilerActionImpl boilerAction = new BoilerActionImpl();
-		return boilerAction;
+	public BoilerActor createBoilerActor() {
+		BoilerActorImpl boilerActor = new BoilerActorImpl();
+		return boilerActor;
 	}
 
 	/**

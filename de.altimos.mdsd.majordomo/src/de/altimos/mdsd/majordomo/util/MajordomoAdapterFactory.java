@@ -136,8 +136,8 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 				return createRoofWindowActorAdapter();
 			}
 			@Override
-			public Adapter caseBoilerAction(BoilerAction object) {
-				return createBoilerActionAdapter();
+			public Adapter caseBoilerActor(BoilerActor object) {
+				return createBoilerActorAdapter();
 			}
 			@Override
 			public Adapter caseRadiatorActor(RadiatorActor object) {
@@ -466,16 +466,16 @@ public class MajordomoAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BoilerAction <em>Boiler Action</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.altimos.mdsd.majordomo.BoilerActor <em>Boiler Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.altimos.mdsd.majordomo.BoilerAction
+	 * @see de.altimos.mdsd.majordomo.BoilerActor
 	 * @generated
 	 */
-	public Adapter createBoilerActionAdapter() {
+	public Adapter createBoilerActorAdapter() {
 		return null;
 	}
 

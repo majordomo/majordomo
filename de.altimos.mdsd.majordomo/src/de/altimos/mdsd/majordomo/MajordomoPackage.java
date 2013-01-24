@@ -751,23 +751,50 @@ public interface MajordomoPackage extends EPackage {
 	int ROOF_WINDOW_ACTOR_FEATURE_COUNT = ROOM_MOUNTABLE_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.BoilerActionImpl <em>Boiler Action</em>}' class.
+	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.BoilerActorImpl <em>Boiler Actor</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.altimos.mdsd.majordomo.impl.BoilerActionImpl
-	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBoilerAction()
+	 * @see de.altimos.mdsd.majordomo.impl.BoilerActorImpl
+	 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBoilerActor()
 	 * @generated
 	 */
-	int BOILER_ACTION = 17;
+	int BOILER_ACTOR = 17;
 
 	/**
-	 * The number of structural features of the '<em>Boiler Action</em>' class.
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOILER_ACTION_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
+	int BOILER_ACTOR__NAME = HOUSE_MOUNTABLE_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Ctx</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOILER_ACTOR__CTX = HOUSE_MOUNTABLE_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>EReference0</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOILER_ACTOR__EREFERENCE0 = HOUSE_MOUNTABLE_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Boiler Actor</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOILER_ACTOR_FEATURE_COUNT = HOUSE_MOUNTABLE_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl <em>Radiator Actor</em>}' class.
@@ -1645,14 +1672,14 @@ public interface MajordomoPackage extends EPackage {
 	EClass getRoofWindowActor();
 
 	/**
-	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BoilerAction <em>Boiler Action</em>}'.
+	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.BoilerActor <em>Boiler Actor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Boiler Action</em>'.
-	 * @see de.altimos.mdsd.majordomo.BoilerAction
+	 * @return the meta object for class '<em>Boiler Actor</em>'.
+	 * @see de.altimos.mdsd.majordomo.BoilerActor
 	 * @generated
 	 */
-	EClass getBoilerAction();
+	EClass getBoilerActor();
 
 	/**
 	 * Returns the meta object for class '{@link de.altimos.mdsd.majordomo.RadiatorActor <em>Radiator Actor</em>}'.
@@ -2269,14 +2296,14 @@ public interface MajordomoPackage extends EPackage {
 		EClass ROOF_WINDOW_ACTOR = eINSTANCE.getRoofWindowActor();
 
 		/**
-		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.BoilerActionImpl <em>Boiler Action</em>}' class.
+		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.BoilerActorImpl <em>Boiler Actor</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.altimos.mdsd.majordomo.impl.BoilerActionImpl
-		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBoilerAction()
+		 * @see de.altimos.mdsd.majordomo.impl.BoilerActorImpl
+		 * @see de.altimos.mdsd.majordomo.impl.MajordomoPackageImpl#getBoilerActor()
 		 * @generated
 		 */
-		EClass BOILER_ACTION = eINSTANCE.getBoilerAction();
+		EClass BOILER_ACTOR = eINSTANCE.getBoilerActor();
 
 		/**
 		 * The meta object literal for the '{@link de.altimos.mdsd.majordomo.impl.RadiatorActorImpl <em>Radiator Actor</em>}' class.

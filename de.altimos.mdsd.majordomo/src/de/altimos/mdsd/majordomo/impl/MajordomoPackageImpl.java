@@ -4,6 +4,7 @@ package de.altimos.mdsd.majordomo.impl;
 
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.Actor;
+import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.BoilerAction;
 import de.altimos.mdsd.majordomo.BooleanAction;
 import de.altimos.mdsd.majordomo.BooleanActor;
@@ -182,7 +183,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass boilerActionEClass = null;
+	private EClass boilerActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -629,8 +630,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getBoilerAction() {
-		return boilerActionEClass;
+	public EClass getBoilerActor() {
+		return boilerActorEClass;
 	}
 
 	/**
@@ -994,7 +995,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		roofWindowActorEClass = createEClass(ROOF_WINDOW_ACTOR);
 
-		boilerActionEClass = createEClass(BOILER_ACTION);
+		boilerActorEClass = createEClass(BOILER_ACTOR);
 
 		radiatorActorEClass = createEClass(RADIATOR_ACTOR);
 
@@ -1101,7 +1102,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		rollerActorEClass.getESuperTypes().add(this.getBooleanActor());
 		roofWindowActorEClass.getESuperTypes().add(this.getRoomMountable());
 		roofWindowActorEClass.getESuperTypes().add(this.getBooleanActor());
-		boilerActionEClass.getESuperTypes().add(this.getHouseMountable());
+		boilerActorEClass.getESuperTypes().add(this.getHouseMountable());
+		boilerActorEClass.getESuperTypes().add(this.getBooleanActor());
 		radiatorActorEClass.getESuperTypes().add(this.getRoomMountable());
 		radiatorActorEClass.getESuperTypes().add(this.getBooleanActor());
 		booleanSensorEClass.getESuperTypes().add(this.getSensor());
@@ -1163,7 +1165,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(roofWindowActorEClass, RoofWindowActor.class, "RoofWindowActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(boilerActionEClass, BoilerAction.class, "BoilerAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(boilerActorEClass, BoilerActor.class, "BoilerActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(radiatorActorEClass, RadiatorActor.class, "RadiatorActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

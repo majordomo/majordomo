@@ -139,13 +139,13 @@ public interface MajordomoFactory extends EFactory {
 	RoofWindowActor createRoofWindowActor();
 
 	/**
-	 * Returns a new object of class '<em>Boiler Action</em>'.
+	 * Returns a new object of class '<em>Boiler Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Boiler Action</em>'.
+	 * @return a new object of class '<em>Boiler Actor</em>'.
 	 * @generated
 	 */
-	BoilerAction createBoilerAction();
+	BoilerActor createBoilerActor();
 
 	/**
 	 * Returns a new object of class '<em>Radiator Actor</em>'.

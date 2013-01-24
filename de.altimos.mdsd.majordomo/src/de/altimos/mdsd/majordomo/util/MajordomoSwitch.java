@@ -211,10 +211,13 @@ public class MajordomoSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case MajordomoPackage.BOILER_ACTION: {
-				BoilerAction boilerAction = (BoilerAction)theEObject;
-				T result = caseBoilerAction(boilerAction);
-				if (result == null) result = caseHouseMountable(boilerAction);
+			case MajordomoPackage.BOILER_ACTOR: {
+				BoilerActor boilerActor = (BoilerActor)theEObject;
+				T result = caseBoilerActor(boilerActor);
+				if (result == null) result = caseHouseMountable(boilerActor);
+				if (result == null) result = caseBooleanActor(boilerActor);
+				if (result == null) result = caseActor(boilerActor);
+				if (result == null) result = caseExtension(boilerActor);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -602,17 +605,17 @@ public class MajordomoSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Boiler Action</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Boiler Actor</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Boiler Action</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Boiler Actor</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseBoilerAction(BoilerAction object) {
+	public T caseBoilerActor(BoilerActor object) {
 		return null;
 	}
 
