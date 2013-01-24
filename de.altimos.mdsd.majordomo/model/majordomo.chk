@@ -11,18 +11,15 @@ context Majordomo WARNING
 context Actor WARNING "Does not have a ctx.": this.ctx != null;
 context Sensor WARNING "Does not have a ctx.": this.ctx != null;
 
-context Extension WARNING "Is room mountable.": !this.metaType.isInstance(RoomMountable);
-context Extension WARNING "Is house mountable.": !this.metaType.isInstance(HouseMountable);
-
 context Actor ERROR
 	"Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
-	(this.metaType.isInstance(RoomMountable) && this.ctx.metaType.isInstance(Room)) ||
-	(this.metaType.isInstance(HouseMountable) && this.ctx.metaType.isInstance(House));
+	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
+	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 	
 context Sensor ERROR
 	"Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
-	(this.metaType.isInstance(RoomMountable) && this.ctx.metaType.isInstance(Room)) ||
-	(this.metaType.isInstance(HouseMountable) && this.ctx.metaType.isInstance(House));
+	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
+	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 
 context IntegerCondition ERROR
 	"Must have a sensor.": this.sensor != null;
