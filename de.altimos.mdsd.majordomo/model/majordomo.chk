@@ -21,34 +21,22 @@ context Sensor ERROR
 	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
 	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 
-context IntegerCondition ERROR
-	"Must have a sensor.": this.sensor != null;
+context Rule ERROR "Must have at least one condition.": this.conditions.size > 0;
+context Rule ERROR "Must have at least one action.": this.actions.size > 0;
+
+context IntegerCondition ERROR "Must have a sensor.": this.sensor != null;
+context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
+context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
+context IntegerAction ERROR "Must have an actor.": this.actor != null;
+context FloatAction ERROR "Must have an actor.": this.actor != null;
+context BooleanAction ERROR "Must have an actor.": this.actor != null;
 	
-context FloatCondition ERROR
-	"Must have a sensor.": this.sensor != null;
-	
-context BooleanCondition ERROR
-	"Must have a sensor.": this.sensor != null;
-	
-context IntegerAction ERROR
-	"Must have an actor.": this.actor != null;
-	
-context FloatAction ERROR
-	"Must have an actor.": this.actor != null;
-	
-context BooleanAction ERROR
-	"Must have an actor.": this.actor != null;
-	
-context Rule ERROR
-	"Must have at least one condition.": this.conditions.size > 0;
-	
-context Rule ERROR
-	"Must have at least one action.": this.actions.size > 0;
+context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 context Sensor ERROR
-	"Must have a unique name.": this.ctx.sensors.exists(e|e.name == name);
+	"Must have a unique name.": !this.ctx.sensors.exists(e|e.name == this.name && e != this);
 	
 context Actor ERROR
-	"Must have a unique name.": this.ctx.sensors.exists(e|e.name == name);
+	"Must have a unique name.": !this.ctx.actors.exists(e|e.name == this.name && e != this);
 
 	
