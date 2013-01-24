@@ -217,13 +217,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass integerSensorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass floatSensorEClass = null;
 
 	/**
@@ -232,13 +225,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	private EClass booleanActorEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass integerActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -266,13 +252,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass integerConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass floatConditionEClass = null;
 
 	/**
@@ -281,13 +260,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	private EClass booleanConditionEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass integerActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -674,15 +646,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getIntegerSensor() {
-		return integerSensorEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getFloatSensor() {
 		return floatSensorEClass;
 	}
@@ -703,15 +666,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 */
 	public EReference getBooleanActor_EReference0() {
 		return (EReference)booleanActorEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIntegerActor() {
-		return integerActorEClass;
 	}
 
 	/**
@@ -748,33 +702,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 */
 	public EClass getAction() {
 		return actionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIntegerCondition() {
-		return integerConditionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntegerCondition_Value() {
-		return (EAttribute)integerConditionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIntegerCondition_Sensor() {
-		return (EReference)integerConditionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -829,33 +756,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 */
 	public EReference getBooleanCondition_Sensor() {
 		return (EReference)booleanConditionEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getIntegerAction() {
-		return integerActionEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EAttribute getIntegerAction_Value() {
-		return (EAttribute)integerActionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getIntegerAction_Actor() {
-		return (EReference)integerActionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1004,14 +904,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		booleanSensorEClass = createEClass(BOOLEAN_SENSOR);
 
-		integerSensorEClass = createEClass(INTEGER_SENSOR);
-
 		floatSensorEClass = createEClass(FLOAT_SENSOR);
 
 		booleanActorEClass = createEClass(BOOLEAN_ACTOR);
 		createEReference(booleanActorEClass, BOOLEAN_ACTOR__EREFERENCE0);
-
-		integerActorEClass = createEClass(INTEGER_ACTOR);
 
 		floatActorEClass = createEClass(FLOAT_ACTOR);
 
@@ -1020,10 +916,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		actionEClass = createEClass(ACTION);
 
-		integerConditionEClass = createEClass(INTEGER_CONDITION);
-		createEAttribute(integerConditionEClass, INTEGER_CONDITION__VALUE);
-		createEReference(integerConditionEClass, INTEGER_CONDITION__SENSOR);
-
 		floatConditionEClass = createEClass(FLOAT_CONDITION);
 		createEAttribute(floatConditionEClass, FLOAT_CONDITION__VALUE);
 		createEReference(floatConditionEClass, FLOAT_CONDITION__SENSOR);
@@ -1031,10 +923,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		booleanConditionEClass = createEClass(BOOLEAN_CONDITION);
 		createEAttribute(booleanConditionEClass, BOOLEAN_CONDITION__VALUE);
 		createEReference(booleanConditionEClass, BOOLEAN_CONDITION__SENSOR);
-
-		integerActionEClass = createEClass(INTEGER_ACTION);
-		createEAttribute(integerActionEClass, INTEGER_ACTION__VALUE);
-		createEReference(integerActionEClass, INTEGER_ACTION__ACTOR);
 
 		floatActionEClass = createEClass(FLOAT_ACTION);
 		createEAttribute(floatActionEClass, FLOAT_ACTION__VALUE);
@@ -1091,9 +979,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		switchSensorEClass.getESuperTypes().add(this.getRoomMountable());
 		switchSensorEClass.getESuperTypes().add(this.getBooleanSensor());
 		numberSensorEClass.getESuperTypes().add(this.getRoomMountable());
-		numberSensorEClass.getESuperTypes().add(this.getIntegerSensor());
 		clockSensorEClass.getESuperTypes().add(this.getHouseMountable());
-		clockSensorEClass.getESuperTypes().add(this.getIntegerSensor());
 		lampActorEClass.getESuperTypes().add(this.getHouseMountable());
 		lampActorEClass.getESuperTypes().add(this.getRoomMountable());
 		lampActorEClass.getESuperTypes().add(this.getFloatActor());
@@ -1106,15 +992,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		radiatorActorEClass.getESuperTypes().add(this.getRoomMountable());
 		radiatorActorEClass.getESuperTypes().add(this.getBooleanActor());
 		booleanSensorEClass.getESuperTypes().add(this.getSensor());
-		integerSensorEClass.getESuperTypes().add(this.getSensor());
 		floatSensorEClass.getESuperTypes().add(this.getSensor());
 		booleanActorEClass.getESuperTypes().add(this.getActor());
-		integerActorEClass.getESuperTypes().add(this.getActor());
 		floatActorEClass.getESuperTypes().add(this.getActor());
-		integerConditionEClass.getESuperTypes().add(this.getCondition());
 		floatConditionEClass.getESuperTypes().add(this.getCondition());
 		booleanConditionEClass.getESuperTypes().add(this.getCondition());
-		integerActionEClass.getESuperTypes().add(this.getAction());
 		floatActionEClass.getESuperTypes().add(this.getAction());
 		booleanActionEClass.getESuperTypes().add(this.getAction());
 
@@ -1176,10 +1058,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		addEOperation(booleanSensorEClass, ecorePackage.getEBoolean(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(integerSensorEClass, IntegerSensor.class, "IntegerSensor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		addEOperation(integerSensorEClass, ecorePackage.getEInt(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(floatSensorEClass, FloatSensor.class, "FloatSensor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		addEOperation(floatSensorEClass, ecorePackage.getEFloat(), "getValue", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1189,11 +1067,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		EOperation op = addEOperation(booleanActorEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEBoolean(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEClass(integerActorEClass, IntegerActor.class, "IntegerActor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		op = addEOperation(integerActorEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEInt(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(floatActorEClass, FloatActor.class, "FloatActor", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1205,10 +1078,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(integerConditionEClass, IntegerCondition.class, "IntegerCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerCondition_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntegerCondition_Sensor(), this.getIntegerSensor(), null, "sensor", null, 0, 1, IntegerCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
 		initEClass(floatConditionEClass, FloatCondition.class, "FloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloatCondition_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFloatCondition_Sensor(), this.getFloatSensor(), null, "sensor", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1216,10 +1085,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEClass(booleanConditionEClass, BooleanCondition.class, "BooleanCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getBooleanCondition_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanCondition_Sensor(), this.getBooleanSensor(), null, "sensor", null, 0, 1, BooleanCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(integerActionEClass, IntegerAction.class, "IntegerAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getIntegerAction_Value(), ecorePackage.getEInt(), "value", null, 0, 1, IntegerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getIntegerAction_Actor(), this.getIntegerActor(), null, "actor", null, 0, 1, IntegerAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(floatActionEClass, FloatAction.class, "FloatAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloatAction_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
