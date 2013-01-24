@@ -42,8 +42,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="TemperatureSensor" eSuperTypes="#//HouseMountable #//RoomMountable #//FloatSensor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RainSensor" eSuperTypes="#//HouseMountable #//BooleanSensor"/>
   <eClassifiers xsi:type="ecore:EClass" name="SwitchSensor" eSuperTypes="#//RoomMountable #//BooleanSensor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="NumberSensor" eSuperTypes="#//RoomMountable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ClockSensor" eSuperTypes="#//HouseMountable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberSensor" eSuperTypes="#//RoomMountable #//FloatSensor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ClockSensor" eSuperTypes="#//HouseMountable #//FloatSensor"/>
   <eClassifiers xsi:type="ecore:EClass" name="LampActor" eSuperTypes="#//HouseMountable #//RoomMountable #//FloatActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RollerActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoofWindowActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
