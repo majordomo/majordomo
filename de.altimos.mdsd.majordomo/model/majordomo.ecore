@@ -47,7 +47,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="LampActor" eSuperTypes="#//HouseMountable #//RoomMountable #//FloatActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RollerActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoofWindowActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BoilerAction" eSuperTypes="#//HouseMountable"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BoilerActor" eSuperTypes="#//HouseMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RadiatorActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoomMountable" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="HouseMountable" abstract="true" interface="true"/>
