@@ -5,7 +5,6 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.Actor;
 import de.altimos.mdsd.majordomo.BoilerActor;
-import de.altimos.mdsd.majordomo.BoilerAction;
 import de.altimos.mdsd.majordomo.BooleanAction;
 import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.BooleanCondition;
@@ -50,7 +49,6 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
 
 /**
  * <!-- begin-user-doc -->
@@ -324,11 +322,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#eNS_URI
 	 * @see #init()
-	 * @generated not
+	 * @generated
 	 */
 	private MajordomoPackageImpl() {
 		super(eNS_URI, MajordomoFactory.eINSTANCE);
-		CheckRegistry.getInstance();
 	}
 
 	/**

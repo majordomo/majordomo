@@ -649,7 +649,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_VMTcIWWbEeKCSK1ajcBzmg" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="majordomo.ecore#//BooleanAction"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VMTcImWbEeKCSK1ajcBzmg" x="1130" y="590" width="133"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VMTcImWbEeKCSK1ajcBzmg" x="1130" y="590" width="138"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_ldmSMVT5EeKHaeILgo_Ljw"/>
   <element xmi:type="ecore:EPackage" href="majordomo.ecore#/"/>
