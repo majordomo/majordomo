@@ -37,7 +37,7 @@ context BooleanAction ERROR
 	"Must have an actor.": this.actor != null;
 	
 context Rule ERROR
-	"Must have at least on condition.": this.conditions.size > 0;
+	"Must have at least one condition.": this.conditions.size > 0;
 	
 context Rule ERROR
-	"Must have at least on action.": this.actions.size > 0;
+	"Must have at least one action.": this.actions.size > 0;
