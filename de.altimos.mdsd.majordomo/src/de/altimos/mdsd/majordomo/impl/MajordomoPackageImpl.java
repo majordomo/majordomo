@@ -10,7 +10,7 @@ import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.ClockSensor;
-import de.altimos.mdsd.majordomo.Comperator;
+import de.altimos.mdsd.majordomo.Comparator;
 import de.altimos.mdsd.majordomo.Condition;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
@@ -276,7 +276,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum comperatorEEnum = null;
+	private EEnum comparatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -687,7 +687,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCondition_Comperator() {
+	public EAttribute getCondition_Comparator() {
 		return (EAttribute)conditionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -813,8 +813,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getComperator() {
-		return comperatorEEnum;
+	public EEnum getComparator() {
+		return comparatorEEnum;
 	}
 
 	/**
@@ -908,7 +908,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		floatActorEClass = createEClass(FLOAT_ACTOR);
 
 		conditionEClass = createEClass(CONDITION);
-		createEAttribute(conditionEClass, CONDITION__COMPERATOR);
+		createEAttribute(conditionEClass, CONDITION__COMPARATOR);
 
 		actionEClass = createEClass(ACTION);
 
@@ -929,7 +929,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEReference(booleanActionEClass, BOOLEAN_ACTION__ACTOR);
 
 		// Create enums
-		comperatorEEnum = createEEnum(COMPERATOR);
+		comparatorEEnum = createEEnum(COMPARATOR);
 	}
 
 	/**
@@ -975,7 +975,9 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		switchSensorEClass.getESuperTypes().add(this.getRoomMountable());
 		switchSensorEClass.getESuperTypes().add(this.getBooleanSensor());
 		numberSensorEClass.getESuperTypes().add(this.getRoomMountable());
+		numberSensorEClass.getESuperTypes().add(this.getFloatSensor());
 		clockSensorEClass.getESuperTypes().add(this.getHouseMountable());
+		clockSensorEClass.getESuperTypes().add(this.getFloatSensor());
 		lampActorEClass.getESuperTypes().add(this.getHouseMountable());
 		lampActorEClass.getESuperTypes().add(this.getRoomMountable());
 		lampActorEClass.getESuperTypes().add(this.getFloatActor());
@@ -1070,7 +1072,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		addEParameter(op, ecorePackage.getEFloat(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCondition_Comperator(), this.getComperator(), "comperator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCondition_Comparator(), this.getComparator(), "comparator", null, 0, 1, Condition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1091,10 +1093,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getBooleanAction_Actor(), this.getBooleanActor(), null, "actor", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
-		initEEnum(comperatorEEnum, Comperator.class, "Comperator");
-		addEEnumLiteral(comperatorEEnum, Comperator.EQUALS);
-		addEEnumLiteral(comperatorEEnum, Comperator.GREATER);
-		addEEnumLiteral(comperatorEEnum, Comperator.LESSER);
+		initEEnum(comparatorEEnum, Comparator.class, "Comparator");
+		addEEnumLiteral(comparatorEEnum, Comparator.EQUALS);
+		addEEnumLiteral(comparatorEEnum, Comparator.GREATER);
+		addEEnumLiteral(comparatorEEnum, Comparator.LESSER);
 
 		// Create resource
 		createResource(eNS_URI);
