@@ -51,7 +51,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="RadiatorActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RoomMountable" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="HouseMountable" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="Comperator">
+  <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
     <eLiterals name="Equals"/>
     <eLiterals name="Greater" value="1"/>
     <eLiterals name="Lesser" value="2"/>
@@ -78,7 +78,7 @@
     </eOperations>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comperator" eType="#//Comperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="#//Comparator"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="FloatCondition" eSuperTypes="#//Condition">
