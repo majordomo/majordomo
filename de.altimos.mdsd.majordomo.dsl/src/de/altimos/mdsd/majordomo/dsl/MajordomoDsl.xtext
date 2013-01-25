@@ -58,12 +58,20 @@ Action returns Action:
 
 BooleanCondition returns BooleanCondition:
 	{BooleanCondition}
+	sensor=[BooleanSensor|EString]
+	comperator=Comparator
 	value=EBoolean
 ;
 
 FloatCondition returns FloatCondition:
 	{FloatCondition}
+	sensor=[FloatSensor|EString]
+	comperator=Comparator
 	value=EFloat
+;
+
+enum Comparator returns Comperator:
+	Equals="=" | Greater=">" | Lesser="<"
 ;
 
 BooleanAction returns BooleanAction:
