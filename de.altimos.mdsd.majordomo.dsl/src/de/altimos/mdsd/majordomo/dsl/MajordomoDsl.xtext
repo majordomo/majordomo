@@ -59,18 +59,18 @@ Action returns Action:
 BooleanCondition returns BooleanCondition:
 	{BooleanCondition}
 	sensor=[BooleanSensor|EString]
-	comperator=Comparator
+	comparator=Comparator
 	value=EBoolean
 ;
 
 FloatCondition returns FloatCondition:
 	{FloatCondition}
 	sensor=[FloatSensor|EString]
-	comperator=Comparator
+	comparator=Comparator
 	value=EFloat
 ;
 
-enum Comparator returns Comperator:
+enum Comparator returns Comparator:
 	Equals="=" | Greater=">" | Lesser="<"
 ;
 
