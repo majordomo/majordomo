@@ -26,7 +26,7 @@ House returns House:
 Room returns Room:
 	{Room}
 	'room'
-	name=EString
+	name=Name
 	'{'
 		(sensors+=Sensor)*
 		(actors+=Actor)*
@@ -58,14 +58,14 @@ Action returns Action:
 
 BooleanCondition returns BooleanCondition:
 	{BooleanCondition}
-	sensor=[BooleanSensor|EString]
+	sensor=[BooleanSensor|QualifiedName]
 	comparator=Comparator
 	value=EBoolean
 ;
 
 FloatCondition returns FloatCondition:
 	{FloatCondition}
-	sensor=[FloatSensor|EString]
+	sensor=[FloatSensor|QualifiedName]
 	comparator=Comparator
 	value=EFloat
 ;
@@ -76,14 +76,14 @@ enum Comparator returns Comparator:
 
 BooleanAction returns BooleanAction:
 	{BooleanAction}
-	actor=[BooleanActor|EString]
+	actor=[BooleanActor|QualifiedName]
 	':'
 	value=EBoolean
 ;
 
 FloatAction returns FloatAction:
 	{FloatAction}
-	actor=[FloatActor|EString]
+	actor=[FloatActor|QualifiedName]
 	':'
 	value=EFloat
 ;
@@ -91,70 +91,80 @@ FloatAction returns FloatAction:
 LightSensor returns LightSensor:
 	{LightSensor}
 	'light'
-	name=EString
+	name=Name
 ;
 
 TemperatureSensor returns TemperatureSensor:
 	{TemperatureSensor}
 	'temp'
-	name=EString
+	name=Name
 ;
 
 RainSensor returns RainSensor:
 	{RainSensor}
 	'rain'
-	name=EString
+	name=Name
 ;
 
 SwitchSensor returns SwitchSensor:
 	{SwitchSensor}
 	'switch'
-	name=EString
+	name=Name
 ;
 
 NumberSensor returns NumberSensor:
 	{NumberSensor}
 	'number'
-	name=EString
+	name=Name
 ;
 
 ClockSensor returns ClockSensor:
 	{ClockSensor}
 	'clock'
-	name=EString
+	name=Name
 ;
 
 LampActor returns LampActor:
 	{LampActor}
 	'lamp'
-	name=EString
+	name=Name
 ;
 
 RollerActor returns RollerActor:
 	{RollerActor}
 	'roller'
-	name=EString
+	name=Name
 ;
 
 RoofWindowActor returns RoofWindowActor:
 	{RoofWindowActor}
 	'roof'
-	name=EString
+	name=Name
 ;
 
 RadiatorActor returns RadiatorActor:
 	{RadiatorActor}
 	'radiator'
-	name=EString
+	name=Name
 ;
 
-EString returns ecore::EString:
+// name system: full qualified names used for cross-referencing
+Name:
+	ID
+;
+
+QualifiedName:
+	Name ('.' Name)*
+;
+
+// data type wrappers
+/*EString returns ecore::EString:
 	STRING | ID
 ;
 
 EInt returns ecore::EInt:
 	'-'? INT
-;
+;*/
 
 EFloat returns ecore::EFloat:
 	'-'? INT? '.' INT (('E'|'e') '-'? INT)?
