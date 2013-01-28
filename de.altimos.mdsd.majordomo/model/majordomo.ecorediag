@@ -3,6 +3,10 @@
   <children xmi:type="notation:Node" xmi:id="_8B-0YFUVEeKB5sXfe_f7rQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_8CDF0FUVEeKB5sXfe_f7rQ" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_8CDF0VUVEeKB5sXfe_f7rQ" type="5001">
+      <children xmi:type="notation:Node" xmi:id="_uuCpIGlNEeKHTMRZ7uHUQg" type="2001">
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//Majordomo/name"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_uuCpIWlNEeKHTMRZ7uHUQg"/>
+      </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_8CDF0lUVEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:SortingStyle" xmi:id="_8CDF01UVEeKB5sXfe_f7rQ"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_8CDF1FUVEeKB5sXfe_f7rQ"/>
