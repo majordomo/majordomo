@@ -1,0 +1,35 @@
+module workflow.GenerateMajordomoCode
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.*
+import org.eclipse.xpand2.output.*
+
+var targetDir = "src-gen/de/altimos/mdsd/majordomo/tool"
+var fileEncoding = "UTF-8"
+var modelPath = "src/model/musterhaus.domo"
+
+Workflow {
+	component = mwe.UriBasedReader {
+		uri = modelPath
+		register = de.altimos.mdsd.majordomo.dsl.MajordomoDslStandaloneSetup {}
+		load = {
+			slot = "model"
+			type = "Majordomo"
+		}
+	}
+	component = DirectoryCleaner {
+		directory = targetDir
+	}
+	component = Writer {
+		modelSlot = "model"
+		uri = "majordomo.xmi"
+	}
+	component = org.eclipse.xpand2.Generator {
+		metaModel = org.eclipse.xtend.typesystem.emf.EmfRegistryMetaModel {}
+		expand = "templates::majordomo::main FOREACH model"
+		outlet = {
+			path = targetDir
+		}
+		fileEncoding = fileEncoding
+	}
+}
