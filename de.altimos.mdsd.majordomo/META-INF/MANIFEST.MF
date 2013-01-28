@@ -6,5 +6,6 @@ Bundle-Version: 0.1.0
 Require-Bundle: org.eclipse.emf.ecore,
  org.eclipse.xtend.typesystem.emf;bundle-version="1.2.0"
 Export-Package: de.altimos.mdsd.majordomo,
+ de.altimos.mdsd.majordomo.impl,
  de.altimos.mdsd.majordomo.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
