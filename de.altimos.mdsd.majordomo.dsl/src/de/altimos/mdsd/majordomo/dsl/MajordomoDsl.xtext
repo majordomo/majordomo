@@ -49,7 +49,7 @@ Rule returns Rule:
 ;
 
 Condition returns Condition:
-	BooleanCondition | FloatCondition
+	BooleanCondition | LesserFloatCondition | GreaterFloatCondition
 ;
 
 Action returns Action:
@@ -59,19 +59,22 @@ Action returns Action:
 BooleanCondition returns BooleanCondition:
 	{BooleanCondition}
 	sensor=[BooleanSensor|QualifiedName]
-	comparator=Comparator
+	"="
 	value=EBoolean
 ;
 
-FloatCondition returns FloatCondition:
-	{FloatCondition}
+LesserFloatCondition returns LesserFloatCondition:
+	{LesserFloatCondition}
 	sensor=[FloatSensor|QualifiedName]
-	comparator=Comparator
+	"<"
 	value=EFloat
 ;
 
-enum Comparator returns Comparator:
-	Equals="=" | Greater=">" | Lesser="<"
+GreaterFloatCondition returns GreaterFloatCondition:
+	{GreaterFloatCondition}
+	sensor=[FloatSensor|QualifiedName]
+	">"
+	value=EFloat
 ;
 
 BooleanAction returns BooleanAction:
