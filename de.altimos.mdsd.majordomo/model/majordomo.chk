@@ -37,7 +37,4 @@ context Extension ERROR this.metaType.name + " must have a name.": this.name != 
 context Room ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 context Sensor ERROR "Must have a unique name.": !this.ctx.sensors.exists(e|e.name == this.name && e != this);
-	
 context Actor ERROR "Must have a unique name.": !this.ctx.actors.exists(e|e.name == this.name && e != this);
-
-	
