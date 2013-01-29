@@ -32,12 +32,14 @@ context FloatAction ERROR "Invalid actor reference. Expected reference type is �
 	FloatActor.isInstance(this.actor) && this.actor.name != null;
 context BooleanAction ERROR "Invalid actor reference. Expected reference type is «BooleanActor»": 
 	BooleanActor.isInstance(this.actor) && this.actor.name != null;
+// Same for conditions
+context FloatCondition ERROR "Invalid sensor reference. Expected reference type is «FloatSensor»": 
+	FloatSensor.isInstance(this.sensor) && this.sensor.name != null;
+context BooleanCondition ERROR "Invalid sensor reference. Expected reference type is «BooleanSensor»": 
+	BooleanSensor.isInstance(this.sensor) && this.sensor.name != null;
 	
 context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
 context Room ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 context Sensor ERROR "Must have a unique name.": !this.ctx.sensors.exists(e|e.name == this.name && e != this);
-	
 context Actor ERROR "Must have a unique name.": !this.ctx.actors.exists(e|e.name == this.name && e != this);
-
-	
