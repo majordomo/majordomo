@@ -26,11 +26,11 @@ context Rule ERROR "Must have at least one action.": this.actions.size > 0;
 
 context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
 context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
+
 context FloatAction ERROR "Must have an actor.": this.actor != null;
 context BooleanAction ERROR "Must have an actor.": this.actor != null;
-
-context FloatAction ERROR "Must have an actor.": FloatActor.isInstance(this.actor);
-context BooleanAction ERROR "Must have an actor.": BooleanAction.isInstance(this.actor);
+context FloatAction ERROR "Incompatible type «"+this.actor.metaType+"». Expected type is «Float»": FloatActor.isInstance(this.actor);
+context BooleanAction ERROR "Incompatible type «"+this.actor.metaType+"». Expected type is «Boolean»": BooleanActor.isInstance(this.actor);
 	
 context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
 	

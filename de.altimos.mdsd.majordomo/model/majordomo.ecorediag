@@ -828,7 +828,7 @@
     <styles xmi:type="notation:ConnectorStyle" xmi:id="_xNA4MWV3EeKCSK1ajcBzmg" routing="Rectilinear" lineColor="4210752"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_xNA4MmV3EeKCSK1ajcBzmg" fontName="Droid Sans"/>
     <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xNA4M2V3EeKCSK1ajcBzmg" points="[-29, 17, 67, -38]$[-54, 17, 42, -38]$[-54, 53, 42, -2]$[-73, 53, 23, -2]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_xNA4M2V3EeKCSK1ajcBzmg" points="[-29, 17, 67, -38]$[-44, 17, 52, -38]$[-44, 53, 52, -2]$[-73, 53, 23, -2]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xNCGUGV3EeKCSK1ajcBzmg" id="(0.2097902097902098,0.4523809523809524)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_xNCGUWV3EeKCSK1ajcBzmg" id="(0.8630952380952381,0.39655172413793105)"/>
   </edges>
