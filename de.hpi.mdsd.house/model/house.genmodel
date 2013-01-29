@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.hpi.mdsd.house/src" modelPluginID="de.hpi.mdsd.house"
+    modelName="House" importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0"
+    copyrightFields="false">
+  <foreignModel>house.ecore</foreignModel>
+  <genPackages prefix="House2" disposableProviderFactory="true" ecorePackage="house.ecore#/">
+    <genClasses ecoreClass="house.ecore#//House">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//House/rooms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//House/controlRules"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//Room"/>
+    <genClasses image="false" ecoreClass="house.ecore#//Container">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Container/elements"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//Element"/>
+    <genClasses image="false" ecoreClass="house.ecore#//Sensor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference house.ecore#//Sensor/isLocatedIn"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//Actor">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference house.ecore#//Actor/isLocatedIn"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//TemperatureSensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//TemperatureSensor/temp"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//TwilightSwitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//TwilightSwitch/active"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//Boiler">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//Boiler/isOn"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//RollerBlind">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//RollerBlind/isUp"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//ControlRule">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//ControlRule/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//ControlRule/action"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//Condition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Condition/sensor"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//LessThanCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//LessThanCondition/threshold"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//GreaterThanCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//GreaterThanCondition/threshold"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//Action">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Action/actor"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//Lamp">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//Lamp/isOn"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//EqualCondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//EqualCondition/boolcond"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//EqualCondition/valuecond"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//RainSensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//RainSensor/active"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//BooleanAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//BooleanAction/switchTo"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//ValueAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//ValueAction/switchToValue"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//NamedElement/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
