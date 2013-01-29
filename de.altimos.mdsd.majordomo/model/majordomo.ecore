@@ -12,7 +12,7 @@
         defaultValueLiteral="m"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="House" eSuperTypes="#//Extendable"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Extendable" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Extendable" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensors" upperBound="-1"
         eType="#//Sensor" containment="true" eOpposite="#//Sensor/ctx"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actors" upperBound="-1"
@@ -21,13 +21,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Room" eSuperTypes="#//Extendable">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" interface="true"
-      eSuperTypes="#//Extension">
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" abstract="true" eSuperTypes="#//Extension">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ctx" lowerBound="1" eType="#//Extendable"
         eOpposite="#//Extendable/sensors"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true" interface="true"
-      eSuperTypes="#//Extension">
+  <eClassifiers xsi:type="ecore:EClass" name="Actor" abstract="true" eSuperTypes="#//Extension">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ctx" lowerBound="1" eType="#//Extendable"
         eOpposite="#//Extendable/actors"/>
   </eClassifiers>
@@ -37,7 +35,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
         eType="#//Action" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Extension" abstract="true" interface="true">
+  <eClassifiers xsi:type="ecore:EClass" name="Extension" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LightSensor" eSuperTypes="#//HouseMountable #//RoomMountable #//FloatSensor"/>
@@ -51,42 +49,27 @@
   <eClassifiers xsi:type="ecore:EClass" name="RoofWindowActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="BoilerActor" eSuperTypes="#//HouseMountable #//BooleanActor"/>
   <eClassifiers xsi:type="ecore:EClass" name="RadiatorActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RoomMountable" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="HouseMountable" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
-    <eLiterals name="Equals"/>
-    <eLiterals name="Greater" value="1"/>
-    <eLiterals name="Lesser" value="2"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanSensor" abstract="true" interface="true"
-      eSuperTypes="#//Sensor">
+  <eClassifiers xsi:type="ecore:EClass" name="RoomMountable" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="HouseMountable" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanSensor" abstract="true" eSuperTypes="#//Sensor">
     <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FloatSensor" abstract="true" interface="true"
-      eSuperTypes="#//Sensor">
+  <eClassifiers xsi:type="ecore:EClass" name="FloatSensor" abstract="true" eSuperTypes="#//Sensor">
     <eOperations name="getValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BooleanActor" abstract="true" interface="true"
-      eSuperTypes="#//Actor">
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanActor" abstract="true" eSuperTypes="#//Actor">
     <eOperations name="setValue">
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     </eOperations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Actor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FloatActor" abstract="true" interface="true"
-      eSuperTypes="#//Actor">
+  <eClassifiers xsi:type="ecore:EClass" name="FloatActor" abstract="true" eSuperTypes="#//Actor">
     <eOperations name="setValue">
       <eParameters name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     </eOperations>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true" interface="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" eType="#//Comparator"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" interface="true"/>
-  <eClassifiers xsi:type="ecore:EClass" name="FloatCondition" eSuperTypes="#//Condition">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//FloatSensor"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Condition" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanCondition" eSuperTypes="#//Condition">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//BooleanSensor"/>
@@ -99,4 +82,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//BooleanActor"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FloatCondition" abstract="true" eSuperTypes="#//Condition">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//FloatSensor"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LesserFloatCondition" eSuperTypes="#//FloatCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterFloatCondition" eSuperTypes="#//FloatCondition"/>
 </ecore:EPackage>
