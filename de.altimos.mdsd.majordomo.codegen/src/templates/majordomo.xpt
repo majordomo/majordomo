@@ -2,11 +2,31 @@
 
 «DEFINE main FOR Majordomo»
 «FILE "Main.java"»
-package de.altimos.mdsd.majordomo.tool;
+package de.altimos.mdsd.majordomo.toolgen;
+
+import de.altimos.mdsd.majordomo.tool.*;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Hello Xpand");
+		ToolBuilder b = new ToolBuilder();
+		
+		b.addHouse();
+		«FOREACH this.house.sensors AS sensor»
+		b.addSensor("«sensor.name»");
+		«ENDFOREACH»
+		«FOREACH this.house.actors AS actor»
+		b.addActor("«actor.name»");
+		«ENDFOREACH»
+		
+		«FOREACH this.rooms AS room»
+		b.addRoom("«room.name»");
+		«FOREACH room.sensors AS sensor»
+		b.addSensor("«sensor.name»");
+		«ENDFOREACH»
+		«FOREACH room.actors AS actor»
+		b.addActor("«actor.name»");
+		«ENDFOREACH»
+		«ENDFOREACH»
 	}
 }
 «ENDFILE»

@@ -4,7 +4,7 @@ import org.eclipse.emf.mwe.utils.*
 import org.eclipse.xtext.*
 import org.eclipse.xpand2.output.*
 
-var targetDir = "src-gen/de/altimos/mdsd/majordomo/tool"
+var targetDir = "src-gen/de/altimos/mdsd/majordomo/toolgen"
 var fileEncoding = "UTF-8"
 var modelPath = "src/model/musterhaus.domo"
 
