@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <majordomo:Majordomo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:majordomo="http://mdsd.altimos.de/majordomo/1.0">
-  <house/>
+  <house>
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temperature sensor in the house"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="boiler for the whole house"/>
+  </house>
   <rules>
     <conditions xsi:type="majordomo:LesserFloatCondition" value="21.0"/>
     <actions xsi:type="majordomo:BooleanAction" value="true"/>
@@ -14,5 +17,8 @@
   <rooms name="kitchen"/>
   <rooms name="living room"/>
   <rooms name="first floor bedroom"/>
-  <rooms name="sports room"/>
+  <rooms name="sports room">
+    <sensors xsi:type="majordomo:RainSensor" name="rain sensor outside the sports room"/>
+    <actors xsi:type="majordomo:RollerActor" name="blinds of the sports room"/>
+  </rooms>
 </majordomo:Majordomo>

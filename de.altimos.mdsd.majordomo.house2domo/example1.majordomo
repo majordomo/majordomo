@@ -5,7 +5,9 @@
     <conditions xsi:type="majordomo:BooleanCondition" value="true"/>
     <actions xsi:type="majordomo:BooleanAction" value="true"/>
   </rules>
-  <rooms name="kitchen"/>
+  <rooms name="kitchen">
+    <sensors xsi:type="majordomo:LightSensor"/>
+  </rooms>
   <rooms name="bathroom"/>
   <rooms name="living room"/>
 </majordomo:Majordomo>
