@@ -1,6 +1,18 @@
 house {
+	clock uhr
+	temp aussen
+	rain regen
 }
-room r1 {
+room wohnzimmer {
+	roller fenster
+	lamp lampe
+}
+room schlafzimmer {
+	temp innen
+	light nacht
+	roof dachfenster
 }
 rules {
+	m.regen = true -> m.schlafzimmer.dachfenster: down,
+	m.uhr = 0.0 -> m.schlafzimmer.dachfenster: down
 }
