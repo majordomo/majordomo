@@ -1,0 +1,82 @@
+-- @nsURI House=http://House2/1.0
+-- @nsURI Majordomo=http://mdsd.altimos.de/majordomo/1.0
+
+module house2domo;
+create OUT : Majordomo from IN : House;
+
+rule House2Domo {
+	from
+		i : House!House
+	to
+		house : Majordomo!House (
+		),
+		majordomo : Majordomo!Majordomo (
+			house <- house,
+			rooms <- i.rooms,
+			rules <- i.controlRules
+		)
+}
+
+rule Room2Room {
+	from
+		i : House!Room
+	to
+		o : Majordomo!Room (
+			name <- i.name
+		)
+}
+
+rule ControlRule2Rule {
+	from
+		i : House!ControlRule
+	to
+		o : Majordomo!Rule (
+			conditions <- Sequence{i.condition},
+			actions <- Sequence{i.action}
+		)
+}
+
+rule EqualCond2BoolCond {
+	from
+		i : House!EqualCondition
+	to
+		o : Majordomo!BooleanCondition (
+			value <- i.boolcond
+		)
+}
+
+rule LessThanCond2LesserFloatCond {
+	from
+		i : House!LessThanCondition
+	to
+		o : Majordomo!LesserFloatCondition (
+			value <- i.threshold
+		)
+}
+
+rule GreaterThanCond2GreaterFloatCond {
+	from
+		i : House!GreaterThanCondition
+	to
+		o : Majordomo!GreaterFloatCondition (
+			value <- i.threshold
+		)
+}
+
+rule BooleanAction2BooleanAction {
+	from
+		i : House!BooleanAction
+	to
+		o : Majordomo!BooleanAction (
+			value <- i.switchTo
+		)
+}
+
+rule ValueAction2FloatAction {
+	from
+		i : House!ValueAction
+	to
+		o : Majordomo!FloatAction (
+			value <- i.switchToValue
+		)
+}

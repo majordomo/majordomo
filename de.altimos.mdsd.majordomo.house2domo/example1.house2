@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<House2:House xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:House2="http://House2/1.0" name="my small lighted flat">
+  <rooms name="kitchen"/>
+  <rooms name="bathroom"/>
+  <rooms name="living room"/>
+  <controlRules>
+    <condition xsi:type="House2:EqualCondition" boolcond="true">
+      <sensor xsi:type="House2:TwilightSwitch" name="twilight switch in the kitchen" isLocatedIn="//@rooms.0"/>
+    </condition>
+    <action xsi:type="House2:BooleanAction" switchTo="true">
+      <actor xsi:type="House2:Lamp" name="my kitchen lamp" isLocatedIn="//@rooms.0"/>
+    </action>
+  </controlRules>
+</House2:House>
