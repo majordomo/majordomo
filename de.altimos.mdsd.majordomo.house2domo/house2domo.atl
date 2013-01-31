@@ -12,6 +12,66 @@ create OUT : Majordomo from IN : House;
 --   TemperatureSensor.temp
 --   TwilightSwitch.active
 --   RainSensor.active
+--   Boiler.isOn
+--   RollerBlind.isUp
+--   Lamp.isOn
+
+-- TwilightSwitch (bool) -> LightSensor (float) is not possible
+-- Lamp (bool) -> Lamp (float) is not possible
+
+rule Temperature2TemperatureSensor {
+	from
+		i : House!TemperatureSensor
+	to
+		o : Majordomo!TemperatureSensor (
+			name <- i.name
+		)
+}
+
+--rule Twilight2LightSensor {
+--	from
+--		i : House!TwilightSwitch
+--	to
+--		o : Majordomo!LightSensor (
+--			name <- i.name
+--		)
+--}
+
+rule Rain2RainSensor {
+	from
+		i : House!RainSensor
+	to
+		o : Majordomo!RainSensor (
+			name <- i.name
+		)
+}
+
+rule Boiler2Radiator {
+	from
+		i : House!Boiler
+	to
+		o : Majordomo!RadiatorActor (
+			name <- i.name
+		)
+}
+
+rule RollerBlind2Roller {
+	from
+		i : House!RollerBlind
+	to
+		o : Majordomo!RollerActor (
+			name <- i.name
+		)
+}
+
+--rule Lamp2Lamp {
+--	from
+--		i : House!Lamp
+--	to
+--		o : Majordomo!LampActor (
+--			name <- i.name
+--		)
+--}
 
 rule House2Domo {
 	from
@@ -54,8 +114,15 @@ rule EqualCond2BoolCond {
 		i : House!EqualCondition
 	to
 		o : Majordomo!BooleanCondition (
-			value <- i.boolcond
+			value <- i.boolcond,
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+			--sensor <- Majordomo!Sensor.allInstances()->first()
 		)
+	do {
+--		i.sensor.debug();
+--		Majordomo!Room.allInstances()->collect(s | s.name).debug();
+--		Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name).debug();
+	}
 }
 
 rule LessThanCond2LesserFloatCond {
@@ -63,7 +130,8 @@ rule LessThanCond2LesserFloatCond {
 		i : House!LessThanCondition
 	to
 		o : Majordomo!LesserFloatCondition (
-			value <- i.threshold
+			value <- i.threshold,
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
 
@@ -72,7 +140,8 @@ rule GreaterThanCond2GreaterFloatCond {
 		i : House!GreaterThanCondition
 	to
 		o : Majordomo!GreaterFloatCondition (
-			value <- i.threshold
+			value <- i.threshold,
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
 
@@ -81,7 +150,8 @@ rule BooleanAction2BooleanAction {
 		i : House!BooleanAction
 	to
 		o : Majordomo!BooleanAction (
-			value <- i.switchTo
+			value <- i.switchTo,
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
 		)
 }
 
@@ -90,60 +160,7 @@ rule ValueAction2FloatAction {
 		i : House!ValueAction
 	to
 		o : Majordomo!FloatAction (
-			value <- i.switchToValue
-		)
-}
-
-rule Temperature2TemperatureSensor {
-	from
-		i : House!TemperatureSensor
-	to
-		o : Majordomo!TemperatureSensor (
-			name <- i.name
-		)
-}
-
-rule Twilight2LightSensor {
-	from
-		i : House!TwilightSwitch
-	to
-		o : Majordomo!LightSensor (
-			name <- i.name
-		)
-}
-
-rule Rain2RainSensor {
-	from
-		i : House!RainSensor
-	to
-		o : Majordomo!RainSensor (
-			name <- i.name
-		)
-}
-
-rule Boiler2Radiator {
-	from
-		i : House!Boiler
-	to
-		o : Majordomo!RadiatorActor (
-			name <- i.name
-		)
-}
-
-rule RollerBlind2Roller {
-	from
-		i : House!RollerBlind
-	to
-		o : Majordomo!RollerActor (
-			name <- i.name
-		)
-}
-
-rule Lamp2Lamp {
-	from
-		i : House!Lamp
-	to
-		o : Majordomo!LampActor (
-			name <- i.name
+			value <- i.switchToValue,
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
 		)
 }
