@@ -2,6 +2,14 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
+
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.Actor;
 import de.altimos.mdsd.majordomo.BoilerActor;
@@ -10,7 +18,6 @@ import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.ClockSensor;
-import de.altimos.mdsd.majordomo.Comparator;
 import de.altimos.mdsd.majordomo.Condition;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
@@ -38,16 +45,6 @@ import de.altimos.mdsd.majordomo.Rule;
 import de.altimos.mdsd.majordomo.Sensor;
 import de.altimos.mdsd.majordomo.SwitchSensor;
 import de.altimos.mdsd.majordomo.TemperatureSensor;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
 
 /**
  * <!-- begin-user-doc -->
