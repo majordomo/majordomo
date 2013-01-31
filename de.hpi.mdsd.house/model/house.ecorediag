@@ -226,7 +226,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_r-OlWmo8EeKzMJajLDRrMQ" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="house.ecore#//LessThanCondition"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r-OlW2o8EeKzMJajLDRrMQ" x="300" y="516"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r-OlW2o8EeKzMJajLDRrMQ" x="276" y="516" width="159"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_r-PMYmo8EeKzMJajLDRrMQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_r-PMZWo8EeKzMJajLDRrMQ" type="4001"/>
@@ -246,7 +246,7 @@
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_r-PMY2o8EeKzMJajLDRrMQ" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
     <element xmi:type="ecore:EClass" href="house.ecore#//GreaterThanCondition"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r-PMZGo8EeKzMJajLDRrMQ" x="456" y="516"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_r-PMZGo8EeKzMJajLDRrMQ" x="444" y="516" width="159"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_r-Pzcmo8EeKzMJajLDRrMQ" type="1001">
     <children xmi:type="notation:Node" xmi:id="_r-PzdWo8EeKzMJajLDRrMQ" type="4001"/>
