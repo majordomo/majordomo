@@ -116,13 +116,7 @@ rule EqualCond2BoolCond {
 		o : Majordomo!BooleanCondition (
 			value <- i.boolcond,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
-			--sensor <- Majordomo!Sensor.allInstances()->first()
 		)
-	do {
---		i.sensor.debug();
---		Majordomo!Room.allInstances()->collect(s | s.name).debug();
---		Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name).debug();
-	}
 }
 
 rule LessThanCond2LesserFloatCond {
