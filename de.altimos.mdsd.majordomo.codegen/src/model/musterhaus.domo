@@ -13,6 +13,6 @@ room schlafzimmer {
 	roof dachfenster
 }
 rules {
-	m.regen = true -> m.schlafzimmer.dachfenster: down,
-	m.uhr = 0.0 -> m.schlafzimmer.dachfenster: down
+	m.regen = true -> m.schlafzimmer.dachfenster: true,
+	m.uhr = 0.0 -> m.schlafzimmer.dachfenster: true
 }
