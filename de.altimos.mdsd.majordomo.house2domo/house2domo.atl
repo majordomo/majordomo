@@ -7,17 +7,12 @@ create OUT : Majordomo from IN : House;
 -- Unused input:
 --   House.name (our house has no name)
 --   EqualCondition.valuecond (we don't support float equals since it's analog)
---   Condition.sensor
---   Action.actor
 --   TemperatureSensor.temp
 --   TwilightSwitch.active
 --   RainSensor.active
 --   Boiler.isOn
 --   RollerBlind.isUp
 --   Lamp.isOn
-
--- TwilightSwitch (bool) -> LightSensor (float) is not possible
--- Lamp (bool) -> Lamp (float) is not possible
 
 rule Temperature2TemperatureSensor {
 	from
