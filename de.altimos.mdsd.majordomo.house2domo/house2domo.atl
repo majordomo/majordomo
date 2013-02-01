@@ -14,58 +14,58 @@ create OUT : Majordomo from IN : House;
 --   RollerBlind.isUp
 --   Lamp.isOn
 
-rule Temperature2TemperatureSensor {
+-- multiple same-named sensors/actors will collide
+
+abstract rule NamedElement {
+	-- Note: the types here are irrelevant!
+	from
+		i : House!NamedElement
+	to
+		o : Majordomo!NamedElement (
+			name <- i.name.regexReplaceAll('([^a-zA-Z0-9_]+|^[0-9])', '_')
+		)
+}
+
+rule Temperature2TemperatureSensor extends NamedElement {
 	from
 		i : House!TemperatureSensor
 	to
-		o : Majordomo!TemperatureSensor (
-			name <- i.name
-		)
+		o : Majordomo!TemperatureSensor
 }
 
-rule Twilight2LightSensor {
+rule Twilight2LightSensor extends NamedElement {
 	from
 		i : House!TwilightSwitch
 	to
-		o : Majordomo!LightSensor (
-			name <- i.name
-		)
+		o : Majordomo!LightSensor
 }
 
-rule Rain2RainSensor {
+rule Rain2RainSensor extends NamedElement {
 	from
 		i : House!RainSensor
 	to
-		o : Majordomo!RainSensor (
-			name <- i.name
-		)
+		o : Majordomo!RainSensor
 }
 
-rule Boiler2Radiator {
+rule Boiler2Radiator extends NamedElement {
 	from
 		i : House!Boiler
 	to
-		o : Majordomo!RadiatorActor (
-			name <- i.name
-		)
+		o : Majordomo!RadiatorActor
 }
 
-rule RollerBlind2Roller {
+rule RollerBlind2Roller extends NamedElement {
 	from
 		i : House!RollerBlind
 	to
-		o : Majordomo!RollerActor (
-			name <- i.name
-		)
+		o : Majordomo!RollerActor
 }
 
-rule Lamp2Lamp {
+rule Lamp2Lamp extends NamedElement {
 	from
 		i : House!Lamp
 	to
-		o : Majordomo!LampActor (
-			name <- i.name
-		)
+		o : Majordomo!LampActor
 }
 
 rule House2Domo {
@@ -83,12 +83,11 @@ rule House2Domo {
 		)
 }
 
-rule Room2Room {
+rule Room2Room extends NamedElement {
 	from
 		i : House!Room
 	to
 		o : Majordomo!Room (
-			name <- i.name,
 			sensors <- House!Sensor.allInstances()->select(s | s.isLocatedIn = i),
 			actors <- House!Actor.allInstances()->select(a | a.isLocatedIn = i)
 		)
@@ -137,8 +136,8 @@ rule EqualCond2GreaterFloatCond {
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and (not i.boolcond)
 		)
 	to
-		o : Majordomo!LesserFloatCondition (
-			value <- 1.0,
+		o : Majordomo!GreaterFloatCondition (
+			value <- 0.0,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
