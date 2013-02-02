@@ -24,6 +24,9 @@ rules {
 	
 	m.zeit >= 6.30 -> m.heizkessel: true;
 	
+	m.schlafzimmer.temperatur <= 18.0 -> m.schlafzimmer.heizung: true, m.schlafzimmer.dachfenster: false;
+	m.schlafzimmer.temperatur >= 19.0 -> m.schlafzimmer.heizung: false;
+	
 	m.schlafzimmer.eingabe = 42.0 -> m.schlafzimmer.dachfenster: true;
 	
 	m.wohnzimmer.schalter? -> m.wohnzimmer.lampe: 1.0;

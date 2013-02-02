@@ -49,4 +49,16 @@ public class MClockSensorAssembly extends MSensorAssembly<Double> {
 		return panel;
 	}
 
+	public void step() {
+		if(minModel.getNumber().intValue() == 59) {
+			minModel.setValue(0);
+			if(hourModel.getNumber().intValue() == 23) {
+				hourModel.setValue(0);
+			} else {
+				hourModel.setValue(hourModel.getNumber().intValue() + 1);
+			}
+		} else {
+			minModel.setValue(minModel.getNumber().intValue() + 1);
+		}
+	}
 }

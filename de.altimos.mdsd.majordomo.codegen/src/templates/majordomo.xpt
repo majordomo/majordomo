@@ -29,7 +29,7 @@ public class MConfiguration {
 	«ENDFOREACH»
 	
 	public void buildAssemblies(MajordomoSimulator sim) {
-		_«house.uid()» = sim.createAssemblyContainer(«house.uid()»l, "House");
+		_«house.uid()» = sim.createAssemblyContainer(0l, "House");
 		«FOREACH house.actors.union(house.sensors) AS o»
 			_«o.uid()» = new «o.assemblyClass()»("«o.name»");
 		«ENDFOREACH»
@@ -69,6 +69,12 @@ public class MConfiguration {
 		«FOREACH rooms AS room»
 			«FOREACH room.sensors.union(room.actors) AS o»
 				_«room.uid()».installAssembly(_«o.uid()»);
+				«IF RoofWindowActor.isInstance(o)»
+					_«room.uid()».registerWindowAssembly(_«o.uid()»);
+				«ENDIF»
+				«IF RadiatorActor.isInstance(o)»
+					_«room.uid()».registerRadiatorAssembly(_«o.uid()»);
+				«ENDIF»
 			«ENDFOREACH»
 		«ENDFOREACH»
 		

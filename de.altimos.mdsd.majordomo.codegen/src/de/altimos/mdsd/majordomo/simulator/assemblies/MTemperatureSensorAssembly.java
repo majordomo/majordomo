@@ -11,4 +11,8 @@ public class MTemperatureSensorAssembly extends MFloatSensorAssembly {
 		getSpinnerModel().setValue(18.0);
 	}
 
+	public void setValue(Double value) {
+		super.setValue(value);
+		getSpinnerModel().setValue(value);
+	}
 }
