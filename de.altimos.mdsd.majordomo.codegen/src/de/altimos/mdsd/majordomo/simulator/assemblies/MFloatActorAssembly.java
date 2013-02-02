@@ -12,7 +12,7 @@ public class MFloatActorAssembly extends MActorAssembly<Double> {
 	private JSpinner spinner = new JSpinner(spinnerModel);
 	
 	public MFloatActorAssembly(String name) {
-		super(name);
+		super(name, 0.0);
 		
 		spinner.addChangeListener(new ChangeListener() {
 			
@@ -32,7 +32,7 @@ public class MFloatActorAssembly extends MActorAssembly<Double> {
 		spinnerModel.setValue(getValue());
 	}
 
-	protected JComponent buildActorComponent() {
+	protected JComponent getActorComponent() {
 		return spinner;
 	}
 }

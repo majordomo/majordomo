@@ -1,20 +1,33 @@
 package de.altimos.mdsd.majordomo.simulator.assemblies;
 
+import java.awt.Color;
+
 import javax.swing.JComponent;
-import javax.swing.JTextField;
 
 public abstract class MActorAssembly<T> extends MAbstractAssembly {
 	
 	private T value;
+	private MAssemblyTimer timer;
 	
-	public MActorAssembly(String name) {
+	public MActorAssembly(String name, T value) {
 		super(name);
+		this.value = value;
+		
+		timer = new MAssemblyTimer(new Runnable() {
+			
+			@Override
+			public void run() {
+				setHighlighted(false);
+			}
+		});
 	}
 	
 	public void setValue(T value) {
 		if(this.getValue() != value) {
 			setInternalValue(value);
 			updateComponent();
+			setHighlighted(true);
+			timer.invokeIn(2000);
 		}
 	}
 	
@@ -23,16 +36,22 @@ public abstract class MActorAssembly<T> extends MAbstractAssembly {
 	}
 	
 	abstract protected void updateComponent();
+
+	protected Color getHighlightColor() {
+		return Color.RED;
+	}
+	
+	protected Color getDefaultColor() {
+		return getActorComponent().getBackground();
+	}
 	
 	protected void setInternalValue(T value) {
 		this.value = value;
 	}
 	
-	protected JComponent buildAssemblyComponent() {
-		return buildActorComponent();
+	protected JComponent getAssemblyComponent() {
+		return getActorComponent();
 	}
 	
-	protected JComponent buildActorComponent() {
-		return new JTextField(this.getClass().getSimpleName());
-	}
+	abstract protected JComponent getActorComponent();
 }

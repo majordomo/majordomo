@@ -23,7 +23,7 @@ public class MBooleanSensorAssembly extends MSensorAssembly<Boolean> {
 		});
 	}
 	
-	protected JComponent buildControllerComponent() {
+	protected JComponent getControllerComponent() {
 		return checkBox;
 	}
 

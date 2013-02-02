@@ -11,7 +11,7 @@ public class MBooleanActorAssembly extends MActorAssembly<Boolean> {
 	private JCheckBox checkBox = new JCheckBox("Active");
 	
 	public MBooleanActorAssembly(String name) {
-		super(name);
+		super(name, false);
 		
 		checkBox.addItemListener(new ItemListener() {
 			
@@ -27,7 +27,7 @@ public class MBooleanActorAssembly extends MActorAssembly<Boolean> {
 		checkBox.setSelected(getValue());
 	}
 
-	protected JComponent buildActorComponent() {
+	protected JComponent getActorComponent() {
 		return checkBox;
 	}
 

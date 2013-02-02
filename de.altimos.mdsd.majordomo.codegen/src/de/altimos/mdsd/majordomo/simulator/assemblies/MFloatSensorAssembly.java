@@ -28,7 +28,7 @@ public class MFloatSensorAssembly extends MSensorAssembly<Double> {
 		return spinnerModel;
 	}
 	
-	protected JComponent buildControllerComponent() {
+	protected JComponent getControllerComponent() {
 		return spinner;
 	}
 }

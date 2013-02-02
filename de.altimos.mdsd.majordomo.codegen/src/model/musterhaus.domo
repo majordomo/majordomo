@@ -2,16 +2,20 @@ house {
 	clock zeit
 	temp temperatur
 	rain regen
+	
 	boiler heizkessel
 }
 room wohnzimmer {
 	switch schalter
+	
 	roller jalousie
 	lamp lampe
 }
 room schlafzimmer {
 	temp temperatur
 	light licht
+	number eingabe
+	
 	roof dachfenster
 	radiator heizung
 }
@@ -19,6 +23,8 @@ rules {
 	m.regen? -> m.schlafzimmer.dachfenster: false;
 	
 	m.zeit >= 6.30 -> m.heizkessel: true;
+	
+	m.schlafzimmer.eingabe = 42.0 -> m.schlafzimmer.dachfenster: true;
 	
 	m.wohnzimmer.schalter? -> m.wohnzimmer.lampe: 1.0;
 	m.wohnzimmer.schalter = false -> m.wohnzimmer.lampe: 0.0;

@@ -1,2 +1,69 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI"/>
+<majordomo:Majordomo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:majordomo="http://mdsd.altimos.de/majordomo/1.0" xsi:schemaLocation="http://mdsd.altimos.de/majordomo/1.0 java://de.altimos.mdsd.majordomo.MajordomoPackage">
+  <house>
+    <sensors xsi:type="majordomo:ClockSensor" name="zeit"/>
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temperatur"/>
+    <sensors xsi:type="majordomo:RainSensor" name="regen"/>
+    <actors xsi:type="majordomo:BoilerActor" name="heizkessel"/>
+  </house>
+  <rules>
+    <conditions xsi:type="majordomo:BooleanCondition" sensor="//@house/@sensors.2"/>
+    <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="6.3" sensor="//@house/@sensors.0"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@house/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:EqualFloatCondition" value="42.0" sensor="//@rooms.1/@sensors.2"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:BooleanCondition" sensor="//@rooms.0/@sensors.0"/>
+    <actions xsi:type="majordomo:FloatAction" value="1.0" actor="//@rooms.0/@actors.1"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:BooleanCondition" value="false" sensor="//@rooms.0/@sensors.0"/>
+    <actions xsi:type="majordomo:FloatAction" actor="//@rooms.0/@actors.1"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="19.0" sensor="//@rooms.1/@sensors.0"/>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="9.3" sensor="//@house/@sensors.0"/>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="22.3" sensor="//@house/@sensors.0"/>
+    <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.1"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="17.0" sensor="//@rooms.1/@sensors.0"/>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="9.3" sensor="//@house/@sensors.0"/>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="22.3" sensor="//@house/@sensors.0"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@rooms.1/@actors.1"/>
+    <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="19.0" sensor="//@rooms.1/@sensors.0"/>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="19.0" sensor="//@house/@sensors.1"/>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="9.3" sensor="//@house/@sensors.0"/>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="22.3" sensor="//@house/@sensors.0"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rules>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="17.0" sensor="//@rooms.1/@sensors.0"/>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="17.0" sensor="//@house/@sensors.1"/>
+    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="9.3" sensor="//@house/@sensors.0"/>
+    <conditions xsi:type="majordomo:GreaterOrEqualFloatCondition" value="22.3" sensor="//@house/@sensors.0"/>
+    <actions xsi:type="majordomo:BooleanAction" value="true" actor="//@rooms.1/@actors.0"/>
+  </rules>
+  <rooms name="wohnzimmer">
+    <sensors xsi:type="majordomo:SwitchSensor" name="schalter"/>
+    <actors xsi:type="majordomo:RollerActor" name="jalousie"/>
+    <actors xsi:type="majordomo:LampActor" name="lampe"/>
+  </rooms>
+  <rooms name="schlafzimmer">
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temperatur"/>
+    <sensors xsi:type="majordomo:LightSensor" name="licht"/>
+    <sensors xsi:type="majordomo:NumberSensor" name="eingabe"/>
+    <actors xsi:type="majordomo:RoofWindowActor" name="dachfenster"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="heizung"/>
+  </rooms>
+</majordomo:Majordomo>

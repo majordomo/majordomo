@@ -45,7 +45,7 @@ public class MClockSensorAssembly extends MSensorAssembly<Double> {
 		return hourModel.getNumber().doubleValue() + (minModel.getNumber().doubleValue() / 10.0);
 	}
 	
-	protected JComponent buildControllerComponent() {
+	protected JComponent getControllerComponent() {
 		return panel;
 	}
 

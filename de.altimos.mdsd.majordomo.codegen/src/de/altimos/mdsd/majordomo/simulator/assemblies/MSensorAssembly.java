@@ -7,7 +7,7 @@ import java.util.List;
 import javax.swing.JComponent;
 import javax.swing.JTextField;
 
-public class MSensorAssembly<T> extends MAbstractAssembly {
+public abstract class MSensorAssembly<T> extends MAbstractAssembly {
 	
 	private List<WeakReference<MAssemblyProcessor>> registeredProcessors = 
 			new LinkedList<WeakReference<MAssemblyProcessor>>();
@@ -42,11 +42,9 @@ public class MSensorAssembly<T> extends MAbstractAssembly {
 		}
 	}
 	
-	protected JComponent buildAssemblyComponent() {
-		return buildControllerComponent();
+	protected JComponent getAssemblyComponent() {
+		return getControllerComponent();
 	}
 	
-	protected JComponent buildControllerComponent() {
-		return new JTextField(this.getClass().getSimpleName());
-	}
+	abstract protected JComponent getControllerComponent();
 }
