@@ -85,6 +85,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" eType="#//FloatSensor"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="LesserFloatCondition" eSuperTypes="#//FloatCondition"/>
-  <eClassifiers xsi:type="ecore:EClass" name="GreaterFloatCondition" eSuperTypes="#//FloatCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="LesserOrEqualFloatCondition" eSuperTypes="#//FloatCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GreaterOrEqualFloatCondition" eSuperTypes="#//FloatCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EqualFloatCondition" eSuperTypes="#//FloatCondition"/>
 </ecore:EPackage>
