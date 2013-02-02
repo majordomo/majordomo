@@ -10,7 +10,7 @@ Majordomo returns Majordomo:
 	(rooms+=Room)*
 	'rules'
 	'{'
-		(rules+=Rule (',' rules+=Rule)*)?
+		(rules+=Rule (';' rules+=Rule)*)? ';'?
 	'}'
 ;
 
@@ -43,9 +43,9 @@ Actor returns Actor:
 
 Rule returns Rule:
 	{Rule}
-	(conditions+=Condition)*
+	(conditions+=Condition)('&' (conditions+=Condition))*
 	'->'
-	(actions+=Action)*
+	(actions+=Action)(',' (actions+=Action))*
 ;
 
 Condition returns Condition:
