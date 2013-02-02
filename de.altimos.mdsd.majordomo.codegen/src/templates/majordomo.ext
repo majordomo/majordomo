@@ -1,0 +1,23 @@
+import majordomo;
+
+String metaTypeSimpleName(Object o) : o.metaType.name.replaceAll("majordomo::", "");
+
+String assemblyClass(Extension ext) : 
+	BooleanActor.isInstance(ext) ? "MBooleanActorAssembly" :
+	(BooleanSensor.isInstance(ext) ? "MBooleanSensorAssembly" : 
+	 "M" + ext.metaTypeSimpleName() + "Assembly");
+
+Actor actor(Action action) : 
+	FloatAction.isInstance(action) ? ((FloatAction) action).actor : ((BooleanAction) action).actor;
+	
+Object actorValue(Action action) : 
+	FloatAction.isInstance(action) ? ((FloatAction) action).value : ((BooleanAction) action).value;
+	
+Sensor sensor(Condition cond) : 
+	FloatCondition.isInstance(cond) ? ((FloatCondition) cond).sensor : ((BooleanCondition) cond).sensor;
+	
+Object conditionValue(Condition cond) : 
+	FloatCondition.isInstance(cond) ? ((FloatCondition) cond).value : ((BooleanCondition) cond).value;
+	
+String comperator(Condition cond) : 
+	LesserOrEqualFloatCondition.isInstance(cond) ? "<=" : (GreaterOrEqualFloatCondition.isInstance(cond) ? ">=" : "==");
