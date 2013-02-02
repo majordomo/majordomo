@@ -29,8 +29,6 @@ public class MAssemblyTimer implements Runnable {
 					e.printStackTrace();
 				}
 				
-				System.out.println(this.ms);
-				
 				if(this.ms <= 0) {
 					runnable.run();
 				}
