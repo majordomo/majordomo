@@ -19,16 +19,19 @@ import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.ClockSensor;
 import de.altimos.mdsd.majordomo.Condition;
+import de.altimos.mdsd.majordomo.EqualFloatCondition;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
 import de.altimos.mdsd.majordomo.FloatAction;
 import de.altimos.mdsd.majordomo.FloatActor;
 import de.altimos.mdsd.majordomo.FloatCondition;
 import de.altimos.mdsd.majordomo.FloatSensor;
+import de.altimos.mdsd.majordomo.GreaterOrEqualFloatCondition;
 import de.altimos.mdsd.majordomo.GreaterFloatCondition;
 import de.altimos.mdsd.majordomo.House;
 import de.altimos.mdsd.majordomo.HouseMountable;
 import de.altimos.mdsd.majordomo.LampActor;
+import de.altimos.mdsd.majordomo.LesserOrEqualFloatCondition;
 import de.altimos.mdsd.majordomo.LesserFloatCondition;
 import de.altimos.mdsd.majordomo.LightSensor;
 import de.altimos.mdsd.majordomo.Majordomo;
@@ -254,14 +257,21 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass lesserFloatConditionEClass = null;
+	private EClass lesserOrEqualFloatConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass greaterFloatConditionEClass = null;
+	private EClass greaterOrEqualFloatConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass equalFloatConditionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -729,8 +739,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getLesserFloatCondition() {
-		return lesserFloatConditionEClass;
+	public EClass getLesserOrEqualFloatCondition() {
+		return lesserOrEqualFloatConditionEClass;
 	}
 
 	/**
@@ -738,8 +748,17 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getGreaterFloatCondition() {
-		return greaterFloatConditionEClass;
+	public EClass getGreaterOrEqualFloatCondition() {
+		return greaterOrEqualFloatConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getEqualFloatCondition() {
+		return equalFloatConditionEClass;
 	}
 
 	/**
@@ -933,9 +952,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEAttribute(floatConditionEClass, FLOAT_CONDITION__VALUE);
 		createEReference(floatConditionEClass, FLOAT_CONDITION__SENSOR);
 
-		lesserFloatConditionEClass = createEClass(LESSER_FLOAT_CONDITION);
+		lesserOrEqualFloatConditionEClass = createEClass(LESSER_OR_EQUAL_FLOAT_CONDITION);
 
-		greaterFloatConditionEClass = createEClass(GREATER_FLOAT_CONDITION);
+		greaterOrEqualFloatConditionEClass = createEClass(GREATER_OR_EQUAL_FLOAT_CONDITION);
+
+		equalFloatConditionEClass = createEClass(EQUAL_FLOAT_CONDITION);
 	}
 
 	/**
@@ -1003,8 +1024,9 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		floatActionEClass.getESuperTypes().add(this.getAction());
 		booleanActionEClass.getESuperTypes().add(this.getAction());
 		floatConditionEClass.getESuperTypes().add(this.getCondition());
-		lesserFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
-		greaterFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
+		lesserOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
+		greaterOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
+		equalFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1099,9 +1121,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEAttribute(getFloatCondition_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFloatCondition_Sensor(), this.getFloatSensor(), null, "sensor", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(lesserFloatConditionEClass, LesserFloatCondition.class, "LesserFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(lesserOrEqualFloatConditionEClass, LesserOrEqualFloatCondition.class, "LesserOrEqualFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(greaterFloatConditionEClass, GreaterFloatCondition.class, "GreaterFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(greaterOrEqualFloatConditionEClass, GreaterOrEqualFloatCondition.class, "GreaterOrEqualFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(equalFloatConditionEClass, EqualFloatCondition.class, "EqualFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
