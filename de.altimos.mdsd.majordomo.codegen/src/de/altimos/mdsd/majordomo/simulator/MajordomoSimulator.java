@@ -120,7 +120,7 @@ public class MajordomoSimulator extends JFrame {
 			}
 			
 			if(outTemp != null && clock != null) {
-				if(clock.readValue() > 7.0 && clock.readValue() <= 14.30) outTemp.setValue(outTemp.readValue() + 0.3);
+				if(clock.readValue() >= 7.0 && clock.readValue() <= 14.30) outTemp.setValue(outTemp.readValue() + 0.3);
 				if(clock.readValue() >= 19.30 || clock.readValue() <= 3.00) outTemp.setValue(outTemp.readValue() - 0.3);
 			}
 			
