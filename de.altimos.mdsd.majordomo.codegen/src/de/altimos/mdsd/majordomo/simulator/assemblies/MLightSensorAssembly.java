@@ -10,4 +10,8 @@ public class MLightSensorAssembly extends MFloatSensorAssembly {
 		getSpinnerModel().setValue(0.5);
 	}
 
+	public void setValue(Double value) {
+		super.setValue(value);
+		getSpinnerModel().setValue(value);
+	}
 }

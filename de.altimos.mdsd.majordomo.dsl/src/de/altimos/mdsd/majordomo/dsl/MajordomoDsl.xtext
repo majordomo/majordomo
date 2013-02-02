@@ -99,67 +99,67 @@ FloatAction returns FloatAction:
 
 LightSensor returns LightSensor:
 	{LightSensor}
-	'light'
+	'@light'
 	name=Name
 ;
 
 TemperatureSensor returns TemperatureSensor:
 	{TemperatureSensor}
-	'temp'
+	'@temp'
 	name=Name
 ;
 
 RainSensor returns RainSensor:
 	{RainSensor}
-	'rain'
+	'@rain'
 	name=Name
 ;
 
 SwitchSensor returns SwitchSensor:
 	{SwitchSensor}
-	'switch'
+	'@switch'
 	name=Name
 ;
 
 NumberSensor returns NumberSensor:
 	{NumberSensor}
-	'number'
+	'@number'
 	name=Name
 ;
 
 ClockSensor returns ClockSensor:
 	{ClockSensor}
-	'clock'
+	'@clock'
 	name=Name
 ;
 
 LampActor returns LampActor:
 	{LampActor}
-	'lamp'
+	'@lamp'
 	name=Name
 ;
 
 RollerActor returns RollerActor:
 	{RollerActor}
-	'roller'
+	'@roller'
 	name=Name
 ;
 
 RoofWindowActor returns RoofWindowActor:
 	{RoofWindowActor}
-	'roof'
+	'@roof'
 	name=Name
 ;
 
 RadiatorActor returns RadiatorActor:
 	{RadiatorActor}
-	'radiator'
+	'@radiator'
 	name=Name
 ;
 
 BoilerActor returns BoilerActor:
 	{BoilerActor}
-	'boiler'
+	'@boiler'
 	name=Name
 ;
 
@@ -182,7 +182,7 @@ EInt returns ecore::EInt:
 ;*/
 
 EFloat returns ecore::EFloat:
-	'-'? INT? '.' INT (('E'|'e') '-'? INT)?
+	'-'? INT? ('.' INT (('E'|'e') '-'? INT)?)?
 ;
 
 EBoolean returns ecore::EBoolean:

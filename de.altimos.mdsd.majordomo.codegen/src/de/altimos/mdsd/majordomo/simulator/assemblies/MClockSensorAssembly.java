@@ -13,8 +13,8 @@ import javax.swing.event.ChangeListener;
 public class MClockSensorAssembly extends MSensorAssembly<Double> {
 	
 	private JPanel panel = new JPanel();
-	private SpinnerNumberModel hourModel = new SpinnerNumberModel(6, 0, 23, 1);
-	private SpinnerNumberModel minModel = new SpinnerNumberModel(15, 0, 59, 1);
+	private SpinnerNumberModel hourModel = new SpinnerNumberModel(5, 0, 23, 1);
+	private SpinnerNumberModel minModel = new SpinnerNumberModel(0, 0, 59, 1);
 	
 	public MClockSensorAssembly(String name) {
 		super(name, 0.0);
@@ -50,15 +50,16 @@ public class MClockSensorAssembly extends MSensorAssembly<Double> {
 	}
 
 	public void step() {
-		if(minModel.getNumber().intValue() == 59) {
-			minModel.setValue(0);
+		int mins = minModel.getNumber().intValue() + 5;
+		if(mins > 59) {
+			minModel.setValue(mins - 60);
 			if(hourModel.getNumber().intValue() == 23) {
 				hourModel.setValue(0);
 			} else {
 				hourModel.setValue(hourModel.getNumber().intValue() + 1);
 			}
 		} else {
-			minModel.setValue(minModel.getNumber().intValue() + 1);
+			minModel.setValue(mins);
 		}
 	}
 }

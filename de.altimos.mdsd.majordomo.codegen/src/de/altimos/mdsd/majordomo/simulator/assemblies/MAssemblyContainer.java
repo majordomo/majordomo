@@ -18,9 +18,10 @@ public class MAssemblyContainer {
 	
 	private MClockSensorAssembly clock;
 	private MTemperatureSensorAssembly temp;
-	
-	private List<MBooleanActorAssembly> windows = new LinkedList<MBooleanActorAssembly>();
-	private List<MBooleanActorAssembly> radiators = new LinkedList<>();
+	private MLightSensorAssembly light;
+	private MRoofWindowActorAssembly window;
+	private MRollerActorAssembly roller;
+	private MRadiatorActorAssembly radiator;
 	
 	public MAssemblyContainer(String name) {
 		this.name = name;
@@ -62,35 +63,62 @@ public class MAssemblyContainer {
 		this.temp = temp;
 		installAssembly((MSensorAssembly) temp);
 	}
-	
-	public void registerWindowAssembly(MBooleanActorAssembly window) {
-		windows.add(window);
+
+	@SuppressWarnings("rawtypes")
+	public void installAssembly(MLightSensorAssembly light) {
+		this.light = light;
+		installAssembly((MSensorAssembly) light);
 	}
 	
-	public void registerRadiatorAssembly(MBooleanActorAssembly radiator) {
-		radiators.add(radiator);
+	@SuppressWarnings("rawtypes")
+	public void installAssembly(MRoofWindowActorAssembly window) {
+		this.window = window;
+		installAssembly((MActorAssembly) window);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void installAssembly(MRadiatorActorAssembly radiator) {
+		this.radiator = radiator;
+		installAssembly((MActorAssembly) radiator);
+	}
+
+	@SuppressWarnings("rawtypes")
+	public void installAssembly(MRollerActorAssembly roller) {
+		this.roller = roller;
+		installAssembly((MActorAssembly) roller);
 	}
 	
 	public MTemperatureSensorAssembly getTemperatureAssembly() {
 		return temp;
 	}
 	
-	public void step(double outTemp) {
-		if(clock != null) clock.step();
+	public MClockSensorAssembly getClockAssembly() {
+		return clock;
+	}
+	
+	public MLightSensorAssembly getLightAssembly() {
+		return light;
+	}
+	
+	public void step(double oTemp, double oLight, double oClock) {
 		if(temp != null) {
-			if(outTemp > temp.readValue()) {
-				for(MBooleanActorAssembly window : windows) {
+			if(oTemp > temp.readValue()) {
+				if(window != null) {
 					if(window.getValue()) temp.setValue(temp.readValue() + 0.06);
 				}
 			} else {
 				if(!getName().equals("House")) temp.setValue(temp.readValue() - 0.01);
 				
-				for(MBooleanActorAssembly window : windows) {
+				if(window != null) {
 					if(window.getValue()) temp.setValue(temp.readValue() - 0.14);
 				}
 			}
 			
-			for(MBooleanActorAssembly radiator : radiators) {
+			if(this.roller != null) {
+				if(oLight > 0.5 && this.roller.getValue() == false) temp.setValue(temp.readValue() + 0.05);
+			}
+			
+			if(radiator != null) {
 				if(radiator.getValue()) temp.setValue(temp.readValue() + 0.12);
 			}
 		}

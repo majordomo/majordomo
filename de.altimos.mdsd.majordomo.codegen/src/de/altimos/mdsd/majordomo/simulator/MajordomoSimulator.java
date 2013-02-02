@@ -17,6 +17,8 @@ import javax.swing.JToolBar;
 import javax.swing.WindowConstants;
 
 import de.altimos.mdsd.majordomo.simulator.assemblies.MAssemblyContainer;
+import de.altimos.mdsd.majordomo.simulator.assemblies.MClockSensorAssembly;
+import de.altimos.mdsd.majordomo.simulator.assemblies.MLightSensorAssembly;
 import de.altimos.mdsd.majordomo.simulator.assemblies.MTemperatureSensorAssembly;
 
 public class MajordomoSimulator extends JFrame {
@@ -87,20 +89,47 @@ public class MajordomoSimulator extends JFrame {
 	private class Simulation implements Runnable {
 		
 		public boolean running = false;
+		private MClockSensorAssembly clock;
 		private MTemperatureSensorAssembly outTemp;
+		private MLightSensorAssembly light;
 		
 		public Simulation() {
 			MAssemblyContainer c = containers.get(0l);
 			if(c != null) {
 				outTemp = c.getTemperatureAssembly();
+				clock = c.getClockAssembly();
+				light = c.getLightAssembly();
 			} else {
 				System.err.println("Cannot find global TemperatureSensorAssembly.");
 			}
 		}
 
 		public void step() {
+			if(clock != null) {
+				clock.step();
+			}
+
+			if(clock != null && light != null) {
+				if(clock.readValue() < 7) light.setValue(0.0);
+				if(clock.readValue() >= 7 && clock.readValue() < 9) light.setValue((clock.readValue() - 7) / 2.0);
+				if(clock.readValue() >= 9 && clock.readValue() < 16) light.setValue(1.0);
+				if(clock.readValue() >= 16 && clock.readValue() < 18) light.setValue(1.0 - (clock.readValue() - 16) / 2.0);
+				if(clock.readValue() >= 18) light.setValue(0.0);
+			}
+			
+			if(outTemp != null && clock != null) {
+				if(clock.readValue() > 8.0 && clock.readValue() < 16.0) {
+					outTemp.setValue(outTemp.readValue() + Math.random()*0.5 + (light == null ? 0.0 : (light.readValue() * 0.05)));
+				} else {
+					outTemp.setValue(outTemp.readValue() - Math.random()*0.5 + (light == null ? 0.0 : (light.readValue() * 0.005)));
+				}
+			}
+			
 			for(MAssemblyContainer container : containerList) {
-				container.step(outTemp == null ? 18.0 : outTemp.readValue());
+				container.step(
+						outTemp == null ? 18.0 : outTemp.readValue(),
+						light == null ? 0.5 : light.readValue(),
+						clock == null ? 0.0 : clock.readValue());
 			}
 		}
 		
@@ -112,7 +141,7 @@ public class MajordomoSimulator extends JFrame {
 				}
 				
 				try {
-					Thread.sleep(1000);
+					Thread.sleep(500);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}

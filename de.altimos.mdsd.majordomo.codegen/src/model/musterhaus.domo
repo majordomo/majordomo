@@ -1,44 +1,49 @@
 house {
-	clock zeit
-	temp temperatur
-	rain regen
+	@clock time
+	@temp temp
+	@rain rain
+	@light light
 	
-	boiler heizkessel
+	@lamp lamps
+	@boiler boiler
 }
-room wohnzimmer {
-	switch schalter
+room lr { // living room
+	@temp temp
+	@light light
+	@switch lightSwitch
 	
-	roller jalousie
-	lamp lampe
+	@roller rollers
+	@lamp lamps
 }
-room schlafzimmer {
-	temp temperatur
-	light licht
-	number eingabe
+room sr { // sleeping room
+	@temp temp
+	@light light
+	@number numberpad
 	
-	roof dachfenster
-	radiator heizung
+	@roller rollers
+	@roof roofWindows
+	@radiator radiator
 }
 rules {
-	m.regen? -> m.schlafzimmer.dachfenster: false;
+	m.light >= 0.4 -> m.lamps: 0; // Switch off outdoor lights on sunrise
+	m.light <= 0.4 -> m.lamps: 1; // Switch on outdoor lights on sunset
+	m.light <= 0.4 & m.time >= 23.00 -> m.lamps: 0.2; // Dimm outdoor lights after 23 o'clock to save energy
+	m.time >= 4.00 -> m.lamps: 1; // Fully power outdoor lights at 4 o'clock due to laws
 	
-	m.zeit >= 6.30 -> m.heizkessel: true;
+	m.time >= 7.30 -> m.boiler: true; // Heat up water at 7:30
+	m.time >= 10.00 -> m.boiler: false; // We now have enough warm water and are all up
 	
-	m.schlafzimmer.temperatur <= 18.0 -> m.schlafzimmer.heizung: true, m.schlafzimmer.dachfenster: false;
-	m.schlafzimmer.temperatur >= 19.0 -> m.schlafzimmer.heizung: false;
+	m.sr.temp >= 18 -> m.sr.radiator: false; // Switch off radiator above 18 degrees, it's warm enough
+	m.sr.temp >= 19 & m.temp <= 19 -> m.sr.roofWindows: true; // If it get's to hot in the sleeping room and 
+															  // it's fresher outdoor: Open Windows. 
+	m.sr.temp <= 17 & m.temp <= 18 -> m.sr.roofWindows: false; // Close windows if it's to cold
+	m.sr.temp >= 19 & m.temp >= 20 -> m.sr.roofWindows: false; // Close windows if it's to warm outside
+	m.temp >= 18 & m.light >= 0.5 -> m.sr.rollers: true; // Close rollers if it's warm and sun is shining (into room)
+	m.temp <= 18 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
+	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
+	m.sr.temp <= 16 -> m.sr.roofWindows: false, m.sr.radiator: true; // Boot up radiator if it's too cold
 	
-	m.schlafzimmer.eingabe = 42.0 -> m.schlafzimmer.dachfenster: true;
-	
-	m.wohnzimmer.schalter? -> m.wohnzimmer.lampe: 1.0;
-	m.wohnzimmer.schalter = false -> m.wohnzimmer.lampe: 0.0;
-
-	m.schlafzimmer.temperatur >= 19.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
-		-> m.schlafzimmer.heizung: false, m.schlafzimmer.dachfenster: true;
-	m.schlafzimmer.temperatur <= 17.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
-		-> m.schlafzimmer.heizung: true, m.schlafzimmer.dachfenster: false;
-	
-	m.schlafzimmer.temperatur >= 19.0 & m.temperatur <= 19.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
-		-> m.schlafzimmer.dachfenster: true;
-	m.schlafzimmer.temperatur <= 17.0 & m.temperatur >= 17.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
-		-> m.schlafzimmer.dachfenster: true; 
+	m.lr.temp >= 21 & m.light >= 0.5 -> m.lr.rollers: true; // Close rollers in living room if sun is heat everything up
+	m.temp <= 19 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
+	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
 }
