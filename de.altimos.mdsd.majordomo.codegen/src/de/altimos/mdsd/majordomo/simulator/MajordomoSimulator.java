@@ -99,6 +99,8 @@ public class MajordomoSimulator extends JFrame {
 				outTemp = c.getTemperatureAssembly();
 				clock = c.getClockAssembly();
 				light = c.getLightAssembly();
+				
+				outTemp.setValue(1.0);
 			} else {
 				System.err.println("Cannot find global TemperatureSensorAssembly.");
 			}
