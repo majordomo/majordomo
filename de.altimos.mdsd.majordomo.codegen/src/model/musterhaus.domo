@@ -2,6 +2,7 @@ house {
 	clock zeit
 	temp aussenTemp
 	rain regen
+	boiler wasser
 }
 room wohnzimmer {
 	roller fenster

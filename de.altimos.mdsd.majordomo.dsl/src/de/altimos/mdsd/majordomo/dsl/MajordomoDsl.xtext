@@ -38,7 +38,7 @@ Sensor returns Sensor:
 ;
 
 Actor returns Actor:
-	LampActor | RollerActor | RoofWindowActor | RadiatorActor
+	LampActor | RollerActor | RoofWindowActor | RadiatorActor | BoilerActor
 ;
 
 Rule returns Rule:
@@ -154,6 +154,12 @@ RoofWindowActor returns RoofWindowActor:
 RadiatorActor returns RadiatorActor:
 	{RadiatorActor}
 	'radiator'
+	name=Name
+;
+
+BoilerActor returns BoilerActor:
+	{BoilerActor}
+	'boiler'
 	name=Name
 ;
 
