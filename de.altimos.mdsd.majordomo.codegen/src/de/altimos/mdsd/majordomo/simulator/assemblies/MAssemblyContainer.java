@@ -6,7 +6,7 @@ import java.awt.GridLayout;
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
-public class MAssemblyPanel {
+public class MAssemblyContainer {
 
 	private String name;
 	private JPanel ui;
@@ -14,7 +14,7 @@ public class MAssemblyPanel {
 	private JPanel sensorPanel = new JPanel();
 	private JPanel actorPanel = new JPanel();
 	
-	public MAssemblyPanel(String name) {
+	public MAssemblyContainer(String name) {
 		this.name = name;
 	}
 	

@@ -9,14 +9,14 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import de.altimos.mdsd.majordomo.simulator.assemblies.MAssemblyPanel;
+import de.altimos.mdsd.majordomo.simulator.assemblies.MAssemblyContainer;
 
 public class MajordomoSimulator extends JFrame {
 
 	private static final long serialVersionUID = -3121504439011367966L;
 	
-	private HashMap<Long, MAssemblyPanel> panels = new HashMap<Long, MAssemblyPanel>();
-	private List<MAssemblyPanel> panelList = new LinkedList<MAssemblyPanel>();
+	private HashMap<Long, MAssemblyContainer> panels = new HashMap<Long, MAssemblyContainer>();
+	private List<MAssemblyContainer> panelList = new LinkedList<MAssemblyContainer>();
 	private MConfiguration config;
 	
 	public static void main(String[] args) {
@@ -28,7 +28,7 @@ public class MajordomoSimulator extends JFrame {
 		config.buildAssemblies(this);
 		
 		setLayout(new GridLayout((int)Math.floor((panels.size() / 2) + 1), 2));
-		for(MAssemblyPanel panel : panelList) {
+		for(MAssemblyContainer panel : panelList) {
 			add(panel.getUI());
 		}
 		
@@ -42,9 +42,9 @@ public class MajordomoSimulator extends JFrame {
 		config.initAssemblies();
 	}
 	
-	public MAssemblyPanel createAssemblyPanel(long id, String name) {
+	public MAssemblyContainer createAssemblyContainer(long id, String name) {
 		if(!panels.containsKey(id)) {
-			MAssemblyPanel panel = new MAssemblyPanel(name);
+			MAssemblyContainer panel = new MAssemblyContainer(name);
 			panels.put(id, panel);
 			panelList.add(panel);
 		}
