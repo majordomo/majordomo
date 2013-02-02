@@ -1,31 +1,106 @@
 «IMPORT majordomo»
+«EXTENSION templates::majordomo»
+«EXTENSION org::eclipse::xtend::util::stdlib::uid»
+«EXTENSION org::eclipse::xtend::util::stdlib::naming»
 
 «DEFINE main FOR Majordomo»
-«FILE "Main.java"»
-package de.altimos.mdsd.majordomo.toolgen;
+«FILE "MConfiguration.java"»
+package de.altimos.mdsd.majordomo.simulator;
 
-import de.altimos.mdsd.majordomo.tool.*;
+import de.altimos.mdsd.majordomo.simulator.*;
+import de.altimos.mdsd.majordomo.simulator.assemblies.*;
+import javax.swing.*;
 
-public class Main {
-	public static void main(String[] args) {
-		ToolBuilder b = new ToolBuilder();
+public class MConfiguration {
+
+	private MAssemblyPanel _«house.uid()»;
+	«FOREACH house.actors AS actor»
+		private «actor.assemblyClass()» _«actor.uid()»;
+	«ENDFOREACH»
+	«FOREACH house.sensors AS sensor»
+		private «sensor.assemblyClass()» _«sensor.uid()»;
+	«ENDFOREACH»
 		
-		b.addHouse();
-		«FOREACH this.house.sensors AS sensor»
-		b.addSensor("«sensor.name»");
-		«ENDFOREACH»
-		«FOREACH this.house.actors AS actor»
-		b.addActor("«actor.name»");
-		«ENDFOREACH»
-		
-		«FOREACH this.rooms AS room»
-		b.addRoom("«room.name»");
-		«FOREACH room.sensors AS sensor»
-		b.addSensor("«sensor.name»");
-		«ENDFOREACH»
+	«FOREACH rooms AS room»
+		private MAssemblyPanel _«room.uid()»;
 		«FOREACH room.actors AS actor»
-		b.addActor("«actor.name»");
+			private «actor.assemblyClass()» _«actor.uid()»;
 		«ENDFOREACH»
+		«FOREACH room.sensors AS sensor»
+			private «sensor.assemblyClass()» _«sensor.uid()»;
+		«ENDFOREACH»
+	«ENDFOREACH»
+	
+	«FOREACH this.rules AS rule»
+		private MAssemblyProcessor _«rule.uid()»;
+	«ENDFOREACH»
+	
+	public void buildAssemblies(MajordomoSimulator sim) {
+		_«house.uid()» = sim.createAssemblyPanel(«house.uid()»l, "House");
+		«FOREACH house.actors AS actor»
+			_«actor.uid()» = new «actor.assemblyClass()»("«actor.name»");
+		«ENDFOREACH»
+		«FOREACH house.sensors AS sensor»
+			_«sensor.uid()» = new «sensor.assemblyClass()»("«sensor.name»");
+		«ENDFOREACH»
+			
+		«FOREACH rooms AS room»
+			_«room.uid()» = sim.createAssemblyPanel(«room.uid()»l, "«room.name»");
+			«FOREACH room.actors AS actor»
+				_«actor.uid()» = new «actor.assemblyClass()»("«actor.name»");
+			«ENDFOREACH»
+			«FOREACH room.sensors AS sensor»
+				_«sensor.uid()» = new «sensor.assemblyClass()»("«sensor.name»");
+			«ENDFOREACH»
+		«ENDFOREACH»
+	}
+	
+	public void buildAssemblyProcessors() {
+		«FOREACH this.rules AS rule»
+			_«rule.uid()» = new MAssemblyProcessor(new MAssemblyRunnable() {
+				public boolean processReq() {
+					return true 
+					«FOREACH rule.conditions AS c»
+						&& _«c.sensor().uid()».readValue() «c.comperator()» «c.conditionValue()»
+					«ENDFOREACH»;
+				}
+				
+				public void process() {
+					«FOREACH rule.actions AS a»
+						_«a.actor().uid()».setValue(«a.actorValue()»);
+					«ENDFOREACH»
+				}
+			});
+		«ENDFOREACH»
+	}
+	
+	public void setupAssemblies() {
+		«FOREACH house.sensors AS sensor»
+			_«house.uid()».installAssembly(_«sensor.uid()»);
+		«ENDFOREACH»
+		«FOREACH house.actors AS actor»
+			_«house.uid()».installAssembly(_«actor.uid()»);
+		«ENDFOREACH»
+			
+		«FOREACH rooms AS room»
+			«FOREACH room.sensors AS sensor»
+				_«room.uid()».installAssembly(_«sensor.uid()»);
+			«ENDFOREACH»
+			«FOREACH room.actors AS actor»
+				_«room.uid()».installAssembly(_«actor.uid()»);
+			«ENDFOREACH»
+		«ENDFOREACH»
+		
+		«FOREACH this.rules AS rule»
+			«FOREACH rule.conditions AS c»
+				_«c.sensor().uid()».registerAssemblyProcessor(_«rule.uid()»);
+			«ENDFOREACH»
+		«ENDFOREACH»
+	}
+	
+	public void initAssemblies() {
+		«FOREACH this.rules AS rule»
+			_«rule.uid()».invoke();
 		«ENDFOREACH»
 	}
 }
