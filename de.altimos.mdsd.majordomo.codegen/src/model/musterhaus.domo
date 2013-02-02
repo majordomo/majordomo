@@ -17,6 +17,11 @@ room schlafzimmer {
 }
 rules {
 	m.regen? -> m.schlafzimmer.dachfenster: false;
+	
+	m.zeit >= 6.30 -> m.heizkessel: true;
+	
+	m.wohnzimmer.schalter? -> m.wohnzimmer.lampe: 1.0;
+	m.wohnzimmer.schalter = false -> m.wohnzimmer.lampe: 0.0;
 
 	m.schlafzimmer.temperatur >= 19.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
 		-> m.schlafzimmer.heizung: false, m.schlafzimmer.dachfenster: true;
