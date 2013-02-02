@@ -42,7 +42,7 @@ public class MClockSensorAssembly extends MSensorAssembly<Double> {
 
 	@Override
 	public Double readValue() {
-		return hourModel.getNumber().doubleValue() + (minModel.getNumber().doubleValue() / 10.0);
+		return hourModel.getNumber().doubleValue() + (minModel.getNumber().doubleValue() * 0.01);
 	}
 	
 	protected JComponent getControllerComponent() {

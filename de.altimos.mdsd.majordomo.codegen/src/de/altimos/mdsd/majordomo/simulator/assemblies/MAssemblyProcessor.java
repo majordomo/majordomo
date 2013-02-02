@@ -10,6 +10,7 @@ public class MAssemblyProcessor {
 	
 	public MAssemblyProcessor(MAssemblyRunnable mAssemblyRunnable) {
 		runnable = mAssemblyRunnable;
+		lastProcessingRequestState = !runnable.processReq();
 	}
 
 	public void invoke() {
