@@ -13,20 +13,14 @@ import javax.swing.*;
 public class MConfiguration {
 
 	private MAssemblyPanel _«house.uid()»;
-	«FOREACH house.actors AS actor»
-		private «actor.assemblyClass()» _«actor.uid()»;
-	«ENDFOREACH»
-	«FOREACH house.sensors AS sensor»
-		private «sensor.assemblyClass()» _«sensor.uid()»;
+	«FOREACH house.actors.union(house.sensors) AS o»
+		private «o.assemblyClass()» _«o.uid()»;
 	«ENDFOREACH»
 		
 	«FOREACH rooms AS room»
 		private MAssemblyPanel _«room.uid()»;
-		«FOREACH room.actors AS actor»
-			private «actor.assemblyClass()» _«actor.uid()»;
-		«ENDFOREACH»
-		«FOREACH room.sensors AS sensor»
-			private «sensor.assemblyClass()» _«sensor.uid()»;
+		«FOREACH room.actors.union(room.sensors) AS o»
+			private «o.assemblyClass()» _«o.uid()»;
 		«ENDFOREACH»
 	«ENDFOREACH»
 	
@@ -36,20 +30,14 @@ public class MConfiguration {
 	
 	public void buildAssemblies(MajordomoSimulator sim) {
 		_«house.uid()» = sim.createAssemblyPanel(«house.uid()»l, "House");
-		«FOREACH house.actors AS actor»
-			_«actor.uid()» = new «actor.assemblyClass()»("«actor.name»");
-		«ENDFOREACH»
-		«FOREACH house.sensors AS sensor»
-			_«sensor.uid()» = new «sensor.assemblyClass()»("«sensor.name»");
+		«FOREACH house.actors.union(house.sensors) AS o»
+			_«o.uid()» = new «o.assemblyClass()»("«o.name»");
 		«ENDFOREACH»
 			
 		«FOREACH rooms AS room»
 			_«room.uid()» = sim.createAssemblyPanel(«room.uid()»l, "«room.name»");
-			«FOREACH room.actors AS actor»
-				_«actor.uid()» = new «actor.assemblyClass()»("«actor.name»");
-			«ENDFOREACH»
-			«FOREACH room.sensors AS sensor»
-				_«sensor.uid()» = new «sensor.assemblyClass()»("«sensor.name»");
+			«FOREACH room.actors.union(room.sensors) AS o»
+				_«o.uid()» = new «o.assemblyClass()»("«o.name»");
 			«ENDFOREACH»
 		«ENDFOREACH»
 	}
@@ -74,19 +62,13 @@ public class MConfiguration {
 	}
 	
 	public void setupAssemblies() {
-		«FOREACH house.sensors AS sensor»
-			_«house.uid()».installAssembly(_«sensor.uid()»);
-		«ENDFOREACH»
-		«FOREACH house.actors AS actor»
-			_«house.uid()».installAssembly(_«actor.uid()»);
+		«FOREACH house.sensors.union(house.actors) AS o»
+			_«house.uid()».installAssembly(_«o.uid()»);
 		«ENDFOREACH»
 			
 		«FOREACH rooms AS room»
-			«FOREACH room.sensors AS sensor»
-				_«room.uid()».installAssembly(_«sensor.uid()»);
-			«ENDFOREACH»
-			«FOREACH room.actors AS actor»
-				_«room.uid()».installAssembly(_«actor.uid()»);
+			«FOREACH room.sensors.union(room.actors) AS o»
+				_«room.uid()».installAssembly(_«o.uid()»);
 			«ENDFOREACH»
 		«ENDFOREACH»
 		
