@@ -43,3 +43,8 @@ context Room ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 context Sensor ERROR "Must have a unique name.": !this.ctx.sensors.exists(e|e.name == this.name && e != this);
 context Actor ERROR "Must have a unique name.": !this.ctx.actors.exists(e|e.name == this.name && e != this);
+
+// Check that Clock Values are a valid time like float.
+context FloatCondition ERROR "Invalid range for ClockSensor":
+	!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.59);
+
