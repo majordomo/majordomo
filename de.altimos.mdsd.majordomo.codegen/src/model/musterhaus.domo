@@ -1,6 +1,6 @@
 house {
-	clock uhr
-	temp aussen
+	clock zeit
+	temp aussenTemp
 	rain regen
 }
 room wohnzimmer {
@@ -8,11 +8,21 @@ room wohnzimmer {
 	lamp lampe
 }
 room schlafzimmer {
-	temp innen
+	temp innenTemp
 	light nacht
 	roof dachfenster
+	radiator heizung
 }
 rules {
-	m.regen = true -> m.schlafzimmer.dachfenster: true,
-	m.uhr = 0.0 -> m.schlafzimmer.dachfenster: true
+	m.regen? -> m.schlafzimmer.dachfenster: false;
+
+	m.schlafzimmer.innenTemp >= 19.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
+		-> m.schlafzimmer.heizung: false, m.schlafzimmer.dachfenster: true;
+	m.schlafzimmer.innenTemp <= 17.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
+		-> m.schlafzimmer.heizung: true, m.schlafzimmer.dachfenster: false;
+	
+	m.schlafzimmer.innenTemp >= 19.0 & m.aussenTemp <= 19.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
+		-> m.schlafzimmer.dachfenster: true;
+	m.schlafzimmer.innenTemp <= 17.0 & m.aussenTemp >= 17.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
+		-> m.schlafzimmer.dachfenster: true; 
 }
