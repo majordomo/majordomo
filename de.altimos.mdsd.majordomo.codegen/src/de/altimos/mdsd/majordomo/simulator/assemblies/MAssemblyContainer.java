@@ -22,6 +22,7 @@ public class MAssemblyContainer {
 	private MRoofWindowActorAssembly window;
 	private MRollerActorAssembly roller;
 	private MRadiatorActorAssembly radiator;
+	private MLampActorAssembly lamp;
 	
 	public MAssemblyContainer(String name) {
 		this.name = name;
@@ -87,6 +88,12 @@ public class MAssemblyContainer {
 		this.roller = roller;
 		installAssembly((MActorAssembly) roller);
 	}
+
+	@SuppressWarnings("rawtypes")
+	public void installAssembly(MLampActorAssembly lamp) {
+		this.lamp = lamp;
+		installAssembly((MActorAssembly) lamp);
+	}
 	
 	public MTemperatureSensorAssembly getTemperatureAssembly() {
 		return temp;
@@ -116,6 +123,12 @@ public class MAssemblyContainer {
 			
 			if(this.roller != null) {
 				if(oLight > 0.5 && this.roller.getValue() == false) temp.setValue(temp.readValue() + 0.05);
+			}
+			
+			if(this.light != null) {
+				if(!getName().equals("House")) light.setValue(lamp == null ? 0.0 : lamp.getValue());
+				if(this.roller != null && !this.roller.getValue())
+					light.setValue(Math.min(1.0, light.readValue() + oLight*0.8));
 			}
 			
 			if(radiator != null) {
