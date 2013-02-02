@@ -1,5 +1,6 @@
 package de.altimos.mdsd.majordomo.simulator;
 
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -33,6 +34,7 @@ public class MajordomoSimulator extends JFrame {
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Majordomo Simulator");
+		setPreferredSize(new Dimension(1000, (int)Math.floor((panels.size() / 2) + 1) * 130));
 		pack();
 		
 		config.buildAssemblyProcessors();
