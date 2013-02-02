@@ -118,11 +118,8 @@ public class MajordomoSimulator extends JFrame {
 			}
 			
 			if(outTemp != null && clock != null) {
-				if(clock.readValue() > 8.0 && clock.readValue() < 16.0) {
-					outTemp.setValue(outTemp.readValue() + 0.1 + (light == null ? 0.0 : (light.readValue() * 0.05)));
-				} else {
-					outTemp.setValue(outTemp.readValue() - 0.1 + (light == null ? 0.0 : (light.readValue() * 0.005)));
-				}
+				if(clock.readValue() > 7.0 && clock.readValue() <= 14.30) outTemp.setValue(outTemp.readValue() + 0.2);
+				if(clock.readValue() >= 19.30 && clock.readValue() <= 3.00) outTemp.setValue(outTemp.readValue() - 0.2);
 			}
 			
 			for(MAssemblyContainer container : containerList) {
