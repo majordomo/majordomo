@@ -40,16 +40,19 @@ rules {
 	m.time >= 10.00 -> m.boiler: false; // We now have enough warm water and are all up
 	
 	m.sr.temp >= 18 -> m.sr.radiator: false; // Switch off radiator above 18 degrees, it's warm enough
-	m.sr.temp >= 19 & m.temp <= 19 -> m.sr.roofWindows: true; // If it get's to hot in the sleeping room and 
+	m.sr.temp >= 19 & m.temp <= 19 & m.rain = false -> m.sr.roofWindows: true; // If it get's to hot in the sleeping room and 
 															  // it's fresher outdoor: Open Windows. 
-	m.sr.temp <= 17 & m.temp <= 18 -> m.sr.roofWindows: false; // Close windows if it's to cold
+	m.sr.temp <= 18 & m.temp <= 18 -> m.sr.roofWindows: false; // Close windows if it's to cold
 	m.sr.temp >= 19 & m.temp >= 20 -> m.sr.roofWindows: false; // Close windows if it's to warm outside
 	m.temp >= 18 & m.light >= 0.5 -> m.sr.rollers: true; // Close rollers if it's warm and sun is shining (into room)
 	m.temp <= 18 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
 	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
-	m.sr.temp <= 16 -> m.sr.roofWindows: false, m.sr.radiator: true; // Boot up radiator if it's too cold
+	m.sr.temp <= 17 -> m.sr.roofWindows: false, m.sr.radiator: true; // Boot up radiator if it's too cold
 	
 	m.lr.temp >= 21 & m.light >= 0.5 -> m.lr.rollers: true; // Close rollers in living room if sun is heat everything up
 	m.temp <= 19 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
 	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
+	
+	m.lr.lightSwitch? -> m.lr.lamps: 1.0;
+	m.lr.lightSwitch = false -> m.lr.lamps: 0.0;
 }

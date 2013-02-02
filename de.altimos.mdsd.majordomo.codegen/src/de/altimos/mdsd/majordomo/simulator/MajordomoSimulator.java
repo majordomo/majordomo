@@ -119,9 +119,9 @@ public class MajordomoSimulator extends JFrame {
 			
 			if(outTemp != null && clock != null) {
 				if(clock.readValue() > 8.0 && clock.readValue() < 16.0) {
-					outTemp.setValue(outTemp.readValue() + Math.random()*0.5 + (light == null ? 0.0 : (light.readValue() * 0.05)));
+					outTemp.setValue(outTemp.readValue() + 0.1 + (light == null ? 0.0 : (light.readValue() * 0.05)));
 				} else {
-					outTemp.setValue(outTemp.readValue() - Math.random()*0.5 + (light == null ? 0.0 : (light.readValue() * 0.005)));
+					outTemp.setValue(outTemp.readValue() - 0.1 + (light == null ? 0.0 : (light.readValue() * 0.005)));
 				}
 			}
 			
