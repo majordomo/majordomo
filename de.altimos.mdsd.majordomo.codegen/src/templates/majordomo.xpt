@@ -1,7 +1,6 @@
 «IMPORT majordomo»
 «EXTENSION templates::majordomo»
 «EXTENSION org::eclipse::xtend::util::stdlib::uid»
-«EXTENSION org::eclipse::xtend::util::stdlib::naming»
 
 «DEFINE main FOR Majordomo»
 «FILE "MConfiguration.java"»
