@@ -27,12 +27,10 @@ import de.altimos.mdsd.majordomo.FloatActor;
 import de.altimos.mdsd.majordomo.FloatCondition;
 import de.altimos.mdsd.majordomo.FloatSensor;
 import de.altimos.mdsd.majordomo.GreaterOrEqualFloatCondition;
-import de.altimos.mdsd.majordomo.GreaterFloatCondition;
 import de.altimos.mdsd.majordomo.House;
 import de.altimos.mdsd.majordomo.HouseMountable;
 import de.altimos.mdsd.majordomo.LampActor;
 import de.altimos.mdsd.majordomo.LesserOrEqualFloatCondition;
-import de.altimos.mdsd.majordomo.LesserFloatCondition;
 import de.altimos.mdsd.majordomo.LightSensor;
 import de.altimos.mdsd.majordomo.Majordomo;
 import de.altimos.mdsd.majordomo.MajordomoFactory;
@@ -361,6 +359,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getMajordomo() {
 		return majordomoEClass;
 	}
@@ -370,6 +369,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMajordomo_House() {
 		return (EReference)majordomoEClass.getEStructuralFeatures().get(0);
 	}
@@ -379,6 +379,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMajordomo_Rules() {
 		return (EReference)majordomoEClass.getEStructuralFeatures().get(1);
 	}
@@ -388,6 +389,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getMajordomo_Rooms() {
 		return (EReference)majordomoEClass.getEStructuralFeatures().get(2);
 	}
@@ -397,6 +399,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getMajordomo_Name() {
 		return (EAttribute)majordomoEClass.getEStructuralFeatures().get(3);
 	}
@@ -406,6 +409,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHouse() {
 		return houseEClass;
 	}
@@ -415,6 +419,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExtendable() {
 		return extendableEClass;
 	}
@@ -424,6 +429,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExtendable_Sensors() {
 		return (EReference)extendableEClass.getEStructuralFeatures().get(0);
 	}
@@ -433,6 +439,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getExtendable_Actors() {
 		return (EReference)extendableEClass.getEStructuralFeatures().get(1);
 	}
@@ -442,6 +449,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoom() {
 		return roomEClass;
 	}
@@ -451,6 +459,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getRoom_Name() {
 		return (EAttribute)roomEClass.getEStructuralFeatures().get(0);
 	}
@@ -460,6 +469,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSensor() {
 		return sensorEClass;
 	}
@@ -469,6 +479,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getSensor_Ctx() {
 		return (EReference)sensorEClass.getEStructuralFeatures().get(0);
 	}
@@ -478,6 +489,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -487,6 +499,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getActor_Ctx() {
 		return (EReference)actorEClass.getEStructuralFeatures().get(0);
 	}
@@ -496,6 +509,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRule() {
 		return ruleEClass;
 	}
@@ -505,6 +519,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRule_Conditions() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(0);
 	}
@@ -514,6 +529,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getRule_Actions() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(1);
 	}
@@ -523,6 +539,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getExtension() {
 		return extensionEClass;
 	}
@@ -532,6 +549,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getExtension_Name() {
 		return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
 	}
@@ -541,6 +559,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLightSensor() {
 		return lightSensorEClass;
 	}
@@ -550,6 +569,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getTemperatureSensor() {
 		return temperatureSensorEClass;
 	}
@@ -559,6 +579,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRainSensor() {
 		return rainSensorEClass;
 	}
@@ -568,6 +589,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getSwitchSensor() {
 		return switchSensorEClass;
 	}
@@ -577,6 +599,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getNumberSensor() {
 		return numberSensorEClass;
 	}
@@ -586,6 +609,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getClockSensor() {
 		return clockSensorEClass;
 	}
@@ -595,6 +619,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLampActor() {
 		return lampActorEClass;
 	}
@@ -604,6 +629,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRollerActor() {
 		return rollerActorEClass;
 	}
@@ -613,6 +639,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoofWindowActor() {
 		return roofWindowActorEClass;
 	}
@@ -622,6 +649,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBoilerActor() {
 		return boilerActorEClass;
 	}
@@ -631,6 +659,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRadiatorActor() {
 		return radiatorActorEClass;
 	}
@@ -640,6 +669,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getRoomMountable() {
 		return roomMountableEClass;
 	}
@@ -649,6 +679,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getHouseMountable() {
 		return houseMountableEClass;
 	}
@@ -658,6 +689,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanSensor() {
 		return booleanSensorEClass;
 	}
@@ -667,6 +699,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFloatSensor() {
 		return floatSensorEClass;
 	}
@@ -676,6 +709,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanActor() {
 		return booleanActorEClass;
 	}
@@ -685,6 +719,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFloatActor() {
 		return floatActorEClass;
 	}
@@ -694,6 +729,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getCondition() {
 		return conditionEClass;
 	}
@@ -703,6 +739,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -712,6 +749,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFloatCondition() {
 		return floatConditionEClass;
 	}
@@ -721,6 +759,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFloatCondition_Value() {
 		return (EAttribute)floatConditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -730,6 +769,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFloatCondition_Sensor() {
 		return (EReference)floatConditionEClass.getEStructuralFeatures().get(1);
 	}
@@ -739,6 +779,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getLesserOrEqualFloatCondition() {
 		return lesserOrEqualFloatConditionEClass;
 	}
@@ -748,6 +789,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getGreaterOrEqualFloatCondition() {
 		return greaterOrEqualFloatConditionEClass;
 	}
@@ -757,6 +799,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getEqualFloatCondition() {
 		return equalFloatConditionEClass;
 	}
@@ -766,6 +809,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanCondition() {
 		return booleanConditionEClass;
 	}
@@ -775,6 +819,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBooleanCondition_Value() {
 		return (EAttribute)booleanConditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -784,6 +829,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBooleanCondition_Sensor() {
 		return (EReference)booleanConditionEClass.getEStructuralFeatures().get(1);
 	}
@@ -793,6 +839,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getFloatAction() {
 		return floatActionEClass;
 	}
@@ -802,6 +849,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getFloatAction_Value() {
 		return (EAttribute)floatActionEClass.getEStructuralFeatures().get(0);
 	}
@@ -811,6 +859,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getFloatAction_Actor() {
 		return (EReference)floatActionEClass.getEStructuralFeatures().get(1);
 	}
@@ -820,6 +869,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EClass getBooleanAction() {
 		return booleanActionEClass;
 	}
@@ -829,6 +879,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EAttribute getBooleanAction_Value() {
 		return (EAttribute)booleanActionEClass.getEStructuralFeatures().get(0);
 	}
@@ -838,6 +889,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EReference getBooleanAction_Actor() {
 		return (EReference)booleanActionEClass.getEStructuralFeatures().get(1);
 	}
@@ -847,6 +899,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public MajordomoFactory getMajordomoFactory() {
 		return (MajordomoFactory)getEFactoryInstance();
 	}
