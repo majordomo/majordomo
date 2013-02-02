@@ -5,7 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.JComponent;
-import javax.swing.JTextField;
 
 public abstract class MSensorAssembly<T> extends MAbstractAssembly {
 	

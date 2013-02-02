@@ -8,7 +8,6 @@ import java.util.List;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import de.altimos.mdsd.majordomo.simulator.assemblies.MActorAssembly;
 import de.altimos.mdsd.majordomo.simulator.assemblies.MAssemblyPanel;
 
 public class MajordomoSimulator extends JFrame {
