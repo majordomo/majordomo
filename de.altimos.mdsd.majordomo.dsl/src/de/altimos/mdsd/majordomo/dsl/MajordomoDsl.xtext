@@ -59,8 +59,7 @@ Action returns Action:
 BooleanCondition returns BooleanCondition:
 	{BooleanCondition}
 	sensor=[BooleanSensor|QualifiedName]
-	"="
-	value=EBoolean
+	(("=" value=EBoolean)|"?")
 ;
 
 LesserOrEqualFloatCondition returns LesserOrEqualFloatCondition:
