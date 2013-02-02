@@ -1,29 +1,30 @@
 house {
-	clock zeit
-	temp aussenTemp
-	rain regen
-	boiler wasser
+	clock clck
+	temp tmp
+	rain rn
+	boiler bolr
 }
-room wohnzimmer {
-	roller fenster
-	lamp lampe
+room lvngrm {
+	switch swtch
+	roller rllr
+	lamp lmp
 }
-room schlafzimmer {
-	temp innenTemp
-	light nacht
-	roof dachfenster
-	radiator heizung
+room slppngrm {
+	temp tmp
+	light lght
+	roof rf
+	radiator rdtr
 }
 rules {
-	m.regen? -> m.schlafzimmer.dachfenster: false;
+	m.rn? -> m.slppngrm.rf: false;
 
-	m.schlafzimmer.innenTemp >= 19.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
-		-> m.schlafzimmer.heizung: false, m.schlafzimmer.dachfenster: true;
-	m.schlafzimmer.innenTemp <= 17.0 & m.zeit >= 9.30 & m.zeit <= 22.30 
-		-> m.schlafzimmer.heizung: true, m.schlafzimmer.dachfenster: false;
+	m.slppngrm.tmp >= 19.0 & m.clck >= 9.30 & m.clck <= 22.30 
+		-> m.slppngrm.rdtr: false, m.slppngrm.rf: true;
+	m.slppngrm.tmp <= 17.0 & m.clck >= 9.30 & m.clck <= 22.30 
+		-> m.slppngrm.rdtr: true, m.slppngrm.rf: false;
 	
-	m.schlafzimmer.innenTemp >= 19.0 & m.aussenTemp <= 19.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
-		-> m.schlafzimmer.dachfenster: true;
-	m.schlafzimmer.innenTemp <= 17.0 & m.aussenTemp >= 17.0 & m.zeit <= 9.30 & m.zeit >= 22.30 
-		-> m.schlafzimmer.dachfenster: true; 
+	m.slppngrm.tmp >= 19.0 & m.tmp <= 19.0 & m.clck <= 9.30 & m.clck >= 22.30 
+		-> m.slppngrm.rf: true;
+	m.slppngrm.tmp <= 17.0 & m.tmp >= 17.0 & m.clck <= 9.30 & m.clck >= 22.30 
+		-> m.slppngrm.rf: true; 
 }
