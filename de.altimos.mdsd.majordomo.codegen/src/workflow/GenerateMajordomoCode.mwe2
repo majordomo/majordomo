@@ -29,6 +29,7 @@ Workflow {
 		expand = "templates::majordomo::main FOREACH model"
 		outlet = {
 			path = targetDir
+			postprocessor = JavaBeautifier {}
 		}
 		fileEncoding = fileEncoding
 	}
