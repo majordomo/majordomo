@@ -123,8 +123,8 @@ rule EqualCond2LesserFloatCond {
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and i.boolcond
 		)
 	to
-		o : Majordomo!LesserFloatCondition (
-			value <- 1.0,
+		o : Majordomo!LesserOrEqualFloatCondition (
+			value <- 0.5,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
@@ -136,8 +136,8 @@ rule EqualCond2GreaterFloatCond {
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and (not i.boolcond)
 		)
 	to
-		o : Majordomo!GreaterFloatCondition (
-			value <- 0.0,
+		o : Majordomo!GreaterOrEqualFloatCondition (
+			value <- 0.5,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
@@ -147,7 +147,7 @@ rule LessThanCond2LesserFloatCond {
 	from
 		i : House!LessThanCondition
 	to
-		o : Majordomo!GreaterFloatCondition (
+		o : Majordomo!GreaterOrEqualFloatCondition (
 			value <- 0.0,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
@@ -157,7 +157,7 @@ rule GreaterThanCond2GreaterFloatCond {
 	from
 		i : House!GreaterThanCondition
 	to
-		o : Majordomo!GreaterFloatCondition (
+		o : Majordomo!GreaterOrEqualFloatCondition (
 			value <- i.threshold,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
