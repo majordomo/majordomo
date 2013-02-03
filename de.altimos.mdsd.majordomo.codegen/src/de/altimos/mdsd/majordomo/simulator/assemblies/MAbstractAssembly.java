@@ -63,7 +63,7 @@ public abstract class MAbstractAssembly implements MAssembly {
 		private Image img;
 
 		public IcononicTitledBorder(String title, Image img) {
-			super("    " + title);
+			super("     " + title);
 			this.img = img;
 		}
 		
@@ -72,7 +72,7 @@ public abstract class MAbstractAssembly implements MAssembly {
 		{
 			super.paintBorder(c, g, x, y, width, height);
 			
-			g.drawImage(img, 7, -1, img.getWidth(null), img.getHeight(null), null);
+			g.drawImage(img, 9, 0, img.getWidth(null), img.getHeight(null), null);
 		}
 	}
 }
