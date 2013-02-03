@@ -89,4 +89,5 @@
   <eClassifiers xsi:type="ecore:EClass" name="LesserOrEqualFloatCondition" eSuperTypes="#//FloatCondition"/>
   <eClassifiers xsi:type="ecore:EClass" name="GreaterOrEqualFloatCondition" eSuperTypes="#//FloatCondition"/>
   <eClassifiers xsi:type="ecore:EClass" name="EqualFloatCondition" eSuperTypes="#//FloatCondition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CoffeeActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
 </ecore:EPackage>

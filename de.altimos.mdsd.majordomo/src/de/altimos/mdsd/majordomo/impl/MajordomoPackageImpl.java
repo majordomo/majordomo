@@ -18,6 +18,7 @@ import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.ClockSensor;
+import de.altimos.mdsd.majordomo.CoffeeActor;
 import de.altimos.mdsd.majordomo.Condition;
 import de.altimos.mdsd.majordomo.EqualFloatCondition;
 import de.altimos.mdsd.majordomo.Extendable;
@@ -270,6 +271,13 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	private EClass equalFloatConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass coffeeActorEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -809,6 +817,15 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getCoffeeActor() {
+		return coffeeActorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public EClass getBooleanCondition() {
 		return booleanConditionEClass;
@@ -1010,6 +1027,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		greaterOrEqualFloatConditionEClass = createEClass(GREATER_OR_EQUAL_FLOAT_CONDITION);
 
 		equalFloatConditionEClass = createEClass(EQUAL_FLOAT_CONDITION);
+
+		coffeeActorEClass = createEClass(COFFEE_ACTOR);
 	}
 
 	/**
@@ -1080,6 +1099,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		lesserOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 		greaterOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 		equalFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
+		coffeeActorEClass.getESuperTypes().add(this.getRoomMountable());
+		coffeeActorEClass.getESuperTypes().add(this.getBooleanActor());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1179,6 +1200,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEClass(greaterOrEqualFloatConditionEClass, GreaterOrEqualFloatCondition.class, "GreaterOrEqualFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(equalFloatConditionEClass, EqualFloatCondition.class, "EqualFloatCondition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(coffeeActorEClass, CoffeeActor.class, "CoffeeActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);

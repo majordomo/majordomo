@@ -14,6 +14,7 @@ room lr { // living room
 	
 	@roller rollers
 	@lamp lamps
+	@radiator radiator
 }
 room sr { // sleeping room
 	@temp temp
@@ -23,6 +24,17 @@ room sr { // sleeping room
 	@roller rollers
 	@roof roofWindows
 	@radiator radiator
+}
+room ki { // kitchen
+	@temp temp
+	@light light
+	@switch lightSwitch
+	
+	@roller rollers
+	@roof roofWindows
+	@radiator radiator
+	@coffee coffee
+	@lamp lamps
 }
 rules {
 	/*
@@ -37,6 +49,8 @@ rules {
 	m.time >= 4.00 -> m.lamps: 1; // Fully power outdoor lights at 4 o'clock due to laws
 	
 	m.time >= 7.30 -> m.boiler: true; // Heat up water at 7:30
+	m.time >= 8.00 -> m.ki.coffee: true; // Get fresh coffee in the morning
+	m.time >= 8.30 -> m.ki.coffee: false; // But not to much
 	m.time >= 10.00 -> m.boiler: false; // We now have enough warm water and are all up
 	
 	m.sr.temp >= 18 -> m.sr.radiator: false; // Switch off radiator above 18 degrees, it's warm enough
@@ -50,9 +64,18 @@ rules {
 	m.sr.temp <= 17 -> m.sr.roofWindows: false, m.sr.radiator: true; // Boot up radiator if it's too cold
 	
 	m.lr.temp >= 21 & m.light >= 0.5 -> m.lr.rollers: true; // Close rollers in living room if sun is heat everything up
-	m.temp <= 19 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
-	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
+	m.ki.temp >= 21 & m.light >= 0.5 -> m.ki.rollers: true;
+	m.lr.temp <= 17 -> m.lr.radiator: true; // Switch on radiator if it's to cold
+	m.ki.temp <= 17 -> m.ki.radiator: true, m.ki.roofWindows: false;
+	m.lr.temp >= 20 -> m.lr.radiator: false;
+	m.ki.temp >= 20 -> m.ki.radiator: false;
+	m.temp <= 20 -> m.lr.rollers: false; // Open rollers if it's not too warm in room
+	m.temp <= 20 -> m.ki.rollers: false;
+	m.light <= 0.5 -> m.lr.rollers: false; // Or its' not longer bright outdoor
+	m.light <= 0.5 -> m.ki.rollers: false; 
 	
 	m.lr.lightSwitch? -> m.lr.lamps: 1.0;
 	m.lr.lightSwitch = false -> m.lr.lamps: 0.0;
+	m.ki.lightSwitch? -> m.ki.lamps: 1.0;
+	m.ki.lightSwitch = false -> m.ki.lamps: 0.0;
 }

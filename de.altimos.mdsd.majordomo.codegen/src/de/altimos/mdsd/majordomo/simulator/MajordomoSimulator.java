@@ -55,7 +55,9 @@ public class MajordomoSimulator extends JFrame {
 		
 		JPanel p = new JPanel();
 		
-		p.setLayout(new GridLayout((int)Math.floor((containerList.size() / 2) + 1), 2));
+		int rows = ((containerList.size() + 1) / 2);
+		
+		p.setLayout(new GridLayout(rows, 2));
 		for(MAssemblyContainer panel : containerList) {
 			p.add(panel.getUI());
 		}
@@ -64,7 +66,7 @@ public class MajordomoSimulator extends JFrame {
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Majordomo Simulator");
-		setPreferredSize(new Dimension(1000, (int)Math.floor((containerList.size() / 2) + 1) * 150));
+		setPreferredSize(new Dimension(1000, rows * 150));
 		setIconImage(new ImageIcon(ClassLoader.getSystemResource("icons/Majordomo.gif")).getImage());
 		pack();
 		
