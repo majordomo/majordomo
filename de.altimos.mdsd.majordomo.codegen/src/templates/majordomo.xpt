@@ -55,6 +55,7 @@ public class MConfiguration {
 				}
 				
 				public void process() {
+					System.out.println("EXEC: «rule.ruleString()»");
 					«FOREACH rule.actions AS a»
 						_«a.actor().uid()».setValue(«a.actorValue()»);
 					«ENDFOREACH»

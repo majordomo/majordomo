@@ -18,3 +18,12 @@ Object conditionValue(Condition cond) :
 	
 String comperator(Condition cond) : 
 	LesserOrEqualFloatCondition.isInstance(cond) ? "<=" : (GreaterOrEqualFloatCondition.isInstance(cond) ? ">=" : "==");
+	
+Extendable ctx(Extension ext) : Sensor.isInstance(ext) ? ((Sensor) ext).ctx : ((Actor) ext).ctx;
+	
+String scopeName(Extension ext) :
+	"m." + (House.isInstance(ext.ctx()) ? "" : ((Room) ext.ctx()).name + ".") + ext.name;
+	
+String ruleString(Rule rule) :
+	rule.conditions.collect(e|e.sensor().scopeName() + " " + e.comperator() + " " + e.conditionValue()).toString(" & ") + 
+	" -> " + rule.actions.collect(e|e.actor().scopeName() + ": " + e.actorValue()).toString(", ");
