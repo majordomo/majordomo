@@ -115,7 +115,7 @@ public class MajordomoSimulator extends JFrame {
 				if(clock.readValue() < 7) light.setValue(0.0);
 				if(clock.readValue() >= 7 && clock.readValue() < 9) light.setValue((clock.readValue() - 7) / 2.0);
 				if(clock.readValue() >= 9 && clock.readValue() < 17) light.setValue(1.0);
-				if(clock.readValue() >= 17 && clock.readValue() < 19) light.setValue(1.0 - (clock.readValue() - 16) / 2.0);
+				if(clock.readValue() >= 17 && clock.readValue() < 19) light.setValue(1.0 - (clock.readValue() - 17) / 2.0);
 				if(clock.readValue() >= 19) light.setValue(0.0);
 			}
 			
