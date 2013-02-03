@@ -32,12 +32,14 @@ public class MConfiguration {
 		_«house.uid()» = sim.createAssemblyContainer(0l, "House");
 		«FOREACH house.actors.union(house.sensors) AS o»
 			_«o.uid()» = new «o.assemblyClass()»("«o.name»");
+			_«o.uid()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
 		«ENDFOREACH»
 			
 		«FOREACH rooms AS room»
 			_«room.uid()» = sim.createAssemblyContainer(«room.uid()»l, "«room.name»");
 			«FOREACH room.actors.union(room.sensors) AS o»
 				_«o.uid()» = new «o.assemblyClass()»("«o.name»");
+				_«o.uid()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
 			«ENDFOREACH»
 		«ENDFOREACH»
 	}
