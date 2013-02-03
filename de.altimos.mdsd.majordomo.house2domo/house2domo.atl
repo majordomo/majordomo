@@ -147,8 +147,8 @@ rule LessThanCond2LesserFloatCond {
 	from
 		i : House!LessThanCondition
 	to
-		o : Majordomo!GreaterOrEqualFloatCondition (
-			value <- 0.0,
+		o : Majordomo!LesserOrEqualFloatCondition (
+			value <- i.threshold,
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
 		)
 }
