@@ -1,5 +1,7 @@
 package de.altimos.mdsd.majordomo.simulator.assemblies;
 
+import java.text.DecimalFormat;
+
 import javax.swing.JComponent;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
@@ -13,6 +15,12 @@ public class MFloatSensorAssembly extends MSensorAssembly<Double> {
 	
 	public MFloatSensorAssembly(String name) {
 		super(name, 0.0);
+
+        JSpinner.NumberEditor editor = (JSpinner.NumberEditor)spinner.getEditor();
+		DecimalFormat format = editor.getFormat();
+        format.setMinimumFractionDigits(2);
+        
+        getSpinnerModel().setValue(0.0);
 		
 		getSpinnerModel().addChangeListener(new ChangeListener() {
 			
