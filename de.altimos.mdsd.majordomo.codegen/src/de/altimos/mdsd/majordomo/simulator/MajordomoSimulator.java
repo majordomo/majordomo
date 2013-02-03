@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -65,6 +66,7 @@ public class MajordomoSimulator extends JFrame {
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setTitle("Majordomo Simulator");
 		setPreferredSize(new Dimension(1000, (int)Math.floor((containerList.size() / 2) + 1) * 150));
+		setIconImage(new ImageIcon(ClassLoader.getSystemResource("icons/Majordomo.gif")).getImage());
 		pack();
 		
 		config.buildAssemblyProcessors();
