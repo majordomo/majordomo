@@ -26,8 +26,8 @@ context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
 context FloatAction ERROR "Must have an actor.": this.actor != null;
 context BooleanAction ERROR "Must have an actor.": this.actor != null;
 
-// Check if name is NULL because Xtext creates null-named matching elements for cress references. 
-// Null name means it cannot resolve reference, so reference does not exists oder is wrong type.
+// Check if name is NULL because Xtext creates null-named matching elements for cross references. 
+// Null name means it cannot resolve reference, so reference does not exists or is of wrong type.
 context FloatAction ERROR "Invalid actor reference. Expected reference type is FloatActor.": 
 	FloatActor.isInstance(this.actor) && this.actor.name != null;
 context BooleanAction ERROR "Invalid actor reference. Expected reference type is BooleanActor.": 
@@ -46,5 +46,5 @@ context Actor ERROR "Must have a unique name.": !this.ctx.actors.exists(e|e.name
 
 // Check that Clock Values are a valid time like float.
 context FloatCondition ERROR "Invalid range for ClockSensor":
-	!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.59);
+	!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.60);
 
