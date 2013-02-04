@@ -1,50 +1,52 @@
 import majordomo;
 
-context Majordomo WARNING "Majordomo wants a house to dominate.":
-	this.house != null;
+	context Majordomo WARNING "Majordomo wants a house to dominate.":
+		this.house != null;
+		
+	context Majordomo WARNING "Majordomo knows no rooms. He's really sad.":
+		!this.rooms.isEmpty;
+		
+	context Actor WARNING "Does not have a ctx.": this.ctx != null;
+	context Sensor WARNING "Does not have a ctx.": this.ctx != null;
 	
-context Majordomo WARNING "Majordomo knows no rooms. He's really sad.":
-	!this.rooms.isEmpty;
+	context Actor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
+		(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
+		(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
+		
+	context Sensor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
+		(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
+		(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 	
-context Actor WARNING "Does not have a ctx.": this.ctx != null;
-context Sensor WARNING "Does not have a ctx.": this.ctx != null;
-
-context Actor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
-	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
-	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
+	context Rule ERROR "Must have at least one condition.": this.conditions.size > 0;
+	context Rule ERROR "Must have at least one action.": this.actions.size > 0;
 	
-context Sensor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
-	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
-	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
-
-context Rule ERROR "Must have at least one condition.": this.conditions.size > 0;
-context Rule ERROR "Must have at least one action.": this.actions.size > 0;
-
-context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
-context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
-
-context FloatAction ERROR "Must have an actor.": this.actor != null;
-context BooleanAction ERROR "Must have an actor.": this.actor != null;
-
-// Check if name is NULL because Xtext creates null-named matching elements for cross references. 
-// Null name means it cannot resolve reference, so reference does not exists or is of wrong type.
-//context FloatAction ERROR "Invalid actor reference. Expected reference type is FloatActor.": 
-// 	FloatActor.isInstance(this.actor) && this.actor.name != null;
-//context BooleanAction ERROR "Invalid actor reference. Expected reference type is BooleanActor.": 
-//	BooleanActor.isInstance(this.actor) && this.actor.name != null;
-// Same for conditions
-//context FloatCondition ERROR "Invalid sensor reference. Expected reference type is FloatSensor.": 
-//	FloatSensor.isInstance(this.sensor) && this.sensor.name != null;
-//context BooleanCondition ERROR "Invalid sensor reference. Expected reference type is BooleanSensor.": 
-//	BooleanSensor.isInstance(this.sensor) && this.sensor.name != null;
+	context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
+	context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
 	
-context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
-context Room ERROR this.metaType.name + " must have a name.": this.name != null;
+	context FloatAction ERROR "Must have an actor.": this.actor != null;
+	context BooleanAction ERROR "Must have an actor.": this.actor != null;
 	
-context Sensor ERROR "Must have a unique name.": !this.ctx.sensors.exists(e|e.name == this.name && e != this);
-context Actor ERROR "Must have a unique name.": !this.ctx.actors.exists(e|e.name == this.name && e != this);
-
-// Check that Clock Values are a valid time like float.
-context FloatCondition ERROR "Invalid range for ClockSensor":
-	!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.60);
-
+	// Check if name is NULL because Xtext creates null-named matching elements for cross references. 
+	// Null name means it cannot resolve reference, so reference does not exists or is of wrong type.
+	//context FloatAction ERROR "Invalid actor reference. Expected reference type is FloatActor.": 
+	// 	FloatActor.isInstance(this.actor) && this.actor.name != null;
+	//context BooleanAction ERROR "Invalid actor reference. Expected reference type is BooleanActor.": 
+	//	BooleanActor.isInstance(this.actor) && this.actor.name != null;
+	// Same for conditions
+	//context FloatCondition ERROR "Invalid sensor reference. Expected reference type is FloatSensor.": 
+	//	FloatSensor.isInstance(this.sensor) && this.sensor.name != null;
+	//context BooleanCondition ERROR "Invalid sensor reference. Expected reference type is BooleanSensor.": 
+	//	BooleanSensor.isInstance(this.sensor) && this.sensor.name != null;
+		
+	context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
+	context Room ERROR this.metaType.name + " must have a name.": this.name != null;
+		
+	context Sensor ERROR "Must have a unique name.": 
+		!this.ctx.sensors.exists(e|e.name == this.name && e != this);
+	context Actor ERROR "Must have a unique name.": 
+		!this.ctx.actors.exists(e|e.name == this.name && e != this);
+	
+	// Check that Clock Values are a valid time like float.
+	context FloatCondition ERROR "Invalid range for ClockSensor":
+		!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.60);
+	
