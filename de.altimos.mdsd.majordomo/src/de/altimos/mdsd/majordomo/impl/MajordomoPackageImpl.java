@@ -389,7 +389,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 */
 	@Override
 	public EReference getMajordomo_Rules() {
-		return (EReference)majordomoEClass.getEStructuralFeatures().get(1);
+		return (EReference)majordomoEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -399,7 +399,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 */
 	@Override
 	public EReference getMajordomo_Rooms() {
-		return (EReference)majordomoEClass.getEStructuralFeatures().get(2);
+		return (EReference)majordomoEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -942,8 +942,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		// Create classes and their features
 		majordomoEClass = createEClass(MAJORDOMO);
 		createEReference(majordomoEClass, MAJORDOMO__HOUSE);
-		createEReference(majordomoEClass, MAJORDOMO__RULES);
 		createEReference(majordomoEClass, MAJORDOMO__ROOMS);
+		createEReference(majordomoEClass, MAJORDOMO__RULES);
 		createEAttribute(majordomoEClass, MAJORDOMO__NAME);
 
 		houseEClass = createEClass(HOUSE);
@@ -1105,8 +1105,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMajordomo_House(), this.getHouse(), null, "house", null, 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMajordomo_Rules(), this.getRule(), null, "rules", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMajordomo_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMajordomo_Rules(), this.getRule(), null, "rules", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMajordomo_Name(), ecorePackage.getEString(), "name", "m", 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(houseEClass, House.class, "House", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
