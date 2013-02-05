@@ -36,7 +36,7 @@ room ki { // kitchen
 	@coffee coffee
 	@lamp lamps
 }
-rules {
+program {
 	/*
 	 * README: A rule only get triggered when the condition state changed. Example: A
 	 * condition like `m.time >= 4.00` will only get triggered when the clock jumps from
@@ -45,7 +45,7 @@ rules {
 	 */
 	m.light >= 0.4 -> m.lamps: 0; // Switch off outdoor lights on sunrise
 	m.light <= 0.4 -> m.lamps: 1; // Switch on outdoor lights on sunset
-	m.light <= 0.4 & m.time >= 23.00 -> m.lamps: 0.2; // Dimm outdoor lights after 23 o'clock to save energy
+	(m.light <= 0.4 and m.time >= 23.00) -> m.lamps: 0.2; // Dimm outdoor lights after 23 o'clock to save energy
 	m.time >= 4.00 -> m.lamps: 1; // Fully power outdoor lights at 4 o'clock due to laws
 	
 	m.time >= 7.30 -> m.boiler: true; // Heat up water at 7:30
@@ -54,17 +54,17 @@ rules {
 	m.time >= 10.00 -> m.boiler: false; // We now have enough warm water and are all up
 	
 	m.sr.temp >= 18 -> m.sr.radiator: false; // Switch off radiator above 18 degrees, it's warm enough
-	m.sr.temp >= 19 & m.temp <= 19 & m.rain = false -> m.sr.roofWindows: true; // If it get's to hot in the sleeping room and 
+	((m.sr.temp >= 19 and m.temp <= 19) and not m.rain) -> m.sr.roofWindows: true; // If it get's to hot in the sleeping room and 
 															  // it's fresher outdoor: Open Windows. 
-	m.sr.temp <= 18 & m.temp <= 18 -> m.sr.roofWindows: false; // Close windows if it's to cold
-	m.sr.temp >= 19 & m.temp >= 20 -> m.sr.roofWindows: false; // Close windows if it's to warm outside
-	m.temp >= 18 & m.light >= 0.5 -> m.sr.rollers: true; // Close rollers if it's warm and sun is shining (into room)
+	(m.sr.temp <= 18 and m.temp <= 18) -> m.sr.roofWindows: false; // Close windows if it's to cold
+	(m.sr.temp >= 19 and m.temp >= 20) -> m.sr.roofWindows: false; // Close windows if it's to warm outside
+	(m.temp >= 18 and m.light >= 0.5) -> m.sr.rollers: true; // Close rollers if it's warm and sun is shining (into room)
 	m.temp <= 18 -> m.sr.rollers: false; // Open rollers if it's not too warm in room
 	m.light <= 0.5 -> m.sr.rollers: false; // Or its' not longer bright outdoor
 	m.sr.temp <= 17 -> m.sr.roofWindows: false, m.sr.radiator: true; // Boot up radiator if it's too cold
 	
-	m.lr.temp >= 21 & m.light >= 0.5 -> m.lr.rollers: true; // Close rollers in living room if sun is heat everything up
-	m.ki.temp >= 21 & m.light >= 0.5 -> m.ki.rollers: true;
+	(m.lr.temp >= 21 and m.light >= 0.5) -> m.lr.rollers: true; // Close rollers in living room if sun is heat everything up
+	(m.ki.temp >= 21 and m.light >= 0.5) -> m.ki.rollers: true;
 	m.lr.temp <= 17 -> m.lr.radiator: true; // Switch on radiator if it's to cold
 	m.ki.temp <= 17 -> m.ki.radiator: true, m.ki.roofWindows: false;
 	m.lr.temp >= 20 -> m.lr.radiator: false;
@@ -74,8 +74,8 @@ rules {
 	m.light <= 0.5 -> m.lr.rollers: false; // Or its' not longer bright outdoor
 	m.light <= 0.5 -> m.ki.rollers: false; 
 	
-	m.lr.lightSwitch? -> m.lr.lamps: 1.0;
-	m.lr.lightSwitch = false -> m.lr.lamps: 0.0;
-	m.ki.lightSwitch? -> m.ki.lamps: 1.0;
-	m.ki.lightSwitch = false -> m.ki.lamps: 0.0;
+	m.lr.lightSwitch -> m.lr.lamps: 1.0;
+	not m.lr.lightSwitch -> m.lr.lamps: 0.0;
+	m.ki.lightSwitch -> m.ki.lamps: 1.0;
+	!m.ki.lightSwitch -> m.ki.lamps: 0.0;
 }

@@ -585,7 +585,7 @@
     <children xmi:type="notation:Node" xmi:id="_UmWyo2-wEeKGUf7YQIV4Uw" type="4001"/>
     <children xmi:type="notation:Node" xmi:id="_UmXZsG-wEeKGUf7YQIV4Uw" type="5001">
       <children xmi:type="notation:Node" xmi:id="_hCKzEG-wEeKGUf7YQIV4Uw" type="2001">
-        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//CompareOperation/comperator"/>
+        <element xmi:type="ecore:EAttribute" href="majordomo.ecore#//CompareOperation/comparator"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_hCKzEW-wEeKGUf7YQIV4Uw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_UmXZsW-wEeKGUf7YQIV4Uw"/>
@@ -605,19 +605,19 @@
     <children xmi:type="notation:Node" xmi:id="_ZqCH4G-wEeKGUf7YQIV4Uw" type="4010"/>
     <children xmi:type="notation:Node" xmi:id="_ZqCH4W-wEeKGUf7YQIV4Uw" type="5008">
       <children xmi:type="notation:Node" xmi:id="_cc8UYG-wEeKGUf7YQIV4Uw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comperator/GT"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comparator/GT"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_cc8UYW-wEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_dEA7cG-wEeKGUf7YQIV4Uw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comperator/GE"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comparator/GE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_dEA7cW-wEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_dkJNAG-wEeKGUf7YQIV4Uw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comperator/LS"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comparator/LT"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_dkJNAW-wEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_eYR_sG-wEeKGUf7YQIV4Uw" type="2006">
-        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comperator/LE"/>
+        <element xmi:type="ecore:EEnumLiteral" href="majordomo.ecore#//Comparator/LE"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_eYR_sW-wEeKGUf7YQIV4Uw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_ZqCH4m-wEeKGUf7YQIV4Uw"/>
@@ -625,7 +625,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_ZqCH5G-wEeKGUf7YQIV4Uw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_ZqBg0W-wEeKGUf7YQIV4Uw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="13761016" lineColor="8421504"/>
-    <element xmi:type="ecore:EEnum" href="majordomo.ecore#//Comperator"/>
+    <element xmi:type="ecore:EEnum" href="majordomo.ecore#//Comparator"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ZqBg0m-wEeKGUf7YQIV4Uw" x="560" y="870" width="138"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="_xoN_UG-wEeKGUf7YQIV4Uw" type="1001">
@@ -718,19 +718,19 @@
     <children xmi:type="notation:Node" xmi:id="_V4JfwG-yEeKGUf7YQIV4Uw" type="4007"/>
     <children xmi:type="notation:Node" xmi:id="_V4KG0G-yEeKGUf7YQIV4Uw" type="5007">
       <children xmi:type="notation:Node" xmi:id="_YkACAG-yEeKGUf7YQIV4Uw" type="2007">
-        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComperatorDescription%/@details.0"/>
+        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComparatorDescription%/@details.0"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_YkACAW-yEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_avmW4G-yEeKGUf7YQIV4Uw" type="2007">
-        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComperatorDescription%/@details.1"/>
+        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComparatorDescription%/@details.1"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_avmW4W-yEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_dN8ooG-yEeKGUf7YQIV4Uw" type="2007">
-        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComperatorDescription%/@details.2"/>
+        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComparatorDescription%/@details.2"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_dN8ooW-yEeKGUf7YQIV4Uw"/>
       </children>
       <children xmi:type="notation:Node" xmi:id="_fR9u0G-yEeKGUf7YQIV4Uw" type="2007">
-        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComperatorDescription%/@details.3"/>
+        <element xmi:type="ecore:EStringToStringMapEntry" href="majordomo.ecore#//%ComparatorDescription%/@details.3"/>
         <layoutConstraint xmi:type="notation:Location" xmi:id="_fR9u0W-yEeKGUf7YQIV4Uw"/>
       </children>
       <styles xmi:type="notation:DrawerStyle" xmi:id="_V4KG0W-yEeKGUf7YQIV4Uw"/>
@@ -738,7 +738,7 @@
       <styles xmi:type="notation:FilteringStyle" xmi:id="_V4KG02-yEeKGUf7YQIV4Uw"/>
     </children>
     <styles xmi:type="notation:ShapeStyle" xmi:id="_V4IRoG-yEeKGUf7YQIV4Uw" fontColor="4210752" fontName="Droid Sans" fontHeight="10" fillColor="14668776" lineColor="4210752"/>
-    <element xmi:type="ecore:EAnnotation" href="majordomo.ecore#//%ComperatorDescription%"/>
+    <element xmi:type="ecore:EAnnotation" href="majordomo.ecore#//%ComparatorDescription%"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V4IRoW-yEeKGUf7YQIV4Uw" x="745" y="900" width="193" height="88"/>
   </children>
   <children xmi:type="notation:Node" xmi:id="__kh3QG-yEeKGUf7YQIV4Uw" type="1001">

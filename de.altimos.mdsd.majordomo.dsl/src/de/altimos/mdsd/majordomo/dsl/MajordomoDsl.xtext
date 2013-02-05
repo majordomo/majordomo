@@ -4,17 +4,23 @@ grammar de.altimos.mdsd.majordomo.dsl.MajordomoDsl with org.eclipse.xtext.common
 import "platform:/resource/de.altimos.mdsd.majordomo/model/majordomo.ecore" 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-Majordomo returns Majordomo:
+Majordomo:
 	{Majordomo}
 	(house=House)?
 	(rooms+=Room)*
-	'rules'
+	program=Program
+;
+
+Program:
+	{Program}
+	'program'
 	'{'
 		(rules+=Rule (';' rules+=Rule)*)? ';'?
 	'}'
 ;
 
-House returns House:
+
+House:
 	{House}
 	'house'
 	'{'
@@ -23,8 +29,7 @@ House returns House:
 	'}'
 ;
 
-Room returns Room:
-	{Room}
+Room:
 	'room'
 	name=Name
 	'{'
@@ -33,157 +38,86 @@ Room returns Room:
 	'}'
 ;
 
-Sensor returns Sensor:
+Sensor:
 	LightSensor | TemperatureSensor | RainSensor | SwitchSensor | NumberSensor | ClockSensor
 ;
 
-Actor returns Actor:
+Actor:
 	LampActor | RollerActor | RoofWindowActor | RadiatorActor | BoilerActor | CoffeeActor
 ;
 
-Rule returns Rule:
-	{Rule}
-	(conditions+=Condition)('&' (conditions+=Condition))*
-	'->'
-	(actions+=Action)(',' (actions+=Action))*
+// Rules and Statements
+//
+Rule:
+	statement=Statement '->' (actions+=Action)(',' (actions+=Action))*
 ;
 
-Condition returns Condition:
-	BooleanCondition | LesserOrEqualFloatCondition | GreaterOrEqualFloatCondition
+Statement: 
+	BooleanSensorStatement | NotOperation | BinaryOperation | CompareOperation
 ;
-
-Action returns Action:
+BooleanSensorStatement:
+	sensor=[BooleanSensor|QualifiedName]
+;
+NotOperation:
+	('not' | '!') statement=Statement
+;
+BinaryOperation: 
+	'(' left=Statement operator=BinaryOperator right=Statement ')'
+;
+CompareOperation:
+	left=ValueExpression comparator=Comparator right=ValueExpression
+;
+ValueExpression: 
+	SensorValue | ConstantValue
+;
+SensorValue: 
+	sensor=[FloatSensor|QualifiedName]
+;
+ConstantValue: 
+	value=EFloat
+;
+Action: 
 	BooleanAction | FloatAction
 ;
-
-BooleanCondition returns BooleanCondition:
-	{BooleanCondition}
-	sensor=[BooleanSensor|QualifiedName]
-	(("=" value=EBoolean)|"?")
+BooleanAction:
+	actor=[BooleanActor|QualifiedName] ':' value=EBoolean
+;
+FloatAction:
+	actor=[FloatActor|QualifiedName] ':' value=EFloat
 ;
 
-LesserOrEqualFloatCondition returns LesserOrEqualFloatCondition:
-	{LesserOrEqualFloatCondition}
-	sensor=[FloatSensor|QualifiedName]
-	"<="
-	value=EFloat
-;
+// Sensors
+//
+LightSensor:		'@light'	name=Name;
+TemperatureSensor:	'@temp'		name=Name;
+RainSensor:			'@rain'		name=Name;
+SwitchSensor:		'@switch'	name=Name;
+NumberSensor:		'@number'	name=Name;
+ClockSensor:		'@clock'	name=Name;
 
-GreaterOrEqualFloatCondition returns GreaterOrEqualFloatCondition:
-	{GreaterOrEqualFloatCondition}
-	sensor=[FloatSensor|QualifiedName]
-	">="
-	value=EFloat
-;
+// Actors
+//
+LampActor:			'@lamp'		name=Name;
+RollerActor:		'@roller'	name=Name;
+RoofWindowActor:	'@roof'		name=Name;
+RadiatorActor:		'@radiator'	name=Name;
+BoilerActor:		'@boiler'	name=Name;
+CoffeeActor:		'@coffee'	name=Name;
 
-BooleanAction returns BooleanAction:
-	{BooleanAction}
-	actor=[BooleanActor|QualifiedName]
-	':'
-	value=EBoolean
-;
-
-FloatAction returns FloatAction:
-	{FloatAction}
-	actor=[FloatActor|QualifiedName]
-	':'
-	value=EFloat
-;
-
-LightSensor returns LightSensor:
-	{LightSensor}
-	'@light'
-	name=Name
-;
-
-TemperatureSensor returns TemperatureSensor:
-	{TemperatureSensor}
-	'@temp'
-	name=Name
-;
-
-RainSensor returns RainSensor:
-	{RainSensor}
-	'@rain'
-	name=Name
-;
-
-SwitchSensor returns SwitchSensor:
-	{SwitchSensor}
-	'@switch'
-	name=Name
-;
-
-NumberSensor returns NumberSensor:
-	{NumberSensor}
-	'@number'
-	name=Name
-;
-
-ClockSensor returns ClockSensor:
-	{ClockSensor}
-	'@clock'
-	name=Name
-;
-
-LampActor returns LampActor:
-	{LampActor}
-	'@lamp'
-	name=Name
-;
-
-RollerActor returns RollerActor:
-	{RollerActor}
-	'@roller'
-	name=Name
-;
-
-RoofWindowActor returns RoofWindowActor:
-	{RoofWindowActor}
-	'@roof'
-	name=Name
-;
-
-RadiatorActor returns RadiatorActor:
-	{RadiatorActor}
-	'@radiator'
-	name=Name
-;
-
-BoilerActor returns BoilerActor:
-	{BoilerActor}
-	'@boiler'
-	name=Name
-;
-
-CoffeeActor returns CoffeeActor:
-	{CoffeeActor}
-	'@coffee'
-	name=Name
-;
-
+// Operators, Enumerations, Values, Identifiers
 // name system: full qualified names used for cross-referencing
-Name:
-	ID
-;
+//
+Name: ID;
+QualifiedName: Name ('.' Name)*;
 
-QualifiedName:
-	Name ('.' Name)*
-;
-
-// data type wrappers
-/*EString returns ecore::EString:
-	STRING | ID
-;
-
-EInt returns ecore::EInt:
-	'-'? INT
-;*/
+enum BinaryOperator: 
+	AND="and" | OR="or" | XOR="xor";
+	
+enum Comparator: 
+	LT="<" | LE="<=" | GE=">=" | GT=">";
 
 EFloat returns ecore::EFloat:
-	'-'? INT? ('.' INT (('E'|'e') '-'? INT)?)?
-;
+	'-'? INT? ('.' INT (('E'|'e') '-'? INT)?)?;
 
 EBoolean returns ecore::EBoolean:
-	'true' | 'false'
-;
+	'true' | 'false';

@@ -14,6 +14,7 @@ import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.BooleanSensorStatement;
 import de.altimos.mdsd.majordomo.ClockSensor;
 import de.altimos.mdsd.majordomo.CoffeeActor;
+import de.altimos.mdsd.majordomo.Comparator;
 import de.altimos.mdsd.majordomo.CompareOperation;
 import de.altimos.mdsd.majordomo.Comperator;
 import de.altimos.mdsd.majordomo.ConstantValue;
@@ -398,7 +399,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum comperatorEEnum = null;
+	private EEnum comparatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -611,7 +612,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_Conditions() {
+	public EReference getRule_Statement() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1025,7 +1026,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCompareOperation_Comperator() {
+	public EAttribute getCompareOperation_Comparator() {
 		return (EAttribute)compareOperationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1178,6 +1179,15 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPreparedStatement_Ctx() {
+		return (EReference)preparedStatementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBinaryOperator() {
 		return binaryOperatorEEnum;
 	}
@@ -1187,8 +1197,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getComperator() {
-		return comperatorEEnum;
+	public EEnum getComparator() {
+		return comparatorEEnum;
 	}
 
 	/**
@@ -1241,7 +1251,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEReference(actorEClass, ACTOR__CTX);
 
 		ruleEClass = createEClass(RULE);
-		createEReference(ruleEClass, RULE__CONDITIONS);
+		createEReference(ruleEClass, RULE__STATEMENT);
 		createEReference(ruleEClass, RULE__ACTIONS);
 
 		extensionEClass = createEClass(EXTENSION);
@@ -1318,7 +1328,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEReference(notOperationEClass, NOT_OPERATION__STATEMENT);
 
 		compareOperationEClass = createEClass(COMPARE_OPERATION);
-		createEAttribute(compareOperationEClass, COMPARE_OPERATION__COMPERATOR);
+		createEAttribute(compareOperationEClass, COMPARE_OPERATION__COMPARATOR);
 		createEReference(compareOperationEClass, COMPARE_OPERATION__LEFT);
 		createEReference(compareOperationEClass, COMPARE_OPERATION__RIGHT);
 
@@ -1342,10 +1352,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 		createEAttribute(preparedStatementEClass, PREPARED_STATEMENT__NAME);
+		createEReference(preparedStatementEClass, PREPARED_STATEMENT__CTX);
 
 		// Create enums
 		binaryOperatorEEnum = createEEnum(BINARY_OPERATOR);
-		comperatorEEnum = createEEnum(COMPERATOR);
+		comparatorEEnum = createEEnum(COMPARATOR);
 	}
 
 	/**
@@ -1429,8 +1440,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMajordomo_House(), this.getHouse(), null, "house", null, 1, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMajordomo_Name(), ecorePackage.getEString(), "name", "m", 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMajordomo_House(), this.getHouse(), null, "house", null, 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMajordomo_Name(), ecorePackage.getEString(), "name", "m", 1, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMajordomo_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getMajordomo_Program(), this.getProgram(), null, "program", null, 1, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1441,7 +1452,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getExtendable_Actors(), this.getActor(), this.getActor_Ctx(), "actors", null, 0, -1, Extendable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(roomEClass, Room.class, "Room", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRoom_Name(), ecorePackage.getEString(), "name", null, 0, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoom_Name(), ecorePackage.getEString(), "name", null, 1, 1, Room.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sensorEClass, Sensor.class, "Sensor", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getSensor_Ctx(), this.getExtendable(), this.getExtendable_Sensors(), "ctx", null, 1, 1, Sensor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1450,11 +1461,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getActor_Ctx(), this.getExtendable(), this.getExtendable_Actors(), "ctx", null, 1, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRule_Conditions(), this.getStatement(), null, "conditions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRule_Actions(), this.getAction(), null, "actions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Statement(), this.getStatement(), null, "statement", null, 1, 1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Actions(), this.getAction(), null, "actions", null, 1, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(extensionEClass, Extension.class, "Extension", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getExtension_Name(), ecorePackage.getEString(), "name", null, 0, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getExtension_Name(), ecorePackage.getEString(), "name", null, 1, 1, Extension.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lightSensorEClass, LightSensor.class, "LightSensor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1510,11 +1521,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(floatActionEClass, FloatAction.class, "FloatAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFloatAction_Actor(), this.getFloatActor(), null, "actor", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFloatAction_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFloatAction_Value(), ecorePackage.getEFloat(), "value", null, 1, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanActionEClass, BooleanAction.class, "BooleanAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBooleanAction_Actor(), this.getBooleanActor(), null, "actor", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBooleanAction_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBooleanAction_Value(), ecorePackage.getEBoolean(), "value", null, 1, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(floatConditionEClass, FloatCondition.class, "FloatCondition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloatCondition_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1537,12 +1548,12 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getNotOperation_Statement(), this.getStatement(), null, "statement", null, 1, 1, NotOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(compareOperationEClass, CompareOperation.class, "CompareOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCompareOperation_Comperator(), this.getComperator(), "comperator", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCompareOperation_Comparator(), this.getComparator(), "comparator", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCompareOperation_Left(), this.getValueExpression(), null, "left", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getCompareOperation_Right(), this.getValueExpression(), null, "right", null, 0, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompareOperation_Right(), this.getValueExpression(), null, "right", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanSensorStatementEClass, BooleanSensorStatement.class, "BooleanSensorStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getBooleanSensorStatement_Sensor(), this.getBooleanSensor(), null, "sensor", null, 0, 1, BooleanSensorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBooleanSensorStatement_Sensor(), this.getBooleanSensor(), null, "sensor", null, 1, 1, BooleanSensorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueExpressionEClass, ValueExpression.class, "ValueExpression", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1550,17 +1561,18 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEAttribute(getConstantValue_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, ConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sensorValueEClass, SensorValue.class, "SensorValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSensorValue_Sensor(), this.getFloatSensor(), null, "sensor", null, 0, 1, SensorValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSensorValue_Sensor(), this.getFloatSensor(), null, "sensor", null, 1, 1, SensorValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(statementReferenceEClass, StatementReference.class, "StatementReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getStatementReference_Ref(), this.getPreparedStatement(), null, "ref", null, 1, 1, StatementReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProgram_Rules(), this.getRule(), null, "rules", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_PreparedStatements(), this.getPreparedStatement(), null, "preparedStatements", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_PreparedStatements(), this.getPreparedStatement(), this.getPreparedStatement_Ctx(), "preparedStatements", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(preparedStatementEClass, PreparedStatement.class, "PreparedStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPreparedStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreparedStatement_Name(), ecorePackage.getEString(), "name", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPreparedStatement_Ctx(), this.getProgram(), this.getProgram_PreparedStatements(), "ctx", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(binaryOperatorEEnum, BinaryOperator.class, "BinaryOperator");
@@ -1568,39 +1580,39 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.OR);
 		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.XOR);
 
-		initEEnum(comperatorEEnum, Comperator.class, "Comperator");
-		addEEnumLiteral(comperatorEEnum, Comperator.GT);
-		addEEnumLiteral(comperatorEEnum, Comperator.GE);
-		addEEnumLiteral(comperatorEEnum, Comperator.LS);
-		addEEnumLiteral(comperatorEEnum, Comperator.LE);
+		initEEnum(comparatorEEnum, Comparator.class, "Comparator");
+		addEEnumLiteral(comparatorEEnum, Comparator.GT);
+		addEEnumLiteral(comparatorEEnum, Comparator.GE);
+		addEEnumLiteral(comparatorEEnum, Comparator.LT);
+		addEEnumLiteral(comparatorEEnum, Comparator.LE);
 
 		// Create resource
 		createResource(eNS_URI);
 
 		// Create annotations
-		// ComperatorDescription
-		createComperatorDescriptionAnnotations();
+		// ComparatorDescription
+		createComparatorDescriptionAnnotations();
 	}
 
 	/**
-	 * Initializes the annotations for <b>ComperatorDescription</b>.
+	 * Initializes the annotations for <b>ComparatorDescription</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void createComperatorDescriptionAnnotations() {
-		String source = "ComperatorDescription";		
+	protected void createComparatorDescriptionAnnotations() {
+		String source = "ComparatorDescription";		
 		addAnnotation
 		  (this, 
 		   source, 
 		   new String[] {
 			 "GT: Greater", null,
 			 "GE: Greater or Equal", null,
-			 "LS: Lesser", null,
+			 "LT: Lesser", null,
 			 "LE: Lesser or Equal", null
 		   },
 		   new URI[] {
-			 URI.createURI(eNS_URI).appendFragment("//Comperator")
+			 URI.createURI(eNS_URI).appendFragment("//Comparator")
 		   });
 	}
 

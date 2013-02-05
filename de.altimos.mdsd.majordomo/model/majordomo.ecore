@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="majordomo" nsURI="http://mdsd.altimos.de/majordomo/1.0" nsPrefix="majordomo">
-  <eAnnotations source="ComperatorDescription" references="#//Comperator">
+  <eAnnotations source="ComparatorDescription" references="#//Comparator">
     <details key="GT: Greater"/>
     <details key="GE: Greater or Equal"/>
-    <details key="LS: Lesser"/>
+    <details key="LT: Lesser"/>
     <details key="LE: Lesser or Equal"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Majordomo">
@@ -114,18 +114,18 @@
         eType="#//Statement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CompareOperation" eSuperTypes="#//Statement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comperator" lowerBound="1"
-        eType="#//Comperator"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="comparator" lowerBound="1"
+        eType="#//Comparator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//ValueExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//ValueExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="Comperator">
+  <eClassifiers xsi:type="ecore:EEnum" name="Comparator">
     <eLiterals name="GT"/>
     <eLiterals name="GE" value="1"/>
-    <eLiterals name="LS" value="2"/>
-    <eLiterals name="LE" value="3"/>
+    <eLiterals name="LT" value="2"/>
+    <eLiterals name="LE" value="3" literal="LE"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanSensorStatement" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="sensor" lowerBound="1"
