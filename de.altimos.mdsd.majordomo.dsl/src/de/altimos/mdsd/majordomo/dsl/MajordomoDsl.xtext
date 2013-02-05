@@ -15,6 +15,7 @@ Program:
 	{Program}
 	'program'
 	'{'
+		(preparedStatements+=PreparedStatement ';')*
 		(rules+=Rule (';' rules+=Rule)*)? ';'?
 	'}'
 ;
@@ -30,6 +31,7 @@ House:
 ;
 
 Room:
+	{Room}
 	'room'
 	name=Name
 	'{'
@@ -53,7 +55,7 @@ Rule:
 ;
 
 Statement: 
-	BooleanSensorStatement | NotOperation | BinaryOperation | CompareOperation
+	BooleanSensorStatement | NotOperation | BinaryOperation | CompareOperation | StatementReference
 ;
 BinaryOperation: 
 	left=Statement operator=BinaryOperator right=Statement
@@ -65,6 +67,9 @@ BooleanSensorStatement:
 NotOperation:
 	('not' | '!') statement=Statement
 ;
+
+// Compare Statements
+//
 CompareOperation:
 	left=ValueExpression comparator=Comparator right=ValueExpression
 ;
@@ -77,6 +82,19 @@ SensorValue:
 ConstantValue: 
 	value=EFloat
 ;
+
+// Prepared Statements and Statement References
+//
+PreparedStatement: 
+	'def' name=Name ':' statement=Statement
+;
+StatementReference: 
+	ref=[PreparedStatement|Name]
+;
+
+
+// Actions
+//
 Action: 
 	BooleanAction | FloatAction
 ;
