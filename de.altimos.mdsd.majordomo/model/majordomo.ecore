@@ -2,10 +2,10 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="majordomo" nsURI="http://mdsd.altimos.de/majordomo/1.0" nsPrefix="majordomo">
   <eAnnotations source="ComparatorDescription" references="#//Comparator">
-    <details key="GT: Greater"/>
-    <details key="GE: Greater or Equal"/>
-    <details key="LT: Lesser"/>
-    <details key="LE: Lesser or Equal"/>
+    <details key="GT: Greater than"/>
+    <details key="GE: Greater or Equal than"/>
+    <details key="LT: Less than"/>
+    <details key="LE: Less or Equal thab"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Majordomo">
     <eStructuralFeatures xsi:type="ecore:EReference" name="house" eType="#//House"
