@@ -24,7 +24,7 @@ public class MConfiguration {
 		«ENDFOREACH»
 	«ENDFOREACH»
 	
-	«FOREACH this.rules AS rule»
+	«FOREACH this.program.rules AS rule»
 		private MAssemblyProcessor _«rule.uid()»;
 	«ENDFOREACH»
 	
@@ -45,19 +45,15 @@ public class MConfiguration {
 	}
 	
 	public void buildAssemblyProcessors() {
-		«FOREACH this.rules AS rule»
+		«FOREACH this.program.rules AS rule»
 			_«rule.uid()» = new MAssemblyProcessor(new MAssemblyRunnable() {
 				public boolean processReq() {
-					return true 
-					«FOREACH rule.conditions AS c»
-						&& _«c.sensor().uid()».readValue() «c.comperator()» «c.conditionValue()»
-					«ENDFOREACH»;
+					return «EXPAND Statement FOR rule.statement»;
 				}
 				
 				public void process() {
-					System.out.println("EXEC: «rule.ruleString()»");
 					«FOREACH rule.actions AS a»
-						_«a.actor().uid()».setValue(«a.actorValue()»);
+						_«a.actor().uid()».setValue(«a.value()»);
 					«ENDFOREACH»
 				}
 			});
@@ -75,18 +71,50 @@ public class MConfiguration {
 			«ENDFOREACH»
 		«ENDFOREACH»
 		
-		«FOREACH this.rules AS rule»
-			«FOREACH rule.conditions AS c»
-				_«c.sensor().uid()».registerAssemblyProcessor(_«rule.uid()»);
+		«FOREACH this.program.rules AS rule»
+			«FOREACH rule.statement.sensors() AS s»
+				_«s.uid()».registerAssemblyProcessor(_«rule.uid()»);
 			«ENDFOREACH»
 		«ENDFOREACH»
 	}
 	
 	public void initAssemblies() {
-		«FOREACH this.rules AS rule»
+		«FOREACH this.program.rules AS rule»
 			_«rule.uid()».invoke();
 		«ENDFOREACH»
 	}
 }
 «ENDFILE»
+«ENDDEFINE»
+
+«DEFINE Statement FOR Statement»
+	/* UNDEFINED STATEMENT */ false /* UNDEFINED STATEMENT END */
+«ENDDEFINE»
+«DEFINE Statement FOR BooleanSensorStatement»
+	_«sensor.uid()».readValue()
+«ENDDEFINE»
+«DEFINE Statement FOR CompareOperation»
+	«EXPAND ValueExpression FOR left» «comparator()» «EXPAND ValueExpression FOR right»
+«ENDDEFINE»
+«DEFINE Statement FOR BinaryOperation»
+	(«EXPAND Statement FOR left» «operator()» «EXPAND Statement FOR right»)
+«ENDDEFINE»
+«DEFINE Statement FOR NotOperation»
+	(! «EXPAND Statement FOR statement»)
+«ENDDEFINE»
+«DEFINE Statement FOR StatementReference»
+	(/* REF */ «EXPAND Statement FOR ref»)
+«ENDDEFINE»
+«DEFINE Statement FOR PreparedStatement»
+	(/* PREP */ «EXPAND Statement FOR statement»)
+«ENDDEFINE»
+
+«DEFINE ValueExpression FOR ValueExpression»
+	null
+«ENDDEFINE»
+«DEFINE ValueExpression FOR SensorValue»
+	_«sensor.uid()».readValue()
+«ENDDEFINE»
+«DEFINE ValueExpression FOR ConstantValue»
+	«value»
 «ENDDEFINE»

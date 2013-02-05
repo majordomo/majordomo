@@ -1,29 +1,59 @@
 import majordomo;
 
-String metaTypeSimpleName(Object o) : o.metaType.name.replaceAll("majordomo::", "");
+String metaTypeSimpleName(Object o): o.metaType.name.replaceAll("majordomo::", "");
 
-String assemblyClass(Extension ext) : "M" + ext.metaTypeSimpleName() + "Assembly";
+String assemblyClass(Extension ext): "M" + ext.metaTypeSimpleName() + "Assembly";
 
-Actor actor(Action action) : 
+Actor actor(Action action): 
 	FloatAction.isInstance(action) ? ((FloatAction) action).actor : ((BooleanAction) action).actor;
 	
-Object actorValue(Action action) : 
+Object value(Action action): 
 	FloatAction.isInstance(action) ? ((FloatAction) action).value : ((BooleanAction) action).value;
 	
-Sensor sensor(Condition cond) : 
-	FloatCondition.isInstance(cond) ? ((FloatCondition) cond).sensor : ((BooleanCondition) cond).sensor;
+Extendable ctx(Extension ext): Sensor.isInstance(ext) ? ((Sensor) ext).ctx : ((Actor) ext).ctx;
 	
-Object conditionValue(Condition cond) : 
-	FloatCondition.isInstance(cond) ? ((FloatCondition) cond).value : ((BooleanCondition) cond).value;
-	
-String comperator(Condition cond) : 
-	LesserOrEqualFloatCondition.isInstance(cond) ? "<=" : (GreaterOrEqualFloatCondition.isInstance(cond) ? ">=" : "==");
-	
-Extendable ctx(Extension ext) : Sensor.isInstance(ext) ? ((Sensor) ext).ctx : ((Actor) ext).ctx;
-	
-String scopeName(Extension ext) :
+String scopeName(Extension ext):
 	"m." + (House.isInstance(ext.ctx()) ? "" : ((Room) ext.ctx()).name + ".") + ext.name;
 	
-String ruleString(Rule rule) :
-	rule.conditions.collect(e|e.sensor().scopeName() + " " + e.comperator() + " " + e.conditionValue()).toString(" & ") + 
-	" -> " + rule.actions.collect(e|e.actor().scopeName() + ": " + e.actorValue()).toString(", ");
+List[Sensor] sensors(Statement stmt):
+	{};
+	
+List[Sensor] sensors(BooleanSensorStatement stmt):
+	{stmt.sensor};
+	
+List[Sensor] sensors(BinaryOperation stmt):
+	stmt.left.sensors().union(stmt.right.sensors());
+	
+List[Sensor] sensors(NotOperation stmt):
+	stmt.statement.sensors();
+	
+List[Sensor] sensors(StatementReference stmt):
+	stmt.ref.statement.sensors();
+
+List[Sensor] sensors(CompareOperation stmt):
+	stmt.left.sensors();
+	
+List[Sensor] sensors(ValueExpression exp):
+	{};
+	
+List[Sensor] sensors(SensorValue exp):
+	{exp.sensor};
+	
+String comparator(CompareOperation stmt):
+	switch (stmt.comparator.toString()) {
+		case 'GT': '>'
+		case 'GE': '>='
+		case 'LT': '<'
+		case 'LE': '<='
+		default: '!='
+	};
+	
+String operator(BinaryOperation stmt):
+	switch (stmt.operator.toString()) {
+		case 'AND': '&&'
+		case 'OR': '||'
+		case 'XOR': '^'
+		default: '/* UNDEFD OP */ && /* UNDEFD OP END */'
+	};
+
+

@@ -1188,6 +1188,15 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPreparedStatement_Statement() {
+		return (EReference)preparedStatementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getBinaryOperator() {
 		return binaryOperatorEEnum;
 	}
@@ -1353,6 +1362,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 		createEAttribute(preparedStatementEClass, PREPARED_STATEMENT__NAME);
 		createEReference(preparedStatementEClass, PREPARED_STATEMENT__CTX);
+		createEReference(preparedStatementEClass, PREPARED_STATEMENT__STATEMENT);
 
 		// Create enums
 		binaryOperatorEEnum = createEEnum(BINARY_OPERATOR);
@@ -1436,7 +1446,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		constantValueEClass.getESuperTypes().add(this.getValueExpression());
 		sensorValueEClass.getESuperTypes().add(this.getValueExpression());
 		statementReferenceEClass.getESuperTypes().add(this.getStatement());
-		preparedStatementEClass.getESuperTypes().add(this.getStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1573,6 +1582,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEClass(preparedStatementEClass, PreparedStatement.class, "PreparedStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPreparedStatement_Name(), ecorePackage.getEString(), "name", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPreparedStatement_Ctx(), this.getProgram(), this.getProgram_PreparedStatements(), "ctx", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPreparedStatement_Statement(), this.getStatement(), null, "statement", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(binaryOperatorEEnum, BinaryOperator.class, "BinaryOperator");
