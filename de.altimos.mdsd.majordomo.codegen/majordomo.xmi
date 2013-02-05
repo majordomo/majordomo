@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="ASCII"?>
+<majordomo:Majordomo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:majordomo="http://mdsd.altimos.de/majordomo/1.0" xsi:schemaLocation="http://mdsd.altimos.de/majordomo/1.0 java://de.altimos.mdsd.majordomo.MajordomoPackage">
+  <house>
+    <sensors xsi:type="majordomo:ClockSensor" name="time"/>
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temp"/>
+    <sensors xsi:type="majordomo:RainSensor" name="rain"/>
+    <sensors xsi:type="majordomo:LightSensor" name="light"/>
+    <actors xsi:type="majordomo:LampActor" name="lamps"/>
+    <actors xsi:type="majordomo:BoilerActor" name="boiler"/>
+  </house>
+  <rooms name="lr">
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temp"/>
+    <sensors xsi:type="majordomo:LightSensor" name="light"/>
+    <sensors xsi:type="majordomo:SwitchSensor" name="lightSwitch"/>
+    <actors xsi:type="majordomo:RollerActor" name="rollers"/>
+    <actors xsi:type="majordomo:LampActor" name="lamps"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="radiator"/>
+  </rooms>
+  <rooms name="sr">
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temp"/>
+    <sensors xsi:type="majordomo:LightSensor" name="light"/>
+    <sensors xsi:type="majordomo:NumberSensor" name="numberpad"/>
+    <actors xsi:type="majordomo:RollerActor" name="rollers"/>
+    <actors xsi:type="majordomo:RoofWindowActor" name="roofWindows"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="radiator"/>
+  </rooms>
+  <rooms name="ki">
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temp"/>
+    <sensors xsi:type="majordomo:LightSensor" name="light"/>
+    <sensors xsi:type="majordomo:SwitchSensor" name="lightSwitch"/>
+    <actors xsi:type="majordomo:RollerActor" name="rollers"/>
+    <actors xsi:type="majordomo:RoofWindowActor" name="roofWindows"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="radiator"/>
+    <actors xsi:type="majordomo:CoffeeActor" name="coffee"/>
+    <actors xsi:type="majordomo:LampActor" name="lamps"/>
+  </rooms>
+  <program>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.4"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@house/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.4"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@house/@actors.0" value="1.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="LE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+          <right xsi:type="majordomo:ConstantValue" value="0.4"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+          <right xsi:type="majordomo:ConstantValue" value="23.0"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@house/@actors.0" value="0.2"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="4.0"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@house/@actors.0" value="1.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="7.3"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@house/@actors.1" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="8.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.3" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="8.3"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.3"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="10.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@house/@actors.1"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.1/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="18.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.2"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:BinaryOperation">
+          <left xsi:type="majordomo:CompareOperation" comparator="GE">
+            <left xsi:type="majordomo:SensorValue" sensor="//@rooms.1/@sensors.0"/>
+            <right xsi:type="majordomo:ConstantValue" value="19.0"/>
+          </left>
+          <right xsi:type="majordomo:CompareOperation" comparator="LE">
+            <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+            <right xsi:type="majordomo:ConstantValue" value="19.0"/>
+          </right>
+        </left>
+        <right xsi:type="majordomo:NotOperation">
+          <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@house/@sensors.2"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.1" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="LE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@rooms.1/@sensors.0"/>
+          <right xsi:type="majordomo:ConstantValue" value="18.0"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="LE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+          <right xsi:type="majordomo:ConstantValue" value="18.0"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.1"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@rooms.1/@sensors.0"/>
+          <right xsi:type="majordomo:ConstantValue" value="19.0"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+          <right xsi:type="majordomo:ConstantValue" value="20.0"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.1"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+          <right xsi:type="majordomo:ConstantValue" value="18.0"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+          <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.0" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+        <right xsi:type="majordomo:ConstantValue" value="18.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.1/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="17.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.1"/>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.1/@actors.2" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@rooms.0/@sensors.0"/>
+          <right xsi:type="majordomo:ConstantValue" value="21.0"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+          <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.0/@actors.0" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BinaryOperation">
+        <left xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@rooms.2/@sensors.0"/>
+          <right xsi:type="majordomo:ConstantValue" value="21.0"/>
+        </left>
+        <right xsi:type="majordomo:CompareOperation" comparator="GE">
+          <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+          <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+        </right>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.0" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.0/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="17.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.0/@actors.2" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.2/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="17.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.2" value="true"/>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.1"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.0/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="20.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.0/@actors.2"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="GE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.2/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="20.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.2"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+        <right xsi:type="majordomo:ConstantValue" value="20.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.0/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.1"/>
+        <right xsi:type="majordomo:ConstantValue" value="20.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.0/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.3"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.2/@actors.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@rooms.0/@sensors.2"/>
+      <actions xsi:type="majordomo:FloatAction" actor="//@rooms.0/@actors.1" value="1.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:NotOperation">
+        <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@rooms.0/@sensors.2"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@rooms.0/@actors.1"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@rooms.2/@sensors.2"/>
+      <actions xsi:type="majordomo:FloatAction" actor="//@rooms.2/@actors.4" value="1.0"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:NotOperation">
+        <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@rooms.2/@sensors.2"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@rooms.2/@actors.4"/>
+    </rules>
+  </program>
+</majordomo:Majordomo>
