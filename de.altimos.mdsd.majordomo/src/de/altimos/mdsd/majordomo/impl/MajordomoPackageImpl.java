@@ -2,24 +2,21 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
-
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.Actor;
+import de.altimos.mdsd.majordomo.BinaryOperation;
+import de.altimos.mdsd.majordomo.BinaryOperator;
 import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.BooleanAction;
 import de.altimos.mdsd.majordomo.BooleanActor;
 import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
+import de.altimos.mdsd.majordomo.BooleanSensorStatement;
 import de.altimos.mdsd.majordomo.ClockSensor;
 import de.altimos.mdsd.majordomo.CoffeeActor;
-import de.altimos.mdsd.majordomo.Condition;
+import de.altimos.mdsd.majordomo.CompareOperation;
+import de.altimos.mdsd.majordomo.Comperator;
+import de.altimos.mdsd.majordomo.ConstantValue;
 import de.altimos.mdsd.majordomo.EqualFloatCondition;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
@@ -36,7 +33,10 @@ import de.altimos.mdsd.majordomo.LightSensor;
 import de.altimos.mdsd.majordomo.Majordomo;
 import de.altimos.mdsd.majordomo.MajordomoFactory;
 import de.altimos.mdsd.majordomo.MajordomoPackage;
+import de.altimos.mdsd.majordomo.NotOperation;
 import de.altimos.mdsd.majordomo.NumberSensor;
+import de.altimos.mdsd.majordomo.PreparedStatement;
+import de.altimos.mdsd.majordomo.Program;
 import de.altimos.mdsd.majordomo.RadiatorActor;
 import de.altimos.mdsd.majordomo.RainSensor;
 import de.altimos.mdsd.majordomo.RollerActor;
@@ -45,8 +45,24 @@ import de.altimos.mdsd.majordomo.Room;
 import de.altimos.mdsd.majordomo.RoomMountable;
 import de.altimos.mdsd.majordomo.Rule;
 import de.altimos.mdsd.majordomo.Sensor;
+import de.altimos.mdsd.majordomo.SensorValue;
+import de.altimos.mdsd.majordomo.Statement;
+import de.altimos.mdsd.majordomo.StatementReference;
 import de.altimos.mdsd.majordomo.SwitchSensor;
 import de.altimos.mdsd.majordomo.TemperatureSensor;
+import de.altimos.mdsd.majordomo.ValueExpression;
+
+import org.eclipse.emf.common.util.URI;
+
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
 
 /**
  * <!-- begin-user-doc -->
@@ -235,7 +251,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass conditionEClass = null;
+	private EClass statementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -243,6 +259,27 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	private EClass actionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanConditionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass floatActionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanActionEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -284,21 +321,84 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass booleanConditionEClass = null;
+	private EClass binaryOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass floatActionEClass = null;
+	private EClass notOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass booleanActionEClass = null;
+	private EClass compareOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass booleanSensorStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass valueExpressionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass constantValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass sensorValueEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass statementReferenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass programEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass preparedStatementEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum binaryOperatorEEnum = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum comperatorEEnum = null;
 
 	/**
 	 * Creates an instance of the model <b>Package</b>, registered with
@@ -367,7 +467,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getMajordomo() {
 		return majordomoEClass;
 	}
@@ -377,7 +476,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getMajordomo_House() {
 		return (EReference)majordomoEClass.getEStructuralFeatures().get(0);
 	}
@@ -387,8 +485,16 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getMajordomo_Rules() {
+	public EAttribute getMajordomo_Name() {
+		return (EAttribute)majordomoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMajordomo_Rooms() {
 		return (EReference)majordomoEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -397,9 +503,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getMajordomo_Rooms() {
-		return (EReference)majordomoEClass.getEStructuralFeatures().get(1);
+	public EReference getMajordomo_Program() {
+		return (EReference)majordomoEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -407,17 +512,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getMajordomo_Name() {
-		return (EAttribute)majordomoEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getHouse() {
 		return houseEClass;
 	}
@@ -427,7 +521,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getExtendable() {
 		return extendableEClass;
 	}
@@ -437,7 +530,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getExtendable_Sensors() {
 		return (EReference)extendableEClass.getEStructuralFeatures().get(0);
 	}
@@ -447,7 +539,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getExtendable_Actors() {
 		return (EReference)extendableEClass.getEStructuralFeatures().get(1);
 	}
@@ -457,7 +548,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRoom() {
 		return roomEClass;
 	}
@@ -467,7 +557,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getRoom_Name() {
 		return (EAttribute)roomEClass.getEStructuralFeatures().get(0);
 	}
@@ -477,7 +566,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSensor() {
 		return sensorEClass;
 	}
@@ -487,7 +575,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getSensor_Ctx() {
 		return (EReference)sensorEClass.getEStructuralFeatures().get(0);
 	}
@@ -497,7 +584,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getActor() {
 		return actorEClass;
 	}
@@ -507,7 +593,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getActor_Ctx() {
 		return (EReference)actorEClass.getEStructuralFeatures().get(0);
 	}
@@ -517,7 +602,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRule() {
 		return ruleEClass;
 	}
@@ -527,7 +611,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getRule_Conditions() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(0);
 	}
@@ -537,7 +620,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getRule_Actions() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(1);
 	}
@@ -547,7 +629,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getExtension() {
 		return extensionEClass;
 	}
@@ -557,7 +638,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getExtension_Name() {
 		return (EAttribute)extensionEClass.getEStructuralFeatures().get(0);
 	}
@@ -567,7 +647,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getLightSensor() {
 		return lightSensorEClass;
 	}
@@ -577,7 +656,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getTemperatureSensor() {
 		return temperatureSensorEClass;
 	}
@@ -587,7 +665,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRainSensor() {
 		return rainSensorEClass;
 	}
@@ -597,7 +674,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getSwitchSensor() {
 		return switchSensorEClass;
 	}
@@ -607,7 +683,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getNumberSensor() {
 		return numberSensorEClass;
 	}
@@ -617,7 +692,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getClockSensor() {
 		return clockSensorEClass;
 	}
@@ -627,7 +701,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getLampActor() {
 		return lampActorEClass;
 	}
@@ -637,7 +710,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRollerActor() {
 		return rollerActorEClass;
 	}
@@ -647,7 +719,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRoofWindowActor() {
 		return roofWindowActorEClass;
 	}
@@ -657,7 +728,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getBoilerActor() {
 		return boilerActorEClass;
 	}
@@ -667,7 +737,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRadiatorActor() {
 		return radiatorActorEClass;
 	}
@@ -677,7 +746,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getRoomMountable() {
 		return roomMountableEClass;
 	}
@@ -687,7 +755,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getHouseMountable() {
 		return houseMountableEClass;
 	}
@@ -697,7 +764,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getBooleanSensor() {
 		return booleanSensorEClass;
 	}
@@ -707,7 +773,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getFloatSensor() {
 		return floatSensorEClass;
 	}
@@ -717,7 +782,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getBooleanActor() {
 		return booleanActorEClass;
 	}
@@ -727,7 +791,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getFloatActor() {
 		return floatActorEClass;
 	}
@@ -737,9 +800,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getCondition() {
-		return conditionEClass;
+	public EClass getStatement() {
+		return statementEClass;
 	}
 
 	/**
@@ -747,7 +809,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getAction() {
 		return actionEClass;
 	}
@@ -757,7 +818,87 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EClass getBooleanCondition() {
+		return booleanConditionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanCondition_Value() {
+		return (EAttribute)booleanConditionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooleanCondition_Sensor() {
+		return (EReference)booleanConditionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getFloatAction() {
+		return floatActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getFloatAction_Actor() {
+		return (EReference)floatActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getFloatAction_Value() {
+		return (EAttribute)floatActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanAction() {
+		return booleanActionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooleanAction_Actor() {
+		return (EReference)booleanActionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBooleanAction_Value() {
+		return (EAttribute)booleanActionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getFloatCondition() {
 		return floatConditionEClass;
 	}
@@ -767,7 +908,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EAttribute getFloatCondition_Value() {
 		return (EAttribute)floatConditionEClass.getEStructuralFeatures().get(0);
 	}
@@ -777,7 +917,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EReference getFloatCondition_Sensor() {
 		return (EReference)floatConditionEClass.getEStructuralFeatures().get(1);
 	}
@@ -787,7 +926,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getLesserOrEqualFloatCondition() {
 		return lesserOrEqualFloatConditionEClass;
 	}
@@ -797,7 +935,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getGreaterOrEqualFloatCondition() {
 		return greaterOrEqualFloatConditionEClass;
 	}
@@ -807,7 +944,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	public EClass getEqualFloatCondition() {
 		return equalFloatConditionEClass;
 	}
@@ -826,9 +962,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getBooleanCondition() {
-		return booleanConditionEClass;
+	public EClass getBinaryOperation() {
+		return binaryOperationEClass;
 	}
 
 	/**
@@ -836,9 +971,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getBooleanCondition_Value() {
-		return (EAttribute)booleanConditionEClass.getEStructuralFeatures().get(0);
+	public EReference getBinaryOperation_Left() {
+		return (EReference)binaryOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -846,9 +980,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getBooleanCondition_Sensor() {
-		return (EReference)booleanConditionEClass.getEStructuralFeatures().get(1);
+	public EReference getBinaryOperation_Right() {
+		return (EReference)binaryOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -856,9 +989,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getFloatAction() {
-		return floatActionEClass;
+	public EAttribute getBinaryOperation_Operator() {
+		return (EAttribute)binaryOperationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -866,9 +998,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getFloatAction_Value() {
-		return (EAttribute)floatActionEClass.getEStructuralFeatures().get(0);
+	public EClass getNotOperation() {
+		return notOperationEClass;
 	}
 
 	/**
@@ -876,9 +1007,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getFloatAction_Actor() {
-		return (EReference)floatActionEClass.getEStructuralFeatures().get(1);
+	public EReference getNotOperation_Statement() {
+		return (EReference)notOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -886,9 +1016,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EClass getBooleanAction() {
-		return booleanActionEClass;
+	public EClass getCompareOperation() {
+		return compareOperationEClass;
 	}
 
 	/**
@@ -896,9 +1025,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EAttribute getBooleanAction_Value() {
-		return (EAttribute)booleanActionEClass.getEStructuralFeatures().get(0);
+	public EAttribute getCompareOperation_Comperator() {
+		return (EAttribute)compareOperationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -906,9 +1034,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EReference getBooleanAction_Actor() {
-		return (EReference)booleanActionEClass.getEStructuralFeatures().get(1);
+	public EReference getCompareOperation_Left() {
+		return (EReference)compareOperationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -916,7 +1043,159 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	public EReference getCompareOperation_Right() {
+		return (EReference)compareOperationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBooleanSensorStatement() {
+		return booleanSensorStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBooleanSensorStatement_Sensor() {
+		return (EReference)booleanSensorStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getValueExpression() {
+		return valueExpressionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getConstantValue() {
+		return constantValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getConstantValue_Value() {
+		return (EAttribute)constantValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getSensorValue() {
+		return sensorValueEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getSensorValue_Sensor() {
+		return (EReference)sensorValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getStatementReference() {
+		return statementReferenceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getStatementReference_Ref() {
+		return (EReference)statementReferenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProgram() {
+		return programEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgram_Rules() {
+		return (EReference)programEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProgram_PreparedStatements() {
+		return (EReference)programEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPreparedStatement() {
+		return preparedStatementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getPreparedStatement_Name() {
+		return (EAttribute)preparedStatementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getBinaryOperator() {
+		return binaryOperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EEnum getComperator() {
+		return comperatorEEnum;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public MajordomoFactory getMajordomoFactory() {
 		return (MajordomoFactory)getEFactoryInstance();
 	}
@@ -942,9 +1221,9 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		// Create classes and their features
 		majordomoEClass = createEClass(MAJORDOMO);
 		createEReference(majordomoEClass, MAJORDOMO__HOUSE);
-		createEReference(majordomoEClass, MAJORDOMO__ROOMS);
-		createEReference(majordomoEClass, MAJORDOMO__RULES);
 		createEAttribute(majordomoEClass, MAJORDOMO__NAME);
+		createEReference(majordomoEClass, MAJORDOMO__ROOMS);
+		createEReference(majordomoEClass, MAJORDOMO__PROGRAM);
 
 		houseEClass = createEClass(HOUSE);
 
@@ -1002,7 +1281,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		floatActorEClass = createEClass(FLOAT_ACTOR);
 
-		conditionEClass = createEClass(CONDITION);
+		statementEClass = createEClass(STATEMENT);
 
 		actionEClass = createEClass(ACTION);
 
@@ -1011,12 +1290,12 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEReference(booleanConditionEClass, BOOLEAN_CONDITION__SENSOR);
 
 		floatActionEClass = createEClass(FLOAT_ACTION);
-		createEAttribute(floatActionEClass, FLOAT_ACTION__VALUE);
 		createEReference(floatActionEClass, FLOAT_ACTION__ACTOR);
+		createEAttribute(floatActionEClass, FLOAT_ACTION__VALUE);
 
 		booleanActionEClass = createEClass(BOOLEAN_ACTION);
-		createEAttribute(booleanActionEClass, BOOLEAN_ACTION__VALUE);
 		createEReference(booleanActionEClass, BOOLEAN_ACTION__ACTOR);
+		createEAttribute(booleanActionEClass, BOOLEAN_ACTION__VALUE);
 
 		floatConditionEClass = createEClass(FLOAT_CONDITION);
 		createEAttribute(floatConditionEClass, FLOAT_CONDITION__VALUE);
@@ -1029,6 +1308,44 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		equalFloatConditionEClass = createEClass(EQUAL_FLOAT_CONDITION);
 
 		coffeeActorEClass = createEClass(COFFEE_ACTOR);
+
+		binaryOperationEClass = createEClass(BINARY_OPERATION);
+		createEReference(binaryOperationEClass, BINARY_OPERATION__LEFT);
+		createEReference(binaryOperationEClass, BINARY_OPERATION__RIGHT);
+		createEAttribute(binaryOperationEClass, BINARY_OPERATION__OPERATOR);
+
+		notOperationEClass = createEClass(NOT_OPERATION);
+		createEReference(notOperationEClass, NOT_OPERATION__STATEMENT);
+
+		compareOperationEClass = createEClass(COMPARE_OPERATION);
+		createEAttribute(compareOperationEClass, COMPARE_OPERATION__COMPERATOR);
+		createEReference(compareOperationEClass, COMPARE_OPERATION__LEFT);
+		createEReference(compareOperationEClass, COMPARE_OPERATION__RIGHT);
+
+		booleanSensorStatementEClass = createEClass(BOOLEAN_SENSOR_STATEMENT);
+		createEReference(booleanSensorStatementEClass, BOOLEAN_SENSOR_STATEMENT__SENSOR);
+
+		valueExpressionEClass = createEClass(VALUE_EXPRESSION);
+
+		constantValueEClass = createEClass(CONSTANT_VALUE);
+		createEAttribute(constantValueEClass, CONSTANT_VALUE__VALUE);
+
+		sensorValueEClass = createEClass(SENSOR_VALUE);
+		createEReference(sensorValueEClass, SENSOR_VALUE__SENSOR);
+
+		statementReferenceEClass = createEClass(STATEMENT_REFERENCE);
+		createEReference(statementReferenceEClass, STATEMENT_REFERENCE__REF);
+
+		programEClass = createEClass(PROGRAM);
+		createEReference(programEClass, PROGRAM__RULES);
+		createEReference(programEClass, PROGRAM__PREPARED_STATEMENTS);
+
+		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
+		createEAttribute(preparedStatementEClass, PREPARED_STATEMENT__NAME);
+
+		// Create enums
+		binaryOperatorEEnum = createEEnum(BINARY_OPERATOR);
+		comperatorEEnum = createEEnum(COMPERATOR);
 	}
 
 	/**
@@ -1092,22 +1409,30 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		floatSensorEClass.getESuperTypes().add(this.getSensor());
 		booleanActorEClass.getESuperTypes().add(this.getActor());
 		floatActorEClass.getESuperTypes().add(this.getActor());
-		booleanConditionEClass.getESuperTypes().add(this.getCondition());
+		booleanConditionEClass.getESuperTypes().add(this.getStatement());
 		floatActionEClass.getESuperTypes().add(this.getAction());
 		booleanActionEClass.getESuperTypes().add(this.getAction());
-		floatConditionEClass.getESuperTypes().add(this.getCondition());
+		floatConditionEClass.getESuperTypes().add(this.getStatement());
 		lesserOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 		greaterOrEqualFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 		equalFloatConditionEClass.getESuperTypes().add(this.getFloatCondition());
 		coffeeActorEClass.getESuperTypes().add(this.getRoomMountable());
 		coffeeActorEClass.getESuperTypes().add(this.getBooleanActor());
+		binaryOperationEClass.getESuperTypes().add(this.getStatement());
+		notOperationEClass.getESuperTypes().add(this.getStatement());
+		compareOperationEClass.getESuperTypes().add(this.getStatement());
+		booleanSensorStatementEClass.getESuperTypes().add(this.getStatement());
+		constantValueEClass.getESuperTypes().add(this.getValueExpression());
+		sensorValueEClass.getESuperTypes().add(this.getValueExpression());
+		statementReferenceEClass.getESuperTypes().add(this.getStatement());
+		preparedStatementEClass.getESuperTypes().add(this.getStatement());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMajordomo_House(), this.getHouse(), null, "house", null, 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMajordomo_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMajordomo_Rules(), this.getRule(), null, "rules", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMajordomo_House(), this.getHouse(), null, "house", null, 1, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMajordomo_Name(), ecorePackage.getEString(), "name", "m", 0, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMajordomo_Rooms(), this.getRoom(), null, "rooms", null, 0, -1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMajordomo_Program(), this.getProgram(), null, "program", null, 1, 1, Majordomo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(houseEClass, House.class, "House", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1125,7 +1450,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getActor_Ctx(), this.getExtendable(), this.getExtendable_Actors(), "ctx", null, 1, 1, Actor.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(ruleEClass, Rule.class, "Rule", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRule_Conditions(), this.getCondition(), null, "conditions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getRule_Conditions(), this.getStatement(), null, "conditions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRule_Actions(), this.getAction(), null, "actions", null, 0, -1, Rule.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(extensionEClass, Extension.class, "Extension", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1175,7 +1500,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		op = addEOperation(floatActorEClass, null, "setValue", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEFloat(), "value", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(conditionEClass, Condition.class, "Condition", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(statementEClass, Statement.class, "Statement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(actionEClass, Action.class, "Action", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1184,12 +1509,12 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getBooleanCondition_Sensor(), this.getBooleanSensor(), null, "sensor", null, 0, 1, BooleanCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(floatActionEClass, FloatAction.class, "FloatAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFloatAction_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFloatAction_Actor(), this.getFloatActor(), null, "actor", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFloatAction_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(booleanActionEClass, BooleanAction.class, "BooleanAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getBooleanAction_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getBooleanAction_Actor(), this.getBooleanActor(), null, "actor", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBooleanAction_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(floatConditionEClass, FloatCondition.class, "FloatCondition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFloatCondition_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, FloatCondition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1203,8 +1528,80 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(coffeeActorEClass, CoffeeActor.class, "CoffeeActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(binaryOperationEClass, BinaryOperation.class, "BinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBinaryOperation_Left(), this.getStatement(), null, "left", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperation_Right(), this.getStatement(), null, "right", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBinaryOperation_Operator(), this.getBinaryOperator(), "operator", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(notOperationEClass, NotOperation.class, "NotOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getNotOperation_Statement(), this.getStatement(), null, "statement", null, 1, 1, NotOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(compareOperationEClass, CompareOperation.class, "CompareOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCompareOperation_Comperator(), this.getComperator(), "comperator", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompareOperation_Left(), this.getValueExpression(), null, "left", null, 1, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCompareOperation_Right(), this.getValueExpression(), null, "right", null, 0, 1, CompareOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(booleanSensorStatementEClass, BooleanSensorStatement.class, "BooleanSensorStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getBooleanSensorStatement_Sensor(), this.getBooleanSensor(), null, "sensor", null, 0, 1, BooleanSensorStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(valueExpressionEClass, ValueExpression.class, "ValueExpression", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(constantValueEClass, ConstantValue.class, "ConstantValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getConstantValue_Value(), ecorePackage.getEFloat(), "value", null, 0, 1, ConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(sensorValueEClass, SensorValue.class, "SensorValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getSensorValue_Sensor(), this.getFloatSensor(), null, "sensor", null, 0, 1, SensorValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(statementReferenceEClass, StatementReference.class, "StatementReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getStatementReference_Ref(), this.getPreparedStatement(), null, "ref", null, 1, 1, StatementReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProgram_Rules(), this.getRule(), null, "rules", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_PreparedStatements(), this.getPreparedStatement(), null, "preparedStatements", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(preparedStatementEClass, PreparedStatement.class, "PreparedStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPreparedStatement_Name(), ecorePackage.getEString(), "name", null, 0, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		// Initialize enums and add enum literals
+		initEEnum(binaryOperatorEEnum, BinaryOperator.class, "BinaryOperator");
+		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.AND);
+		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.OR);
+		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.XOR);
+
+		initEEnum(comperatorEEnum, Comperator.class, "Comperator");
+		addEEnumLiteral(comperatorEEnum, Comperator.GT);
+		addEEnumLiteral(comperatorEEnum, Comperator.GE);
+		addEEnumLiteral(comperatorEEnum, Comperator.LS);
+		addEEnumLiteral(comperatorEEnum, Comperator.LE);
+
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// ComperatorDescription
+		createComperatorDescriptionAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>ComperatorDescription</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createComperatorDescriptionAnnotations() {
+		String source = "ComperatorDescription";		
+		addAnnotation
+		  (this, 
+		   source, 
+		   new String[] {
+			 "GT: Greater", null,
+			 "GE: Greater or Equal", null,
+			 "LS: Lesser", null,
+			 "LE: Lesser or Equal", null
+		   },
+		   new URI[] {
+			 URI.createURI(eNS_URI).appendFragment("//Comperator")
+		   });
 	}
 
 } //MajordomoPackageImpl
