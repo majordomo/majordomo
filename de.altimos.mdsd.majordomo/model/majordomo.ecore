@@ -8,7 +8,7 @@
     <details key="LE: Lesser or Equal"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Majordomo">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="house" lowerBound="1" eType="#//House"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="house" eType="#//House"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral="m"/>
@@ -36,7 +36,7 @@
         eOpposite="#//Extendable/actors"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rule">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="conditions" lowerBound="1"
         eType="#//Statement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="actions" lowerBound="1"
         upperBound="-1" eType="#//Action" containment="true"/>
@@ -143,7 +143,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//PreparedStatement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" lowerBound="1" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
         eType="#//Rule" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preparedStatements" upperBound="-1"
         eType="#//PreparedStatement" containment="true" eOpposite="#//PreparedStatement/ctx"/>

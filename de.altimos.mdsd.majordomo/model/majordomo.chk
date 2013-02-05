@@ -17,9 +17,6 @@ context Sensor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType
 	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
 	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 
-context Rule ERROR "Must have at least one condition.": this.conditions.size > 0;
-context Rule ERROR "Must have at least one action.": this.actions.size > 0;
-
 context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
 context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
 
