@@ -76,11 +76,11 @@
   <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="Action" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="FloatAction" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//FloatActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//FloatActor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BooleanAction" eSuperTypes="#//Action">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" eType="#//BooleanActor"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actor" lowerBound="1" eType="#//BooleanActor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoffeeActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
