@@ -49,7 +49,7 @@ Actor:
 // Rules and Statements
 //
 Rule:
-	statement=Statement '->' (actions+=Action)(',' (actions+=Action))*
+	statement=Statement 'do' (actions+=Action)(',' (actions+=Action))*
 ;
 
 Statement: 
