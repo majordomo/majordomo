@@ -55,14 +55,15 @@ Rule:
 Statement: 
 	BooleanSensorStatement | NotOperation | BinaryOperation | CompareOperation
 ;
+BinaryOperation: 
+	left=Statement operator=BinaryOperator right=Statement
+;
+
 BooleanSensorStatement:
 	sensor=[BooleanSensor|QualifiedName]
 ;
 NotOperation:
 	('not' | '!') statement=Statement
-;
-BinaryOperation: 
-	'(' left=Statement operator=BinaryOperator right=Statement ')'
 ;
 CompareOperation:
 	left=ValueExpression comparator=Comparator right=ValueExpression
