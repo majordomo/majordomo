@@ -10,27 +10,21 @@ import de.altimos.mdsd.majordomo.BinaryOperator;
 import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.BooleanAction;
 import de.altimos.mdsd.majordomo.BooleanActor;
-import de.altimos.mdsd.majordomo.BooleanCondition;
 import de.altimos.mdsd.majordomo.BooleanSensor;
 import de.altimos.mdsd.majordomo.BooleanSensorStatement;
 import de.altimos.mdsd.majordomo.ClockSensor;
 import de.altimos.mdsd.majordomo.CoffeeActor;
 import de.altimos.mdsd.majordomo.Comparator;
 import de.altimos.mdsd.majordomo.CompareOperation;
-import de.altimos.mdsd.majordomo.Comperator;
 import de.altimos.mdsd.majordomo.ConstantValue;
-import de.altimos.mdsd.majordomo.EqualFloatCondition;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
 import de.altimos.mdsd.majordomo.FloatAction;
 import de.altimos.mdsd.majordomo.FloatActor;
-import de.altimos.mdsd.majordomo.FloatCondition;
 import de.altimos.mdsd.majordomo.FloatSensor;
-import de.altimos.mdsd.majordomo.GreaterOrEqualFloatCondition;
 import de.altimos.mdsd.majordomo.House;
 import de.altimos.mdsd.majordomo.HouseMountable;
 import de.altimos.mdsd.majordomo.LampActor;
-import de.altimos.mdsd.majordomo.LesserOrEqualFloatCondition;
 import de.altimos.mdsd.majordomo.LightSensor;
 import de.altimos.mdsd.majordomo.Majordomo;
 import de.altimos.mdsd.majordomo.MajordomoFactory;
@@ -395,11 +389,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#eNS_URI
 	 * @see #init()
-	 * @generated not
+	 * @generated
 	 */
 	private MajordomoPackageImpl() {
 		super(eNS_URI, MajordomoFactory.eINSTANCE);
-		CheckRegistry.getInstance();
 	}
 
 	/**

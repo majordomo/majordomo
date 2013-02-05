@@ -1,4 +1,5 @@
 import majordomo;
+extension majordomo;
 
 context Majordomo WARNING "Majordomo wants a house to dominate.":
 	this.house != null;
@@ -6,8 +7,8 @@ context Majordomo WARNING "Majordomo wants a house to dominate.":
 context Majordomo WARNING "Majordomo knows no rooms. He's really sad.":
 	!this.rooms.isEmpty;
 	
-context Actor WARNING "Does not have a ctx.": this.ctx != null;
-context Sensor WARNING "Does not have a ctx.": this.ctx != null;
+context Actor WARNING this.metaType.name + " does not have a ctx.": this.ctx != null;
+context Sensor WARNING this.metaType.name + " does not have a ctx.": this.ctx != null;
 
 context Actor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType.name+".":
 	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
@@ -17,11 +18,8 @@ context Sensor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType
 	(RoomMountable.isInstance(this) && Room.isInstance(this.ctx)) ||
 	(HouseMountable.isInstance(this) && House.isInstance(this.ctx));
 
-context FloatCondition ERROR "Must have a sensor.": this.sensor != null;
-context BooleanCondition ERROR "Must have a sensor.": this.sensor != null;
-
-context FloatAction ERROR "Must have an actor.": this.actor != null;
-context BooleanAction ERROR "Must have an actor.": this.actor != null;
+context FloatAction ERROR this.metaType.name + " must have an actor.": this.actor != null;
+context BooleanAction ERROR this.metaType.name + " must have an actor.": this.actor != null;
 
 // Check if name is NULL because Xtext creates null-named matching elements for cross references. 
 // Null name means it cannot resolve reference, so reference does not exists or is of wrong type.
@@ -40,18 +38,23 @@ context Majordomo ERROR this.metaType.name + " must have a name.": this.name != 
 context Room ERROR this.metaType.name + " must have a name.": this.name != null;
 context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
 context PreparedStatement ERROR this.metaType.name + " must have a name.": this.name != null;
+context PreparedActionSet ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 // Unique names within specific contexts or global
-context Sensor ERROR "Must have a unique name.": 
+context Sensor ERROR this.metaType.name + " must have a unique name.": 
 	!this.ctx.sensors.exists(e|e.name == this.name && e != this);
-context Actor ERROR "Must have a unique name.": 
+context Actor ERROR this.metaType.name + " must have a unique name.": 
 	!this.ctx.actors.exists(e|e.name == this.name && e != this);
-context PreparedStatement ERROR "Must have a unique name.":
+context PreparedStatement ERROR this.metaType.name + " must have a unique name.":
 	!this.ctx.preparedStatements.exists(e|e.name == this.name && e != this);
-
-// Check that Clock Values are a valid time like float.
-context FloatCondition ERROR "Invalid range for ClockSensor":
-	!ClockSensor.isInstance(this.sensor) || (this.value >= 0.0 && this.value < 24.0 && (this.value - this.value.toInteger()) < 0.60);
+context PreparedActionSet ERROR this.metaType.name + " must have a unique name.":
+	!this.ctx.preparedActionSets.exists(e|e.name == this.name && e != this);
+	
+// Recursion detection of PreparedStatement and PreparedActionSet
+context PreparedStatement ERROR this.metaType.name + " cannot contain recursive cycles.":
+	!this.hasRecursiveReferences();
+context PreparedActionSet ERROR this.metaType.name + " cannot contain recursive cycles.":
+	!this.hasRecursiveReferences();
 
 // Statements
-context BinaryOperation ERROR "Must have to operants.": this.left != null && this.right != null;
+context BinaryOperation ERROR this.metaType.name + " must have two operants.": this.left != null && this.right != null;

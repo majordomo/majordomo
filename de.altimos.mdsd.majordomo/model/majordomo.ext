@@ -1,0 +1,7 @@
+import majordomo;
+
+bool hasRecursiveReferences(PreparedStatement stmt):
+	JAVA de.altimos.mdsd.majordomo.CheckXtends.hasRecursiveReferences(de.altimos.mdsd.majordomo.PreparedStatement);
+	
+bool hasRecursiveReferences(PreparedActionSet stmt):
+	JAVA de.altimos.mdsd.majordomo.CheckXtends.hasRecursiveReferences(de.altimos.mdsd.majordomo.PreparedActionSet);
