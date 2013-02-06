@@ -20,19 +20,6 @@ context Sensor ERROR "Cannot mount "+this.metaType.name+" at "+this.ctx.metaType
 
 context FloatAction ERROR this.metaType.name + " must have an actor.": this.actor != null;
 context BooleanAction ERROR this.metaType.name + " must have an actor.": this.actor != null;
-
-// Check if name is NULL because Xtext creates null-named matching elements for cross references. 
-// Null name means it cannot resolve reference, so reference does not exists or is of wrong type.
-// At least on some systems.
-context FloatAction ERROR "Invalid actor reference. Expected reference type is FloatActor.": 
- 	FloatActor.isInstance(this.actor) && this.actor.name != null;
-context BooleanAction ERROR "Invalid actor reference. Expected reference type is BooleanActor.": 
-	BooleanActor.isInstance(this.actor) && this.actor.name != null;
-// Same for conditions
-context FloatCondition ERROR "Invalid sensor reference. Expected reference type is FloatSensor.": 
-	FloatSensor.isInstance(this.sensor) && this.sensor.name != null;
-context BooleanCondition ERROR "Invalid sensor reference. Expected reference type is BooleanSensor.": 
-	BooleanSensor.isInstance(this.sensor) && this.sensor.name != null;
 	
 // Names not empty
 context Majordomo ERROR this.metaType.name + " must have a name.": this.name != null;
