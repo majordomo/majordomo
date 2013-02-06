@@ -86,4 +86,39 @@ public class CheckXtends {
 		
 		return false;
 	}
+
+	static public boolean hasRecursiveReferences(PreparedConstantValue stmt) {
+		List<PreparedConstantValue> reachedStatements = new LinkedList<PreparedConstantValue>();
+		reachedStatements.add(stmt);
+		return hasRecursiveReferences(stmt, reachedStatements);
+	}
+	
+	static public boolean hasRecursiveReferences(PreparedConstantValue stmt, List<PreparedConstantValue> referenced) {
+		if(stmt == null) return false;
+
+		List<ConstantValueReference> refs = new LinkedList<ConstantValueReference>();
+		
+		if(stmt.getValue() instanceof PreparedConstantValue) {
+			refs.add((ConstantValueReference) stmt.getValue());
+		}
+		
+		for(ConstantValueReference ref : refs) {
+			if(referenced.contains(ref.getRef())) {
+				// Already referenced prepared action set found. Abort.
+				return true;
+			}
+			
+			referenced.add(ref.getRef());
+		}
+
+		for(ConstantValueReference ref : refs) {
+			if(hasRecursiveReferences(ref.getRef(), referenced)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+
+
 }
