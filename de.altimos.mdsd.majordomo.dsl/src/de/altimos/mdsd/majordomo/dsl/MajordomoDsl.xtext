@@ -18,11 +18,11 @@ Program:
 		(
 			(rules+=Rule ';') |
 			(preparedStatements+=PreparedStatement ';') |
-			(preparedActionSets+=PreparedActionSet ';')
+			(preparedActionSets+=PreparedActionSet ';') |
+			(constants+=PreparedConstantValue ';')
 		)*
 	'}'
 ;
-
 
 House:
 	{House}
@@ -81,7 +81,7 @@ CompareOperation:
 	left=ValueExpression comparator=Comparator right=ValueExpression
 ;
 ValueExpression: 
-	SensorValue | ConstantValue
+	SensorValue | ConstantValue | ConstantValueReference
 ;
 SensorValue: 
 	sensor=[FloatSensor|QualifiedName]
@@ -89,20 +89,27 @@ SensorValue:
 ConstantValue: 
 	value=EFloat
 ;
+ConstantValueReference: 
+	ref=[PreparedConstantValue|ConstID]
+;
 
-// Prepared Statements and Statement References
+
+// Prepared Statements, Statement References, Consts
 //
 PreparedStatement: 
-	'def' name=Name ':' statement=Statement
+	'def' name=Name 'on' statement=Statement
 ;
 StatementReference: 
 	ref=[PreparedStatement|Name]
 ;
 PreparedActionSet: 
-	'set' name=Name ':' actions+=Action (',' actions+=Action)*
+	'def' name=Name 'do' actions+=Action (',' actions+=Action)*
 ;
 ActionSetReference: 
 	ref=[PreparedActionSet|Name]
+;
+PreparedConstantValue:
+	'def' name=ConstID 'as' value=ValueExpression
 ;
 
 // Actions
@@ -140,6 +147,9 @@ CoffeeActor:		'@coffee'	name=Name;
 //
 Name: ID;
 QualifiedName: Name ('.' Name)*;
+
+ConstID: CONST;
+terminal CONST: ('A'..'Z'|'_')('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
 BinaryAndOperator: "and" | "&&" | "&";
 BinaryOrOperator: "or" | "||" | "|";
