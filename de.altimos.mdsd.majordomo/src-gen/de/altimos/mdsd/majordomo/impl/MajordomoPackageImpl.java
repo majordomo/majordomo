@@ -399,10 +399,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @see org.eclipse.emf.ecore.EPackage.Registry
 	 * @see de.altimos.mdsd.majordomo.MajordomoPackage#eNS_URI
 	 * @see #init()
-	 * @generated
+	 * @generated not
 	 */
 	private MajordomoPackageImpl() {
 		super(eNS_URI, MajordomoFactory.eINSTANCE);
+		CheckRegistry.getInstance();
 	}
 
 	/**
