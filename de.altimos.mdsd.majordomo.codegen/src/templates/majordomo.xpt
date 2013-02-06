@@ -107,15 +107,10 @@ public class MConfiguration {
 	(/* PREP */ «EXPAND Statement FOR statement»)
 «ENDDEFINE»
 
-«DEFINE ValueExpression FOR ValueExpression»
-	null
-«ENDDEFINE»
-«DEFINE ValueExpression FOR SensorValue»
-	«sensor.varname()».readValue()
-«ENDDEFINE»
-«DEFINE ValueExpression FOR ConstantValue»
-	«value»
-«ENDDEFINE»
+«DEFINE ValueExpression FOR ValueExpression» null «ENDDEFINE»
+«DEFINE ValueExpression FOR SensorValue» «sensor.varname()».readValue() «ENDDEFINE»
+«DEFINE ValueExpression FOR ConstantValue» «value» «ENDDEFINE»
+«DEFINE ValueExpression FOR ValueReference» «EXPAND ValueExpression FOR ref.value» «ENDDEFINE»
 
 «DEFINE Actions FOR List[Action]»
 	«FOREACH this AS a» «EXPAND Action FOR a» «ENDFOREACH»
