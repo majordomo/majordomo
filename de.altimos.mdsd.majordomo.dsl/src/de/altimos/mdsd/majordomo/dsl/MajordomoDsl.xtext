@@ -54,18 +54,20 @@ Rule:
 	statement=Statement 'do' (actions+=Action)(',' (actions+=Action))*
 ;
 
-Statement: 
-	BooleanSensorStatement | NotOperation | BinaryOperation | CompareOperation | StatementReference
+Statement returns Statement:
+	{BinaryOperation}
+	left=UnaryStatement (operator=BinaryOperator right=UnaryStatement)?
 ;
-BinaryOperation: 
-	left=Statement operator=BinaryOperator right=Statement
+
+UnaryStatement returns Statement:
+	BooleanSensorStatement | NotOperation | CompareOperation | '(' Statement ')' 
 ;
 
 BooleanSensorStatement:
 	sensor=[BooleanSensor|QualifiedName]
 ;
 NotOperation:
-	('not' | '!') statement=Statement
+	('not' | '!') statement=UnaryStatement
 ;
 
 // Compare Statements
