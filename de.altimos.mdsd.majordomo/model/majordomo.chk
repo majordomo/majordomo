@@ -27,7 +27,7 @@ context Room ERROR this.metaType.name + " must have a name.": this.name != null;
 context Extension ERROR this.metaType.name + " must have a name.": this.name != null;
 context PreparedStatement ERROR this.metaType.name + " must have a name.": this.name != null;
 context PreparedActionSet ERROR this.metaType.name + " must have a name.": this.name != null;
-context PreparedConstantValue ERROR this.metaType.name + " must have a name.": this.name != null;
+context PreparedValue ERROR this.metaType.name + " must have a name.": this.name != null;
 	
 // Unique names within specific contexts or global
 context Sensor ERROR this.metaType.name + " must have a unique name.": 
@@ -38,15 +38,15 @@ context PreparedStatement ERROR this.metaType.name + " must have a unique name."
 	!this.ctx.preparedStatements.exists(e|e.name == this.name && e != this);
 context PreparedActionSet ERROR this.metaType.name + " must have a unique name.":
 	!this.ctx.preparedActionSets.exists(e|e.name == this.name && e != this);
-context PreparedConstantValue ERROR this.metaType.name + " must have a unique name.":
+context PreparedValue ERROR this.metaType.name + " must have a unique name.":
 	!this.ctx.preparedActionSets.exists(e|e.name == this.name && e != this);
 	
-// Recursion detection of PreparedStatement, PreparedActionSet, PreparedConstantValue
+// Recursion detection of PreparedStatement, PreparedActionSet, PreparedValue
 context PreparedStatement ERROR this.metaType.name + " cannot contain recursive cycles.":
 	!this.hasRecursiveReferences();
 context PreparedActionSet ERROR this.metaType.name + " cannot contain recursive cycles.":
 	!this.hasRecursiveReferences();
-context PreparedConstantValue ERROR this.metaType.name + " cannot contain recursive cycles.":
+context PreparedValue ERROR this.metaType.name + " cannot contain recursive cycles.":
 	!this.hasRecursiveReferences();
 
 // Statements
