@@ -2,3 +2,4 @@
 */src/
 */src-gen/
 */xtext-gen/
+*.xmi
