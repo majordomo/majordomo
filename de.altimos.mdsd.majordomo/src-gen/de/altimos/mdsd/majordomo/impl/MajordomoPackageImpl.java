@@ -5,7 +5,10 @@ package de.altimos.mdsd.majordomo.impl;
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.ActionSetReference;
 import de.altimos.mdsd.majordomo.Actor;
+import de.altimos.mdsd.majordomo.BinaryAndOperation;
 import de.altimos.mdsd.majordomo.BinaryOperation;
+import de.altimos.mdsd.majordomo.BinaryOrOperation;
+import de.altimos.mdsd.majordomo.BinaryXorOperation;
 import de.altimos.mdsd.majordomo.BinaryOperator;
 import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.BooleanAction;
@@ -367,7 +370,14 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EEnum binaryOperatorEEnum = null;
+	private EClass binaryAndOperationEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass binaryOrOperationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -883,15 +893,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getBinaryOperation_Operator() {
-		return (EAttribute)binaryOperationEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getNotOperation() {
 		return notOperationEClass;
 	}
@@ -1153,8 +1154,17 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getBinaryOperator() {
-		return binaryOperatorEEnum;
+	public EClass getBinaryAndOperation() {
+		return binaryAndOperationEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getBinaryOrOperation() {
+		return binaryOrOperationEClass;
 	}
 
 	/**
@@ -1273,7 +1283,6 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		binaryOperationEClass = createEClass(BINARY_OPERATION);
 		createEReference(binaryOperationEClass, BINARY_OPERATION__LEFT);
 		createEReference(binaryOperationEClass, BINARY_OPERATION__RIGHT);
-		createEAttribute(binaryOperationEClass, BINARY_OPERATION__OPERATOR);
 
 		notOperationEClass = createEClass(NOT_OPERATION);
 		createEReference(notOperationEClass, NOT_OPERATION__STATEMENT);
@@ -1315,8 +1324,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		actionSetReferenceEClass = createEClass(ACTION_SET_REFERENCE);
 		createEReference(actionSetReferenceEClass, ACTION_SET_REFERENCE__REF);
 
+		binaryAndOperationEClass = createEClass(BINARY_AND_OPERATION);
+
+		binaryOrOperationEClass = createEClass(BINARY_OR_OPERATION);
+
 		// Create enums
-		binaryOperatorEEnum = createEEnum(BINARY_OPERATOR);
 		comparatorEEnum = createEEnum(COMPARATOR);
 	}
 
@@ -1393,6 +1405,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		sensorValueEClass.getESuperTypes().add(this.getValueExpression());
 		statementReferenceEClass.getESuperTypes().add(this.getStatement());
 		actionSetReferenceEClass.getESuperTypes().add(this.getAction());
+		binaryAndOperationEClass.getESuperTypes().add(this.getBinaryOperation());
+		binaryOrOperationEClass.getESuperTypes().add(this.getBinaryOperation());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1481,10 +1495,9 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(coffeeActorEClass, CoffeeActor.class, "CoffeeActor", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(binaryOperationEClass, BinaryOperation.class, "BinaryOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(binaryOperationEClass, BinaryOperation.class, "BinaryOperation", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getBinaryOperation_Left(), this.getStatement(), null, "left", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getBinaryOperation_Right(), this.getStatement(), null, "right", null, 0, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getBinaryOperation_Operator(), this.getBinaryOperator(), "operator", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getBinaryOperation_Right(), this.getStatement(), null, "right", null, 1, 1, BinaryOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(notOperationEClass, NotOperation.class, "NotOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getNotOperation_Statement(), this.getStatement(), null, "statement", null, 1, 1, NotOperation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1526,12 +1539,11 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEClass(actionSetReferenceEClass, ActionSetReference.class, "ActionSetReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getActionSetReference_Ref(), this.getPreparedActionSet(), null, "ref", null, 1, 1, ActionSetReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Initialize enums and add enum literals
-		initEEnum(binaryOperatorEEnum, BinaryOperator.class, "BinaryOperator");
-		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.AND);
-		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.OR);
-		addEEnumLiteral(binaryOperatorEEnum, BinaryOperator.XOR);
+		initEClass(binaryAndOperationEClass, BinaryAndOperation.class, "BinaryAndOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+		initEClass(binaryOrOperationEClass, BinaryOrOperation.class, "BinaryOrOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		// Initialize enums and add enum literals
 		initEEnum(comparatorEEnum, Comparator.class, "Comparator");
 		addEEnumLiteral(comparatorEEnum, Comparator.GT);
 		addEEnumLiteral(comparatorEEnum, Comparator.GE);

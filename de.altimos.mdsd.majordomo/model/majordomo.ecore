@@ -84,18 +84,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CoffeeActor" eSuperTypes="#//RoomMountable #//BooleanActor"/>
-  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperation" eSuperTypes="#//Statement">
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryOperation" abstract="true" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" lowerBound="1" eType="#//Statement"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Statement"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" lowerBound="1" eType="#//Statement"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="operator" lowerBound="1"
-        eType="#//BinaryOperator"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EEnum" name="BinaryOperator">
-    <eLiterals name="AND"/>
-    <eLiterals name="OR" value="1"/>
-    <eLiterals name="XOR" value="2"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NotOperation" eSuperTypes="#//Statement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="statement" lowerBound="1"
@@ -155,4 +148,6 @@
   <eClassifiers xsi:type="ecore:EClass" name="ActionSetReference" eSuperTypes="#//Action">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//PreparedActionSet"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryAndOperation" eSuperTypes="#//BinaryOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BinaryOrOperation" eSuperTypes="#//BinaryOperation"/>
 </ecore:EPackage>

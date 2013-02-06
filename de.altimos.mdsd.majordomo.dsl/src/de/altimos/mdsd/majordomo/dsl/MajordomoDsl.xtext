@@ -15,8 +15,11 @@ Program:
 	{Program}
 	'program'
 	'{'
-		(preparedStatements+=PreparedStatement ';')*
-		(rules+=Rule (';' rules+=Rule)*)? ';'?
+		(
+			(rules+=Rule ';') |
+			(preparedStatements+=PreparedStatement ';') |
+			(preparedActionSets+=PreparedActionSet ';')
+		)*
 	'}'
 ;
 
@@ -51,23 +54,27 @@ Actor:
 // Rules and Statements
 //
 Rule:
-	statement=Statement 'do' (actions+=Action)(',' (actions+=Action))*
+	'on' statement=Statement 'do' (actions+=Action)(',' (actions+=Action))*
 ;
 
 Statement returns Statement:
-	{BinaryOperation}
-	left=UnaryStatement (operator=BinaryOperator right=UnaryStatement)?
+	BinaryOrOperation
 ;
-
+BinaryOrOperation returns Statement:
+	BinaryAndOperation ({BinaryOrOperation.left=current} BinaryOrOperator right=BinaryAndOperation)*
+;
+BinaryAndOperation returns Statement:
+	NotOperation ({BinaryAndOperation.left=current} BinaryAndOperator right=NotOperation)*
+;
+NotOperation returns Statement:
+	UnaryStatement | ({NotOperation} ('not' | '!') statement=UnaryStatement)
+;
 UnaryStatement returns Statement:
-	BooleanSensorStatement | NotOperation | CompareOperation | '(' Statement ')' 
+	('(' Statement ')') | StatementReference | BooleanSensorStatement | CompareOperation
 ;
 
 BooleanSensorStatement:
-	sensor=[BooleanSensor|QualifiedName]
-;
-NotOperation:
-	('not' | '!') statement=UnaryStatement
+	sensor=[BooleanSensor|QualifiedName] '?'
 ;
 
 // Compare Statements
@@ -93,12 +100,17 @@ PreparedStatement:
 StatementReference: 
 	ref=[PreparedStatement|Name]
 ;
-
+PreparedActionSet: 
+	'set' name=Name ':' actions+=Action (',' actions+=Action)*
+;
+ActionSetReference: 
+	ref=[PreparedActionSet|Name]
+;
 
 // Actions
 //
 Action: 
-	BooleanAction | FloatAction
+	BooleanAction | FloatAction | ActionSetReference
 ;
 BooleanAction:
 	actor=[BooleanActor|QualifiedName] ':' value=EBoolean
@@ -131,8 +143,9 @@ CoffeeActor:		'@coffee'	name=Name;
 Name: ID;
 QualifiedName: Name ('.' Name)*;
 
-enum BinaryOperator: 
-	AND="and" | OR="or" | XOR="xor";
+BinaryAndOperator: "and" | "&&" | "&";
+BinaryOrOperator: "or" | "||" | "|";
+BinaryXorOperator: "xor" | "^";
 	
 enum Comparator: 
 	LT="<" | LE="<=" | GE=">=" | GT=">";
