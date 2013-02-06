@@ -1055,7 +1055,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	public EReference getProgram_Rules() {
-		return (EReference)programEClass.getEStructuralFeatures().get(0);
+		return (EReference)programEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1082,7 +1082,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * @generated
 	 */
 	public EReference getProgram_Constants() {
-		return (EReference)programEClass.getEStructuralFeatures().get(3);
+		return (EReference)programEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1387,10 +1387,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		createEReference(statementReferenceEClass, STATEMENT_REFERENCE__REF);
 
 		programEClass = createEClass(PROGRAM);
-		createEReference(programEClass, PROGRAM__RULES);
+		createEReference(programEClass, PROGRAM__CONSTANTS);
 		createEReference(programEClass, PROGRAM__PREPARED_STATEMENTS);
 		createEReference(programEClass, PROGRAM__PREPARED_ACTION_SETS);
-		createEReference(programEClass, PROGRAM__CONSTANTS);
+		createEReference(programEClass, PROGRAM__RULES);
 
 		preparedStatementEClass = createEClass(PREPARED_STATEMENT);
 		createEAttribute(preparedStatementEClass, PREPARED_STATEMENT__NAME);
@@ -1612,10 +1612,10 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getStatementReference_Ref(), this.getPreparedStatement(), null, "ref", null, 1, 1, StatementReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProgram_Rules(), this.getRule(), null, "rules", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_Constants(), this.getPreparedConstantValue(), this.getPreparedConstantValue_Ctx(), "constants", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_PreparedStatements(), this.getPreparedStatement(), this.getPreparedStatement_Ctx(), "preparedStatements", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_PreparedActionSets(), this.getPreparedActionSet(), this.getPreparedActionSet_Ctx(), "preparedActionSets", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getProgram_Constants(), this.getPreparedConstantValue(), this.getPreparedConstantValue_Ctx(), "constants", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_Rules(), this.getRule(), null, "rules", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(preparedStatementEClass, PreparedStatement.class, "PreparedStatement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPreparedStatement_Name(), ecorePackage.getEString(), "name", null, 1, 1, PreparedStatement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

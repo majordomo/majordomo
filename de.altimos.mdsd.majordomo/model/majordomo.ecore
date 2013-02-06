@@ -124,14 +124,14 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//PreparedStatement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
-        eType="#//Rule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
+        eType="#//PreparedConstantValue" containment="true" eOpposite="#//PreparedConstantValue/ctx"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preparedStatements" upperBound="-1"
         eType="#//PreparedStatement" containment="true" eOpposite="#//PreparedStatement/ctx"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preparedActionSets" upperBound="-1"
         eType="#//PreparedActionSet" containment="true" eOpposite="#//PreparedActionSet/ctx"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
-        eType="#//PreparedConstantValue" containment="true" eOpposite="#//PreparedConstantValue/ctx"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rules" upperBound="-1"
+        eType="#//Rule" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PreparedStatement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
