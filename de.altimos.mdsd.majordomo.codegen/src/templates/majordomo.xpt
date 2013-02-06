@@ -52,9 +52,7 @@ public class MConfiguration {
 				}
 				
 				public void process() {
-					«FOREACH rule.actions AS a»
-						«a.actor().varname()».setValue(«a.value()»);
-					«ENDFOREACH»
+					«EXPAND Actions FOR rule.actions»
 				}
 			});
 		«ENDFOREACH»
@@ -118,3 +116,11 @@ public class MConfiguration {
 «DEFINE ValueExpression FOR ConstantValue»
 	«value»
 «ENDDEFINE»
+
+«DEFINE Actions FOR List[Action]»
+	«FOREACH this AS a» «EXPAND Action FOR a» «ENDFOREACH»
+«ENDDEFINE»
+«DEFINE Action FOR Action» /* UNHANDLED ACTION: «metaTypeSimpleName()» */; «ENDDEFINE»
+«DEFINE Action FOR FloatAction» «actor.varname()».setValue(«value»); «ENDDEFINE»
+«DEFINE Action FOR BooleanAction» «actor.varname()».setValue(«value»); «ENDDEFINE»
+«DEFINE Action FOR ActionSetReference» «EXPAND Actions FOR ref.actions» «ENDDEFINE»
