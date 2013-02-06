@@ -143,7 +143,6 @@ QualifiedName: Name ('.' Name)*;
 
 BinaryAndOperator: "and" | "&&" | "&";
 BinaryOrOperator: "or" | "||" | "|";
-BinaryXorOperator: "xor" | "^";
 	
 enum Comparator: 
 	LT="<" | LE="<=" | GE=">=" | GT=">";
