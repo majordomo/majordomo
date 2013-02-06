@@ -87,22 +87,22 @@ public class CheckXtends {
 		return false;
 	}
 
-	static public boolean hasRecursiveReferences(PreparedConstantValue stmt) {
-		List<PreparedConstantValue> reachedStatements = new LinkedList<PreparedConstantValue>();
+	static public boolean hasRecursiveReferences(PreparedValue stmt) {
+		List<PreparedValue> reachedStatements = new LinkedList<PreparedValue>();
 		reachedStatements.add(stmt);
 		return hasRecursiveReferences(stmt, reachedStatements);
 	}
 	
-	static public boolean hasRecursiveReferences(PreparedConstantValue stmt, List<PreparedConstantValue> referenced) {
+	static public boolean hasRecursiveReferences(PreparedValue stmt, List<PreparedValue> referenced) {
 		if(stmt == null) return false;
 
-		List<ConstantValueReference> refs = new LinkedList<ConstantValueReference>();
+		List<ValueReference> refs = new LinkedList<ValueReference>();
 		
-		if(stmt.getValue() instanceof PreparedConstantValue) {
-			refs.add((ConstantValueReference) stmt.getValue());
+		if(stmt.getValue() instanceof ValueReference) {
+			refs.add((ValueReference) stmt.getValue());
 		}
 		
-		for(ConstantValueReference ref : refs) {
+		for(ValueReference ref : refs) {
 			if(referenced.contains(ref.getRef())) {
 				// Already referenced prepared action set found. Abort.
 				return true;
@@ -111,7 +111,7 @@ public class CheckXtends {
 			referenced.add(ref.getRef());
 		}
 
-		for(ConstantValueReference ref : refs) {
+		for(ValueReference ref : refs) {
 			if(hasRecursiveReferences(ref.getRef(), referenced)) {
 				return true;
 			}

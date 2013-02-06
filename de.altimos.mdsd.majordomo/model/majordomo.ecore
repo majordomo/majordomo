@@ -125,7 +125,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Program">
     <eStructuralFeatures xsi:type="ecore:EReference" name="constants" upperBound="-1"
-        eType="#//PreparedConstantValue" containment="true" eOpposite="#//PreparedConstantValue/ctx"/>
+        eType="#//PreparedValue" containment="true" eOpposite="#//PreparedValue/ctx"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preparedStatements" upperBound="-1"
         eType="#//PreparedStatement" containment="true" eOpposite="#//PreparedStatement/ctx"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="preparedActionSets" upperBound="-1"
@@ -152,14 +152,14 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryAndOperation" eSuperTypes="#//BinaryOperation"/>
   <eClassifiers xsi:type="ecore:EClass" name="BinaryOrOperation" eSuperTypes="#//BinaryOperation"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PreparedConstantValue">
+  <eClassifiers xsi:type="ecore:EClass" name="PreparedValue">
     <eStructuralFeatures xsi:type="ecore:EReference" name="ctx" lowerBound="1" eType="#//Program"
         eOpposite="#//Program/constants"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1" eType="#//ValueExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ConstantValueReference" eSuperTypes="#//ValueExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//PreparedConstantValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ValueReference" eSuperTypes="#//ValueExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" lowerBound="1" eType="#//PreparedValue"/>
   </eClassifiers>
 </ecore:EPackage>

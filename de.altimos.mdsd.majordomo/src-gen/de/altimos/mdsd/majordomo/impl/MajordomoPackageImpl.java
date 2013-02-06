@@ -2,14 +2,22 @@
  */
 package de.altimos.mdsd.majordomo.impl;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
+
 import de.altimos.mdsd.majordomo.Action;
 import de.altimos.mdsd.majordomo.ActionSetReference;
 import de.altimos.mdsd.majordomo.Actor;
 import de.altimos.mdsd.majordomo.BinaryAndOperation;
 import de.altimos.mdsd.majordomo.BinaryOperation;
 import de.altimos.mdsd.majordomo.BinaryOrOperation;
-import de.altimos.mdsd.majordomo.BinaryXorOperation;
-import de.altimos.mdsd.majordomo.BinaryOperator;
 import de.altimos.mdsd.majordomo.BoilerActor;
 import de.altimos.mdsd.majordomo.BooleanAction;
 import de.altimos.mdsd.majordomo.BooleanActor;
@@ -20,7 +28,6 @@ import de.altimos.mdsd.majordomo.CoffeeActor;
 import de.altimos.mdsd.majordomo.Comparator;
 import de.altimos.mdsd.majordomo.CompareOperation;
 import de.altimos.mdsd.majordomo.ConstantValue;
-import de.altimos.mdsd.majordomo.ConstantValueReference;
 import de.altimos.mdsd.majordomo.Extendable;
 import de.altimos.mdsd.majordomo.Extension;
 import de.altimos.mdsd.majordomo.FloatAction;
@@ -36,8 +43,8 @@ import de.altimos.mdsd.majordomo.MajordomoPackage;
 import de.altimos.mdsd.majordomo.NotOperation;
 import de.altimos.mdsd.majordomo.NumberSensor;
 import de.altimos.mdsd.majordomo.PreparedActionSet;
-import de.altimos.mdsd.majordomo.PreparedConstantValue;
 import de.altimos.mdsd.majordomo.PreparedStatement;
+import de.altimos.mdsd.majordomo.PreparedValue;
 import de.altimos.mdsd.majordomo.Program;
 import de.altimos.mdsd.majordomo.RadiatorActor;
 import de.altimos.mdsd.majordomo.RainSensor;
@@ -53,18 +60,7 @@ import de.altimos.mdsd.majordomo.StatementReference;
 import de.altimos.mdsd.majordomo.SwitchSensor;
 import de.altimos.mdsd.majordomo.TemperatureSensor;
 import de.altimos.mdsd.majordomo.ValueExpression;
-
-import org.eclipse.emf.common.util.URI;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-import org.eclipse.xtend.typesystem.emf.check.CheckRegistry;
+import de.altimos.mdsd.majordomo.ValueReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -386,14 +382,14 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass preparedConstantValueEClass = null;
+	private EClass preparedValueEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass constantValueReferenceEClass = null;
+	private EClass valueReferenceEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -1198,8 +1194,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPreparedConstantValue() {
-		return preparedConstantValueEClass;
+	public EClass getPreparedValue() {
+		return preparedValueEClass;
 	}
 
 	/**
@@ -1207,8 +1203,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPreparedConstantValue_Ctx() {
-		return (EReference)preparedConstantValueEClass.getEStructuralFeatures().get(0);
+	public EReference getPreparedValue_Ctx() {
+		return (EReference)preparedValueEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1216,8 +1212,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPreparedConstantValue_Value() {
-		return (EReference)preparedConstantValueEClass.getEStructuralFeatures().get(1);
+	public EReference getPreparedValue_Value() {
+		return (EReference)preparedValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1225,8 +1221,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreparedConstantValue_Name() {
-		return (EAttribute)preparedConstantValueEClass.getEStructuralFeatures().get(2);
+	public EAttribute getPreparedValue_Name() {
+		return (EAttribute)preparedValueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1234,8 +1230,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getConstantValueReference() {
-		return constantValueReferenceEClass;
+	public EClass getValueReference() {
+		return valueReferenceEClass;
 	}
 
 	/**
@@ -1243,8 +1239,8 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getConstantValueReference_Ref() {
-		return (EReference)constantValueReferenceEClass.getEStructuralFeatures().get(0);
+	public EReference getValueReference_Ref() {
+		return (EReference)valueReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1409,13 +1405,13 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		binaryOrOperationEClass = createEClass(BINARY_OR_OPERATION);
 
-		preparedConstantValueEClass = createEClass(PREPARED_CONSTANT_VALUE);
-		createEReference(preparedConstantValueEClass, PREPARED_CONSTANT_VALUE__CTX);
-		createEReference(preparedConstantValueEClass, PREPARED_CONSTANT_VALUE__VALUE);
-		createEAttribute(preparedConstantValueEClass, PREPARED_CONSTANT_VALUE__NAME);
+		preparedValueEClass = createEClass(PREPARED_VALUE);
+		createEReference(preparedValueEClass, PREPARED_VALUE__CTX);
+		createEReference(preparedValueEClass, PREPARED_VALUE__VALUE);
+		createEAttribute(preparedValueEClass, PREPARED_VALUE__NAME);
 
-		constantValueReferenceEClass = createEClass(CONSTANT_VALUE_REFERENCE);
-		createEReference(constantValueReferenceEClass, CONSTANT_VALUE_REFERENCE__REF);
+		valueReferenceEClass = createEClass(VALUE_REFERENCE);
+		createEReference(valueReferenceEClass, VALUE_REFERENCE__REF);
 
 		// Create enums
 		comparatorEEnum = createEEnum(COMPARATOR);
@@ -1496,7 +1492,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		actionSetReferenceEClass.getESuperTypes().add(this.getAction());
 		binaryAndOperationEClass.getESuperTypes().add(this.getBinaryOperation());
 		binaryOrOperationEClass.getESuperTypes().add(this.getBinaryOperation());
-		constantValueReferenceEClass.getESuperTypes().add(this.getValueExpression());
+		valueReferenceEClass.getESuperTypes().add(this.getValueExpression());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(majordomoEClass, Majordomo.class, "Majordomo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1612,7 +1608,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 		initEReference(getStatementReference_Ref(), this.getPreparedStatement(), null, "ref", null, 1, 1, StatementReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(programEClass, Program.class, "Program", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProgram_Constants(), this.getPreparedConstantValue(), this.getPreparedConstantValue_Ctx(), "constants", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProgram_Constants(), this.getPreparedValue(), this.getPreparedValue_Ctx(), "constants", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_PreparedStatements(), this.getPreparedStatement(), this.getPreparedStatement_Ctx(), "preparedStatements", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_PreparedActionSets(), this.getPreparedActionSet(), this.getPreparedActionSet_Ctx(), "preparedActionSets", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProgram_Rules(), this.getRule(), null, "rules", null, 0, -1, Program.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1634,13 +1630,13 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 
 		initEClass(binaryOrOperationEClass, BinaryOrOperation.class, "BinaryOrOperation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(preparedConstantValueEClass, PreparedConstantValue.class, "PreparedConstantValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPreparedConstantValue_Ctx(), this.getProgram(), this.getProgram_Constants(), "ctx", null, 1, 1, PreparedConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPreparedConstantValue_Value(), this.getValueExpression(), null, "value", null, 1, 1, PreparedConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPreparedConstantValue_Name(), ecorePackage.getEString(), "name", null, 1, 1, PreparedConstantValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(preparedValueEClass, PreparedValue.class, "PreparedValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPreparedValue_Ctx(), this.getProgram(), this.getProgram_Constants(), "ctx", null, 1, 1, PreparedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPreparedValue_Value(), this.getValueExpression(), null, "value", null, 1, 1, PreparedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreparedValue_Name(), ecorePackage.getEString(), "name", null, 1, 1, PreparedValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(constantValueReferenceEClass, ConstantValueReference.class, "ConstantValueReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getConstantValueReference_Ref(), this.getPreparedConstantValue(), null, "ref", null, 1, 1, ConstantValueReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(valueReferenceEClass, ValueReference.class, "ValueReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getValueReference_Ref(), this.getPreparedValue(), null, "ref", null, 1, 1, ValueReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(comparatorEEnum, Comparator.class, "Comparator");

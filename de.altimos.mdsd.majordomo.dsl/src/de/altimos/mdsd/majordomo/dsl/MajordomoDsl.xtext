@@ -19,7 +19,7 @@ Program:
 			(rules+=Rule ';') |
 			(preparedStatements+=PreparedStatement ';') |
 			(preparedActionSets+=PreparedActionSet ';') |
-			(constants+=PreparedConstantValue ';')
+			(constants+=PreparedValue ';')
 		)*
 	'}'
 ;
@@ -81,7 +81,7 @@ CompareOperation:
 	left=ValueExpression comparator=Comparator right=ValueExpression
 ;
 ValueExpression: 
-	SensorValue | ConstantValue | ConstantValueReference
+	SensorValue | ConstantValue | ValueReference
 ;
 SensorValue: 
 	sensor=[FloatSensor|QualifiedName]
@@ -89,8 +89,8 @@ SensorValue:
 ConstantValue: 
 	value=EFloat
 ;
-ConstantValueReference: 
-	ref=[PreparedConstantValue|ConstID]
+ValueReference: 
+	ref=[PreparedValue|ConstID]
 ;
 
 
@@ -108,7 +108,7 @@ PreparedActionSet:
 ActionSetReference: 
 	ref=[PreparedActionSet|Name]
 ;
-PreparedConstantValue:
+PreparedValue:
 	'def' name=ConstID 'as' value=ValueExpression
 ;
 
