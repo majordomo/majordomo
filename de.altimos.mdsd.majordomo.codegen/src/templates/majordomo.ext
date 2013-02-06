@@ -1,16 +1,21 @@
 import majordomo;
+extension org::eclipse::xtend::util::stdlib::uid;
 
 String metaTypeSimpleName(Object o): o.metaType.name.replaceAll("majordomo::", "");
 
 String assemblyClass(Extension ext): "M" + ext.metaTypeSimpleName() + "Assembly";
 
-Actor actor(Action action): 
-	FloatAction.isInstance(action) ? ((FloatAction) action).actor : ((BooleanAction) action).actor;
+Actor actor(Action action): null;
+Actor actor(FloatAction action): action.actor;
+Actor actor(BooleanAction action): action.actor;
 	
-Object value(Action action): 
-	FloatAction.isInstance(action) ? ((FloatAction) action).value : ((BooleanAction) action).value;
+Object value(Action action): null;
+Object value(FloatAction action): action.value;
+Object value(BooleanAction action): action.value;
 	
-Extendable ctx(Extension ext): Sensor.isInstance(ext) ? ((Sensor) ext).ctx : ((Actor) ext).ctx;
+Extendable ctx(Extension ext): null;
+Extendable ctx(Sensor s): s.ctx;
+Extendable ctx(Actor a): a.ctx;
 	
 String scopeName(Extension ext):
 	"m." + (House.isInstance(ext.ctx()) ? "" : ((Room) ext.ctx()).name + ".") + ext.name;
@@ -48,12 +53,9 @@ String comparator(CompareOperation stmt):
 		default: '!='
 	};
 	
-String operator(BinaryOperation stmt):
-	switch (stmt.operator.toString()) {
-		case 'AND': '&&'
-		case 'OR': '||'
-		case 'XOR': '^'
-		default: '/* UNDEFD OP */ && /* UNDEFD OP END */'
-	};
+String operator(BinaryOperation stmt): '/* UNDEFD OP */ && /* UNDEFD OP END */';
+String operator(BinaryAndOperation stmt): '&&';
+String operator(BinaryOrOperation stmt): '||';
 
+String varname(Object obj): '_' + obj.uid();
 
