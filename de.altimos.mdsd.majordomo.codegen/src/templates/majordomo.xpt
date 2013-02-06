@@ -12,48 +12,48 @@ import javax.swing.*;
 
 public class MConfiguration {
 
-	private MAssemblyContainer _«house.uid()»;
+	private MAssemblyContainer «house.varname()»;
 	«FOREACH house.actors.union(house.sensors) AS o»
-		private «o.assemblyClass()» _«o.uid()»;
+		private «o.assemblyClass()» «o.varname()»;
 	«ENDFOREACH»
 		
 	«FOREACH rooms AS room»
-		private MAssemblyContainer _«room.uid()»;
+		private MAssemblyContainer «room.varname()»;
 		«FOREACH room.actors.union(room.sensors) AS o»
-			private «o.assemblyClass()» _«o.uid()»;
+			private «o.assemblyClass()» «o.varname()»;
 		«ENDFOREACH»
 	«ENDFOREACH»
 	
 	«FOREACH this.program.rules AS rule»
-		private MAssemblyProcessor _«rule.uid()»;
+		private MAssemblyProcessor «rule.varname()»;
 	«ENDFOREACH»
 	
 	public void buildAssemblies(MajordomoSimulator sim) {
-		_«house.uid()» = sim.createAssemblyContainer(0l, "House");
+		«house.varname()» = sim.createAssemblyContainer(0l, "House");
 		«FOREACH house.actors.union(house.sensors) AS o»
-			_«o.uid()» = new «o.assemblyClass()»("«o.name»");
-			_«o.uid()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
+			«o.varname()» = new «o.assemblyClass()»("«o.name»");
+			«o.varname()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
 		«ENDFOREACH»
 			
 		«FOREACH rooms AS room»
-			_«room.uid()» = sim.createAssemblyContainer(«room.uid()»l, "«room.name»");
+			«room.varname()» = sim.createAssemblyContainer(«room.uid()»l, "«room.name»");
 			«FOREACH room.actors.union(room.sensors) AS o»
-				_«o.uid()» = new «o.assemblyClass()»("«o.name»");
-				_«o.uid()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
+				«o.varname()» = new «o.assemblyClass()»("«o.name»");
+				«o.varname()».setIcon(ClassLoader.getSystemResource("icons/«o.metaTypeSimpleName()».gif"));
 			«ENDFOREACH»
 		«ENDFOREACH»
 	}
 	
 	public void buildAssemblyProcessors() {
 		«FOREACH this.program.rules AS rule»
-			_«rule.uid()» = new MAssemblyProcessor(new MAssemblyRunnable() {
+			«rule.varname()» = new MAssemblyProcessor(new MAssemblyRunnable() {
 				public boolean processReq() {
 					return «EXPAND Statement FOR rule.statement»;
 				}
 				
 				public void process() {
 					«FOREACH rule.actions AS a»
-						_«a.actor().uid()».setValue(«a.value()»);
+						«a.actor().varname()».setValue(«a.value()»);
 					«ENDFOREACH»
 				}
 			});
@@ -62,25 +62,25 @@ public class MConfiguration {
 	
 	public void setupAssemblies() {
 		«FOREACH house.sensors.union(house.actors) AS o»
-			_«house.uid()».installAssembly(_«o.uid()»);
+			«house.varname()».installAssembly(«o.varname()»);
 		«ENDFOREACH»
 			
 		«FOREACH rooms AS room»
 			«FOREACH room.sensors.union(room.actors) AS o»
-				_«room.uid()».installAssembly(_«o.uid()»);
+				«room.varname()».installAssembly(«o.varname()»);
 			«ENDFOREACH»
 		«ENDFOREACH»
 		
 		«FOREACH this.program.rules AS rule»
 			«FOREACH rule.statement.sensors() AS s»
-				_«s.uid()».registerAssemblyProcessor(_«rule.uid()»);
+				«s.varname()».registerAssemblyProcessor(«rule.varname()»);
 			«ENDFOREACH»
 		«ENDFOREACH»
 	}
 	
 	public void initAssemblies() {
 		«FOREACH this.program.rules AS rule»
-			_«rule.uid()».invoke();
+			«rule.varname()».invoke();
 		«ENDFOREACH»
 	}
 }
@@ -91,7 +91,7 @@ public class MConfiguration {
 	/* UNDEFINED STATEMENT */ false /* UNDEFINED STATEMENT END */
 «ENDDEFINE»
 «DEFINE Statement FOR BooleanSensorStatement»
-	_«sensor.uid()».readValue()
+	«sensor.varname()».readValue()
 «ENDDEFINE»
 «DEFINE Statement FOR CompareOperation»
 	«EXPAND ValueExpression FOR left» «comparator()» «EXPAND ValueExpression FOR right»
@@ -113,7 +113,7 @@ public class MConfiguration {
 	null
 «ENDDEFINE»
 «DEFINE ValueExpression FOR SensorValue»
-	_«sensor.uid()».readValue()
+	«sensor.varname()».readValue()
 «ENDDEFINE»
 «DEFINE ValueExpression FOR ConstantValue»
 	«value»

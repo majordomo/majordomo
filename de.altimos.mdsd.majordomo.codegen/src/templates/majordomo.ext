@@ -2,7 +2,7 @@ import majordomo;
 extension org::eclipse::xtend::util::stdlib::uid;
 
 String metaTypeSimpleName(Object o): o.metaType.name.replaceAll("majordomo::", "");
-
+String varname(Object obj): '_' + obj.metaTypeSimpleName() + "_" + obj.uid();
 String assemblyClass(Extension ext): "M" + ext.metaTypeSimpleName() + "Assembly";
 
 Actor actor(Action action): null;
@@ -56,6 +56,4 @@ String comparator(CompareOperation stmt):
 String operator(BinaryOperation stmt): '/* UNDEFD OP */ && /* UNDEFD OP END */';
 String operator(BinaryAndOperation stmt): '&&';
 String operator(BinaryOrOperation stmt): '||';
-
-String varname(Object obj): '_' + obj.uid();
 
