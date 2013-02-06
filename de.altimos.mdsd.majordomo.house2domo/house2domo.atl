@@ -16,13 +16,15 @@ create OUT : Majordomo from IN : House;
 
 -- multiple same-named sensors/actors will collide
 
+helper def : convert_name(name : String) : String = name.regexReplaceAll('([^a-zA-Z0-9_]+|^[0-9])', '_');
+
 abstract rule NamedElement {
 	-- Note: the types here are irrelevant!
 	from
 		i : House!NamedElement
 	to
 		o : Majordomo!NamedElement (
-			name <- i.name.regexReplaceAll('([^a-zA-Z0-9_]+|^[0-9])', '_')
+			name <- thisModule.convert_name(i.name)
 		)
 }
 
@@ -72,13 +74,16 @@ rule House2Domo {
 	from
 		i : House!House
 	to
+		majordomo : Majordomo!Majordomo (
+			house <- house,
+			rooms <- i.rooms,
+			program <- program
+		),
 		house : Majordomo!House (
 			sensors <- House!Sensor.allInstances()->select(s | s.isLocatedIn = i),
 			actors <- House!Actor.allInstances()->select(a | a.isLocatedIn = i)
 		),
-		majordomo : Majordomo!Majordomo (
-			house <- house,
-			rooms <- i.rooms,
+		program : Majordomo!Program (
 			rules <- i.controlRules
 		)
 }
@@ -98,21 +103,35 @@ rule ControlRule2Rule {
 		i : House!ControlRule
 	to
 		o : Majordomo!Rule (
-			conditions <- Sequence{i.condition},
+			statement <- i.condition,
 			actions <- Sequence{i.action}
 		)
 }
 
-rule EqualCond2BoolCond {
+rule EqualCond2BoolStmt {
 	from
 		-- TwilightSwitches can't be used with BooleanConditions (they deliver float values)
 		i : House!EqualCondition (
-			not i.sensor.oclIsKindOf(House!TwilightSwitch)
+			not i.sensor.oclIsKindOf(House!TwilightSwitch) and i.boolcond
+		)
+	to	
+		o : Majordomo!BooleanSensorStatement (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
+		)
+}
+
+rule EqualCond2NotBoolStmt {
+	from
+		-- TwilightSwitches can't be used with BooleanConditions (they deliver float values)
+		i : House!EqualCondition (
+			not i.sensor.oclIsKindOf(House!TwilightSwitch) and not i.boolcond
 		)
 	to
-		o : Majordomo!BooleanCondition (
-			value <- i.boolcond,
-			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+		o : Majordomo!NotOperation(
+			statement <- stmt
+		),
+		stmt : Majordomo!BooleanSensorStatement (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		)
 }
 
@@ -123,9 +142,16 @@ rule EqualCond2LesserFloatCond {
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and i.boolcond
 		)
 	to
-		o : Majordomo!LesserOrEqualFloatCondition (
-			value <- 0.5,
-			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+		o : Majordomo!CompareOperation (
+			comparator <- #LE,
+			left <- left,
+			right <- right
+		),
+		left : Majordomo!SensorValue (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
+		),
+		right : Majordomo!ConstantValue (
+			value <- 0.5
 		)
 }
 
@@ -136,20 +162,33 @@ rule EqualCond2GreaterFloatCond {
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and (not i.boolcond)
 		)
 	to
-		o : Majordomo!GreaterOrEqualFloatCondition (
-			value <- 0.5,
-			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+		o : Majordomo!CompareOperation (
+			comparator <- #GE,
+			left <- left,
+			right <- right
+		),
+		left : Majordomo!SensorValue (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
+		),
+		right : Majordomo!ConstantValue (
+			value <- 0.5
 		)
 }
-
 
 rule LessThanCond2LesserFloatCond {
 	from
 		i : House!LessThanCondition
 	to
-		o : Majordomo!LesserOrEqualFloatCondition (
-			value <- i.threshold,
-			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+		o : Majordomo!CompareOperation (
+			comparator <- #LE,
+			left <- left,
+			right <- right
+		),
+		left : Majordomo!SensorValue (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
+		),
+		right : Majordomo!ConstantValue (
+			value <- i.threshold
 		)
 }
 
@@ -157,9 +196,16 @@ rule GreaterThanCond2GreaterFloatCond {
 	from
 		i : House!GreaterThanCondition
 	to
-		o : Majordomo!GreaterOrEqualFloatCondition (
-			value <- i.threshold,
-			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = i.sensor.name)->first()
+		o : Majordomo!CompareOperation (
+			comparator <- #GE,
+			left <- left,
+			right <- right
+		),
+		left : Majordomo!SensorValue (
+			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
+		),
+		right : Majordomo!ConstantValue (
+			value <- i.threshold
 		)
 }
 
@@ -172,7 +218,7 @@ rule BooleanAction2BooleanAction {
 	to
 		o : Majordomo!BooleanAction (
 			value <- i.switchTo,
-			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
 
@@ -185,7 +231,7 @@ rule BooleanAction2FloatAction_On {
 	to
 		o : Majordomo!FloatAction (
 			value <- 1.0,
-			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
 
@@ -198,7 +244,7 @@ rule BooleanAction2FloatAction_Off {
 	to
 		o : Majordomo!FloatAction (
 			value <- 0.0,
-			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
 
@@ -208,6 +254,6 @@ rule ValueAction2FloatAction {
 	to
 		o : Majordomo!FloatAction (
 			value <- i.switchToValue,
-			actor <- Majordomo!Actor.allInstances()->select(a | a.name = i.actor.name)->first()
+			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
