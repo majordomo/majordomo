@@ -38,14 +38,15 @@ room ki { // kitchen
 	@lamp lamps
 }
 program {
-	def LightThreshold as 0.4;
-	def IndoorLightThreshold as LightThreshold;
-	def OL_DIM as 23.0;
-	def OL_SENSOR as light;
+	val LightThreshold: 0.4;
+	val IndoorLightThreshold: LightThreshold;
+	val OL_DIM: 23.0;
+	val OL_SENSOR: light;
 	
-	def hell on light >= LightThreshold and spaet;
-	def spaet on time >= 23.0;
-	def srRadOn do sr.radiator: true, sr.roofWindows: false;
+	def hell: light >= LightThreshold and spaet;
+	def spaet: time >= 23.0;
+	
+	set srRadOn: sr.radiator: true, sr.roofWindows: false;
 
 	on !hell do lamps: 0; // Switch off outdoor lights on sunrise
 	on hell do lamps: 1; // Switch on outdoor lights on sunset

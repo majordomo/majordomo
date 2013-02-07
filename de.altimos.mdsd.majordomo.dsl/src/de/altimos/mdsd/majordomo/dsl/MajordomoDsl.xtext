@@ -97,19 +97,19 @@ ValueReference:
 // Prepared Statements, Statement References, Consts
 //
 PreparedStatement: 
-	'def' name=Name 'on' statement=Statement
+	'def' name=Name ':' statement=Statement
 ;
 StatementReference: 
 	ref=[PreparedStatement|Name]
 ;
 PreparedActionSet: 
-	'def' name=Name 'do' actions+=Action (',' actions+=Action)*
+	'set' name=Name ':' actions+=Action (',' actions+=Action)*
 ;
 ActionSetReference: 
 	ref=[PreparedActionSet|Name]
 ;
 PreparedValue:
-	'def' name=ConstID 'as' value=ValueExpression
+	'val' name=ConstID ':' value=ValueExpression
 ;
 
 // Actions
