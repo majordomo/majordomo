@@ -7,17 +7,18 @@ create OUT : Majordomo from IN : House;
 -- Unused input:
 --   House.name (our house has no name)
 --   EqualCondition.valuecond (we don't support float equals since it's analog)
---   TemperatureSensor.temp
+--   TemperatureSensor.temp (our sensor don't contain any status)
 --   TwilightSwitch.active
 --   RainSensor.active
 --   Boiler.isOn
 --   RollerBlind.isUp
 --   Lamp.isOn
-
 -- multiple same-named sensors/actors will collide
 
+-- replace some characters in all names
 helper def : convert_name(name : String) : String = name.regexReplaceAll('([^a-zA-Z0-9_]+|^[0-9])', '_');
 
+-- used by any element containing a name attribute that corresponds to a NamedElement from House
 abstract rule NamedElement {
 	-- Note: the types here are irrelevant!
 	from
@@ -28,6 +29,7 @@ abstract rule NamedElement {
 		)
 }
 
+-- simple conversion rules for sensors/actors follow
 rule Temperature2TemperatureSensor extends NamedElement {
 	from
 		i : House!TemperatureSensor
@@ -70,6 +72,7 @@ rule Lamp2Lamp extends NamedElement {
 		o : Majordomo!LampActor
 }
 
+-- toplevel element conversion, we need besides Majordomo a House and a Program
 rule House2Domo {
 	from
 		i : House!House
@@ -80,6 +83,7 @@ rule House2Domo {
 			program <- program
 		),
 		house : Majordomo!House (
+			-- find all associated sensors/actors via reflection using the isLocatedIn property
 			sensors <- House!Sensor.allInstances()->select(s | s.isLocatedIn = i),
 			actors <- House!Actor.allInstances()->select(a | a.isLocatedIn = i)
 		),
@@ -93,6 +97,7 @@ rule Room2Room extends NamedElement {
 		i : House!Room
 	to
 		o : Majordomo!Room (
+			-- find all associated sensors/actors via reflection using the isLocatedIn property
 			sensors <- House!Sensor.allInstances()->select(s | s.isLocatedIn = i),
 			actors <- House!Actor.allInstances()->select(a | a.isLocatedIn = i)
 		)
@@ -114,8 +119,10 @@ rule EqualCond2BoolStmt {
 		i : House!EqualCondition (
 			not i.sensor.oclIsKindOf(House!TwilightSwitch) and i.boolcond
 		)
-	to	
+	to
+		-- we simply construct a BooleanSensorStatement
 		o : Majordomo!BooleanSensorStatement (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		)
 }
@@ -127,27 +134,31 @@ rule EqualCond2NotBoolStmt {
 			not i.sensor.oclIsKindOf(House!TwilightSwitch) and not i.boolcond
 		)
 	to
+		-- we need a negated BooleanSensorStatement
 		o : Majordomo!NotOperation(
 			statement <- stmt
 		),
 		stmt : Majordomo!BooleanSensorStatement (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		)
 }
 
+-- special rule for TwilightSwitches
 rule EqualCond2LesserFloatCond {
 	from
-		-- wenn TwilightSwitch.active gelten soll, muss LightSensor.value != 1.0
 		i : House!EqualCondition (
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and i.boolcond
 		)
 	to
+		-- we need a generic CompareOperation (less-equal) that compares a SensorValue with a ConstantValue
 		o : Majordomo!CompareOperation (
 			comparator <- #LE,
 			left <- left,
 			right <- right
 		),
 		left : Majordomo!SensorValue (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		),
 		right : Majordomo!ConstantValue (
@@ -155,19 +166,21 @@ rule EqualCond2LesserFloatCond {
 		)
 }
 
+-- special rule for TwilightSwitches
 rule EqualCond2GreaterFloatCond {
 	from
-		-- wenn TwilightSwitch.active nicht gelten soll, muss LightSensor.value != 0.0
 		i : House!EqualCondition (
 			i.sensor.oclIsKindOf(House!TwilightSwitch) and (not i.boolcond)
 		)
 	to
+		-- we need a generic CompareOperation (greater-equal) that compares a SensorValue with a ConstantValue
 		o : Majordomo!CompareOperation (
 			comparator <- #GE,
 			left <- left,
 			right <- right
 		),
 		left : Majordomo!SensorValue (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		),
 		right : Majordomo!ConstantValue (
@@ -179,12 +192,14 @@ rule LessThanCond2LesserFloatCond {
 	from
 		i : House!LessThanCondition
 	to
+		-- we need a generic CompareOperation (less-equal) that compares a SensorValue with a ConstantValue
 		o : Majordomo!CompareOperation (
 			comparator <- #LE,
 			left <- left,
 			right <- right
 		),
 		left : Majordomo!SensorValue (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		),
 		right : Majordomo!ConstantValue (
@@ -196,12 +211,14 @@ rule GreaterThanCond2GreaterFloatCond {
 	from
 		i : House!GreaterThanCondition
 	to
+		-- we need a generic CompareOperation (greater-equal) that compares a SensorValue with a ConstantValue
 		o : Majordomo!CompareOperation (
 			comparator <- #GE,
 			left <- left,
 			right <- right
 		),
 		left : Majordomo!SensorValue (
+			-- find the referenced sensor via reflection using the name equality
 			sensor <- Majordomo!Sensor.allInstances()->select(s | s.name = thisModule.convert_name(i.sensor.name))->first()
 		),
 		right : Majordomo!ConstantValue (
@@ -218,10 +235,12 @@ rule BooleanAction2BooleanAction {
 	to
 		o : Majordomo!BooleanAction (
 			value <- i.switchTo,
+			-- find the referenced actor via reflection using the name equality
 			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
 
+-- special rule for Lamps
 rule BooleanAction2FloatAction_On {
 	from
 		-- Lamp should be enabled
@@ -231,10 +250,12 @@ rule BooleanAction2FloatAction_On {
 	to
 		o : Majordomo!FloatAction (
 			value <- 1.0,
+			-- find the referenced actor via reflection using the name equality
 			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
 
+-- special rule for Lamps
 rule BooleanAction2FloatAction_Off {
 	from
 		-- Lamp should be enabled
@@ -244,6 +265,7 @@ rule BooleanAction2FloatAction_Off {
 	to
 		o : Majordomo!FloatAction (
 			value <- 0.0,
+			-- find the referenced actor via reflection using the name equality
 			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
@@ -254,6 +276,7 @@ rule ValueAction2FloatAction {
 	to
 		o : Majordomo!FloatAction (
 			value <- i.switchToValue,
+			-- find the referenced actor via reflection using the name equality
 			actor <- Majordomo!Actor.allInstances()->select(a | a.name = thisModule.convert_name(i.actor.name))->first()
 		)
 }
