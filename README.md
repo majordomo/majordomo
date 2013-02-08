@@ -101,11 +101,11 @@ program {
 
 The first rule turns on the boiler at 7:30. The second rule dims the outdoor lamps between 23:00 and 4:30 if it's not to bright. The third rule toggles down the rollers in the kitchen if it's getting hot inside and the sun is shining outside (and heating up the room). The last rule closes the roof window if it's starting to rain outside. Note that the question mark is required when using a boolean sensor in a statement.
 
-Also take a look at our Musterhaus at *de.altimos.mdsd.majordomo.codegen\src\model\musterhaus.domo*.
+Also take a look at our [Musterhaus](de.altimos.mdsd.majordomo.codegen/src/model/musterhaus.domo).
 
 ## Advanced usage
 
-You can store any part of a rule, may it be a conditional statement, a set of actions or only a values or sensor reference, in a predefined helper.
+You can store any part of a rule, may it be a conditional statement, a set of actions or only a value or sensor reference, in a predefined helper.
 
 The following example stores the condition if it's dark outside in a helper function, stores a set of related actions to shut down the radiator and open a window in a predefined set. Also the threshold used to define if it's dark is stored in a predefined constant:
 
@@ -128,9 +128,9 @@ Semicolons may be placed at the end of a statement but are not required.
 
 As logical operations you can use `AND`, `OR` and `NOT`. For `AND` you can use the following operators: `and`, `&&`, `&`. OR: `or`, `||`, `|`. A negation statement can be created using the unary `not` or `!` operator. The expression syntax follows the standard logical operator precedence: `not > and > or`. You can use brackets to chain expressions.
 
-### Meta Model
+## Meta Model
 
-![Majordomo Meta Model](https://raw.github.com/majordomo/majordomo/master/majordomo.png)
+![Majordomo Meta Model](majordomo.png)
 
 ## License
 
@@ -138,4 +138,4 @@ Copyright (c) 2012-2013 Christian Nicolai, Jan Graichen
 
 Licensed under EPL v1.0.
 
-The Majordomo project was developed as part of the Model-driven Software Development seminar at the Hasso-Plattner Institute.
+The Majordomo project was developed as part of the Model-driven Software Development seminar at the Hasso-Plattner Institute in WS 2012/13.
