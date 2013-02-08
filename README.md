@@ -66,7 +66,7 @@ Currently the following sensors are supported:
 
 The following actors are currently supported:
 
-* *LampActor* (@lamp): The lamp actor accepts float values between 0.0 and 1.0. Zero means the lamp if off, higher values may be used to set a brightness. One is full power.
+* *LampActor* (@lamp): The lamp actor accepts float values between 0.0 and 1.0. Zero means the lamp is off, higher values may be used to set a brightness. One is full power.
 
 * *RollerActor* (@roller): Roller actors are controllable rollers at windows and can be toggled up or down.
 
@@ -82,7 +82,7 @@ All sensor and actor semantics are described as interpreted by the simulation to
 
 ### Rules
 
-You can now start to specify rules. Rules consists of a conditional statement and a list of actions that should be triggered according to the given condition. A rule will only be triggered when the evaluated condition jumps from false to true. That means a rule like `on time >= 7.30 do kitchen.coffee: true` will only be triggered when the clock jumps from a value below `7.30` to `7:30` or higher. It will not be triggered if the clock changes from `8:00` to `8:01`.
+You can now start to specify rules. Rules consist of a conditional statement and a list of actions that should be triggered according to the given condition. A rule will only be triggered when the evaluated condition jumps from false to true. That means a rule like `on time >= 7.30 do kitchen.coffee: true` will only be triggered when the clock jumps from a value below `7.30` to `7:30` or higher. It will not be triggered if the clock changes from `8:00` to `8:01`.
 
 This is necessary because sensors may jump when changing. A rule like `on light == 0.45 do lamps: false` may not be triggered when the light sensors jumps directly from `0.44` to `0.47`, so there isn't even a equal comparator.
 
