@@ -113,14 +113,14 @@ The following example stores the condition if it's dark outside in a helper func
 program {
 	val LIGHT_THRESHOLD: 0.5
 
-	def darkness: light <= LIGHT_THRESHOLD;
+	def darkness: light <= LIGHT_THRESHOLD
 
 	set openKitchenWindow: kitchen.radiator: false, kitchen.windows: true
 
-	on darkness: lamps: 1.0;
+	on darkness: lamps: 1.0
 	on not darkness: lamps: 0.0
 
-	on kitchen.temp > 21: openKitchenWindow, kitchen.coffee: false;
+	on kitchen.temp > 21: openKitchenWindow, kitchen.coffee: false
 }
 ```
 
