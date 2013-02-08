@@ -44,23 +44,23 @@ room kitchen {
 }
 ```
 
-Rooms must have an identifier that will be used when accessing sensors and actors from rules. Therefore sensor and actors names only need to be unique within a room or the house.
+Rooms must have an identifier that will be used when accessing sensors and actors from rules. Therefore sensor and actor names only need to be unique within a room or the house.
 
 ### Supported sensors
 
 Currently the following sensors are supported:
 
-* *LightSensor* (@light): The light sensors returns a light level between 0.0 and 1.0. The higher the values is the brighter it is.
+* *LightSensor* (@light): The light sensor returns a light level between 0.0 and 1.0. The higher the value is the brighter it is.
 
 * *TemperatureSensor* (@temp): The temperature sensor returns the current temperature as a float value in degrees Celsius.
 
-* *RainSensor* (@rain): The rain sensor return true if it's raining, false otherwise. The rain sensor can only be attached to a house.
+* *RainSensor* (@rain): The rain sensor returns true if it's raining, false otherwise. The rain sensor can only be attached to a house.
 
 * *SwitchSensor* (@switch): The switch sensor is a normal analogous switch that can be turned on or off. Switches cannot be assigned to the house.
 
 * *NumberSensor* (@number): The number sensor represents a number pad to enter a value into the system like the desired room temperature. Numpads must be assigned to a room.
 
-* *ClockSensor* (@clock): The clock sensor returns the current daytime as a float. Minutes are represented as fractions between .00 and .59. Only houses can be equipped with a clock. There is currently no support for different time flows due to quantum effects within the same building.
+* *ClockSensor* (@clock): The clock sensor returns the current daytime (24h) as a float. Minutes are represented as fractions between .00 and .59. Only houses can be equipped with a clock. There is currently no support for different time flows due to quantum effects within the same building.
 
 ### Supported actors
 
