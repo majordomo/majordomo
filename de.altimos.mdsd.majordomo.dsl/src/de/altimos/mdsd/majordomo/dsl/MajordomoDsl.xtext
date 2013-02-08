@@ -16,10 +16,10 @@ Program:
 	'program'
 	'{'
 		(
-			(rules+=Rule ';') |
-			(preparedStatements+=PreparedStatement ';') |
-			(preparedActionSets+=PreparedActionSet ';') |
-			(constants+=PreparedValue ';')
+			(rules+=Rule ';'?) |
+			(preparedStatements+=PreparedStatement ';'?) |
+			(preparedActionSets+=PreparedActionSet ';'?) |
+			(constants+=PreparedValue ';'?)
 		)*
 	'}'
 ;
@@ -28,7 +28,7 @@ House:
 	{House}
 	'house'
 	'{'
-		(sensors+=Sensor|actors+=Actor)*
+		((sensors+=Sensor|actors+=Actor) ';'?)*
 	'}'
 ;
 
@@ -37,7 +37,7 @@ Room:
 	'room'
 	name=Name
 	'{'
-		(sensors+=Sensor|actors+=Actor)*
+		((sensors+=Sensor|actors+=Actor) ';'?)*
 	'}'
 ;
 

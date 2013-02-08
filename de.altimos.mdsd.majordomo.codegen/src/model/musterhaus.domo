@@ -38,49 +38,49 @@ room ki { // kitchen
 	@lamp lamps
 }
 program {
-	val LightThreshold: 0.4;
-	val IndoorLightThreshold: LightThreshold;
-	val OL_DIM: 23.0;
-	val OL_SENSOR: light;
-	
-	def hell: light >= LightThreshold and spaet;
-	def spaet: time >= 23.0;
-	
-	set srRadOn: sr.radiator: true, sr.roofWindows: false;
+	val LightThreshold: 0.4
+	val IndoorLightThreshold: LightThreshold
+	val OL_DIM: 23.0
+	val OL_SENSOR: light
 
-	on !hell do lamps: 0; // Switch off outdoor lights on sunrise
-	on hell do lamps: 1; // Switch on outdoor lights on sunset
-	on OL_SENSOR <= IndoorLightThreshold and time >= OL_DIM do lamps: 0.2; // Dimm outdoor lights after 23 o'clock to save energy
-	on time >= 4.00 do lamps: 1; // Fully power outdoor lights at 4 o'clock due to laws
+	def hell: light >= LightThreshold and spaet
+	def spaet: time >= 23.0
 	
-	on time >= 7.30 do boiler: true; // Heat up water at 7:30
-	on time >= 8.00 do ki.coffee: true; // Get fresh coffee in the morning
-	on time >= 8.30 do ki.coffee: false; // But not to much
-	on time >= 10.00 do boiler: false; // We now have enough warm water and are all up
+	set srRadOn: sr.radiator: true, sr.roofWindows: false
+
+	on !hell do lamps: 0 // Switch off outdoor lights on sunrise
+	on hell do lamps: 1 // Switch on outdoor lights on sunset
+	on OL_SENSOR <= IndoorLightThreshold and time >= OL_DIM do lamps: 0.2 // Dimm outdoor lights after 23 o'clock to save energy
+	on time >= 4.00 do lamps: 1 // Fully power outdoor lights at 4 o'clock due to laws
 	
-	on sr.temp >= 18 do sr.radiator: false; // Switch off radiator above 18 degrees, it's warm enough
-	on sr.temp >= 19 and temp <= 19 or not rain? do sr.roofWindows: true; // If it get's to hot in the sleeping room and 
+	on time >= 7.30 do boiler: true // Heat up water at 7:30
+	on time >= 8.00 do ki.coffee: true // Get fresh coffee in the morning
+	on time >= 8.30 do ki.coffee: false // But not to much
+	on time >= 10.00 do boiler: false // We now have enough warm water and are all up
+	
+	on sr.temp >= 18 do sr.radiator: false // Switch off radiator above 18 degrees, it's warm enough
+	on sr.temp >= 19 and temp <= 19 or not rain? do sr.roofWindows: true // If it get's to hot in the sleeping room and 
 															  // it's fresher outdoor: Open Windows. 
-	on sr.temp <= 18 and temp <= 18 do sr.roofWindows: false; // Close windows if it's to cold
-	on sr.temp >= 19 and temp >= 20 do sr.roofWindows: false; // Close windows if it's to warm outside
-	on temp >= 18 and light >= 0.5 do sr.rollers: true; // Close rollers if it's warm and sun is shining (into room)
-	on temp <= 18 do sr.rollers: false; // Open rollers if it's not too warm in room
-	on light <= 0.5 do sr.rollers: false; // Or its' not longer bright outdoor
-	on sr.temp <= 17 do srRadOn; // Boot up radiator if it's too cold
+	on sr.temp <= 18 and temp <= 18 do sr.roofWindows: false // Close windows if it's to cold
+	on sr.temp >= 19 and temp >= 20 do sr.roofWindows: false // Close windows if it's to warm outside
+	on temp >= 18 and light >= 0.5 do sr.rollers: true // Close rollers if it's warm and sun is shining (into room)
+	on temp <= 18 do sr.rollers: false // Open rollers if it's not too warm in room
+	on light <= 0.5 do sr.rollers: false // Or its' not longer bright outdoor
+	on sr.temp <= 17 do srRadOn // Boot up radiator if it's too cold
 	
-	on lr.temp >= 21 and light >= 0.5 do lr.rollers: true; // Close rollers in living room if sun is heat everything up
-	on ki.temp >= 21 and light >= 0.5 do ki.rollers: true;
-	on lr.temp <= 17 do lr.radiator: true; // Switch on radiator if it's to cold
-	on ki.temp <= 17 do ki.radiator: true, ki.roofWindows: false;
-	on lr.temp >= 20 do lr.radiator: false;
-	on ki.temp >= 20 do ki.radiator: false;
-	on temp <= 20 do lr.rollers: false; // Open rollers if it's not too warm in room
-	on temp <= 20 do ki.rollers: false;
-	on light <= 0.5 do lr.rollers: false; // Or its' not longer bright outdoor
-	on light <= 0.5 do ki.rollers: false; 
+	on lr.temp >= 21 and light >= 0.5 do lr.rollers: true // Close rollers in living room if sun is heat everything up
+	on ki.temp >= 21 and light >= 0.5 do ki.rollers: true
+	on lr.temp <= 17 do lr.radiator: true // Switch on radiator if it's to cold
+	on ki.temp <= 17 do ki.radiator: true, ki.roofWindows: false
+	on lr.temp >= 20 do lr.radiator: false
+	on ki.temp >= 20 do ki.radiator: false
+	on temp <= 20 do lr.rollers: false // Open rollers if it's not too warm in room
+	on temp <= 20 do ki.rollers: false
+	on light <= 0.5 do lr.rollers: false // Or its' not longer bright outdoor
+	on light <= 0.5 do ki.rollers: false 
 	
-	on lr.lightSwitch? do lr.lamps: 1.0;
-	on not lr.lightSwitch? do lr.lamps: 0.0;
-	on ki.lightSwitch? do ki.lamps: 1.0;
-	on !ki.lightSwitch? do ki.lamps: 0.0;
+	on lr.lightSwitch? do lr.lamps: 1.0
+	on not lr.lightSwitch? do lr.lamps: 0.0
+	on ki.lightSwitch? do ki.lamps: 1.0
+	on !ki.lightSwitch? do ki.lamps: 0.0
 }
