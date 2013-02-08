@@ -10,20 +10,20 @@ You will need the Eclipse IDE (recommended 4.2 Juno release) accompanied by the 
 
 After cloning this repository you should import all projects into your workspace. This will result in some errors because there are files missing. You need to generate that missing files:
 
-- Open *de.altimos.mdsd.majordomo\model\majordomo.genmodel* and choose "Generate All" from root element's context menu.
-- Execute the MWE2 Workflow file *GenerateMajordomoDSL.mwe2* located in *de.altimos.mdsd.majordomo.dsl\src\de\altimos\mdsd\majordomo\dsl\GenerateMajordomoDsl.mwe2*
+- Open [de.altimos.mdsd.majordomo/model/majordomo.genmodel](de.altimos.mdsd.majordomo/model/majordomo.genmodel) and choose "Generate All" from root element's context menu.
+- Execute the MWE2 Workflow file *GenerateMajordomoDSL.mwe2* located in [de.altimos.mdsd.majordomo.dsl/src/de/altimos/mdsd/majordomo/dsl/GenerateMajordomoDsl.mwe2](de.altimos.mdsd.majordomo.dsl/src/de/altimos/mdsd/majordomo/dsl/GenerateMajordomoDsl.mwe2)
 
 Now you should be able to launch another Eclipse instance from your current instance providing you with a comfortable DSL editor. If you want to use the Majordomo Simulator you'll need to generate parts of it's code:
 
-- Execute the MWE2 Workflow located in *de.altimos.mdsd.majordomo.codegen\src\workflow\GenerateMajordomoCode.mwe2*. It will use *de.altimos.mdsd.majordomo.codegen\src\model\musterhaus.domo* and generate a matching simulator program.
+- Execute the MWE2 Workflow located in [de.altimos.mdsd.majordomo.codegen/src/workflow/GenerateMajordomoCode.mwe2](de.altimos.mdsd.majordomo.codegen/src/workflow/GenerateMajordomoCode.mwe2). It will use our [Musterhaus](de.altimos.mdsd.majordomo.codegen/src/model/musterhaus.domo) and generate a matching simulator program.
 - Launch *de.altimos.mdsd.majordomo.simulator.MajordomoSimulator* as a standard Java application.
 
-To use the ATL model transformation execute the ATL file *de.altimos.mdsd.majordomo.house2domo\house2domo.atl* and providing suitable source and targets
+To use the ATL model transformation execute the ATL file [de.altimos.mdsd.majordomo.house2domo/house2domo.atl](de.altimos.mdsd.majordomo.house2domo/house2domo.atl) and providing suitable source and targets
 model files in the Run Configuration.
 
 ## Majordomo DSL
 
-The file *de.altimos.mdsd.majordomo.codegen\src\model\musterhaus.domo* contains a full example on how to use the DSL.
+The file [de.altimos.mdsd.majordomo.codegen/src/model/musterhaus.domo](de.altimos.mdsd.majordomo.codegen/src/model/musterhaus.domo) contains a full example on how to use the DSL.
 
 The Majordomo DSL can be used to describe a home automation system containing sensors and actors and a set of rules how the are connected.
 
