@@ -1668,7 +1668,7 @@ public class MajordomoPackageImpl extends EPackageImpl implements MajordomoPacka
 			 "GT: Greater than", null,
 			 "GE: Greater or Equal than", null,
 			 "LT: Less than", null,
-			 "LE: Less or Equal thab", null
+			 "LE: Less or Equal than", null
 		   },
 		   new URI[] {
 			 URI.createURI(eNS_URI).appendFragment("//Comparator")
