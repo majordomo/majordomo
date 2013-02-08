@@ -5,7 +5,7 @@
     <details key="GT: Greater than"/>
     <details key="GE: Greater or Equal than"/>
     <details key="LT: Less than"/>
-    <details key="LE: Less or Equal thab"/>
+    <details key="LE: Less or Equal than"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Majordomo">
     <eStructuralFeatures xsi:type="ecore:EReference" name="house" eType="#//House"
