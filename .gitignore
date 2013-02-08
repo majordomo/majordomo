@@ -3,3 +3,4 @@
 */src-gen/
 */xtext-gen/
 *.xmi
+*.asm
