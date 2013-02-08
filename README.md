@@ -101,7 +101,7 @@ program {
 
 The first rule turns on the boiler at 7:30. The second rule dims the outdoor lamps between 23:00 and 4:30 if it's not to bright. The third rule toggles down the rollers in the kitchen if it's getting hot inside and the sun is shining outside (and heating up the room). The last rule closes the roof window if it's starting to rain outside. Note that the question mark is required when using a boolean sensor in a statement.
 
-Also take a look at our Musterhaus at *de.altimos.mdsd.majordomo.codegen\src\model\musterhaus.domo*.
+Also take a look at our [Musterhaus](de.altimos.mdsd.majordomo.codegen/src/model/musterhaus.domo).
 
 ## Advanced usage
 
@@ -130,7 +130,7 @@ As logical operations you can use `AND`, `OR` and `NOT`. For `AND` you can use t
 
 ### Meta Model
 
-![Majordomo Meta Model](https://raw.github.com/majordomo/majordomo/master/majordomo.png)
+![Majordomo Meta Model](majordomo.png)
 
 ## License
 
