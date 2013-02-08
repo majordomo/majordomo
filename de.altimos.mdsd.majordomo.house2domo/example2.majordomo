@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <majordomo:Majordomo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:majordomo="http://mdsd.altimos.de/majordomo/1.0">
   <house>
-    <sensors xsi:type="majordomo:TemperatureSensor" name="temperature sensor in the house"/>
-    <actors xsi:type="majordomo:RadiatorActor" name="boiler for the whole house"/>
+    <sensors xsi:type="majordomo:TemperatureSensor" name="temperature_sensor_in_the_house"/>
+    <actors xsi:type="majordomo:RadiatorActor" name="boiler_for_the_whole_house"/>
   </house>
-  <rules>
-    <conditions xsi:type="majordomo:LesserFloatCondition" value="21.0"/>
-    <actions xsi:type="majordomo:BooleanAction" value="true"/>
-  </rules>
-  <rules>
-    <conditions xsi:type="majordomo:BooleanCondition" value="true"/>
-    <actions xsi:type="majordomo:BooleanAction"/>
-  </rules>
-  <rooms name="first floor bathroom"/>
-  <rooms name="second floor bathroom"/>
+  <rooms name="first_floor_bathroom"/>
+  <rooms name="second_floor_bathroom"/>
   <rooms name="kitchen"/>
-  <rooms name="living room"/>
-  <rooms name="first floor bedroom"/>
-  <rooms name="sports room">
-    <sensors xsi:type="majordomo:RainSensor" name="rain sensor outside the sports room"/>
-    <actors xsi:type="majordomo:RollerActor" name="blinds of the sports room"/>
+  <rooms name="living_room"/>
+  <rooms name="first_floor_bedroom"/>
+  <rooms name="sports_room">
+    <sensors xsi:type="majordomo:RainSensor" name="rain_sensor_outside_the_sports_room"/>
+    <actors xsi:type="majordomo:RollerActor" name="blinds_of_the_sports_room"/>
   </rooms>
+  <program>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@house/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="21.0"/>
+      </statement>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@house/@actors.0" value="true"/>
+    </rules>
+    <rules>
+      <statement xsi:type="majordomo:BooleanSensorStatement" sensor="//@rooms.5/@sensors.0"/>
+      <actions xsi:type="majordomo:BooleanAction" actor="//@rooms.5/@actors.0"/>
+    </rules>
+  </program>
 </majordomo:Majordomo>

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <majordomo:Majordomo xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:majordomo="http://mdsd.altimos.de/majordomo/1.0">
   <house/>
-  <rules>
-    <conditions xsi:type="majordomo:LesserOrEqualFloatCondition" value="0.5"/>
-    <actions xsi:type="majordomo:FloatAction" value="1.0"/>
-  </rules>
   <rooms name="kitchen">
     <sensors xsi:type="majordomo:LightSensor" name="twilight_switch_in_the_kitchen"/>
     <actors xsi:type="majordomo:LampActor" name="my_kitchen_lamp"/>
   </rooms>
   <rooms name="bathroom"/>
   <rooms name="living_room"/>
+  <program>
+    <rules>
+      <statement xsi:type="majordomo:CompareOperation" comparator="LE">
+        <left xsi:type="majordomo:SensorValue" sensor="//@rooms.0/@sensors.0"/>
+        <right xsi:type="majordomo:ConstantValue" value="0.5"/>
+      </statement>
+      <actions xsi:type="majordomo:FloatAction" actor="//@rooms.0/@actors.0" value="1.0"/>
+    </rules>
+  </program>
 </majordomo:Majordomo>
