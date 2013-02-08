@@ -105,7 +105,7 @@ Also take a look at our [Musterhaus](de.altimos.mdsd.majordomo.codegen/src/model
 
 ## Advanced usage
 
-You can store any part of a rule, may it be a conditional statement, a set of actions or only a values or sensor reference, in a predefined helper.
+You can store any part of a rule, may it be a conditional statement, a set of actions or only a value or sensor reference, in a predefined helper.
 
 The following example stores the condition if it's dark outside in a helper function, stores a set of related actions to shut down the radiator and open a window in a predefined set. Also the threshold used to define if it's dark is stored in a predefined constant:
 
@@ -128,7 +128,7 @@ Semicolons may be placed at the end of a statement but are not required.
 
 As logical operations you can use `AND`, `OR` and `NOT`. For `AND` you can use the following operators: `and`, `&&`, `&`. OR: `or`, `||`, `|`. A negation statement can be created using the unary `not` or `!` operator. The expression syntax follows the standard logical operator precedence: `not > and > or`. You can use brackets to chain expressions.
 
-### Meta Model
+## Meta Model
 
 ![Majordomo Meta Model](majordomo.png)
 
@@ -138,4 +138,4 @@ Copyright (c) 2012-2013 Christian Nicolai, Jan Graichen
 
 Licensed under EPL v1.0.
 
-The Majordomo project was developed as part of the Model-driven Software Development seminar at the Hasso-Plattner Institute.
+The Majordomo project was developed as part of the Model-driven Software Development seminar at the Hasso-Plattner Institute in WS 2012/13.
