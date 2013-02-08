@@ -1,6 +1,6 @@
 # Majordomo
 
-Majordomo is an EMF/Xtext project for a home automation DSL and a Xpand based simulation tool.
+Majordomo is an EMF/Xtext project for a home automation system DSL and a Xpand based simulation tool.
 
 ## Prerequisites
 
@@ -8,7 +8,7 @@ You will need the Eclipse IDE (recommended 4.2 Juno release) accompanied by the 
 
 ## Install
 
-After cloning this repository you should import all projects into your workspace. This will result in some errors because there are files missing. You need to generated that missing files:
+After cloning this repository you should import all projects into your workspace. This will result in some errors because there are files missing. You need to generate that missing files:
 
 - Open *de.altimos.mdsd.majordomo\model\majordomo.genmodel* and choose "Generate All" from root element's context menu.
 - Execute the MWE2 Workflow file *GenerateMajordomoDSL.mwe2* located in *de.altimos.mdsd.majordomo.dsl\src\de\altimos\mdsd\majordomo\dsl\GenerateMajordomoDsl.mwe2*
